@@ -1,9 +1,13 @@
 # My dotfiles #
 Yay!
 
+Install with:
+
+1. git clone charon.fullaf.com:/git/dotfiles
+2. dotfiles/install.sh
+
 ## Actions not yet in dotfiles repo ##
 
-- Auto symlinking the files
 - Powerline fonts for iTerm
 - Colour scheme for iTerm
 
