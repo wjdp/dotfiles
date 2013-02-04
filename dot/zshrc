@@ -6,7 +6,7 @@ alias sv='sudo vim'
 alias sre='screen -rS'
 alias sls='screen -list'
 
-plugins=(git)
+plugins=(git screen urltools django)
 source $ZSH/oh-my-zsh.sh
 
 alias apt-get='sudo apt-get'
