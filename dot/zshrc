@@ -2,6 +2,18 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gallois"
 alias lua="nocorrect lua"
 alias npm='nocorrect npm'
+alias sv='sudo vim'
+alias sre='screen -rS'
+alias sls='screen -list'
+
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
-screen -r
+
+alias apt-get='sudo apt-get'
+alias ram="free -l -t"
+
+export LC_ALL=en_GB.utf-8
+export LANG="$LC_ALL"
+
+export LC_ALL=en_GB.utf-8
+export LANG="$LC_ALL"
