@@ -3,6 +3,7 @@
 	email = will@fullaf.com
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
