@@ -23,3 +23,8 @@ export LANGUAGE="$LC_ALL"
 export TERM=xterm-256color 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+function venv() {
+    result=${PWD##*/}
+    source ~/env/$result/bin/activate
+}
