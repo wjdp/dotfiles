@@ -28,3 +28,13 @@ function venv() {
     result=${PWD##*/}
     source ~/env/$result/bin/activate
 }
+function superpull() {
+find ~/local/ -type d -name .git \
+  | xargs -n 1 dirname \
+    | while read line; do cd $line && git pull; done
+}
+function superlibpull() {
+find ~/lib/ -type d -name .git \
+  | xargs -n 1 dirname \
+    | while read line; do cd $line && git pull; done
+}
