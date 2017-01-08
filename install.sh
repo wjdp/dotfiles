@@ -4,6 +4,7 @@ declare -a files=(
   ".compton.conf"
   ".gitconfig"
   ".gitignore_global"
+  ".i3status.conf"
   ".screenrc"
   ".tmux.conf"
   ".vimrc"
