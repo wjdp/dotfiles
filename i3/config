@@ -11,8 +11,9 @@
 
 set $mod Mod1
 
+# Set background / wallpaper
 exec xsetroot -solid "#222233"
-exec feh Pictures/Wallpapers/richard-wright-haven.jpg --bg-scale
+exec feh --randomize --bg-fill ~/dotfiles/wallpapers/*
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
