@@ -1,7 +1,6 @@
-# My dotfiles #
-Yay!
+# wjdp dotfiles
 
-## Install ##
+## Install
 
 1. Clone the repo into ~
 2. dotfiles/install.sh

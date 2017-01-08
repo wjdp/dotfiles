@@ -1,12 +1,6 @@
 [user]
-	name = Will Pimblett
-	email = will@fullaf.com
+  name = Will Pimblett
+  email = will@wjdp.uk
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  excludesfile = ~/.gitignore_global
+  editor = vim

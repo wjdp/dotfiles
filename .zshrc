@@ -1,40 +1,15 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="gallois"
-alias lua="nocorrect lua"
-alias npm='nocorrect npm'
-alias sv='sudo vim'
-alias sre='screen -rS'
-alias sls='screen -list'
-alias cal='gcalcli'
+#
+# Executes commands at the start of an interactive session.
+#
 
-alias cre='cinnamon –replace -d :0.0 > /dev/null 2>&1 &'
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-plugins=(git screen urltools django)
-source $ZSH/oh-my-zsh.sh
-
-alias apt-get='sudo apt-get'
-alias ram="free -l -t"
-alias t="~/bin/todo-2.9/todo.sh"
-
-export LC_ALL=en_GB.utf-8
-export LANG="$LC_ALL"
-export LANGUAGE="$LC_ALL"
-
-export TERM=xterm-256color 
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Customize to your needs...
 
 function venv() {
     result=${PWD##*/}
     source ~/env/$result/bin/activate
-}
-function superpull() {
-find ~/local/ -type d -name .git \
-  | xargs -n 1 dirname \
-    | while read line; do cd $line && git pull; done
-}
-function superlibpull() {
-find ~/lib/ -type d -name .git \
-  | xargs -n 1 dirname \
-    | while read line; do cd $line && git pull; done
 }
