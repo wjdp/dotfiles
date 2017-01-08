@@ -7,6 +7,7 @@ scripts/system-locale.sh
 # Install things
 scripts/package-default.sh
 scripts/package-docker.sh
+scripts/package-git-lfs.sh
 scripts/package-google-chrome.sh
 scripts/package-spotify.sh
 scripts/package-steam.sh
