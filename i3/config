@@ -57,7 +57,7 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-bindsym $mod+Tab focus right
+#bindsym $mod+Tab focus right
 
 # move focused window
 #bindsym $mod+Shift+j move left
@@ -91,6 +91,7 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+space floating toggle
+bindsym $mod+K sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+shift+space focus mode_toggle
@@ -100,6 +101,10 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+# tab through workspaces
+bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Shift+Tab workspace prev_on_output
 
 # switch to workspace
 bindsym $mod+1 workspace 1
