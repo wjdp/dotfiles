@@ -17,6 +17,8 @@ declare -a files=(
 
 # dotfiles installer
 
+cd $HOME/dotfiles
+
 for f in "${files[@]}"
 do
   rm "$HOME/${f##*/}" 2> /dev/null
@@ -32,4 +34,15 @@ for f in "${folders[@]}"
 do
   rm "$HOME/.${f##*/}" 2> /dev/null
   ln -sv "$HOME/dotfiles/$f" "$HOME/.${f##*/}"
+done
+
+# bin scripts
+
+mkdir -p $HOME/bin
+cd $HOME/dotfiles/bin
+
+for f in *;
+do
+  rm $HOME/bin/$f
+  ln -sv $HOME/dotfiles/bin/$f $HOME/bin/$f
 done
