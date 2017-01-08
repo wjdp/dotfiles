@@ -185,10 +185,21 @@ bindsym $mod+period scratchpad show
 #exec compton
 exec --no-startup-id compton --config ~/.compton.conf -b
 
-bindsym $mod+Prior exec amixer -q set Master 2dB+ unmute
-bindsym $mod+Next exec amixer -q set Master 2dB- unmute
+
+# Volume controls
+bindsym $mod+Prior exec pactl set-sink-volume 1 +5%
+bindsym $mod+Next exec pactl set-sink-volume 1 -5%
+#bindsym $mod+Prior exec amixer -q set Master 2dB+ unmute
+#bindsym $mod+Next exec amixer -q set Master 2dB- unmute
 bindsym button4 exec amixer -q set Master 2dB+ unmute
 bindsym button5 exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+
+# Brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 
 bindsym Pause exec gnome-screenshot -ac
