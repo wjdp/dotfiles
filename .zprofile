@@ -71,3 +71,5 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 #
 
 export PATH=$PATH:$HOME/go/bin
+
+export XDG_CURRENT_DESKTOP=GNOME

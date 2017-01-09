@@ -187,6 +187,7 @@ bindsym $mod+period scratchpad show
 workspace 1 output DP-0
 workspace 6 output DVI-D-0
 workspace 9 output DVI-I-0
+workspace 1 output eDP1
 
 #exec compton
 exec --no-startup-id compton --config ~/.compton.conf -b
