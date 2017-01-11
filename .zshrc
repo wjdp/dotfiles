@@ -10,6 +10,10 @@ fi
 # Customize to your needs...
 
 function venv() {
-    result=${PWD##*/}
-    source ~/env/$result/bin/activate
+  result=${PWD##*/}
+  source ~/env/$result/bin/activate
+}
+
+function myip() {
+  curl -w "\n" https://api.ipify.org
 }
