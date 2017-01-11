@@ -75,3 +75,11 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 
 export XDG_CURRENT_DESKTOP=GNOME
+
+#
+# Gnome Keychain
+#
+
+if [ "$DESKTOP_SESSION" = "i3" ]; then
+    export $(gnome-keyring-daemon -s)
+fi
