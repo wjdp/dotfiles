@@ -19,3 +19,13 @@ function venv() {
 function myip() {
   curl -w "\n" https://api.ipify.org
 }
+
+function gtag() {
+  current_branch=`git rev-parse --abbrev-ref HEAD`
+  git checkout -b floating-tag-$1
+  echo "Creating floating tag $1"
+  git tag $1
+  echo "Returning to branch $current_branch"
+  git checkout $current_branch
+  git branch -D floating-tag-$1
+}
