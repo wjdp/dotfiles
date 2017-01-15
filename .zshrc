@@ -9,6 +9,8 @@ fi
 
 # Customize to your needs...
 
+alias pd='pushd'
+
 function venv() {
   result=${PWD##*/}
   source ~/env/$result/bin/activate
