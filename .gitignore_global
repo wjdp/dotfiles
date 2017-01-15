@@ -4,3 +4,8 @@
 *.swo
 *.swn
 
+tmp/
+_var/
+*.sublime-project
+*.sublime-workspace
+
