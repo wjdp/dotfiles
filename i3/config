@@ -15,6 +15,9 @@ set $mod Mod1
 exec xsetroot -solid "#222233"
 exec feh --randomize --bg-fill ~/dotfiles/wallpapers/*
 
+# Compose key
+exec setxkbmap -option "compose:rwin"
+
 # Gnome Keychain
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 
