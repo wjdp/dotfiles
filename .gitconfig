@@ -1,8 +1,11 @@
 [user]
   name = Will Pimblett
   email = will@wjdp.uk
+	signingkey = 4DC1AA6287F8CC4A
 [core]
   excludesfile = ~/.gitignore_global
   editor = vim
 [push]
 	default = simple
+[commit]
+	gpgsign = true
