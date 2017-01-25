@@ -83,3 +83,11 @@ export XDG_CURRENT_DESKTOP=GNOME
 if [ "$DESKTOP_SESSION" = "i3" ]; then
     export $(gnome-keyring-daemon -s)
 fi
+
+export GPGKEY=D8FC66D2
+
+#
+# Node
+#
+
+export PATH=$PATH:node_modules/.bin
