@@ -8,6 +8,7 @@ declare -a files=(
   ".screenrc"
   ".tmux.conf"
   ".vimrc"
+  ".xsession"
   ".zlogin"
   ".zlogout"
   ".zpreztorc"

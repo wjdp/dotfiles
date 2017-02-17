@@ -87,6 +87,12 @@ fi
 export GPGKEY=D8FC66D2
 
 #
+# GPG Agent
+#
+
+export GPG_TTY=$(tty)
+
+#
 # Node
 #
 
