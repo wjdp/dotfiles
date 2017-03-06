@@ -175,7 +175,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     status_command i3status
-    tray_output DP-0
+    #tray_output DP-0
 }
 
 # borders on screen edge
@@ -192,10 +192,10 @@ bindsym $mod+l exec "i3lock -c 172032 -e"
 bindsym $mod+comma move scratchpad
 bindsym $mod+period scratchpad show
 
-workspace 1 output DP-0
+#workspace 1 output DP-0
 workspace 6 output DVI-D-0
 workspace 9 output DVI-I-0
-workspace 1 output eDP1
+#workspace 1 output eDP1
 
 #exec compton
 exec --no-startup-id compton --config ~/.compton.conf -b
