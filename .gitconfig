@@ -1,11 +1,70 @@
 [user]
   name = Will Pimblett
   email = will@wjdp.uk
-	signingkey = 4DC1AA6287F8CC4A
+  signingkey = 4DC1AA6287F8CC4A
 [core]
   excludesfile = ~/.gitignore_global
   editor = vim
 [push]
-	default = simple
+  default = simple
 [commit]
-	gpgsign = true
+  gpgsign = true
+[alias]
+  st = status -s
+  prune = fetch --prune
+  a = add
+
+  # Resets
+  undo = reset --soft HEAD^
+  r = reset
+  r1 = reset HEAD^
+  ro = reset origin
+
+  # Stash
+  sl = stash list
+  sp = stash pop
+  ss = stash save
+
+  # Logs
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  lss = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  logr = log --graph
+  logs = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  fl = log -u # file log, specify a file
+
+  # Diff current
+  d = diff
+  dt = difftool
+
+  # Diff last, and diff revisons
+  dls = "!git ll -1" # diff last list
+  dl = diff --cached HEAD^ # diff last commit
+  dlt = difftool --cached HEAD^ # diff last commit
+  dr = "!f() { git diff "$1"^.."$1"; }; f" #diffrev
+  dtr = "!f() { git difftool "$1"^.."$1"; }; f"
+  lsr = "!f() { git ll "$1"^.."$1"; }; f" # list rev
+
+  # Search
+  f = "!git ls-files | grep -i"
+  grep = grep -Ii
+
+  # Assume file unchanged
+  assume = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+  unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+  assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+
+  # Tags
+  lasttag = describe --tags --abbrev=0
+
+  # List my aliases
+  alias = "!git config -l | grep alias | cut -c 7-"
+[diff]
+  tool = icdiff
+[difftool]
+  prompt = false
+[difftool "icdiff"]
+  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE

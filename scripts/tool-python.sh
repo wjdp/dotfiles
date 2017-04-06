@@ -10,3 +10,4 @@ sudo pip3 install -U pip
 sudo pip install awscli && \
 sudo pip install awsebcli && \
 sudo pip install aws-shell
+sudo pip install icdiff

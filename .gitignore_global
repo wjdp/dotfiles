@@ -9,3 +9,5 @@ _var/
 *.sublime-project
 *.sublime-workspace
 
+.netlify
+
