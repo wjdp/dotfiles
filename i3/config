@@ -217,7 +217,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 
-bindsym Pause exec gnome-screenshot -ac
+bindsym Print exec gnome-screenshot -ac
+bindsym Pause exec playerctl play-pause
 
 set $mode_launcher launch: [c]hrome [f]irefox [s]ubl
 bindsym $mod+o mode "$mode_launcher"

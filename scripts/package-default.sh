@@ -1,7 +1,7 @@
 # Installs packages I want from the ubuntu index
 
 # WM / System
-sudo apt install -qy i3 lxappearance compton rofi feh supervisor
+sudo apt install -qy i3 lxappearance compton rofi feh supervisor playerctl
 
 # CLI tools
 sudo apt install -qy git zsh vim curl wget ruby ruby-dev nodejs htop powertop build-essential python-virtualenv python-pip python-dev sudo software-properties-common
