@@ -1,0 +1,36 @@
+{
+	"added_words":
+	[
+		"Journaling",
+		"journaling"
+	],
+	"always_show_minimap_viewport": true,
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"default_line_ending": "unix",
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Inconsolata",
+	"font_options":
+	[
+		"subpixel_antialias"
+	],
+	"font_size": 12,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"rulers":
+	[
+		80
+	],
+	"save_on_focus_lost": true,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"spell_check": true,
+	"theme": "Adaptive.sublime-theme",
+	"tidytabs_accessed_duration": 180,
+	"tidytabs_modified_duration": 1800,
+	"tidytabs_run_on_post_save": true,
+	"tidytabs_threshold": true,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": "auto",
+	"wrap_width": 80
+}
