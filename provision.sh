@@ -17,7 +17,6 @@ scripts/package-syncthing.sh
 
 # Fix things
 scripts/fix-wm.sh
-scripts/fix-node.sh
 
 # Install things for various tools
 scripts/tool-node.sh
