@@ -27,7 +27,6 @@ do
 done
 
 declare -a folders=(
-  "i3"
   "vim"
 )
 
@@ -47,3 +46,6 @@ do
   rm $HOME/bin/$f
   ln -sv $HOME/dotfiles/bin/$f $HOME/bin/$f
 done
+
+# i3 make and install
+$HOME/dotfiles/i3/make.sh

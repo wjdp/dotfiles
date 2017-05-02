@@ -1,0 +1,4 @@
+## i3 config for titan
+
+workspace 6 output DVI-D-0
+workspace 9 output DVI-I-0
