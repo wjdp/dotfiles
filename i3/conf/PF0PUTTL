@@ -10,3 +10,6 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 # Brightness
 bindsym XF86MonBrightnessUp exec sudo /home/will/bin/brightness.sh +100
 bindsym XF86MonBrightnessDown exec sudo /home/will/bin/brightness.sh -100
+
+# Docking & undocking
+bindsym $mod+Pause exec puttl-dock.sh
