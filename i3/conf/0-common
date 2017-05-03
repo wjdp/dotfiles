@@ -71,6 +71,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym button13 --whole-window focus right
+bindsym button10 --whole-window focus left
+
+
 # move workspace between outputs
 bindsym $mod+Control+Left move workspace to output left
 bindsym $mod+Control+Right move workspace to output right
@@ -171,7 +175,7 @@ bar {
 }
 
 # borders on screen edge
-#hide_edge_borders smart
+hide_edge_borders both
 
 #nvidia driver
 #force_xinerama yes

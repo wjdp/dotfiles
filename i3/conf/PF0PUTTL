@@ -13,6 +13,7 @@ bindsym XF86MonBrightnessDown exec sudo /home/will/bin/brightness.sh -100
 
 # Docking & undocking
 bindsym $mod+F1 exec puttl-dock.sh
+bindsym $mod+F2 exec puttl-apps.sh
 
 workspace 1 output HDMI-1-2
 workspace 2 output HDMI-1-2
@@ -24,3 +25,10 @@ workspace 7 output HDMI-1-1
 workspace 8 output HDMI-1-1
 workspace 9 output HDMI-1-1
 workspace 0 output HDMI-1-1
+
+# Background
+exec hsetroot -solid '#260b44'
+
+assign [class="jetbrains-pycharm"] 1
+assign [class="sublime_text"] 2
+
