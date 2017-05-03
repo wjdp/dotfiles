@@ -29,6 +29,9 @@ workspace 0 output HDMI-1-1
 # Background
 exec hsetroot -solid '#260b44'
 
+# Key remapping
+exec $HOME/puttl-xmodmap.sh
+
 assign [class="jetbrains-pycharm"] 1
 assign [class="sublime_text"] 2
 
