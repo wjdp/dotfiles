@@ -36,3 +36,5 @@ exec $HOME/puttl-xmodmap.sh
 assign [class="jetbrains-pycharm"] 1
 assign [class="sublime_text"] 2
 
+# Media controls
+bindsym $mod+p exec playerctl play-pause
