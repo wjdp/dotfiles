@@ -38,3 +38,5 @@ assign [class="sublime_text"] 2
 
 # Media controls
 bindsym $mod+p exec playerctl play-pause
+bindsym $mod+bracketleft exec playerctl previous
+bindsym $mod+bracketright exec playerctl next
