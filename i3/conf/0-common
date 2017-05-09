@@ -22,6 +22,15 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
+# class                 border  backgr. text    indicator child_border
+client.focused          #005B9F #005B9F #ffffff #831882   #285577
+client.focused_inactive #333333 #1D1D1D #ffffff #484e50   #5f676a
+client.unfocused        #1D1D1D #1D1D1D #888888 #292d2e   #222222
+client.urgent           #EA141E #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -47,6 +56,9 @@ bindsym $mod+Shift+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# File manager
+bindsym $mod+n exec fman
+
 # change focus
 #bindsym $mod+j focus left
 #bindsym $mod+k focus down
@@ -58,7 +70,6 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-#bindsym $mod+Tab focus right
 
 # move focused window
 #bindsym $mod+Shift+j move left
@@ -71,10 +82,6 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-bindsym button13 --whole-window focus right
-bindsym button10 --whole-window focus left
-
 
 # move workspace between outputs
 bindsym $mod+Control+Left move workspace to output left
@@ -111,6 +118,10 @@ bindsym $mod+a focus parent
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
 
+bindsym button13 --whole-window workspace next_on_output
+#bindsym button13+button5 --whole-window workspace prev_on_output
+bindsym button10 --whole-window workspace back_and_forth
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -143,6 +154,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
+set $resize_q 5
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
 
@@ -150,16 +162,16 @@ mode "resize" {
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
+    bindsym j resize shrink width $resize_q px or $resize_q ppt
+    bindsym k resize grow height $resize_q px or $resize_q ppt
+    bindsym l resize shrink height $resize_q px or $resize_q ppt
+    bindsym semicolon resize grow width $resize_q px or $resize_q ppt
 
     # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink width $resize_q px or $resize_q ppt
+    bindsym Down resize grow height $resize_q px or $resize_q ppt
+    bindsym Up resize shrink height $resize_q px or $resize_q ppt
+    bindsym Right resize grow width $resize_q px or $resize_q ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -173,10 +185,20 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status
     #tray_output DP-0
+
+    colors {
+        background #000
+
+        focused_workspace  #005B9F #005B9F #ffffff
+        active_workspace   #707070 #707070 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace   #900000 #900000 #ffffff
+        binding_mode       #AAA #900000 #ffffff
+    }
 }
 
 # borders on screen edge
-hide_edge_borders both
+#hide_edge_borders both
 
 #nvidia driver
 #force_xinerama yes
@@ -202,13 +224,17 @@ bindsym button5 exec amixer -q set Master 2dB- unmute
 bindsym Print exec gnome-screenshot -ac
 bindsym Pause exec playerctl play-pause
 
-set $mode_launcher launch: [c]hrome [f]irefox [s]ubl
+set $mode_launcher launch: [c]hrome [f]irefox [s]ubl p[y]charm [g]itkraken s[p]otify [t]elegram
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym c exec google-chrome
     bindsym f exec firefox
+    bindsym g exec gitkraken
+    bindsym p exec spotify
     bindsym s exec subl
+    bindsym t exec telegram
+    bindsym y exec charm
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
