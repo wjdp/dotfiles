@@ -224,13 +224,13 @@ bindsym button5 exec amixer -q set Master 2dB- unmute
 bindsym Print exec gnome-screenshot -ac
 bindsym Pause exec playerctl play-pause
 
-set $mode_launcher launch: [c]hrome [f]irefox [s]ubl p[y]charm [g]itkraken s[p]otify [t]elegram
+set $mode_launcher launch: [c]hrome [f]irefox [s]ubl p[y]charm git[k]raken s[p]otify [t]elegram
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym c exec google-chrome
     bindsym f exec firefox
-    bindsym g exec gitkraken
+    bindsym k exec gitkraken
     bindsym p exec spotify
     bindsym s exec subl
     bindsym t exec telegram
