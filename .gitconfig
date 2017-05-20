@@ -13,6 +13,7 @@
   st = status -s
   prune = fetch --prune
   a = add
+  co = checkout
 
   # Resets
   undo = reset --soft HEAD^
