@@ -14,6 +14,9 @@ exec setxkbmap -option "compose:rwin"
 # Gnome Keychain
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 
+# Network manager
+exec --no-startup-id nm-applet
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
