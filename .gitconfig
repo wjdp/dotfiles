@@ -14,6 +14,7 @@
   prune = fetch --prune
   a = add
   co = checkout
+  who = shortlog -sn
 
   # Resets
   undo = reset --soft HEAD^
@@ -34,6 +35,8 @@
   logr = log --graph
   logs = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   fl = log -u # file log, specify a file
+
+  today = log --since="04:00" --pretty=format:"%C(yellow)%h\\ %Cblue[%cn]\\ %Creset%s\\ "
 
   # Diff current
   d = diff
