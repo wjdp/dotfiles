@@ -38,6 +38,8 @@
 
   today = log --since="04:00" --pretty=format:"%C(yellow)%h\\ %Cblue[%cn]\\ %Creset%s\\ "
 
+  yesterday = log --since=yesterday --before=4am --pretty=format:"%C(yellow)%h\\ %Cblue[%cn]\\ %Creset%s\\ "
+
   # Diff current
   d = diff
   dt = difftool
