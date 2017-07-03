@@ -219,8 +219,8 @@ bindsym $mod+period scratchpad show
 
 # Volume controls
 
-#bindsym $mod+Prior exec amixer -q set Master 2dB+ unmute
-#bindsym $mod+Next exec amixer -q set Master 2dB- unmute
+bindsym $mod+Prior exec amixer -q set Master 2dB+ unmute
+bindsym $mod+Next exec amixer -q set Master 2dB- unmute
 bindsym button4 exec amixer -q set Master 2dB+ unmute
 bindsym button5 exec amixer -q set Master 2dB- unmute
 
