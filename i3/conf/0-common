@@ -217,13 +217,7 @@ bindsym $mod+period scratchpad show
 # exec compton
 #exec --no-startup-id compton --config ~/.compton.conf -b
 
-# Volume controls
-
-bindsym $mod+Prior exec amixer -q set Master 2dB+ unmute
-bindsym $mod+Next exec amixer -q set Master 2dB- unmute
-bindsym button4 exec amixer -q set Master 2dB+ unmute
-bindsym button5 exec amixer -q set Master 2dB- unmute
-
+# Screenshots
 bindsym Print exec gnome-screenshot -ac
 bindsym Shift+Print exec gnome-screenshot -a
 bindsym Pause exec playerctl play-pause
