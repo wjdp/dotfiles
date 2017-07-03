@@ -225,6 +225,7 @@ bindsym button4 exec amixer -q set Master 2dB+ unmute
 bindsym button5 exec amixer -q set Master 2dB- unmute
 
 bindsym Print exec gnome-screenshot -ac
+bindsym Shift+Print exec gnome-screenshot -a
 bindsym Pause exec playerctl play-pause
 
 set $mode_launcher launch: [c]hrome [f]irefox [s]ubl p[y]charm git[k]raken s[p]otify [t]elegram
