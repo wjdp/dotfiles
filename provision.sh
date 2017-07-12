@@ -13,7 +13,6 @@ scripts/package-google-chrome.sh
 scripts/package-spotify.sh
 scripts/package-steam.sh
 scripts/package-sublime.sh
-scripts/package-syncthing.sh
 
 # Fix things
 scripts/fix-wm.sh
