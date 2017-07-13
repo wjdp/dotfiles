@@ -11,7 +11,6 @@ fi
 
 # Customize to your needs...
 
-alias pd='pushd'
 alias seba='source env/bin/activate'
 alias manage='src/manage.py'
 

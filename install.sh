@@ -36,6 +36,10 @@ do
   ln -sv "$HOME/dotfiles/$f" "$HOME/.${f##*/}"
 done
 
+# zpresto patches
+
+ln -sv $HOME/dotfiles/zpresto/prompt_wjdp_setup $HOME/.zprezto/modules/prompt/functions
+
 # bin scripts
 
 mkdir -p $HOME/bin
