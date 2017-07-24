@@ -3,7 +3,7 @@
 set $mod Mod4
 
 # Set background / wallpaper
-exec xsetroot -solid "#222233"
+exec xsetroot -solid "#0A0732"
 exec feh --randomize --bg-fill $HOME/dotfiles/wallpapers/*
 
 exec rescuetime
@@ -47,6 +47,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec "i3-sensible-terminal; i3-msg 'resize shrink width 10 px or 10 ppt'"
+bindsym $mod+numbersign exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -220,6 +221,8 @@ bindsym $mod+period scratchpad show
 # Screenshots
 bindsym Print exec gnome-screenshot -ac
 bindsym Shift+Print exec gnome-screenshot -a
+bindsym $mod+m exec gnome-screenshot -ac
+bindsym $mod+Shift+m exec gnome-screenshot -a
 bindsym Pause exec playerctl play-pause
 
 set $mode_launcher launch: [c]hrome [f]irefox [s]ubl p[y]charm git[k]raken s[p]otify [t]elegram
