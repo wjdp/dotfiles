@@ -98,3 +98,5 @@ export GPG_TTY=$(tty)
 
 export PATH=$PATH:node_modules/.bin
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
