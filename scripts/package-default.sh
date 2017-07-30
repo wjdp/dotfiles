@@ -7,7 +7,7 @@ sudo apt install -qy i3 lxappearance compton rofi feh supervisor playerctl
 sudo apt install -qy git zsh vim curl wget ruby ruby-dev htop powertop build-essential python-virtualenv python-pip python-dev sudo software-properties-common pass
 
 # Stuff I tend to need
-sudo apt install imagemagick libpq-dev libjpeg-dev
+sudo apt install imagemagick libpq-dev libjpeg-dev libxslt1-dev
 
 # GUI software
 sudo apt install -qy audacity gimp gpick terminator vlc mpv
