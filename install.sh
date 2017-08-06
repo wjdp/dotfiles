@@ -51,5 +51,10 @@ do
   ln -sv $HOME/dotfiles/bin/$f $HOME/bin/$f
 done
 
+# rofi conf
+mkdir -p $HOME/.config/rofi
+ln -s $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
+ln -s $HOME/dotfiles/teiler/config $HOME/.config/teiler/config
+
 # i3 make and install
 $HOME/dotfiles/i3/make.sh
