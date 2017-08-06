@@ -22,8 +22,11 @@ case "$1" in
     shutdown)
         systemctl poweroff
         ;;
+    prime)
+        $HOME/bin/puttl-prime.sh
+        ;;
     *)
-        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown|prime}"
         exit 2
 esac
 

@@ -225,7 +225,7 @@ bindsym $mod+m exec gnome-screenshot -ac
 bindsym $mod+Shift+m exec gnome-screenshot -a
 bindsym Pause exec playerctl play-pause
 
-set $mode_launcher launch: [c]hrome [f]irefox [s]ubl p[y]charm git[k]raken s[p]otify [t]elegram
+set $mode_launcher LAUNCH: [C]HROME [F]IREFOX [S]UBL P[Y]CHARM GIT[K]RAKEN S[P]OTIFY [T]ELEGRAM
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -241,7 +241,7 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
-set $mode_system sys: [l]ock, [^l]ogout, [s]uspend, [h]ibernate, [^r]eboot, [^s]hutdown
+set $mode_system SYS: [L]OCK, [^L]OGOUT, [S]USPEND, [H]IBERNATE, [^R]EBOOT, [^S]HUTDOWN [^P]RIME
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym Control+l exec --no-startup-id i3exit logout, mode "default"
@@ -249,12 +249,15 @@ mode "$mode_system" {
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym Control+r exec --no-startup-id i3exit reboot, mode "default"
     bindsym Control+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym Control+p exec --no-startup-id sudo $HOME/bin/i3exit prime, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Escape mode "$mode_system"
+
+bindsym $mod+t exec --no-startup-id notify-send "`prime-select query`"
 
 bindsym XF86Calculator exec gnome-calculator
 
