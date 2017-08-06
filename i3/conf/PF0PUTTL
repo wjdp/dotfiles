@@ -36,6 +36,7 @@ exec setxkbmap -option "compose:Menu" && xmodmap -e "keysym Menu = Multi_key"
 
 assign [class="jetbrains-pycharm"] 1
 assign [class="sublime_text"] 2
+assign [class="Slack"] 10
 
 # Media controls
 bindsym $mod+p exec playerctl play-pause
