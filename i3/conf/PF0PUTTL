@@ -34,9 +34,9 @@ exec hsetroot -solid '#260b44'
 exec puttl-xmodmap.sh
 exec setxkbmap -option "compose:Menu" && xmodmap -e "keysym Menu = Multi_key"
 
-assign [class="jetbrains-pycharm"] 1
-assign [class="sublime_text"] 2
-assign [class="Slack"] 10
+assign [class="jetbrains-pycharm"] $w1
+assign [class="sublime_text"] $w2
+assign [class="Slack"] $w10
 
 # Media controls
 bindsym $mod+p exec playerctl play-pause
