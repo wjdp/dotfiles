@@ -16,16 +16,16 @@ bindsym XF86AudioMicMute exec amixer set Capture toggle
 bindsym $mod+F1 exec puttl-dock.sh
 bindsym $mod+F2 exec puttl-apps.sh
 
-workspace 1 output HDMI-1-2
-workspace 2 output HDMI-1-2
-workspace 3 output HDMI-1-2
-workspace 4 output HDMI-1-2
-workspace 5 output HDMI-1-2
-workspace 6 output HDMI-1-1
-workspace 7 output HDMI-1-1
-workspace 8 output HDMI-1-1
-workspace 9 output HDMI-1-1
-workspace 0 output HDMI-1-1
+workspace $w1 output HDMI-1-2
+workspace $w2 output HDMI-1-2
+workspace $w3 output HDMI-1-2
+workspace $w4 output HDMI-1-2
+workspace $w5 output HDMI-1-2
+workspace $w6 output HDMI-1-1
+workspace $w7 output HDMI-1-1
+workspace $w8 output HDMI-1-1
+workspace $w9 output HDMI-1-1
+workspace $w0 output HDMI-1-1
 
 # Background
 exec hsetroot -solid '#260b44'
