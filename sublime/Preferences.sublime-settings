@@ -9,9 +9,11 @@
 	"default_line_ending": "unix",
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "__pycache__"],
 	"file_exclude_patterns":
 	[
-		"messages.mo"
+		"messages.mo",
+		"*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db", "*.sublime-workspace"
 	],
 	"font_face": "Inconsolata",
 	"font_options":
