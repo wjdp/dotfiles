@@ -12,3 +12,7 @@ _var/
 .netlify
 
 .idea/
+
+node_modules/
+
+env/

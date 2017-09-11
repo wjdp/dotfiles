@@ -13,6 +13,7 @@
   st = status -s
   prune = fetch --prune
   a = add
+  br = branch
   co = checkout
   who = shortlog -sn
 
@@ -76,3 +77,5 @@
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 [gpg]
 	program = gpg2
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring

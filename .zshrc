@@ -34,3 +34,6 @@ function gtag2() {
   git checkout master
   git branch -D floating-tag
 }
+
+# added by travis gem
+[ -f /home/will/.travis/travis.sh ] && source /home/will/.travis/travis.sh
