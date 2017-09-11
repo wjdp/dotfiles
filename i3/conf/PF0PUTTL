@@ -14,6 +14,7 @@ bindsym XF86AudioMicMute exec amixer set Capture toggle
 
 # Docking & undocking
 bindsym $mod+F1 exec $HOME/dotfiles/bin/puttl-dock.sh
+bindsym $mod+F2 exec $HOME/dotfiles/bin/puttl-reset-right.sh
 bindsym $mod+F5 exec $HOME/dotfiles/bin/puttl-apps.sh
 
 workspace $w1 output HDMI-1-2
