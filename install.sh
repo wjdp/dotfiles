@@ -45,12 +45,6 @@ ln -sv $HOME/dotfiles/zpresto/prompt_wjdp_setup $HOME/.zprezto/modules/prompt/fu
 mkdir -p $HOME/bin
 cd $HOME/dotfiles/bin
 
-for f in *;
-do
-  rm $HOME/bin/$f
-  ln -sv $HOME/dotfiles/bin/$f $HOME/bin/$f
-done
-
 # rofi conf
 mkdir -p $HOME/.config/rofi
 ln -s $HOME/dotfiles/rofi/config $HOME/.config/rofi/config

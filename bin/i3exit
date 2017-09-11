@@ -23,7 +23,7 @@ case "$1" in
         systemctl poweroff
         ;;
     prime)
-        $HOME/bin/puttl-prime.sh
+        $HOME/dotfiles/bin/puttl-prime.sh
         ;;
     *)
         echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown|prime}"

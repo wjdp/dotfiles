@@ -8,13 +8,13 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # Brightness
-bindsym XF86MonBrightnessUp exec sudo /home/will/bin/brightness.sh +100
-bindsym XF86MonBrightnessDown exec sudo /home/will/bin/brightness.sh -100
+bindsym XF86MonBrightnessUp exec sudo brightness.sh +100
+bindsym XF86MonBrightnessDown exec sudo brightness.sh -100
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 
 # Docking & undocking
-bindsym $mod+F1 exec puttl-dock.sh
-bindsym $mod+F2 exec puttl-apps.sh
+bindsym $mod+F1 exec $HOME/dotfiles/bin/puttl-dock.sh
+bindsym $mod+F5 exec $HOME/dotfiles/bin/puttl-apps.sh
 
 workspace $w1 output HDMI-1-2
 workspace $w2 output HDMI-1-2
