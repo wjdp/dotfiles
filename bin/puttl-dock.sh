@@ -5,9 +5,9 @@ TOGGLE=$HOME/.docked
 if [ ! -e $TOGGLE ]; then
     # DOCK
     touch $TOGGLE
-    xrandr --output HDMI-1-2 --auto
-    xrandr --output HDMI-1-1 --auto --right-of HDMI-1-2
-    xrandr --output eDP-1-1 --off
+    xrandr --output HDMI-2 --auto
+    xrandr --output HDMI-1 --auto --right-of HDMI-2
+    xrandr --output eDP-1 --off
 
     xmodmap -e "keycode 112 = Prior"
     xmodmap -e "keycode 117 = Next"
@@ -16,9 +16,9 @@ if [ ! -e $TOGGLE ]; then
 else
     # UNDOCK
     rm $TOGGLE
-    xrandr --output eDP-1-1 --auto
-    xrandr --output HDMI-1-2 --off
-    xrandr --output HDMI-1-1 --off
+    xrandr --output eDP-1 --auto
+    xrandr --output HDMI-2 --off
+    xrandr --output HDMI-1 --off
 
     xmodmap -e "keycode 112 = Home"
     xmodmap -e "keycode 117 = End"
