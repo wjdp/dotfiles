@@ -209,13 +209,13 @@ bar {
     #tray_output DP-0
 
     colors {
-        background #000
+        background #00000
 
         focused_workspace  #005B9F #005B9F #ffffff
         active_workspace   #707070 #707070 #ffffff
         inactive_workspace #333333 #333333 #888888
         urgent_workspace   #900000 #900000 #ffffff
-        binding_mode       #AAA #900000 #ffffff
+        binding_mode       #CC0000 #900000 #ffffff
     }
 }
 
