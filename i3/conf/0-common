@@ -139,7 +139,7 @@ set $w6 " 6 "
 set $w7 " 7 "
 set $w8 " 8 "
 set $w9 " 9 "
-set $w10 " 10 "
+set $w0 " 10 "
 set $w@ "@"
 
 # switch to workspace
@@ -152,7 +152,7 @@ bindsym $mod+6 workspace $w6
 bindsym $mod+7 workspace $w7
 bindsym $mod+8 workspace $w8
 bindsym $mod+9 workspace $w9
-bindsym $mod+0 workspace $w10
+bindsym $mod+0 workspace $w0
 bindsym $mod+apostrophe workspace $w@
 
 # move focused container to workspace
@@ -165,7 +165,7 @@ bindsym $mod+Shift+6 move container to workspace $w6
 bindsym $mod+Shift+7 move container to workspace $w7
 bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
-bindsym $mod+Shift+0 move container to workspace $w10
+bindsym $mod+Shift+0 move container to workspace $w0
 bindsym $mod+Shift+apostrophe move container to workspace $w@
 
 # reload the configuration file
