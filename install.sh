@@ -5,6 +5,7 @@ declare -a files=(
   ".gitconfig"
   ".gitignore_global"
   ".i3status.conf"
+  ".profile"
   ".screenrc"
   ".tmux.conf"
   ".vimrc"
