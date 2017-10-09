@@ -1,11 +1,11 @@
 ## i3 config for WeGift laptop, thinkpad t470p
 
 # Volume
-bindsym $mod+Prior exec pactl set-sink-volume 0 +5%
-bindsym $mod+Next exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym $mod+Prior exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+Next exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Brightness
 bindsym XF86MonBrightnessUp exec sudo $HOME/dotfiles/bin/brightness.sh +100
