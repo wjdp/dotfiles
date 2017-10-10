@@ -11,7 +11,7 @@ exec rescuetime
 # Compose key
 exec setxkbmap -option "compose:rwin"
 
-# Gnome Keychain
+# GNOME
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 
 # Network manager

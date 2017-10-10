@@ -13,6 +13,9 @@ echo "-----" >>$LOG
 echo "Caller: $0" >>$LOG
 echo "DESKTOP_SESSION: $DESKTOP_SESSION" >>$LOG
 echo "GDMSESSION: $GDMSESSION" >>$LOG
+echo "SSH_AUTH_SOCK: $GNOME_KEYRING_CONTROL" >>$GNOME_KEYRING_CONTROL
+echo "SSH_AUTH_SOCK: $SSH_AUTH_SOCK" >>$LOG
+echo "SSH_AUTH_SOCK: $GPG_AGENT_INFO" >>$GPG_AGENT_INFO
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -26,9 +29,3 @@ fi
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
-
-eval `ssh-agent -s`
-
-if [ "$0" = "/usr/sbin/lightdm-session" -a "$DESKTOP_SESSION" = "i3" ]; then
-    export $(gnome-keyring-daemon -s)
-fi
