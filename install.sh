@@ -2,6 +2,7 @@
 
 declare -a files=(
   ".compton.conf"
+  ".dunstrc"
   ".gitconfig"
   ".gitignore_global"
   ".i3status.conf"

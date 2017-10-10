@@ -234,6 +234,7 @@ bindsym $mod+period scratchpad show
 
 # exec compton
 #exec --no-startup-id compton --config ~/.compton.conf -b
+exec --no-startup-id dunst -config $HOME/.dunstrc
 
 # Screenshots
 bindsym Print exec teiler
