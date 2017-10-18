@@ -2,7 +2,6 @@
 
 declare -a files=(
   ".compton.conf"
-  ".dunstrc"
   ".gitconfig"
   ".gitignore_global"
   ".i3status.conf"
@@ -51,6 +50,10 @@ cd $HOME/dotfiles/bin
 mkdir -p $HOME/.config/rofi
 ln -s $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
 ln -s $HOME/dotfiles/teiler/config $HOME/.config/teiler/config
+
+# dunst conf
+mkdir -p $HOME/.config/dunst
+ln -s $HOME/dotfiles/dunstrc $HOME/.config/dunst/dunstrc
 
 # i3 make and install
 $HOME/dotfiles/i3/make.sh
