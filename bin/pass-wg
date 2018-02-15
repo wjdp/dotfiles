@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ln -sfnv $HOME/.password-store-wegift $HOME/.password-store

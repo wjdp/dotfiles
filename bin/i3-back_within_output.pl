@@ -1,0 +1,128 @@
+#!/usr/bin/env perl
+
+# USAGE:
+#
+# add to your i3 config e.g.:
+#
+#  bindsym $mod+b       workspace back_and_forth
+#  bindsym $mod+Shift+b nop back_within_output
+#  exec --no-startup-id i3-back_within_output
+#
+
+use strict; use warnings;
+use feature qw/say/;
+
+use Data::Dumper;
+use AnyEvent;
+use AnyEvent::I3 qw/:all/;
+
+# https://github.com/i3/AnyEvent-I3/blob/master/lib/AnyEvent/I3.pm
+# https://i3wm.org/docs/ipc.html
+
+
+# connect to i3
+my $i3 = i3();
+$i3->connect->recv or die "Error connecting to i3";
+
+# command string on bindsym to look for
+my $i3_cmd_str= 'nop back_within_output';
+
+my $VERBOSE   = 1;  # do we want to see whats happening?
+my $n_prev_ws = 3;  # how many past workspaces are stored
+my %ws_list   = (); # prev and cur workspaces per output
+                    # queue ordered: (0) oldest -> (n_prev_ws) newest
+
+# update ws_list when we change to a new workspace
+sub updateLasts {
+  my ($output,$cur_ws) = @_;
+  my $wslistsize       = $#{$ws_list{$output}};
+
+  # we actually dont care what the previous is if we haven't accumulated enough
+  # when we have, it's the last elment of the array
+  my $prev_ws = "";
+  $prev_ws = @{$ws_list{$output}}[$wslistsize] if($wslistsize >= 0);
+
+  # only update array when there is a change
+  if( $prev_ws ne $cur_ws){
+    # and the new workspace into the queue
+    push @{$ws_list{$output}}, $cur_ws;
+
+    # removing past workspaces when we have too many
+    shift @{$ws_list{$output}} if $#{$ws_list{$output}} > $n_prev_ws;
+
+    # show the changes
+    if($VERBOSE){
+      say "UPDATE: $output from '$prev_ws' to '$cur_ws'";
+      say join("\t","$output", @{$ws_list{$output}});
+    }
+  }
+
+};
+
+sub back_within_output {
+
+  my $output=shift;
+  # pop two off this output's queue
+  # put current back at the bottom
+  my $current = pop @{$ws_list{$output}};
+  my $goto    = pop @{$ws_list{$output}};
+  unshift @{$ws_list{$output}}, $current;
+
+
+  # maybe we dont have anywhere to go
+  return if !$goto;
+
+  # if we're verbose, mention what we are doing
+  say "$current -> $goto.",
+      "$output queue is then @{$ws_list{$output}}"
+      if $VERBOSE;
+
+  $i3->message(TYPE_COMMAND, "workspace $goto");
+}
+
+
+
+## subscribe to workspace changes: update curernt and previous workspaces
+$i3->subscribe({
+    workspace => sub {
+
+       # maybe we can use @_ instead of calling get outputs
+
+       # use current outputs/workspaces to update list of previously focused workspaces
+       $i3->get_outputs->cb(sub{
+          my $ws = shift;
+
+          # remove outputs with 'current_workspaces'==undef
+          my @active = grep( $_->{current_workspace}  , @{$ws->recv});
+
+          # use output's name and current workspace to update our queue
+          updateLasts(@{$_}{qw/name current_workspace/}) for @active;
+       });
+    }
+})->recv->{success} or die "Error subscribing to workspace events";
+
+
+# catch each bounnd key press. looking for $i3_cmd_str ('back_within_output')
+$i3->subscribe({
+    binding => sub {
+      # what command did we catch
+      my $bind_cmd = $_[0]->{binding}->{command};
+      say "caught binding for cmd '$bind_cmd' vs '$i3_cmd_str'" if $VERBOSE>1;
+
+      # when we have the command we are waiting for
+      # jump back
+      if( $bind_cmd eq $i3_cmd_str){
+
+       # we need to find what output is focused.
+       # do this by finding the window in all workspaces that is focused
+       # and getting the output that window is on
+       $i3->get_workspaces->cb(sub{
+         my @focused = grep( $_->{focused}, @{(shift)->recv});
+         my $output = $focused[0]->{output};
+         back_within_output $output;
+       });
+      }
+    }
+})->recv->{success} or die "Error subscribing to binding events";
+
+AE::cv->recv
