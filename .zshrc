@@ -14,6 +14,14 @@ fi
 alias seba='source env/bin/activate'
 alias manage='src/manage.py'
 
+alias cls='cd ~/local/scion'
+alias wgp='PASSWORD_STORE_KEY="32A193A4" PASSWORD_STORE_DIR=$HOME/.password-store-wegift pass'
+
+function _wgp() {
+  local PASSWORD_STORE_DIR=$HOME/.password-store-wegift
+  _pass $*
+}
+
 function venv() {
   result=${PWD##*/}
   source ~/env/$result/bin/activate
@@ -37,3 +45,9 @@ function gtag2() {
 
 # added by travis gem
 [ -f /home/will/.travis/travis.sh ] && source /home/will/.travis/travis.sh
+
+PATH="/home/will/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/will/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/will/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/will/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/will/perl5"; export PERL_MM_OPT;

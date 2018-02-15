@@ -4,9 +4,9 @@ TOGGLE=$HOME/.docked
 
 # UNDOCK
 rm $TOGGLE
-xrandr --output eDP-1 --auto
-xrandr --output HDMI-2 --off
+xrandr --output DP-2 --off
 xrandr --output HDMI-1 --off
+xrandr --output eDP-1 --auto --primary
 
 xmodmap -e "keycode 112 = Home"
 xmodmap -e "keycode 117 = End"

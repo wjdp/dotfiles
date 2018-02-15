@@ -10,13 +10,15 @@
 [commit]
   gpgsign = true
 [alias]
-  st = status -s
+  st = status -sb
   prune = fetch --prune
   a = add
   br = branch
   co = checkout
   cp = cherry-pick
   who = shortlog -sn
+
+  po = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
 
   # Resets
   undo = reset --soft HEAD^
@@ -31,7 +33,7 @@
 
   # Logs
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-  chlog = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%cn]" --decorate --no-merges master..HEAD
+  chlog = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%cn]" --decorate --no-merges origin/master..HEAD
   lss = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -81,3 +83,12 @@
 	program = gpg2
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+[merge]
+    tool = meld
+[mergetool "meld"]
+    # Choose one of these 2 lines (not both!) explained below.
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[mergetool]
+	keepBackup = false
