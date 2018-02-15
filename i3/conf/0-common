@@ -210,6 +210,11 @@ mode "RESIZE" {
 
 bindsym $mod+r mode "RESIZE"
 
+mode  "PASSTHRU" {
+        bindsym $mod+F12 mode "default"
+}
+bindsym $mod+F12 mode "PASSTHRU"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
