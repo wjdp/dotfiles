@@ -6,4 +6,4 @@ import random
 
 i3 = i3ipc.Connection()
 
-i3.command("workspace X{}{}".format(random.choice(string.hexdigits), random.choice(string.hexdigits)))
+i3.command("workspace _{}{}".format(random.choice(string.hexdigits), random.choice(string.hexdigits)))

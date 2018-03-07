@@ -18,6 +18,8 @@
 		"Package Control",
 		"Rust Enhanced",
 		"RustAutoComplete",
-		"Sass"
+		"Sass",
+		"TypeScript",
+		"TypeScript Syntax"
 	]
 }
