@@ -14,3 +14,4 @@ xmodmap -e "keycode 110 = Prior"
 xmodmap -e "keycode 115 = Next"
 
 nmcli radio wifi on
+nmcli con up udp
