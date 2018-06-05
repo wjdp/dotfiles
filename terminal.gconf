@@ -1,0 +1,14 @@
+[/]
+foreground-color='rgb(243,243,243)'
+visible-name='wjdp'
+palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(30,144,255)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(76,76,76)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(70,130,180)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
+cursor-shape='block'
+use-system-font=false
+use-theme-colors=false
+use-transparent-background=false
+font='DejaVu Sans Mono 10'
+use-theme-transparency=false
+bold-color-same-as-fg=false
+bold-color='rgb(255,255,255)'
+background-color='rgb(7,7,8)'
+background-transparency-percent=0
