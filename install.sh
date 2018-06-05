@@ -55,5 +55,9 @@ ln -s $HOME/dotfiles/teiler/config $HOME/.config/teiler/config
 mkdir -p $HOME/.config/dunst
 ln -s $HOME/dotfiles/dunstrc $HOME/.config/dunst/dunstrc
 
+# sublime config
+rm -rf $HOME/.config/sublime-text-3/Packages/User
+ln -sv $HOME/dotfiles/sublime $HOME/.config/sublime-text-3/Packages/User
+
 # i3 make and install
 $HOME/dotfiles/i3/make.sh
