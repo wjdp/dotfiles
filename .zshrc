@@ -13,9 +13,20 @@ fi
 
 alias seba='source env/bin/activate'
 alias manage='src/manage.py'
+alias mane='pipenv run src/manage.py'
 
 alias cls='workon scion'
 alias wgp='PASSWORD_STORE_KEY="32A193A4" PASSWORD_STORE_DIR=$HOME/.password-store-wegift pass'
+
+alias ct='curl -w "    time_namelookup:  %{time_namelookup}
+       time_connect:  %{time_connect}
+    time_appconnect:  %{time_appconnect}
+   time_pretransfer:  %{time_pretransfer}
+      time_redirect:  %{time_redirect}
+ time_starttransfer:  %{time_starttransfer}
+                    ----------
+         time_total:  %{time_total}\n" -o /dev/null -s'
+
 
 function _wgp() {
   local PASSWORD_STORE_DIR=$HOME/.password-store-wegift
