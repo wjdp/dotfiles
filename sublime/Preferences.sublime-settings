@@ -2,7 +2,9 @@
 	"added_words":
 	[
 		"Journaling",
-		"journaling"
+		"journaling",
+		"Sass",
+		"multiline"
 	],
 	"always_show_minimap_viewport": true,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
