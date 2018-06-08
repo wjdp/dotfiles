@@ -1,8 +1,11 @@
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
-rofi.color-enabled: true
-rofi.color-window: argb:c9002b37, #002b37, #003642
-rofi.color-normal: #002b37, #ececec, #003643, #008ed4, #ffffff
-rofi.color-active: #002b37, #008ed4, #003643, #008ed4, #66c6ff
-rofi.color-urgent: #002b37, #da4281, #003643, #008ed4, #890661
+rofi.combi-modi: window,drun,ssh
+rofi.terminal: gnome-terminal
+rofi.ssh-command: {terminal} -e "zsh -c '{ssh-client} {host}'"
+
+rofi.color-window: argb:ff002b37, argb:00000000, argb:ffffff
+rofi.color-normal: #002b37, #ececec, #002b37, #008ed4, #ffffff
+rofi.color-active: #002b37, #008ed4, #002b37, #008ed4, #66c6ff
+rofi.color-urgent: #002b37, #da4281, #002b37, #008ed4, #890661
