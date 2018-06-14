@@ -307,4 +307,4 @@ bindsym XF86Calculator exec gnome-calculator
 ###############################################################################
 
 # Some rules
-for_window [class=".*"] border normal 1
+# for_window [class=".*"] border normal 1
