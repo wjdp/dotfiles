@@ -17,6 +17,11 @@
   co = checkout
   cp = cherry-pick
   who = shortlog -sn
+  psh = push
+  ph = push
+  pish = push
+  psuh = push
+  pul = pull
 
   po = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
 
