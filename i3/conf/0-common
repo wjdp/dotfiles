@@ -271,6 +271,8 @@ exec --no-startup-id dunst
 
 bindsym $mod+m exec gnome-screenshot -ac
 
+bindsym $mod+b exec $HOME/dotfiles/bin/gpaste.sh
+
 bindsym Pause exec playerctl play-pause
 
 set $mode_launcher LAUNCH: [C]HROME [F]IREFOX [S]UBL P[Y]CHARM GIT[K]RAKEN S[P]OTIFY [T]ELEGRAM S[L]ACK
