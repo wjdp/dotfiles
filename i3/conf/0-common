@@ -190,7 +190,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-set $resize_q 5
+set $resize_sm 2
+set $resize_md 4
+set $resize_lg 16
 mode "RESIZE" {
     # These bindings trigger as soon as you enter the resize mode
 
@@ -198,16 +200,20 @@ mode "RESIZE" {
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
-    bindsym j resize shrink width $resize_q px or $resize_q ppt
-    bindsym k resize grow height $resize_q px or $resize_q ppt
-    bindsym l resize shrink height $resize_q px or $resize_q ppt
-    bindsym semicolon resize grow width $resize_q px or $resize_q ppt
+    bindsym Left resize shrink width $resize_md px or $resize_md ppt
+    bindsym Down resize grow height $resize_md px or $resize_md ppt
+    bindsym Up resize shrink height $resize_md px or $resize_md ppt
+    bindsym Right resize grow width $resize_md px or $resize_md ppt
 
-    # same bindings, but for the arrow keys
-    bindsym Left resize shrink width $resize_q px or $resize_q ppt
-    bindsym Down resize grow height $resize_q px or $resize_q ppt
-    bindsym Up resize shrink height $resize_q px or $resize_q ppt
-    bindsym Right resize grow width $resize_q px or $resize_q ppt
+    bindsym Shift+Left resize shrink width $resize_sm px or $resize_sm ppt
+    bindsym Shift+Down resize grow height $resize_sm px or $resize_sm ppt
+    bindsym Shift+Up resize shrink height $resize_sm px or $resize_sm ppt
+    bindsym Shift+Right resize grow width $resize_sm px or $resize_sm ppt
+
+    bindsym Control+Left resize shrink width $resize_lg px or $resize_lg ppt
+    bindsym Control+Down resize grow height $resize_lg px or $resize_lg ppt
+    bindsym Control+Up resize shrink height $resize_lg px or $resize_lg ppt
+    bindsym Control+Right resize grow width $resize_lg px or $resize_lg ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
