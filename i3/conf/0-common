@@ -312,6 +312,10 @@ bindsym $mod+t exec --no-startup-id notify-send "`prime-select query`"
 
 bindsym XF86Calculator exec gnome-calculator
 
+bindsym $mod+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass:" | xargs --no-run-if-empty /home/will/go/bin/gopass show -c
+
+bindsym $mod+Shift+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass:" | xargs --no-run-if-empty /home/will/go/bin/gopass show -f | head -n 1 | xdotool type --clearmodifiers --file -
+
 ###############################################################################
 
 # Some rules
