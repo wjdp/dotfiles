@@ -31,6 +31,9 @@
   r1 = reset HEAD^
   ro = reset origin
 
+  rc = rebase --continue
+  mt = mergetool
+
   # Stash
   sl = stash list
   sp = stash pop
@@ -92,8 +95,8 @@
     tool = meld
 [mergetool "meld"]
     # Choose one of these 2 lines (not both!) explained below.
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+    # cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = meld --auto-merge "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 
 [mergetool]
 	keepBackup = false
