@@ -36,6 +36,17 @@ workspace $w8 output HDMI-1
 workspace $w9 output HDMI-1
 workspace $w0 output HDMI-1
 
+workspace $w11 output DP-2
+workspace $w12 output DP-2
+workspace $w13 output DP-2
+workspace $w14 output DP-2
+workspace $w15 output DP-2
+workspace $w16 output HDMI-1
+workspace $w17 output HDMI-1
+workspace $w18 output HDMI-1
+workspace $w19 output HDMI-1
+workspace $w20 output HDMI-1
+
 # Background
 exec hsetroot -solid '#260b44'
 

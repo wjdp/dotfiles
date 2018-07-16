@@ -10,6 +10,7 @@ declare -a files=(
   ".tmux.conf"
   ".vimrc"
   ".xsession"
+  ".Xmodmap"
   ".zlogin"
   ".zlogout"
   ".zpreztorc"

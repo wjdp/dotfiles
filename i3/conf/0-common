@@ -58,6 +58,7 @@ bindsym $mod+y exec "date +%Y-%m-%d  | sed 's/./usleep 2,str &,/g' | xargs -d, x
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
+#bindsym Mod3 exec "rofi -show combi"
 bindsym $mod+d exec "rofi -show combi"
 bindsym $mod+Shift+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -149,6 +150,16 @@ set $w7 " 7 "
 set $w8 " 8 "
 set $w9 " 9 "
 set $w0 " 10 "
+set $w11 " 11 "
+set $w12 " 12 "
+set $w13 " 13 "
+set $w14 " 14 "
+set $w15 " 15 "
+set $w16 " 16 "
+set $w17 " 17 "
+set $w18 " 18 "
+set $w19 " 19 "
+set $w20 " 20 "
 set $w@ "@"
 
 # switch to workspace
@@ -162,6 +173,16 @@ bindsym $mod+7 workspace $w7
 bindsym $mod+8 workspace $w8
 bindsym $mod+9 workspace $w9
 bindsym $mod+0 workspace $w0
+bindsym Mod3+1 workspace $w11
+bindsym Mod3+2 workspace $w12
+bindsym Mod3+3 workspace $w13
+bindsym Mod3+4 workspace $w14
+bindsym Mod3+5 workspace $w15
+bindsym Mod3+6 workspace $w16
+bindsym Mod3+7 workspace $w17
+bindsym Mod3+8 workspace $w18
+bindsym Mod3+9 workspace $w19
+bindsym Mod3+0 workspace $w20
 bindsym $mod+apostrophe workspace $w@
 
 bindsym $mod+minus exec --no-startup-id $HOME/dotfiles/bin/i3-new-workspace.py
@@ -177,6 +198,16 @@ bindsym $mod+Shift+7 move container to workspace $w7
 bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w0
+bindsym Mod3+Shift+1 move container to workspace $w11
+bindsym Mod3+Shift+2 move container to workspace $w12
+bindsym Mod3+Shift+3 move container to workspace $w13
+bindsym Mod3+Shift+4 move container to workspace $w14
+bindsym Mod3+Shift+5 move container to workspace $w15
+bindsym Mod3+Shift+6 move container to workspace $w16
+bindsym Mod3+Shift+7 move container to workspace $w17
+bindsym Mod3+Shift+8 move container to workspace $w18
+bindsym Mod3+Shift+9 move container to workspace $w19
+bindsym Mod3+Shift+0 move container to workspace $w20
 bindsym $mod+Shift+apostrophe move container to workspace $w@
 
 bindsym $mod+Shift+minus exec --no-startup-id $HOME/dotfiles/bin/i3-new-workspace-move.py
