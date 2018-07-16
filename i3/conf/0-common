@@ -347,6 +347,8 @@ bindsym $mod+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass:" 
 
 bindsym $mod+Shift+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass:" | xargs --no-run-if-empty /home/will/go/bin/gopass show -f | head -n 1 | xdotool type --clearmodifiers --file -
 
+
+bindsym Mod3+v exec xdotool click 2
 ###############################################################################
 
 # Some rules
