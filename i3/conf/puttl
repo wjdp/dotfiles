@@ -1,5 +1,10 @@
 ## i3 config for WeGift laptop, thinkpad t470p
 
+exec synclient TapButton1=0
+exec synclient TapButton2=0
+exec synclient VertScrollDelta=-114
+exec synclient HorizScrollDelta=-114
+
 # Volume
 bindsym $mod+Prior exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $mod+Next exec pactl set-sink-volume @DEFAULT_SINK@ -5%

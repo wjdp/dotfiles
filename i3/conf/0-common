@@ -353,3 +353,5 @@ bindsym Mod3+v exec xdotool click 2
 
 # Some rules
 # for_window [class=".*"] border normal 1
+for_window [class="Nautilus"] border normal 1
+for_window [class="File-roller"] border normal 1
