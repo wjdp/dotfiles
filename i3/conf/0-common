@@ -306,7 +306,7 @@ bindsym $mod+b exec $HOME/dotfiles/bin/gpaste.sh
 
 bindsym Pause exec playerctl play-pause
 
-set $mode_launcher LAUNCH: [C]HROME [F]IREFOX [S]UBL P[Y]CHARM GIT[K]RAKEN S[P]OTIFY [T]ELEGRAM S[L]ACK
+set $mode_launcher LAUNCH: [C]HROME [F]IREFOX [S]UBL P[Y]CHARM GIT[K]RAKEN S[P]OTIFY [T]ELEGRAM S[L]ACK [A]RANDR
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -318,6 +318,7 @@ mode "$mode_launcher" {
     bindsym t exec telegram
     bindsym y exec charm
     bindsym l exec slack
+    bindsym a exec arandr
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -355,3 +356,4 @@ bindsym Mod3+v exec xdotool click 2
 # for_window [class=".*"] border normal 1
 for_window [class="Nautilus"] border normal 1
 for_window [class="File-roller"] border normal 1
+for_window [class="Arandr"] floating enable
