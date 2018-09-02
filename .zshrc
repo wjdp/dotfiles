@@ -16,6 +16,7 @@ alias manage='src/manage.py'
 alias mane='pipenv run src/manage.py'
 
 alias cls='workon scion'
+alias fls='workon flow'
 alias wgp='PASSWORD_STORE_KEY="32A193A4" PASSWORD_STORE_DIR=$HOME/.password-store-wegift pass'
 
 alias ct='curl -w "    time_namelookup:  %{time_namelookup}
@@ -27,6 +28,7 @@ alias ct='curl -w "    time_namelookup:  %{time_namelookup}
                     ----------
          time_total:  %{time_total}\n" -o /dev/null -s'
 
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
 function _wgp() {
   local PASSWORD_STORE_DIR=$HOME/.password-store-wegift
@@ -39,7 +41,7 @@ function venv() {
 }
 
 function myip() {
-  curl -w "\n" https://api.ipify.org
+  dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}'
 }
 
 function gtag1() {
