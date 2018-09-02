@@ -4,32 +4,8 @@
 change=$1
 echo $change
 
-# get the maximum brightness value
-max_brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-
-echo $max_brightness
-# get the current brightness
-brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
-echo $brightness
-
-# calculate the new value that is requested.
-# if input is negative it will subtract (?)
-new_value=$(($brightness + $change))
-echo $new_value
-
-# if the new value is less than 1, we just set it to 1
-# 0 is completely pitch black, just put pc to sleep
-# if you want that.
-if (( $new_value < 10 )); then
-        let brightness=10
-# if the new value is greater than max brightness, set it to max brightness
-elif  (($new_value > $max_brightness)); then
-        let brightness=$max_brightness
-# if none of the above if-statements are true, just set it to the
-# new brightness value
+if (( $change > 0 )); then
+    sudo ybacklight -inc $change
 else
-        let brightness=$new_value
+    sudo ybacklight -dec ${change#-}
 fi
-
-# now we can just echo the value into the brightness acpi(?) file
-echo $brightness > /sys/class/backlight/intel_backlight/brightness
