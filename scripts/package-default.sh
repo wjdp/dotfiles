@@ -10,4 +10,4 @@ sudo apt install -qy git git-lfs zsh vim curl wget ruby ruby-dev htop powertop b
 sudo apt install -qy imagemagick libpq-dev libjpeg-dev libxslt1-dev
 
 # GUI software
-sudo apt install -qy audacity gimp gpick vlc mpv meld arandr
+sudo apt install -qy audacity gimp gpick vlc mpv meld arandr baobab
