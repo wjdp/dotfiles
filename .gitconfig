@@ -94,6 +94,7 @@
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [merge]
+	ff = no
     tool = meld
 [mergetool "meld"]
     # Choose one of these 2 lines (not both!) explained below.

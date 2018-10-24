@@ -1,3 +1,4 @@
+scion/static/product_assets
 .DS_Store
 *.pyc
 *.swp
@@ -16,3 +17,7 @@ _var/
 node_modules/
 
 env/
+
+Pipfile
+Pipfile.lock
+

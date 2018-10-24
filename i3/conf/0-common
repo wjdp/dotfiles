@@ -24,7 +24,7 @@ exec --no-startup-id nm-applet
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 9
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #005B9F #005B9F #ffffff #831882   #285577
@@ -67,7 +67,7 @@ bindsym $mod+Shift+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # File manager
-bindsym $mod+n exec nautilus -w
+bindsym $mod+n exec nemo
 bindsym $mod+Shift+n exec fman
 
 # change focus
@@ -357,4 +357,7 @@ bindsym Mod3+v exec xdotool click 2
 # for_window [class=".*"] border normal 1
 for_window [class="Nautilus"] border normal 1
 for_window [class="File-roller"] border normal 1
+for_window [class="Gedit"] border normal 1
+for_window [class="Evince"] border normal 1
+
 for_window [class="Arandr"] floating enable
