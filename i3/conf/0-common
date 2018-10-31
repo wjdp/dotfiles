@@ -361,3 +361,4 @@ for_window [class="Gedit"] border normal 1
 for_window [class="Evince"] border normal 1
 
 for_window [class="Arandr"] floating enable
+for_window [class="SimpleScreenRecorder"] floating enable
