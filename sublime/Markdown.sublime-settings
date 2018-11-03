@@ -1,6 +1,11 @@
-// These settings override both User and Default settings for the Markdown syntax
 {
-    "word_wrap": true,
-    "tab_size": 4,
-    "rulers": [120]
+	"extensions":
+	[
+	],
+	"rulers":
+	[
+		120
+	],
+	"tab_size": 4,
+	"word_wrap": true
 }
