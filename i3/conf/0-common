@@ -5,7 +5,8 @@ set $mod Mod4
 # Set background / wallpaper
 exec xsetroot -solid "#0A0732"
 exec xset s off # Disable screen blanking
-exec feh --randomize --bg-fill $HOME/dotfiles/wallpapers/*
+#exec feh --randomize --bg-fill $HOME/dotfiles/wallpapers/*
+exec feh --bg-fill $HOME/dotfiles/wallpapers/ltmWANZ.png
 
 exec rescuetime
 
@@ -345,10 +346,9 @@ bindsym $mod+t exec --no-startup-id notify-send "`prime-select query`"
 
 bindsym XF86Calculator exec gnome-calculator
 
-bindsym $mod+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass:" | xargs --no-run-if-empty /home/will/go/bin/gopass show -c
+bindsym $mod+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass" | xargs --no-run-if-empty /home/will/go/bin/gopass show -c
 
-bindsym $mod+Shift+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass:" | xargs --no-run-if-empty /home/will/go/bin/gopass show -f | head -n 1 | xdotool type --clearmodifiers --file -
-
+bindsym $mod+Shift+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass" | xargs --no-run-if-empty /home/will/go/bin/gopass show -f | head -n 1 | xdotool type --clearmodifiers --file -
 
 bindsym Mod3+v exec xdotool click 2
 ###############################################################################

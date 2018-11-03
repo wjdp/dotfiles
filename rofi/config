@@ -6,7 +6,11 @@ rofi.terminal: gnome-terminal
 rofi.ssh-command: {terminal} -e "zsh -c '{ssh-client} {host}'"
 rofi.separator-style: solid
 
-rofi.color-window: argb:ff002b37, argb:00000000, #668
-rofi.color-normal: #002b37, #ececec, #002b37, #008ed4, #ffffff
-rofi.color-active: #002b37, #008ed4, #002b37, #008ed4, #66c6ff
-rofi.color-urgent: #002b37, #da4281, #002b37, #008ed4, #890661
+!                  background   , border       , separator
+rofi.color-window: argb:ff21213D, argb:00000000, #668
+!                  backgrd, foregrd, altback, hibackg, hiforeg
+rofi.color-normal: #21213D, #DBDFBC, #21213D, #DBDFBC, #21213D
+rofi.color-active: #492749, #DBDFBC, #492749, #DBDFBC, #492749
+rofi.color-urgent: #ff0000, #da4281, #002b37, #008ed4, #890661
+rofi:parse-known-hosts: true
+rofi:window-format: {w} {t}
