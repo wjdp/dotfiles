@@ -55,6 +55,7 @@
 	"ignored_packages":
 	[
 		"Rust",
+		"Rust Enhanced",
 		"Vintage"
 	],
 	"rulers":

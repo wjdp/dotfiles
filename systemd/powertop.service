@@ -1,0 +1,11 @@
+[Unit]
+Description=Powertop Auto
+
+[Service]
+Type=idle
+Environment="TERM=dumb"
+ExecStart=/usr/sbin/powertop --auto
+
+[Install]
+WantedBy=multi-user.target
+
