@@ -21,3 +21,4 @@ env/
 Pipfile
 Pipfile.lock
 
+.mypy_cache/

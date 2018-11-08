@@ -287,7 +287,7 @@ bar {
 # Return to original by mod+? again
 workspace_auto_back_and_forth yes
 
-bindsym $mod+l exec "i3lock -c 172032 -ef"
+bindsym $mod+l exec "i3lock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firewatch-morning.png"
 
 bindsym $mod+comma move scratchpad
 bindsym $mod+period scratchpad show
