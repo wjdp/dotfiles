@@ -96,6 +96,7 @@
 [merge]
 	ff = no
     tool = meld
+	ff = false
 [mergetool "meld"]
     # Choose one of these 2 lines (not both!) explained below.
     # cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
