@@ -318,7 +318,7 @@ mode "$mode_launcher" {
     bindsym p exec spotify
     bindsym s exec subl
     bindsym t exec telegram
-    bindsym y exec charm
+    bindsym y exec pycharm-professional
     bindsym l exec slack
     bindsym a exec arandr
 
