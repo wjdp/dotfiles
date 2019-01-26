@@ -1,0 +1,2 @@
+exec hsetroot -solid "#3c1151"
+exec feh --randomize --bg-fill $HOME/dotfiles/wallpapers/*

@@ -5,8 +5,6 @@ set $mod Mod4
 # Set background / wallpaper
 exec xsetroot -solid "#0A0732"
 exec xset s off # Disable screen blanking
-#exec feh --randomize --bg-fill $HOME/dotfiles/wallpapers/*
-exec feh --bg-fill $HOME/dotfiles/wallpapers/ltmWANZ.png
 
 exec rescuetime
 
