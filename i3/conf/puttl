@@ -1,5 +1,7 @@
 ## i3 config for WeGift laptop, thinkpad t470p
 
+bindsym $mod+c exec google-chrome
+
 exec synclient TapButton1=0
 exec synclient TapButton2=0
 exec synclient VertScrollDelta=-114

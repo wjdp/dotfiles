@@ -1,9 +1,0 @@
-## i3 config for titan
-
-workspace 6 output DVI-D-0
-workspace 9 output DVI-I-0
-
-bindsym $mod+Prior exec amixer -q set Master 2dB+ unmute
-bindsym $mod+Next exec amixer -q set Master 2dB- unmute
-bindsym button4 exec amixer -q set Master 2dB+ unmute
-bindsym button5 exec amixer -q set Master 2dB- unmute

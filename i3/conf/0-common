@@ -50,7 +50,6 @@ bindsym $mod+Shift+Return exec "i3-sensible-terminal; i3-msg 'resize shrink widt
 bindsym $mod+numbersign exec alacritty
 
 # Other apps
-bindsym $mod+c exec google-chrome
 bindsym $mod+y exec "date +%Y-%m-%d  | sed 's/./usleep 2,str &,/g' | xargs -d, xte"
 
 # kill focused window
