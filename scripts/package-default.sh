@@ -4,7 +4,7 @@
 sudo apt install -qy i3 lxappearance compton rofi feh supervisor
 
 # CLI tools
-sudo apt install -qy git git-lfs zsh vim curl wget ruby ruby-dev htop powertop build-essential python-virtualenv python3-pip python3-dev virtualenvwrapper sudo software-properties-common pass xdotool ncdu
+sudo apt install -qy git git-lfs zsh vim curl wget ruby ruby-dev htop powertop build-essential python3-pip python3-dev sudo software-properties-common pass xdotool ncdu
 
 # Stuff I tend to need
 sudo apt install -qy imagemagick libpq-dev libjpeg-dev libxslt1-dev

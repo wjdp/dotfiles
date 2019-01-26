@@ -103,4 +103,4 @@ export PATH=$PATH:node_modules/.bin
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3

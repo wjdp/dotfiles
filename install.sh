@@ -50,7 +50,7 @@ cd $HOME/dotfiles/bin
 # rofi conf
 mkdir -p $HOME/.config/rofi
 ln -s $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
-ln -s $HOME/dotfiles/teiler/config $HOME/.config/teiler/config
+# ln -s $HOME/dotfiles/teiler/config $HOME/.config/teiler/config
 
 # dunst conf
 mkdir -p $HOME/.config/dunst
