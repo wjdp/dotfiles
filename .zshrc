@@ -12,7 +12,7 @@ fi
 # Customize to your needs...
 
 alias seba='source env/bin/activate'
-alias manage='src/manage.py'
+alias manage='pipenv run src/manage.py'
 alias mane='pipenv run src/manage.py'
 
 alias charm='pycharm-professional'
