@@ -103,4 +103,8 @@ export PATH=$PATH:node_modules/.bin
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Python
+
+PATH="$PATH:$HOME/.local/bin"
+
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3

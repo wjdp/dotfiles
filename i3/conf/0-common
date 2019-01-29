@@ -301,7 +301,8 @@ exec --no-startup-id dunst
 
 bindsym $mod+m --release exec scrot -s ~/scrot.png && xclip -selection clipboard -target image/png -i scrot.png
 
-bindsym $mod+b exec $HOME/dotfiles/bin/gpaste.sh
+bindsym $mod+b exec i3-input -f 'pango:Inconsolata 20' -F 'workspace %s' -P 'GOTO: '
+bindsym $mod+Shift+b exec i3-input -f 'pango:Inconsolata 20' -F 'move container to workspace %s' -P 'MOVETO: '
 
 bindsym Pause exec playerctl play-pause
 
