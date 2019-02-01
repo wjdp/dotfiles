@@ -1,7 +1,7 @@
 exec hsetroot -solid "#3c1151"
 exec feh --randomize --bg-fill $HOME/dotfiles/wallpapers/*
 
-bindsym $mod+c exec firefox
+bindsym $mod+c exec GTK2_RC_FILES=/usr/share/themes/Adwaita/gtk-2.0/gtkrc GTK_THEME=Adwaita:light firefox
 
 # Mouse mapping (MX Master)
 bindsym Control+Mod1+Tab --whole-window workspace back_and_forth
