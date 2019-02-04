@@ -14,4 +14,4 @@ sudo pip install icdiff
 
 # Dev
 
-sudo pip3 install virtualenv
+sudo pip3 install virtualenv virtualenvwrapper

@@ -40,7 +40,7 @@ done
 
 # zpresto patches
 
-ln -sv $HOME/dotfiles/zpresto/prompt_wjdp_setup $HOME/.zprezto/modules/prompt/functions
+ln -sfv $HOME/dotfiles/zpresto/prompt_wjdp_setup $HOME/.zprezto/modules/prompt/functions
 
 # bin scripts
 
@@ -49,12 +49,12 @@ cd $HOME/dotfiles/bin
 
 # rofi conf
 mkdir -p $HOME/.config/rofi
-ln -s $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
+ln -sf $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
 # ln -s $HOME/dotfiles/teiler/config $HOME/.config/teiler/config
 
 # dunst conf
 mkdir -p $HOME/.config/dunst
-ln -s $HOME/dotfiles/dunstrc $HOME/.config/dunst/dunstrc
+ln -sf $HOME/dotfiles/dunstrc $HOME/.config/dunst/dunstrc
 
 # sublime config
 rm -rf $HOME/.config/sublime-text-3/Packages/User
