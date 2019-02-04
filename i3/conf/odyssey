@@ -2,6 +2,9 @@
 
 bindsym $mod+c exec GTK2_RC_FILES=/usr/share/themes/Adwaita/gtk-2.0/gtkrc GTK_THEME=Adwaita:light firefox
 
+exec synclient VertScrollDelta=-114
+exec synclient HorizScrollDelta=-114
+
 # Volume
 bindsym $mod+Prior exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $mod+Next exec pactl set-sink-volume @DEFAULT_SINK@ -5%
