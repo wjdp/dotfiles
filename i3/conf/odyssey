@@ -15,30 +15,35 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 # Brightness
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 
+# Docking & undocking
+bindsym $mod+F1 exec $HOME/dotfiles/bin/odyssey-dock.sh
+bindsym $mod+F2 exec $HOME/dotfiles/bin/odyssey-undock.sh
+
 # Mouse mapping (MX Master)
 bindsym Control+Mod1+Tab --whole-window workspace back_and_forth
 
-workspace $w1 output DP-2
-workspace $w2 output DP-2
-workspace $w3 output DP-2
-workspace $w4 output DP-2
-workspace $w5 output DP-2
-workspace $w6 output HDMI-1
-workspace $w7 output HDMI-1
-workspace $w8 output HDMI-1
-workspace $w9 output HDMI-1
-workspace $w0 output HDMI-1
+workspace $w1 output HDMI-2
+workspace $w2 output HDMI-2
+workspace $w3 output HDMI-2
+workspace $w4 output HDMI-2
+workspace $w5 output HDMI-2
+workspace $w6 output DP-1
+workspace $w7 output DP-1
+workspace $w8 output DP-1
+workspace $w9 output DP-1
+workspace $w0 output DP-1
+workspace $w@ output eDP-1
 
-workspace $w11 output DP-2
-workspace $w12 output DP-2
-workspace $w13 output DP-2
-workspace $w14 output DP-2
-workspace $w15 output DP-2
-workspace $w16 output HDMI-1
-workspace $w17 output HDMI-1
-workspace $w18 output HDMI-1
-workspace $w19 output HDMI-1
-workspace $w20 output HDMI-1
+workspace $w11 output HDMI-2
+workspace $w12 output HDMI-2
+workspace $w13 output HDMI-2
+workspace $w14 output HDMI-2
+workspace $w15 output HDMI-2
+workspace $w16 output DP-1
+workspace $w17 output DP-1
+workspace $w18 output DP-1
+workspace $w19 output DP-1
+workspace $w20 output DP-1
 
 # Background
 exec hsetroot -solid '#260b44'
