@@ -1,2 +1,3 @@
 #!/bin/bash
-date +%Y-%m-%d  | sed 's/./usleep 2,str &,/g' | xargs -d, xte
+sleep 0.7
+date +%Y-%m-%d  | xargs xdotool type
