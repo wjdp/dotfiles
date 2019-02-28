@@ -286,7 +286,7 @@ bindsym $mod+comma move scratchpad
 bindsym $mod+period scratchpad show
 
 # exec compton
-exec --no-startup-id compton --config ~/.compton.conf -b
+exec --no-startup-id compton -c -t-1 -l-2 -r2 -i0.9 -e0.5 --config /dev/null --backend xrender  --unredir-if-possible -b
 exec --no-startup-id dunst
 
 # Screenshots
@@ -347,6 +347,12 @@ bindsym $mod+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass" |
 bindsym $mod+Shift+j exec /home/will/go/bin/gopass ls --flat | rofi -dmenu -p "pass" | xargs --no-run-if-empty /home/will/go/bin/gopass show -f | head -n 1 | xdotool type --clearmodifiers --file -
 
 bindsym Mod3+v exec xdotool click 2
+
+# Media controls
+bindsym $mod+p exec playerctl play-pause
+bindsym $mod+bracketleft exec playerctl previous
+bindsym $mod+bracketright exec playerctl next
+
 ###############################################################################
 
 # Some rules

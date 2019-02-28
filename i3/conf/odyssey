@@ -57,10 +57,5 @@ exec setxkbmap -option "compose:Menu" && xmodmap -e "keysym Menu = Multi_key"
 assign [class="jetbrains-pycharm"] $w1
 assign [class="Slack"] $w@
 
-# Media controls
-bindsym $mod+p exec playerctl play-pause
-bindsym $mod+bracketleft exec playerctl previous
-bindsym $mod+bracketright exec playerctl next
-
 # Startup apps
 exec --no-startup-id dropbox start

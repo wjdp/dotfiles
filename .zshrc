@@ -12,6 +12,7 @@ fi
 # Customize to your needs...
 
 alias seba='source env/bin/activate'
+alias peba='source $(pipenv --venv)/bin/activate'
 alias manage='pipenv run src/manage.py'
 alias mane='pipenv run src/manage.py'
 
