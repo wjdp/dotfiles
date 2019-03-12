@@ -24,3 +24,5 @@ Pipfile.lock
 .mypy_cache/
 
 .~*
+
+scion/config/version.py
