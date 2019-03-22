@@ -22,6 +22,11 @@ alias cls='workon scion'
 alias fls='workon flow'
 alias wgp='PASSWORD_STORE_KEY="32A193A4" PASSWORD_STORE_DIR=$HOME/.password-store-wegift pass'
 
+alias l='ls -l'
+alias ls='lsd'
+alias ll='lsd -lah'
+alias lt='ls --tree'
+
 alias ct='curl -w "    time_namelookup:  %{time_namelookup}
        time_connect:  %{time_connect}
     time_appconnect:  %{time_appconnect}
