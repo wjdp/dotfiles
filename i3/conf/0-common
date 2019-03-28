@@ -286,7 +286,7 @@ bindsym $mod+comma move scratchpad
 bindsym $mod+period scratchpad show
 
 # exec compton
-exec --no-startup-id compton -c -t-1 -l-2 -r2 -i0.9 -e0.5 --config /dev/null --backend xrender  --unredir-if-possible -b
+exec --no-startup-id compton --config /dev/null --backend xrender  --unredir-if-possible -b # -c -t-1 -l-2 -r2 -i0.9 -e0.9
 exec --no-startup-id dunst
 
 # Screenshots
