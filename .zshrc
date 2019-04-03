@@ -24,7 +24,7 @@ alias wgp='PASSWORD_STORE_KEY="32A193A4" PASSWORD_STORE_DIR=$HOME/.password-stor
 
 alias l='ls -l'
 alias ls='lsd'
-alias ll='lsd -lah'
+alias ll='lsd -lah --date relative'
 alias lt='ls --tree'
 
 alias ct='curl -w "    time_namelookup:  %{time_namelookup}
