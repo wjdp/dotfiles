@@ -365,3 +365,4 @@ for_window [class="Eog"] border normal 1
 
 for_window [class="Arandr"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
+for_window [class="plexamp"] floating enable
