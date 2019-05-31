@@ -92,8 +92,6 @@
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 [gpg]
 	program = gpg2
-[credential]
-	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [merge]
 	ff = no
     tool = meld
