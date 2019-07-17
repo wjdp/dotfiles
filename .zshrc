@@ -13,8 +13,7 @@ fi
 
 alias seba='source env/bin/activate'
 alias peba='source $(pipenv --venv)/bin/activate'
-alias manage='pipenv run src/manage.py'
-alias mane='pipenv run src/manage.py'
+alias manage='(cd src; pipenv run python manage.py &)'
 
 alias charm='pycharm-professional'
 
