@@ -1,5 +1,5 @@
 exec hsetroot -solid "#3c1151"
-exec feh --randomize --bg-fill $HOME/dotfiles/wallpapers/*
+exec feh --randomize --bg-fill $HOME/dotfiles/wallpapers/1440p/*
 
 bindsym $mod+c exec GTK2_RC_FILES=/usr/share/themes/Adwaita/gtk-2.0/gtkrc GTK_THEME=Adwaita:light firefox
 

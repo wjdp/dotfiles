@@ -1,5 +1,7 @@
 ## i3 config for fusion
 
+exec feh --randomize --bg-fill $HOME/dotfiles/wallpapers/1080p/*
+
 bindsym $mod+c exec google-chrome
 
 # Volume
