@@ -63,4 +63,4 @@ assign [class="Slack"] $w@
 exec --no-startup-id dropbox start
 
 # Auto lock
-exec xautolock -time 10 -locker "i3lock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firewatch-morning.png" &
+exec xautolock -time 10 -locker "i3lock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firewatch-hike.png" &
