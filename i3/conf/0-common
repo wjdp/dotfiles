@@ -249,7 +249,7 @@ mode "RESIZE" {
 
 bindsym $mod+r mode "RESIZE"
 
-bindsym $mod+i resize set 380 px 233 px
+#bindsym $mod+i resize set 380 px 233 px
 
 mode  "PASSTHRU" {
         bindsym $mod+F12 mode "default"
@@ -258,20 +258,22 @@ bindsym $mod+F12 mode "PASSTHRU"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    status_command i3status
-    #tray_output DP-0
+# bar {
+#     status_command i3status
+#     #tray_output DP-0
+#
+#     colors {
+#         background #00000
+#
+#         focused_workspace  #005B9F #005B9F #ffffff
+#         active_workspace   #707070 #707070 #ffffff
+#         inactive_workspace #333333 #333333 #888888
+#         urgent_workspace   #900000 #900000 #ffffff
+#         binding_mode       #CC0000 #900000 #ffffff
+#     }
+# }
 
-    colors {
-        background #00000
-
-        focused_workspace  #005B9F #005B9F #ffffff
-        active_workspace   #707070 #707070 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace   #900000 #900000 #ffffff
-        binding_mode       #CC0000 #900000 #ffffff
-    }
-}
+exec --no-startup-id /home/will/dotfiles/bin/polybar.sh
 
 # borders on screen edge
 #hide_edge_borders both
@@ -300,11 +302,11 @@ exec --no-startup-id dunst
 bindsym $mod+m --release exec scrot -s ~/scrot.png && xclip -selection clipboard -target image/png -i scrot.png
 
 bindsym $mod+minus exec i3-input -f 'pango:Inconsolata 20' -F 'workspace %s' -P 'GOTO: '
-bindsym $mod+Shift+minus exec i3-input -f 'pango:Inconsolata 20' -F 'move container to workspace %s' -P 'MOVETO: '
+bindsym $mod+Shift+minus exec i3-input -f 'pango:Inconsolata 20' -F 'move container to workspace %s' -P 'MVTO: '
 
 bindsym Pause exec playerctl play-pause
 
-set $mode_launcher LAUNCH: [C]HROME [F]IREFOX [S]UBL P[Y]CHARM GIT[K]RAKEN S[P]OTIFY [T]ELEGRAM S[L]ACK [A]RANDR
+set $mode_launcher LCH: [C]HROME [F]IREFOX [S]UBL P[Y]CHARM GIT[K]RAKEN S[P]OTIFY [T]ELEGRAM S[L]ACK [A]RANDR
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {

@@ -49,16 +49,19 @@ cd $HOME/dotfiles/bin
 
 # rofi conf
 mkdir -p $HOME/.config/rofi
-ln -sf $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
+ln -svf $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
 # ln -s $HOME/dotfiles/teiler/config $HOME/.config/teiler/config
 
 # dunst conf
 mkdir -p $HOME/.config/dunst
-ln -sf $HOME/dotfiles/dunstrc $HOME/.config/dunst/dunstrc
+ln -svf $HOME/dotfiles/dunstrc $HOME/.config/dunst/dunstrc
 
 # sublime config
 rm -rf $HOME/.config/sublime-text-3/Packages/User
-ln -sv $HOME/dotfiles/sublime $HOME/.config/sublime-text-3/Packages/User
+ln -svf $HOME/dotfiles/sublime $HOME/.config/sublime-text-3/Packages/User
+
+# polybar
+ln -svf $HOME/dotfiles/polybar.ini $HOME/.config/polybar/config
 
 # i3 make and install
 $HOME/dotfiles/i3/make.sh
