@@ -54,6 +54,6 @@ done
 
 # Build the sample bar with all the keys set. Pass all arguments to the
 # `go build` command, allowing e.g. `./build.sh -o ~/bin/mybar`, or even
-# `./build.sh -race -tags debuglog`.
-go build "$@"
+# `./build.sh -race -tags debuglog`.#
+go build -o $HOME/dotfiles/bin/barista "$@"
 
