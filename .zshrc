@@ -9,6 +9,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# zsh is wrong
+
+alias tsc='nocorrect tsc'
+
 # Customize to your needs...
 
 alias seba='source env/bin/activate'

@@ -27,6 +27,8 @@
 
   po = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
 
+  ff = merge --ff --ff-only
+
   # Resets
   undo = reset --soft HEAD^
   r = reset
