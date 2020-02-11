@@ -96,15 +96,18 @@
 	program = gpg2
 [merge]
 	ff = no
-    tool = meld
+	tool = meld
 	ff = false
 [mergetool "meld"]
     # Choose one of these 2 lines (not both!) explained below.
     # cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
     cmd = meld --auto-merge "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
-
+[mergetool "p4merge"]
+    cmd = /home/will/bin/p4v-2019.2.1904275/bin/p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    trustExitCode = true
 [mergetool]
 	keepBackup = false
+    keepTemporaries = false
 [pull]
 	rebase = true
 [tag]
