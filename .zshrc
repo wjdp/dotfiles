@@ -18,6 +18,7 @@ alias tsc='nocorrect tsc'
 alias seba='source env/bin/activate'
 alias peba='source $(pipenv --venv)/bin/activate'
 alias manage='(cd src; pipenv run python manage.py &)'
+alias hk=heroku
 
 alias charm='pycharm-professional'
 
