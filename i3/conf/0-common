@@ -290,7 +290,7 @@ exec --no-startup-id compton --config $HOME/dotfiles/.compton.conf -b
 exec --no-startup-id dunst
 
 # Screenshots
-#bindsym --release Print exec --no-startup-id "import $HOME/Pictures/Screenshots/`date +%Y-%m-%dT%H:%M:%S`.png"
+bindsym --release Print exec --no-startup-id flameshot gui
 #bindsym Shift+Print exec
 #bindsym --release $mod+m exec scrot -s $HOME/Pictures/Screenshots/`date +%Y-%m-%dT%H:%M:%S`.png
 #bindsym $mod+m exec gnome-screenshot -ac
@@ -369,3 +369,5 @@ for_window [class="plexamp"] floating enable
 for_window [class="Ulauncher"] floating enable
 # Jetbrains IDEs
 for_window [class="java-lang-Thread"] floating enable
+for_window [class="Workrave"] border none
+for_window [class="Workrave"] floating enable
