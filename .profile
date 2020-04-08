@@ -29,3 +29,5 @@ fi
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export TERMINAL="alacritty"

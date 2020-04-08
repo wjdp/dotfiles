@@ -1,6 +1,7 @@
 #!/bin/bash
 
 declare -a files=(
+  ".alacritty.yml"
   ".compton.conf"
   ".gitconfig"
   ".gitignore_global"
