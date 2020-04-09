@@ -11,5 +11,5 @@ xmodmap -e "keycode 117 = Next"
 xmodmap -e "keycode 110 = Home"
 xmodmap -e "keycode 115 = End"
 
-nmcli radio wifi off
-nmcli con up udp
+#nmcli radio wifi off
+#nmcli con up udp
