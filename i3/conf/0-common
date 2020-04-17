@@ -371,3 +371,6 @@ for_window [class="Ulauncher"] floating enable
 for_window [class="java-lang-Thread"] floating enable
 for_window [class="Workrave"] border none
 for_window [class="Workrave"] floating enable
+
+for_window [class="Slack"] border pixel 4
+for_window [class="Mumble"] border pixel 4
