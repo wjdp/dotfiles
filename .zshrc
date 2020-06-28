@@ -50,6 +50,7 @@ alias ct='curl -w "    time_namelookup:  %{time_namelookup}
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
 alias psync="pass git pull && pass git push"
+alias potp="zbarimg -q --raw ~/Pictures/otp.png | pass otp append"
 
 function _wgp() {
   local PASSWORD_STORE_DIR=$HOME/.password-store-wegift
