@@ -95,7 +95,6 @@
 [gpg]
 	program = gpg2
 [merge]
-	ff = no
 	tool = meld
 	ff = false
 [mergetool "meld"]
@@ -133,3 +132,5 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[absorb]
+    maxStack = 50

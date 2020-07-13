@@ -49,6 +49,13 @@ alias ct='curl -w "    time_namelookup:  %{time_namelookup}
 
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
+alias ec="$EDITOR $HOME/.zshrc"
+alias sc="source $HOME/.zshrc"
+
+# Suffix alias
+alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv
+alias -s git="git clone"
+
 function _wgp() {
   local PASSWORD_STORE_DIR=$HOME/.password-store-wegift
   _pass $*
