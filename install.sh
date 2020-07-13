@@ -17,6 +17,7 @@ declare -a files=(
   ".zpreztorc"
   ".zprofile"
   ".zshrc"
+  ".p10k.zsh"
 )
 
 # dotfiles installer

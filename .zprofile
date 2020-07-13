@@ -108,3 +108,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 PATH="$PATH:$HOME/.local/bin"
 
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+
+export PATH="$HOME/.poetry/bin:$PATH"

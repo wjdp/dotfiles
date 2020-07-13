@@ -31,3 +31,5 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export TERMINAL="alacritty"
+
+export PATH="$HOME/.poetry/bin:$PATH"

@@ -56,6 +56,9 @@ alias sc="source $HOME/.zshrc"
 alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv
 alias -s git="git clone"
 
+alias psync="pass git pull && pass git push"
+alias potp="zbarimg -q --raw ~/Pictures/otp.png | pass otp append"
+
 function _wgp() {
   local PASSWORD_STORE_DIR=$HOME/.password-store-wegift
   _pass $*
