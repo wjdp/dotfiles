@@ -4,6 +4,7 @@ scion/static/product_assets
 *.swp
 *.swo
 *.swn
+.dmypy.json
 
 tmp/
 _var/
@@ -93,3 +94,5 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
+.glab-cli
