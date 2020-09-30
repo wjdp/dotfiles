@@ -11,3 +11,7 @@ sudo apt install -qy imagemagick libpq-dev libjpeg-dev libxslt1-dev
 
 # GUI software
 sudo apt install -qy audacity gimp gpick vlc mpv meld arandr baobab scrot
+
+# Fallback fonts
+
+sudo apt install -qy fonts-noto
