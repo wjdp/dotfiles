@@ -5,7 +5,8 @@
 		"journaling",
 		"Sass",
 		"multiline",
-		"errored"
+		"errored",
+		"Fallback"
 	],
 	"always_show_minimap_viewport": true,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
