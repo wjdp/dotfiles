@@ -65,5 +65,9 @@ ln -svf $HOME/dotfiles/sublime $HOME/.config/sublime-text-3/Packages/User
 # polybar
 ln -svf $HOME/dotfiles/polybar.ini $HOME/.config/polybar/config
 
+# fish shell
+
+ln -svf $HOME/dotfiles/fish $HOME/.config/fish
+
 # i3 make and install
 $HOME/dotfiles/i3/make.sh
