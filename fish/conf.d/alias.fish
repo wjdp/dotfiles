@@ -9,3 +9,7 @@ alias lt='ls --tree'
 alias dc=docker-compose
 
 alias psync='pass git pull && pass git push'
+
+function prj
+  cd ~/local/$argv
+end
