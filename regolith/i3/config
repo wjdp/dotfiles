@@ -86,6 +86,7 @@ set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/cahuella/rofi.rasi
 ## Launch // Application // <◇> Space ##
 set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app rofi -show drun -theme $rofiTheme
 bindsym $mod+space exec $i3-wm.program.launcher.app
+bindsym $mod+d exec $i3-wm.program.launcher.app
 
 ## Launch // Command // <◇><Shift> Space ##
 set_from_resource $i3-wm.program.launcher.cmd i3-wm.program.launcher.cmd rofi -show run -theme $rofiTheme
@@ -102,6 +103,9 @@ bindsym $mod+$alt+space exec $i3-wm.program.file_search
 ## Launch // Help // <◇> ? ##
 set_from_resource $i3-wm.program.help i3-wm.program.help /usr/bin/remontoire-toggle
 bindsym $mod+question exec --no-startup-id $i3-wm.program.help
+
+## Launch // Type Date // <◇> y ##
+bindsym $mod+y exec "sleep 0.5 && date +%Y-%m-%d  | sed 's/./usleep 2,str &,/g' | xargs -d, xte"
 
 ###############################################################################
 # Window and Workspace Navigation
@@ -155,6 +159,9 @@ bindsym $mod+x [urgent=latest] focus
 
 ## Navigate // Back and Forth // <◇> z ##
 bindsym $mod+z workspace back_and_forth
+
+## Navigate // Named Workspace // <◇>? _ ##
+bindsym $mod+minus exec i3-input -f 'pango:Inconsolata 20' -F 'workspace %s' -P 'GOTO: '
 
 
 ###############################################################################
@@ -242,6 +249,9 @@ bindsym $mod+$alt+Ctrl+7 move container to workspace number $ws17; workspace num
 bindsym $mod+$alt+Ctrl+8 move container to workspace number $ws18; workspace number $ws18
 bindsym $mod+$alt+Ctrl+9 move container to workspace number $ws19; workspace number $ws19
 
+## Modify // Move To Named Workspace // <◇><Shift> _ ##
+bindsym $mod+Shift+minus exec i3-input -f 'pango:Inconsolata 20' -F 'move container to workspace %s' -P 'MVTO: '
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -294,16 +304,27 @@ bindsym $mod+Escape mode "$mode_system"
 # System Management
 ###############################################################################
 
-## Modify // Settings // <◇> p ##
+## Launch // Settings // <◇> F2 ##
 set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-center
-bindsym $mod+p exec $i3-wm.program.settings
+bindsym $mod+F2 exec $i3-wm.program.settings
 
 ## Launch // Notification Viewer // <◇> n ##
 set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
-bindsym $mod+Shift+n exec $i3-wm.program.notification_ui
+bindsym $mod+Shift+n exec $i3-wm.program.notificatiohen_ui
 
 ## Launch // Screenshot // <PrtSc> ##
+## Launch // Screenshot // <◇> m ##
 bindsym --release Print exec --no-startup-id flameshot gui
+bindsym --release $mod+m exec --no-startup-id flameshot gui
+
+# Media controls
+## Launch // Play / Pause // <◇> p ##
+bindsym $mod+p exec playerctl play-pause
+## Launch // Prev Track // <◇> [ ##
+bindsym $mod+bracketleft exec playerctl previous
+## Launch // Next Track // <◇> ] ##
+bindsym $mod+bracketright exec playerctl next
+
 
 ###############################################################################
 # Workspace Management
@@ -476,10 +497,17 @@ bar {
       separator  "#444444"
 
 #                        BORDER  BACKGROUND TEXT
-      focused_workspace  $i3-wm.bar.workspace.focused.border.color      $i3-wm.bar.workspace.focused.background.color   $i3-wm.bar.workspace.focused.text.color
-      active_workspace   $i3-wm.bar.workspace.active.border.color       $i3-wm.bar.workspace.active.background.color    $i3-wm.bar.workspace.active.text.color
-      inactive_workspace $i3-wm.bar.workspace.inactive.border.color     $i3-wm.bar.workspace.inactive.background.color  $i3-wm.bar.workspace.inactive.text.color
-      urgent_workspace   $i3-wm.bar.workspace.urgent.border.color       $i3-wm.bar.workspace.urgent.background.color    $i3-wm.bar.workspace.urgent.text.color
+#      focused_workspace  $i3-wm.bar.workspace.focused.border.color      $i3-wm.bar.workspace.focused.background.color   $i3-wm.bar.workspace.focused.text.color
+#      active_workspace   $i3-wm.bar.workspace.active.border.color       $i3-wm.bar.workspace.active.background.color    $i3-wm.bar.workspace.active.text.color
+#      inactive_workspace $i3-wm.bar.workspace.inactive.border.color     $i3-wm.bar.workspace.inactive.background.color  $i3-wm.bar.workspace.inactive.text.color
+#      urgent_workspace   $i3-wm.bar.workspace.urgent.border.color       $i3-wm.bar.workspace.urgent.background.color    $i3-wm.bar.workspace.urgent.text.color
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #005B9F #005B9F #ffffff #831882   #285577
+client.focused_inactive #333333 #1D1D1D #ffffff #484e50   #5f676a
+client.unfocused        #1D1D1D #1D1D1D #888888 #292d2e   #222222
+client.urgent           #EA141E #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
   }
 }
 

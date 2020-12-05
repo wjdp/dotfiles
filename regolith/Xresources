@@ -1,0 +1,20 @@
+gnome.terminal.font:    JetBrains Mono 12
+i3-wm.bar.background.color:    #000000
+
+St.color0: #000000
+St.color1: #cc0000
+St.color2: #60C302
+St.color3: #ECC100
+St.color4: #0E71F1
+St.color5: #C901EA
+St.color6: #09bdbf
+St.color7: #D3D7CF
+
+St.color8: #555753
+St.color9: #ff3c3c
+St.color10: #8EF827
+St.color11: #FCE94F
+St.color12: #66ABF5
+St.color13: #f44be1
+St.color14: #11EEEE
+St.color15: #ffffff
