@@ -93,7 +93,7 @@
 [difftool "icdiff"]
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 [gpg]
-	program = gpg2
+	program = gpg
 [merge]
 	tool = meld
 	ff = false

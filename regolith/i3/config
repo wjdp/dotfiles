@@ -74,8 +74,12 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 ## Launch // Terminal // <◇> Enter ##
 bindsym $mod+Return exec /usr/bin/x-terminal-emulator
 
-## Launch // Browser // <◇> C ##
+## Launch // Web Browser // <◇> c ##
 bindsym $mod+c exec gtk-launch $(xdg-settings get default-web-browser)
+
+## Launch // File Browser // <◇> n ##
+set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nemo
+bindsym $mod+n exec $i3-wm.program.files
 
 set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/cahuella/rofi.rasi
 
@@ -132,10 +136,10 @@ bindsym $mod+Ctrl+8 workspace number $ws18
 bindsym $mod+Ctrl+9 workspace number $ws19
 
 ## Navigate // Next Workspace // <◇> Tab ##
-bindsym $mod+Tab workspace next
+bindsym $mod+Tab workspace next_on_output
 
 ## Navigate // Previous Workspace // <◇><Shift> Tab ##
-bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Shift+Tab workspace prev_on_output
 
 ## Navigate // Scratchpad // <◇><Ctrl> a ##
 bindsym $mod+Ctrl+a scratchpad show
@@ -169,7 +173,7 @@ bindsym $mod+Ctrl+Shift+Down move workspace to output down
 bindsym $mod+Ctrl+Shift+Up move workspace to output up
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
-## Modify // Split Direction // <◇> H / V ##
+## Modify // Split Direction // <◇> h / v ##
 bindsym $mod+h split h
 bindsym $mod+v split v
 
@@ -189,6 +193,9 @@ bindsym $mod+Shift+t focus mode_toggle
 ## Modify // Toggle Split // <◇> e ##
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle splith splitv
+
+## Modify // Sticky Toggle // <◇> k ##
+bindsym $mod+k sticky toggle
 
 ## Modify // Move Window to Workspace 1 - 10 // <◇><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -244,11 +251,11 @@ hide_edge_borders smart
 # Session Management
 ###############################################################################
 
-## Session // Exit App // <◇><Shift> q ##
+## Session // Exit App // <◇> q ##
 bindsym $mod+q [con_id="__focused__"] kill
 
-## Session // Terminate App // <◇><Alt> q ##
-bindsym $mod+$alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
+## Session // Terminate App // <◇><Shift> q ##
+bindsym $mod+Shift+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
 
 ## Session // Reload i3 Config // <◇><Shift> c ##
 bindsym $mod+Shift+c reload
@@ -260,9 +267,9 @@ bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
 ## Session // Restart i3 // <◇><Ctrl> r ##
 bindsym $mod+Ctrl+r restart
 
-## Session // Lock Screen // <◇> L ##
+## Session // Lock Screen // <◇> l ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
-bindsym $mod+l
+bindsym $mod+l exec $i3-wm.program.lock
 
 set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-session-quit --logout --no-prompt
 set_from_resource $i3-wm.program.reboot i3-wm.program.reboot /usr/bin/gnome-session-quit --reboot --no-prompt
@@ -283,33 +290,20 @@ mode "$mode_system" {
 }
 bindsym $mod+Escape mode "$mode_system"
 
-###############################################################################
+####################################k###########################################
 # System Management
 ###############################################################################
 
-## Modify // Settings // <◇> c ##
+## Modify // Settings // <◇> p ##
 set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-center
-##bindsym $mod+c exec $i3-wm.program.settings
-
-## Modify // Display Settings // <◇> d ##
-set_from_resource $i3-wm.program.display i3-wm.program.display gnome-control-center display
-##bindsym $mod+d exec $i3-wm.program.display
-
-## Modify // Wifi Settings // <◇> w ##
-set_from_resource $i3-wm.program.wifi i3-wm.program.wifi gnome-control-center wifi
-##bindsym $mod+w exec $i3-wm.program.wifi
-
-## Modify // Bluetooth Settings // <◇> b ##
-set_from_resource $i3-wm.program.bluetooth i3-wm.program.bluetooth gnome-control-center bluetooth
-##bindsym $mod+b exec $i3-wm.program.bluetooth
-
-## Launch // File Browser // <◇><Shift> n ##
-set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --new-window
-bindsym $mod+n exec $i3-wm.program.files
+bindsym $mod+p exec $i3-wm.program.settings
 
 ## Launch // Notification Viewer // <◇> n ##
 set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
 bindsym $mod+Shift+n exec $i3-wm.program.notification_ui
+
+## Launch // Screenshot // <PrtSc> ##
+bindsym --release Print exec --no-startup-id flameshot gui
 
 ###############################################################################
 # Workspace Management
@@ -390,7 +384,7 @@ popup_during_fullscreen $i3-wm.gaps.popup_during_fullscreen
 
 # window focus follows your mouse movements as the mouse crosses window borders
 set_from_resource $i3-wm.gaps.focus_follows_mouse i3-wm.gaps.focus_follows_mouse no
-focus_follows_mouse no
+focus_follows_mouse yes
 
 ###############################################################################
 # i3 Colors and Fonts
@@ -430,7 +424,7 @@ client.unfocused        $unfocused.color.border            $unfocused.color.back
 client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
 
 # Create variables from Xresources for i3bars's look.
-set_from_resource $i3-wm.bar.background.color i3-wm.bar.background.color "#002b36"
+set_from_resource $i3-wm.bar.background.color i3-wm.bar.background.color "#000000"
 set_from_resource $i3-wm.bar.statusline.color i3-wm.bar.statusline.color "#93a1a1"
 set_from_resource $i3-wm.bar.separator.color i3-wm.bar.separator.color "#268bd2"
 
@@ -451,7 +445,7 @@ set_from_resource $i3-wm.bar.workspace.urgent.background.color i3-wm.bar.workspa
 set_from_resource $i3-wm.bar.workspace.urgent.text.color i3-wm.bar.workspace.urgent.text.color "#fdf6e3"
 
 # Sets i3 font for dialogs
-set_from_resource $i3-wm.font i3-wm.font pango:Source Code Pro Medium 13
+set_from_resource $i3-wm.font i3-wm.font pango:DejaVu Sans Mono 9
 font $i3-wm.font
 
 ###############################################################################
@@ -459,8 +453,8 @@ font $i3-wm.font
 ###############################################################################
 
 set_from_resource $i3-wm.bar.position i3-wm.bar.position bottom
-set_from_resource $i3-wm.bar.font i3-wm.bar.font pango:Source Code Pro Medium 13, Material Design Icons 13
-set_from_resource $i3-wm.bar.separator i3-wm.bar.separator " "
+set_from_resource $i3-wm.bar.font i3-wm.bar.font pango:DejaVu Sans Mono 9, Material Design Icons 13
+set_from_resource $i3-wm.bar.separator i3-wm.bar.separator "|"
 set_from_resource $i3-wm.bar.trayoutput i3-wm.bar.trayoutput none
 set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbers yes
 
@@ -470,16 +464,16 @@ set_from_resource $i3-wm.bar.status_command i3-wm.bar.status_command i3xrocks -u
 # The bar configuration
 bar {
   position $i3-wm.bar.position
-  font $i3-wm.bar.font
+  font pango:DejaVu Sans Mono 10
   separator_symbol $i3-wm.bar.separator
-  status_command $i3-wm.bar.status_command
+  status_command i3status
   tray_output $i3-wm.bar.trayoutput
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
 
   colors {
-      background $i3-wm.bar.background.color
+      background #000000
       statusline $i3-wm.bar.statusline.color
-      separator  $i3-wm.bar.separator.color
+      separator  "#444444"
 
 #                        BORDER  BACKGROUND TEXT
       focused_workspace  $i3-wm.bar.workspace.focused.border.color      $i3-wm.bar.workspace.focused.background.color   $i3-wm.bar.workspace.focused.text.color
