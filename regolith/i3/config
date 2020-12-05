@@ -386,7 +386,7 @@ bindsym $mod+r mode "RESIZE"
 # Disable titlebar
 set_from_resource $i3-wm.window.border.size i3-wm.window.border.size 1
 set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.size 1
-default_border pixel $i3-wm.window.border.size
+default_border normal 1
 default_floating_border pixel $i3-wm.floatingwindow.border.size
 
 # Specify the distance between windows in pixels. (i3-gaps)
@@ -404,8 +404,8 @@ set_from_resource $i3-wm.gaps.popup_during_fullscreen i3-wm.gaps.popup_during_fu
 popup_during_fullscreen $i3-wm.gaps.popup_during_fullscreen
 
 # window focus follows your mouse movements as the mouse crosses window borders
-set_from_resource $i3-wm.gaps.focus_follows_mouse i3-wm.gaps.focus_follows_mouse no
-focus_follows_mouse yes
+set_from_resource $i3-wm.gaps.focus_follows_mouse i3-wm.gaps.focus_follows_mouse yes
+focus_follows_mouse $i3-wm.gaps.focus_follows_mouse
 
 ###############################################################################
 # i3 Colors and Fonts
@@ -439,10 +439,17 @@ set_from_resource $urgent.color.child_border i3-wm.client.urgent.color.child_bor
 
 # Window Border color
 # class                 border                             background                         text                               indicator                          child_border
-client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
-client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
-client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
-client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
+#client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
+#client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
+#client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
+#client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #005B9F #005B9F #ffffff #f505f3   #0e8ceb
+client.focused_inactive #333333 #1D1D1D #ffffff #484e50   #5f676a
+client.unfocused        #1D1D1D #1D1D1D #888888 #292d2e   #222222
+client.urgent           #EA141E #900000 #ffffff #900000   #ff0000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 # Create variables from Xresources for i3bars's look.
 set_from_resource $i3-wm.bar.background.color i3-wm.bar.background.color "#000000"
@@ -467,7 +474,7 @@ set_from_resource $i3-wm.bar.workspace.urgent.text.color i3-wm.bar.workspace.urg
 
 # Sets i3 font for dialogs
 set_from_resource $i3-wm.font i3-wm.font pango:DejaVu Sans Mono 9
-font $i3-wm.font
+font pango:DejaVu Sans Mono 9
 
 ###############################################################################
 # i3 Bar
@@ -502,12 +509,11 @@ bar {
 #      inactive_workspace $i3-wm.bar.workspace.inactive.border.color     $i3-wm.bar.workspace.inactive.background.color  $i3-wm.bar.workspace.inactive.text.color
 #      urgent_workspace   $i3-wm.bar.workspace.urgent.border.color       $i3-wm.bar.workspace.urgent.background.color    $i3-wm.bar.workspace.urgent.text.color
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #005B9F #005B9F #ffffff #831882   #285577
-client.focused_inactive #333333 #1D1D1D #ffffff #484e50   #5f676a
-client.unfocused        #1D1D1D #1D1D1D #888888 #292d2e   #222222
-client.urgent           #EA141E #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+        focused_workspace  #005B9F #005B9F #ffffff
+        active_workspace   #707070 #707070 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace   #900000 #900000 #ffffff
+        binding_mode       #CC0000 #900000 #ffffff
   }
 }
 
