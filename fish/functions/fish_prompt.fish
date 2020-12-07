@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.VExzD5/fish_prompt.fish @ line 2
+# Defined in /tmp/fish.5bHQsu/fish_prompt.fish @ line 2
 function fish_prompt
   set -l last_command_status $status
   set -l cwd
@@ -28,11 +28,6 @@ function fish_prompt
     echo -n -s $error_color $fish $normal_color
   end
   
-  if set -q VIRTUAL_ENV
-    echo -n -s " "
-    echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal)
-  end
-
   if git_is_repo
     if test "$theme_short_path" = 'yes'
       set root_folder (command git rev-parse --show-toplevel 2> /dev/null)
