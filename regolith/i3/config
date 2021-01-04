@@ -495,7 +495,7 @@ bar {
   font pango:DejaVu Sans Mono 10
   separator_symbol $i3-wm.bar.separator
   status_command i3status
-  tray_output $i3-wm.bar.trayoutput
+  tray_output primary
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
 
   colors {
