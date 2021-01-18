@@ -71,25 +71,25 @@ set_from_resource $screen_left wjdp.screen_left "DisplayPort-1"
 set_from_resource $screen_right wjdp.screen_right "HDMI-A-0"
 
 # Need to refer by index https://github.com/regolith-linux/regolith-desktop/issues/84#issuecomment-520169715
-workspace 1  output $screen_left
-workspace 2  output $screen_left
-workspace 3  output $screen_left
-workspace 4  output $screen_left
-workspace 5  output $screen_left
-workspace 6  output $screen_left
-workspace 7  output $screen_left
-workspace 8  output $screen_left
-workspace 9  output $screen_left
-workspace 10 output $screen_right
-workspace 11 output $screen_right
-workspace 12 output $screen_right
-workspace 13 output $screen_right
-workspace 14 output $screen_right
-workspace 15 output $screen_right
-workspace 16 output $screen_right
-workspace 17 output $screen_right
-workspace 18 output $screen_right
-workspace 19 output $screen_right
+workspace "$ws1"  output $screen_left
+workspace "$ws2"  output $screen_left
+workspace "$ws3"  output $screen_left
+workspace "$ws4"  output $screen_left
+workspace "$ws5"  output $screen_left
+workspace "$ws6"  output $screen_left
+workspace "$ws7"  output $screen_left
+workspace "$ws8"  output $screen_left
+workspace "$ws9"  output $screen_left
+workspace "$ws10" output $screen_right
+workspace "$ws11" output $screen_right
+workspace "$ws12" output $screen_right
+workspace "$ws13" output $screen_right
+workspace "$ws14" output $screen_right
+workspace "$ws15" output $screen_right
+workspace "$ws16" output $screen_right
+workspace "$ws17" output $screen_right
+workspace "$ws18" output $screen_right
+workspace "$ws19" output $screen_right
 
 ###############################################################################
 # Launcher dialogs
@@ -570,3 +570,16 @@ set_from_resource $i3-wm.program.2 i3-wm.program.2 :
 exec --no-startup-id $i3-wm.program.2
 set_from_resource $i3-wm.program.3 i3-wm.program.3 :
 exec --no-startup-id $i3-wm.program.3
+
+####
+# Floating windows
+####
+
+for_window [class="Arandr"] floating enable
+for_window [class="SimpleScreenRecorder"] floating enable
+for_window [class="plexamp"] floating enable
+for_window [class="Ulauncher"] floating enable
+for_window [class="java-lang-Thread"] floating enable
+for_window [class="Workrave"] border none
+for_window [class="Workrave"] floating enable
+for_window [class="jetbrains-toolbox"] floating enable
