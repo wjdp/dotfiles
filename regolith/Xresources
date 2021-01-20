@@ -18,3 +18,8 @@ St.color12: #66ABF5
 St.color13: #f44be1
 St.color14: #11EEEE
 St.color15: #ffffff
+
+i3-wm.program.lock: i3lock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firewatch-hike.png
+
+screen_left: DisplayPort-1
+screen_right: HDMI-A-0
