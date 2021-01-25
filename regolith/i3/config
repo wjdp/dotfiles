@@ -591,3 +591,7 @@ for_window [class="jetbrains-idea" title="win0"] floating enable
 
 assign [class="jetbrains-pycharm"] "$ws1"
 for_window [class="jetbrains-pycharm"] move to workspace "$ws1"
+
+assign [class="Slack"] "$ws19"
+assign [class="Mumble"] "$ws19"
+assign [class="Spotify"] "$ws18"
