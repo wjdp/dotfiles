@@ -276,6 +276,9 @@ bindsym $mod+$alt+Ctrl+9 move container to workspace number $ws19; workspace num
 ## Modify // Move To Named Workspace // <◇><Shift> _ ##
 bindsym $mod+Shift+minus exec i3-input -f 'pango:Inconsolata 20' -F 'move container to workspace %s' -P 'MVTO: '
 
+## Modify // Tab Name // <◇># _ ##
+bindsym $mod+numbersign exec i3-input -f 'pango:Inconsolata 20' -F 'title_format %s' -P 'NAME: '
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -470,7 +473,7 @@ set_from_resource $urgent.color.child_border i3-wm.client.urgent.color.child_bor
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #005B9F #005B9F #ffffff #f505f3   #0e8ceb
-client.focused_inactive #333333 #1D1D1D #ffffff #484e50   #5f676a
+client.focused_inactive #333333 #184363 #ffffff #484e50   #5f676a
 client.unfocused        #1D1D1D #1D1D1D #888888 #292d2e   #222222
 client.urgent           #EA141E #900000 #ffffff #900000   #ff0000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
