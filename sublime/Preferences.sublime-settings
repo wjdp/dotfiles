@@ -6,7 +6,10 @@
 		"Sass",
 		"multiline",
 		"errored",
-		"Fallback"
+		"Fallback",
+		"",
+		"naïve",
+		"transpiler"
 	],
 	"always_show_minimap_viewport": true,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",

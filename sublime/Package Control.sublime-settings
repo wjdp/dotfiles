@@ -20,6 +20,7 @@
 		"Pretty JSON",
 		"Sass",
 		"TypeScript",
-		"TypeScript Syntax"
+		"TypeScript Syntax",
+		"WordCount"
 	]
 }
