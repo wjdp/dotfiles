@@ -406,6 +406,15 @@ mode "RESIZE" {
 }
 bindsym $mod+r mode "RESIZE"
 
+###
+# HA
+###
+
+bindsym $mod+Home exec $HOME/dotfiles/bin/hass service call scene.turn_on --arguments entity_id=scene.bedroom_day &>> "$HOME/i3.log"
+bindsym $mod+Prior exec $HOME/dotfiles/bin/hass service call scene.turn_on --arguments entity_id=scene.bedroom_evening_desk
+bindsym $mod+Next exec $HOME/dotfiles/bin/hass service call scene.turn_on --arguments entity_id=scene.bedroom_evening
+bindsym $mod+End exec $HOME/dotfiles/bin/hass service call scene.turn_on --arguments entity_id=scene.bedroom_off
+
 ###############################################################################
 # i3 Appearance and Behavior
 ###############################################################################

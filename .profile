@@ -33,3 +33,6 @@ export TERMINAL="alacritty"
 
 export PATH="$HOME/.poetry/bin:$PATH"
 source "$HOME/.cargo/env"
+
+export HASS_SERVER=https://ha.pimblett.me.uk
+export HASS_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NTY2YWRmMjE1Y2U0ZDFjYmYzMjAzOGVmOTljNGEyNSIsImlhdCI6MTYxMTc3MDQ2NiwiZXhwIjoxOTI3MTMwNDY2fQ.CM5M3XEI4CZs0k0vZpGSg9Z57R9HD0pXGYaz1l7zHDM
