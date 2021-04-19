@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.5bHQsu/fish_prompt.fish @ line 2
+# Defined interactively
 function fish_prompt
   set -l last_command_status $status
   set -l cwd
