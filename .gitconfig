@@ -134,3 +134,5 @@
 	whitespace = red reverse
 [absorb]
     maxStack = 50
+[init]
+	defaultBranch = master
