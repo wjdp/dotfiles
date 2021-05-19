@@ -67,8 +67,9 @@ set_from_resource $ws17 i3-wm.workspace.17.name "17"
 set_from_resource $ws18 i3-wm.workspace.18.name "18"
 #set_from_resource $ws19 i3-wm.workspace.19.name "19"
 
-set_from_resource $screen_left wjdp.screen_left "DisplayPort-1"
-set_from_resource $screen_right wjdp.screen_right "HDMI-A-0"
+set_from_resource $screen_left wjdp.screen_left "HDMI-A-0"
+set_from_resource $screen_right wjdp.screen_right "DisplayPort-1"
+set_from_resource $screen_internal wjdp.screen_internal "eDP"
 
 # Need to refer by index https://github.com/regolith-linux/regolith-desktop/issues/84#issuecomment-520169715
 workspace "$ws1"  output $screen_left
@@ -79,17 +80,15 @@ workspace "$ws5"  output $screen_left
 workspace "$ws6"  output $screen_left
 workspace "$ws7"  output $screen_left
 workspace "$ws8"  output $screen_left
-#workspace "$ws9"  output $screen_left
-#workspace "$ws10" output $screen_right
-workspace "$ws11" output $screen_right
-workspace "$ws12" output $screen_right
-workspace "$ws13" output $screen_right
-workspace "$ws14" output $screen_right
-workspace "$ws15" output $screen_right
-workspace "$ws16" output $screen_right
-workspace "$ws17" output $screen_right
-workspace "$ws18" output $screen_right
-#workspace "$ws19" output $screen_right
+
+workspace "$ws11" output $screen_right $screen_internal
+workspace "$ws12" output $screen_right $screen_internal
+workspace "$ws13" output $screen_right $screen_internal
+workspace "$ws14" output $screen_right $screen_internal
+workspace "$ws15" output $screen_right $screen_internal
+workspace "$ws16" output $screen_right $screen_internal
+workspace "$ws17" output $screen_right $screen_internal
+workspace "$ws18" output $screen_right $screen_internal
 
 ###############################################################################
 # Launcher dialogs
@@ -607,3 +606,4 @@ for_window [class="jetbrains-pycharm"] move to workspace "$ws1"
 assign [class="Slack"] "$ws18"
 assign [class="Mumble"] "$ws18"
 assign [class="Spotify"] "$ws17"
+assign [class="zoom"] "$ws15"
