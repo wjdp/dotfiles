@@ -84,5 +84,6 @@
 	"tidytabs_threshold": true,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"word_wrap": "auto"
+	"word_wrap": "auto",
+    "gtk_client_side_window_decorations": false,
 }
