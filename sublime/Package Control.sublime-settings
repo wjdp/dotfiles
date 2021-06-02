@@ -17,10 +17,9 @@
 		"Liquid",
 		"Markdown Extended",
 		"Package Control",
-		"Pretty JSON",
 		"Sass",
 		"TypeScript",
 		"TypeScript Syntax",
-		"WordCount"
-	]
+		"WordCount",
+	],
 }
