@@ -16,12 +16,14 @@
 		"spec'ing",
 		"refactor",
 		"refactored",
-		"performant"
+		"performant",
+		"pydantic",
+		"dataclass",
 	],
 	"always_show_minimap_viewport": true,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"default_line_ending": "unix",
-	"dictionary": "Packages/Language - English/en_GB.dic",
+	"dictionary": "Dictionaries/en_GB.dic",
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
@@ -60,7 +62,7 @@
 	[
 		"subpixel_antialias"
 	],
-	"font_size": 11,
+	"font_size": 15,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":

@@ -48,7 +48,9 @@ ln -svf $HOME/dotfiles/dunstrc $HOME/.config/dunst/dunstrc
 
 # sublime config
 rm -rf $HOME/.config/sublime-text-3/Packages/User
-ln -svf $HOME/dotfiles/sublime $HOME/.config/sublime-text-3/Packages/User
+ln -svf $HOME/dotfiles/config/sublime-text-3 $HOME/.config/sublime-text-3/Packages/User
+rm -rf $HOME/.config/sublime-merge/Packages/User
+ln -svf $HOME/dotfiles/config/sublime-merge $HOME/.config/sublime-merge/Packages/User
 
 # polybar
 ln -svf $HOME/dotfiles/polybar.ini $HOME/.config/polybar/config
