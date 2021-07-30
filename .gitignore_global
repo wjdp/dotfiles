@@ -98,3 +98,4 @@ fabric.properties
 .glab-cli
 
 .venv
+*.code-workspace
