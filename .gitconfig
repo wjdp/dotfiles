@@ -57,6 +57,8 @@
   today = log --since="04:00" --pretty=format:"%C(yellow)%h\\ %Cblue[%cn]\\ %Creset%s\\ "
 
   yesterday = log --since=yesterday --before=4am --pretty=format:"%C(yellow)%h\\ %Cblue[%cn]\\ %Creset%s\\ "
+  
+  wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
 
   # Diff current
   d = diff
