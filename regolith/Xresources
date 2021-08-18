@@ -19,6 +19,8 @@ St.color13: #f44be1
 St.color14: #11EEEE
 St.color15: #ffffff
 
+gnome.wallpaper: $HOME/dotfiles/wallpapers/ESP_016895_1525_desktop.jpg
+
 i3-wm.program.lock: i3lock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firewatch-hike.png
 
 wjdp.screen_left: HDMI-A-0
