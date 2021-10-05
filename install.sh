@@ -47,9 +47,11 @@ mkdir -p $HOME/.config/dunst
 ln -svf $HOME/dotfiles/dunstrc $HOME/.config/dunst/dunstrc
 
 # sublime config
-rm -rf $HOME/.config/sublime-text-3/Packages/User
-ln -svf $HOME/dotfiles/config/sublime-text-3 $HOME/.config/sublime-text-3/Packages/User
+rm -rf $HOME/.config/sublime-text/Packages/User
+mkdir -p $HOME/.config/sublime-text/Packages
+ln -svf $HOME/dotfiles/config/sublime-text $HOME/.config/sublime-text/Packages/User
 rm -rf $HOME/.config/sublime-merge/Packages/User
+mkdir -p $HOME/.config/sublime-merge/Packages
 ln -svf $HOME/dotfiles/config/sublime-merge $HOME/.config/sublime-merge/Packages/User
 
 # polybar
