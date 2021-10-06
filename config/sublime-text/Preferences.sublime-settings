@@ -62,7 +62,7 @@
 	[
 		"subpixel_antialias"
 	],
-	"font_size": 15,
+	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -88,4 +88,5 @@
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": "auto",
     "gtk_client_side_window_decorations": false,
+	"remember_workspace": false,
 }

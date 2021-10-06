@@ -11,6 +11,8 @@
 	[
 		"idempotency",
 		"middleware",
+		"customers",
 	],
 	"diff_style": "auto",
+	"remember_workspace": false
 }

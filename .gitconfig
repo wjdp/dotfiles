@@ -16,6 +16,7 @@
   a = add
   br = branch
   co = checkout
+  sw = switch
   cp = cherry-pick
   who = shortlog -sn
   psh = push

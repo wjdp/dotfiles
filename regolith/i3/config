@@ -594,7 +594,8 @@ for_window [class="java-lang-Thread"] floating enable
 for_window [class="Workrave"] border none
 for_window [class="Workrave"] floating enable
 for_window [class="jetbrains-toolbox"] floating enable
-for_window [class="jetbrains-idea" title="win0"] floating enable
+for_window [class="1Password"] floating enable
+for_window [class="1password"] floating enable
 
 ####
 # Workspace assignment
