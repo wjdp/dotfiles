@@ -308,8 +308,8 @@ set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method
 bindsym $mod+l exec $i3-wm.program.lock
 
 set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-session-quit --logout --no-prompt
-set_from_resource $i3-wm.program.reboot i3-wm.program.reboot /usr/bin/gnome-session-quit --reboot --no-prompt
-set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown /usr/bin/gnome-session-quit --power-off --no-prompt
+set_from_resource $i3-wm.program.reboot i3-wm.program.reboot reboot
+set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown poweroff
 set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
 
 set $mode_system SYS
