@@ -405,6 +405,11 @@ mode "RESIZE" {
 }
 bindsym $mod+r mode "RESIZE"
 
+bindsym --whole-window --border $mod+shift+button4 resize shrink height 5 px or 5 ppt
+bindsym --whole-window --border $mod+shift+button5 resize grow height 5 px or 5 ppt
+bindsym --whole-window --border $mod+button5 resize shrink width 5 px or 5 ppt
+bindsym --whole-window --border $mod+button4 resize grow width 5 px or 5 ppt
+
 ###
 # HA
 ###
