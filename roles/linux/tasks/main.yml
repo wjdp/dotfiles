@@ -1,0 +1,7 @@
+- block:
+    - name: Set inotify limit
+      include_role:
+        name: gantsign.inotify
+      vars:
+        inotify_max_user_watches: 100000
+  become: yes
