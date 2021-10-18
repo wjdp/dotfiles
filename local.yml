@@ -2,4 +2,5 @@
   hosts: "{{ host }}"
   roles:
     - { role: linux, tags: ["linux"] }
+    - { role: gnome, tags: ["gnome"] }
     - { role: git, tags: ["git"] }

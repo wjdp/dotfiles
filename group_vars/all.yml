@@ -3,3 +3,6 @@ dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
 
 full_name: Will Pimblett
 git_signing_key: null
+
+apt_packages:
+  - dconf-editor
