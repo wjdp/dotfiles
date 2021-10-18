@@ -1,0 +1,4 @@
+dux
+
+[all:vars]
+ansible_connection=local

@@ -1,0 +1,23 @@
+- name: Install git with apt
+  apt: name=git state=present
+  become_method: sudo
+
+- name: Link global gitignore file
+  file:
+    src: "{{ dotfiles_home }}/roles/git/files/gitignore_global.link"
+    dest: "{{ dotfiles_user_home }}/.gitignore_global"
+    state: link
+    force: yes
+
+- name: Link gitattributes file
+  file:
+    src: "{{ dotfiles_home }}/roles/git/files/gitattributes_global.link"
+    dest: "{{ dotfiles_user_home }}/.gitattributes_global"
+    state: link
+    force: yes
+
+- name: Make sure gitconfig is up to date
+  template:
+    src: "gitconfig.j2"
+    dest: "{{ dotfiles_user_home }}/.gitconfig"
+    mode: 0664

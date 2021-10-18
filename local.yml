@@ -1,0 +1,4 @@
+- name: Set up local machine
+  hosts: "{{ host }}"
+  roles:
+    - { role: git, tags: ["git"] }
