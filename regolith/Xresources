@@ -21,7 +21,7 @@ St.color15: #ffffff
 
 gnome.wallpaper: $HOME/dotfiles/wallpapers/ESP_016895_1525_desktop.jpg
 
-i3-wm.program.lock: i3lock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firewatch-hike.png
+i3-wm.program.lock: i3lock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firewatch-hike.png && playerctl pause
 
 wjdp.screen_left: HDMI-A-0
 wjdp.screen_right: DisplayPort-1
