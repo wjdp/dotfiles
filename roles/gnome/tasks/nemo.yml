@@ -1,5 +1,5 @@
 - name: Set dconf variables for Nemo
-  loop: 
+  loop:
     - key: "/org/nemo/preferences/default-folder-viewer"
       value: "'list-view'"
     - key: "/org/nemo/preferences/show-computer-icon-toolbar"
@@ -21,5 +21,5 @@
     - key: "/org/nemo/preferences/date-format"
       value: "'iso'"
   dconf:
-    key: "/org/nemo/preferences/default-folder-viewer"
-    value: "'list-view'"
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
