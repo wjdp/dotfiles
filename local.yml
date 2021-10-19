@@ -6,3 +6,4 @@
     - { role: fonts, tags: ["fonts"] }
     - { role: git, tags: ["git"] }
     - { role: google-chrome, tags: ["google-chrome"] }
+    - { role: zsa, tags: ["zsa"] }

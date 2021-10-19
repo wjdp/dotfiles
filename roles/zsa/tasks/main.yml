@@ -1,0 +1,20 @@
+- name: Copy udev rules for ZSA keyboards
+  copy:
+    src: 50-oryx.rules
+    dest: /etc/udev/rules.d/50-oryx.rules
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  register: udev_copy
+
+- name: Add group "plugdev"
+  ansible.builtin.group:
+    name: plugdev
+    state: present
+
+- name: Add user "{{ user }}" to group plugdev
+  user:
+    name: "{{ user }}"
+    groups: plugdev
+    append: yes
