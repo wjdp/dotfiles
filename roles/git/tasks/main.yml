@@ -20,7 +20,7 @@
     state: link
     force: yes
 
-- name: Make sure gitconfig is up to date
+- name: Update gitconfig
   template:
     src: "gitconfig.j2"
     dest: "{{ dotfiles_user_home }}/.gitconfig"

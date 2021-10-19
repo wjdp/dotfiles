@@ -1,0 +1,24 @@
+- name: Link i3 config
+  file:
+    src: "{{ dotfiles_home }}/roles/regolith/files/i3.config"
+    dest: "{{ dotfiles_user_home }}/.config/regolith/i3/config"
+    state: link
+    force: yes
+
+- name: Link compton config
+  file:
+    src: "{{ dotfiles_home }}/roles/regolith/files/compton.config"
+    dest: "{{ dotfiles_user_home }}/.config/regolith/compton/config"
+    state: link
+    force: yes
+
+- name: Update Xresources
+  template:
+    src: "Xresources.j2"
+    dest: "{{ dotfiles_user_home }}/.config/regolith/Xresources"
+    mode: 0664
+  register: xresources
+
+- name: Reload & restart i3
+  when: xresources.changed
+  command: "regolith-look refresh"

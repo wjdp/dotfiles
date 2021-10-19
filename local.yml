@@ -3,6 +3,7 @@
   roles:
     - { role: linux, tags: ["linux"] }
     - { role: gnome, tags: ["gnome"] }
+    - { role: regolith, tags: ["regolith"] }
     - { role: fonts, tags: ["fonts"] }
     - { role: git, tags: ["git"] }
     - { role: google-chrome, tags: ["google-chrome"] }
