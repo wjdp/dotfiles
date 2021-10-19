@@ -1,0 +1,9 @@
+- name: Copy user fonts
+  copy:
+    src: fonts/
+    dest: ~/.fonts
+  register: fonts_copy
+
+- name: Update fonts cache
+  command: fc-cache -f -v
+  when: fonts_copy.changed
