@@ -1,0 +1,82 @@
+- name: Install fish
+  apt: name=fish state=present
+  become_method: sudo
+
+- name: Get shell executable location
+  command: which fish
+  register: fish
+  changed_when: fish.rc != 0
+
+- name: Set fish as default shell
+  user: name="{{ user }}" shell="{{ fish.stdout }}"
+  become: yes
+
+- name: Ensure config directory exists
+  file: "path={{ fish_dir }} state=directory"
+
+- name: Link config files
+  loop:
+    - functions
+    - completions
+    - conf.d
+    - config.fish
+  file:
+    src: "{{ dotfiles_home }}/roles/fish/files/{{item}}"
+    dest: "{{ fish_dir }}/{{item}}"
+    state: link
+    force: yes
+
+- name: Add fish paths
+  loop:
+    - "~/bin"
+    - "~/dotfiles/bin"
+    - "node_modules/bin"
+  shell: "echo fish_add_path {{item}} | fish"
+  register: fish_path
+  failed_when: fish_path.rc > 1
+  changed_when: fish_path.rc == 0
+
+- name: Add fish abbreviations
+  loop:
+    - word: dc
+      expansion: docker-compose
+    - word: g
+      expansion: git
+    - word: gc
+      expansion: git commit
+    - word: p
+      expansion: gopass
+    - word: tf
+      expansion: terraform
+  shell: "echo abbr --add {{ item.word}} '{{ item.expansion }}' | fish"
+  register: fish_abbr
+  failed_when: fish_abbr.rc > 1
+  changed_when: fish_abbr.rc == 1
+
+- name: Set fish variables
+  loop:
+    - name: fish_greeting
+      value: ""
+    - name: EDITOR
+      value: vim
+  shell: "echo set -U {{ item.name }} '{{ item.value }}' | fish"
+  register: fish_set
+  failed_when: fish_set.rc > 1
+  changed_when: fish_set.rc == 1
+
+- name: Check if omf is installed
+  stat:
+    path: "{{ omf_dir }}"
+  register: omf
+
+- name: Clone oh-my-fish repo
+  when: not omf.stat.exists
+  git:
+    repo: "https://github.com/oh-my-fish/oh-my-fish"
+    version: v7
+    dest: "/tmp/omf"
+    clone: yes
+
+- name: Install oh-my-fish
+  when: not omf.stat.exists
+  command: /tmp/omf/bin/install -y --offline --noninteractive

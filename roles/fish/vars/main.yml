@@ -1,0 +1,2 @@
+fish_dir: "{{ dotfiles_user_home }}/.config/fish"
+omf_dir: "{{ dotfiles_user_home }}/.local/share/omf"

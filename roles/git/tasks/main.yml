@@ -1,8 +1,8 @@
-- name: Install git with apt
+- name: Install git
   apt: name=git state=present
   become_method: sudo
 
-- name: Install git-lfs with apt
+- name: Install git-lfs
   apt: name=git-lfs state=present
   become_method: sudo
 

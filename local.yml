@@ -2,6 +2,7 @@
   hosts: "{{ host }}"
   roles:
     - { role: linux, tags: ["linux"] }
+    - { role: fish, tags: ["fish"] }
     - { role: fonts, tags: ["fonts"] }
     - { role: gnome, tags: ["gnome"] }
     - { role: regolith, tags: ["regolith"] }
