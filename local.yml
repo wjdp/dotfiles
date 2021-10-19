@@ -2,9 +2,9 @@
   hosts: "{{ host }}"
   roles:
     - { role: linux, tags: ["linux"] }
+    - { role: fonts, tags: ["fonts"] }
     - { role: gnome, tags: ["gnome"] }
     - { role: regolith, tags: ["regolith"] }
-    - { role: fonts, tags: ["fonts"] }
     - { role: git, tags: ["git"] }
     - { role: vim, tags: ["vim"] }
     - { role: google-chrome, tags: ["google-chrome"] }
