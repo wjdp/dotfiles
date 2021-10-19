@@ -1,0 +1,49 @@
+- name: Add Sublime apt key
+  become: yes
+  apt_key:
+    url: "{{ sublime_key_url }}"
+    state: present
+
+- name: Add Sublime repo
+  become: yes
+  copy:
+    content: "{{ sublime_repo }}"
+    dest: "{{ apt_file }}"
+    owner: root
+    group: root
+    mode: 0644
+  register: sublime_repo_file
+
+- name: apt update
+  when: sublime_repo_file.changed
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: Install sublime-text and sublime-merge
+  become: yes
+  apt:
+    name:
+      - sublime-text
+      - sublime-merge
+    state: present
+
+- name: Ensure config directories exist
+  file: "path={{ item }} state=directory"
+  loop:
+    - "{{ sublime_text_config_dir }}/Packages"
+    - "{{ sublime_merge_config_dir }}/Packages"
+
+- name: Link sublime-text config
+  file:
+    src: "{{ dotfiles_home }}/roles/sublime/files/sublime-text"
+    dest: "{{ sublime_text_config_dir }}/Packages/User"
+    state: link
+    force: yes
+
+- name: Link sublime-merge config
+  file:
+    src: "{{ dotfiles_home }}/roles/sublime/files/sublime-merge"
+    dest: "{{ sublime_merge_config_dir }}/Packages/User"
+    state: link
+    force: yes

@@ -1,8 +1,0 @@
-{
-	"detect_indentation": false,
-	"extensions":
-	[
-		"es6"
-	],
-	"tab_size": 4
-}

@@ -8,5 +8,6 @@
     - { role: regolith, tags: ["regolith"] }
     - { role: git, tags: ["git"] }
     - { role: vim, tags: ["vim"] }
+    - { role: sublime, tags: ["sublime"] }
     - { role: google-chrome, tags: ["google-chrome"] }
     - { role: zsa, tags: ["zsa"] }
