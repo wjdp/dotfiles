@@ -4,3 +4,4 @@
     - { role: linux, tags: ["linux"] }
     - { role: gnome, tags: ["gnome"] }
     - { role: git, tags: ["git"] }
+    - { role: google-chrome, tags: ["google-chrome"] }
