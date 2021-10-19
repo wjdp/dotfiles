@@ -1,0 +1,34 @@
+# Stick this in your home directory and point your Global Git config at it by running:
+#
+#  $ git config --global core.attributesfile ~/.gitattributes
+#
+# See https://tekin.co.uk/2020/10/better-git-diff-output-for-ruby-python-elixir-and-more for more details
+
+*.c     diff=cpp
+*.c++   diff=cpp
+*.cc    diff=cpp
+*.cpp   diff=cpp
+*.cs    diff=csharp
+*.css   diff=css
+*.el    diff=lisp
+*.ex    diff=elixir
+*.exs   diff=elixir
+*.go    diff=golang
+*.h     diff=cpp
+*.h++   diff=cpp
+*.hh    diff=cpp
+*.hpp   diff=cpp
+*.html  diff=html
+*.js    diff=javascript
+*.lisp  diff=lisp
+*.m     diff=objc
+*.md    diff=markdown
+*.mm    diff=objc
+*.php   diff=php
+*.pl    diff=perl
+*.py    diff=python
+*.rake  diff=ruby
+*.rb    diff=ruby
+*.rs    diff=rust
+*.ts    diff=javascript
+*.xhtml diff=html

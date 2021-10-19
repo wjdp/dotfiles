@@ -1,0 +1,2 @@
+- name: Configure nemo
+  include_tasks: nemo.yml

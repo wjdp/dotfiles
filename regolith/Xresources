@@ -19,10 +19,13 @@ St.color13: #f44be1
 St.color14: #11EEEE
 St.color15: #ffffff
 
-gnome.wallpaper: $HOME/dotfiles/wallpapers/ESP_016895_1525_desktop.jpg
+gnome.wallpaper: $HOME/dotfiles/wallpapers/dennis-schweizer-18nR85wWyLY-unsplash
 
 i3-wm.program.lock: i3lock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firewatch-hike.png && playerctl pause
 
-wjdp.screen_left: HDMI-A-0
-wjdp.screen_right: DisplayPort-1
+wjdp.screen_left: DisplayPort-1
+wjdp.screen_right: HDMI-A-0
+#wjdp.screen_left: DisplayPort-0
+#wjdp.screen_left: HDMI-A-0
+#wjdp.screen_right: eDP
 wjdp.screen_internal: eDP

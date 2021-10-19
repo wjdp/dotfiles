@@ -1,15 +1,20 @@
 [user]
-  name = Will Pimblett
-  email = will@wjdp.uk
-  signingkey = 4DC1AA6287F8CC4A
+  name = {{ full_name }}
+  email = {{ git_email }}
+{% if git_signing_key %}
+  signingkey = {{ git_signing_key }}
+{% endif %}
 [core]
   excludesfile = ~/.gitignore_global
+  attributesfile = ~/.gitattributes_global
   editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
   default = simple
+{% if git_signing_key %}
 [commit]
   gpgsign = true
+{% endif %}
 [alias]
   st = status -sb
   prune = fetch --prune
