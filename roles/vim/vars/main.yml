@@ -1,0 +1,2 @@
+vim_dir: "{{ dotfiles_user_home }}/.vim"
+vimrc: "{{ dotfiles_user_home }}/.vimrc"

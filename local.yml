@@ -6,5 +6,6 @@
     - { role: regolith, tags: ["regolith"] }
     - { role: fonts, tags: ["fonts"] }
     - { role: git, tags: ["git"] }
+    - { role: vim, tags: ["vim"] }
     - { role: google-chrome, tags: ["google-chrome"] }
     - { role: zsa, tags: ["zsa"] }

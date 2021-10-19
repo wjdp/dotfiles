@@ -1,10 +1,7 @@
-call pathogen#infect()
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-set hidden
+execute pathogen#infect()
+filetype plugin indent on
 
-let g:solarized_termcolors=256
-colorscheme solarized
+set hidden
 set background=dark
 
 set nu
@@ -34,6 +31,20 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
+" Configuration vim Airline
+set laststatus=2
+
+let g:airline#extensions#tabline#enabled=1
+let g:airline_powerline_fonts=1
+
+" Configuration NERDTree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.pyc$']
 let NERDTreeDirArrows=0
 
+" Configuration Vim.FZF
+let g:fzf_preview_window = 'right:50%'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
