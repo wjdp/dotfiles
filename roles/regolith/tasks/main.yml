@@ -1,3 +1,10 @@
+- name: Ensure regolith dir exists
+  file: "path={{ dotfiles_user_home }}/.config/regolith state=directory"
+- name: Ensure i3 dir exists
+  file: "path={{ dotfiles_user_home }}/.config/regolith/i3 state=directory"
+- name: Ensure compton dir exists
+  file: "path={{ dotfiles_user_home }}/.config/regolith/compton state=directory"
+
 - name: Link i3 config
   file:
     src: "{{ dotfiles_home }}/roles/regolith/files/i3.config"
@@ -19,6 +26,15 @@
     mode: 0664
   register: xresources
 
+- name: Ensure i3status dir exists
+  file: "path={{ dotfiles_user_home }}/.config/i3status state=directory"
+- name: Update i3status
+  template:
+    src: "i3status.j2"
+    dest: "{{ dotfiles_user_home }}/.config/i3status/config"
+    mode: 0664
+  register: i3status
+
 - name: Reload & restart i3
-  when: xresources.changed
+  when: xresources.changed or i3status.changed
   command: "regolith-look refresh"

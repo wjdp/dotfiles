@@ -41,3 +41,5 @@ apt_packages:
   - wget
   - xautomation
   - xdotool
+
+has_wireless: no

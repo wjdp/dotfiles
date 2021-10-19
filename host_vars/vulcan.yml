@@ -5,3 +5,5 @@ wallpaper: $HOME/dotfiles/wallpapers/dennis-schweizer-18nR85wWyLY-unsplash
 
 screen_left: DisplayPort-1
 screen_right: HDMI-A-0
+
+has_wireless: yes
