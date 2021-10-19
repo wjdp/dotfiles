@@ -1,2 +1,4 @@
+- name: Configure gnome-terminal
+  include_tasks: terminal.yml
 - name: Configure nemo
   include_tasks: nemo.yml

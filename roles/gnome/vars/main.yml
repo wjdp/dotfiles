@@ -1,0 +1,4 @@
+terminal_profile: d910b727-2c09-4ec8-bffb-a434ef84ed25
+terminal_dconf_path: "/org/gnome/terminal/legacy"
+
+nemo_dconf_path: "/org/nemo/preferences"
