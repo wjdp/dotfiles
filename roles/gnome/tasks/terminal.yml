@@ -22,10 +22,6 @@
       value: "false"
     - key: use-theme-colors
       value: "false"
-    - key: use-transparent-background
-      value: "true"
-    - key: background-transparency-percent
-      value: "4"
     - key: font
       value: "'JetBrains Mono 12'"
     - key: cell-height-scale
@@ -38,8 +34,10 @@
       value: "'rgb(255,255,255)'"
     - key: background-color
       value: "'rgb(7,7,8)'"
+    - key: use-transparent-background
+      value: "true"
     - key: background-transparency-percent
-      value: "0"
+      value: "4"
     - key: scrollbar-policy
       value: "'never'"
   dconf:
