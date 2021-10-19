@@ -5,4 +5,38 @@ full_name: Will Pimblett
 git_signing_key: null
 
 apt_packages:
+  - arandr
+  - audacity
+  - baobab
+  - build-essential
+  - curl
   - dconf-editor
+  - feh
+  - flameshot
+  - fonts-noto
+  - gimp
+  - gpick
+  - htop
+  - httpie
+  - imagemagick
+  - libjpeg-dev
+  - libpq-dev
+  - libxslt1-dev
+  - lxappearance
+  - meld
+  - mpv
+  - ncdu
+  - nemo
+  - pass
+  - pasystray
+  - pavucontrol
+  - powertop
+  - ruby
+  - ruby-dev
+  - software-properties-common
+  - sudo
+  - vim
+  - vlc
+  - wget
+  - xautomation
+  - xdotool

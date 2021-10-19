@@ -2,6 +2,10 @@
   apt: name=git state=present
   become_method: sudo
 
+- name: Install git-lfs with apt
+  apt: name=git-lfs state=present
+  become_method: sudo
+
 - name: Link global gitignore file
   file:
     src: "{{ dotfiles_home }}/roles/git/files/gitignore_global.link"
