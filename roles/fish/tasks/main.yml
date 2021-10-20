@@ -59,6 +59,56 @@
       value: ""
     - name: EDITOR
       value: vim
+    - name: fish_color_normal
+      value: normal
+    - name: fish_color_command
+      value: ffd75f
+    - name: fish_color_quote
+      value: cccc0c
+    - name: fish_color_redirection
+      value: 00afff
+    - name: fish_color_end
+      value: 00ff00
+    - name: fish_color_error
+      value: ff0000
+    - name: fish_color_param
+      value: 00ffc8
+    - name: fish_color_comment
+      value: a8a8a8
+    - name: fish_color_match
+      value: normal
+    - name: fish_color_selection
+      value: c0c0c0
+    - name: fish_pager_color_progress
+      value: brwhite --background=cyan
+    - name: fish_pager_color_prefix
+      value: normal --bold --underline
+    - name: fish_pager_color_description
+      value: B3A06D yellow
+    - name: fish_pager_color_completion
+      value: normal
+    - name: fish_color_cancel
+      value: normal
+    - name: fish_color_host
+      value: normal
+    - name: fish_color_user
+      value: 00ff00
+    - name: fish_color_autosuggestion
+      value: 555
+    - name: fish_color_valid_path
+      value: normal
+    - name: fish_color_cwd_root
+      value: 800000
+    - name: fish_color_cwd
+      value: ad73d9
+    - name: fish_color_escape
+      value: 00a6b2
+    - name: fish_color_operator
+      value: 00a6b2
+    - name: fish_color_history_current
+      value: normal
+    - name: fish_color_search_match
+      value: --background=b89442
   shell: "echo set -U {{ item.name }} '{{ item.value }}' | fish"
   register: fish_set
   failed_when: fish_set.rc > 1

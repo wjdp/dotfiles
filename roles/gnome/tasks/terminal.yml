@@ -23,7 +23,7 @@
     - key: use-theme-colors
       value: "false"
     - key: font
-      value: "'JetBrains Mono 12'"
+      value: "'JetBrainsMono Nerd Font 12'"
     - key: cell-height-scale
       value: "1.05"
     - key: use-theme-transparency

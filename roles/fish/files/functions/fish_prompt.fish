@@ -1,4 +1,3 @@
-# Defined interactively
 function fish_prompt
   set -l last_command_status $status
   set -l cwd
@@ -9,23 +8,24 @@ function fish_prompt
     set cwd (prompt_pwd)
   end
 
-  set -l fish     "⋊>"
-  set -l ahead    "↑"
-  set -l behind   "↓"
+  set -l fish     ""
+  set -l error    ""
+  set -l ahead    ""
+  set -l behind   ""
   set -l diverged "⥄ "
-  set -l dirty    "⨯"
-  set -l none     "◦"
+  set -l dirty    "δ"
+  set -l none     ""
 
   set -l normal_color     (set_color normal)
-  set -l success_color    (set_color $fish_pager_color_progress 2> /dev/null; or set_color cyan)
-  set -l error_color      (set_color $fish_color_error 2> /dev/null; or set_color red --bold)
+  set -l success_color    (set_color 86d0d1)
+  set -l error_color      (set_color red --bold)
   set -l directory_color  (set_color $fish_color_quote 2> /dev/null; or set_color brown)
   set -l repository_color (set_color $fish_color_cwd 2> /dev/null; or set_color green)
 
   if test $last_command_status -eq 0
     echo -n -s $success_color $fish $normal_color
   else
-    echo -n -s $error_color $fish $normal_color
+    echo -n -s $error_color $error $normal_color
   end
   
   if git_is_repo
@@ -36,7 +36,7 @@ function fish_prompt
     end
 
     echo -n -s " " $directory_color $cwd $normal_color
-    echo -n -s " on " $repository_color (git_branch_name) $normal_color " "
+    echo -n -s " " $repository_color " " (git_branch_name) $normal_color " "
 
     if git_is_touched
       echo -n -s $dirty
