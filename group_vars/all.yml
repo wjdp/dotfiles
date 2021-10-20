@@ -61,5 +61,7 @@ apt_packages:
 deb_packages:
   - pkg: bat
     url: https://github.com/sharkdp/bat/releases/download/v0.18.3/bat_0.18.3_amd64.deb
+  - pkg: dive
+    url: https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb
 
 has_wireless: no
