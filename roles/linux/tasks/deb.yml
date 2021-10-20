@@ -1,0 +1,16 @@
+- name: "Check if {{ item.pkg }} is installed"
+  command: dpkg-query -l "{{ item.pkg }}"
+  register: package_check
+  failed_when: package_check.rc > 1
+  changed_when: package_check.rc == 1
+
+- name: "Download {{ item.pkg }} deb file"
+  when: package_check.rc == 1
+  get_url:
+    url: "{{ item.url }}"
+    dest: "/tmp/{{ item.pkg }}.deb"
+
+- name: "Install {{ item.pkg }}"
+  when: package_check.rc == 1
+  become: yes
+  command: dpkg -i "/tmp/{{ item.pkg }}.deb"
