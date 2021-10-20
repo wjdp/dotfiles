@@ -5,11 +5,3 @@
       vars:
         inotify_max_user_watches: 100000
   become: yes
-
-- name: Install apt packages
-  become: yes
-  apt: name={{ apt_packages }} state=present
-
-- name: Install debs
-  loop: "{{ deb_packages }}"
-  include_tasks: deb.yml

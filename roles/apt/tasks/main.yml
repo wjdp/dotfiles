@@ -1,0 +1,7 @@
+- name: Install apt packages
+  become: yes
+  apt: name={{ apt_packages }} state=present
+
+- name: Install debs
+  loop: "{{ deb_packages }}"
+  include_tasks: deb.yml
