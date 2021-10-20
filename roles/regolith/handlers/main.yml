@@ -1,0 +1,3 @@
+- name: Restart i3
+  command: "regolith-look refresh"
+  tags: i3
