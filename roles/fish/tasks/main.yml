@@ -18,7 +18,12 @@
   become: yes
 
 - name: Ensure config directory exists
-  file: "path={{ fish_dir }} state=directory"
+  file:
+    path: "{{ fish_dir }}"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0700"
 
 - name: Link config files
   loop:
@@ -27,8 +32,8 @@
     - conf.d
     - config.fish
   file:
-    src: "{{ dotfiles_home }}/roles/fish/files/{{item}}"
-    dest: "{{ fish_dir }}/{{item}}"
+    src: "{{ dotfiles_home }}/roles/fish/files/{{ item }}"
+    dest: "{{ fish_dir }}/{{ item }}"
     state: link
     force: yes
 
@@ -37,7 +42,9 @@
     - "~/bin"
     - "~/dotfiles/bin"
     - "node_modules/bin"
-  shell: "echo fish_add_path {{item}} | fish"
+  args:
+    executable: /usr/bin/bash
+  shell: "set -o pipefail && echo fish_add_path {{ item }} | fish"
   register: fish_path
   failed_when: fish_path.rc > 1
   changed_when: fish_path.rc == 0
@@ -54,7 +61,9 @@
       expansion: gopass
     - word: tf
       expansion: terraform
-  shell: "echo abbr --add {{ item.word}} '{{ item.expansion }}' | fish"
+  args:
+    executable: /usr/bin/bash
+  shell: "set -o pipefail && echo abbr --add {{ item.word }} '{{ item.expansion }}' | fish"
   register: fish_abbr
   failed_when: fish_abbr.rc > 1
   changed_when: fish_abbr.rc == 1
@@ -115,7 +124,9 @@
       value: normal
     - name: fish_color_search_match
       value: --background=b89442
-  shell: "echo set -U {{ item.name }} '{{ item.value }}' | fish"
+  args:
+    executable: /usr/bin/bash
+  shell: "set -o pipefail && echo set -U {{ item.name }} '{{ item.value }}' | fish"
   register: fish_set
   failed_when: fish_set.rc > 1
   changed_when: fish_set.rc == 1
