@@ -1,3 +1,9 @@
+- name: Add fish apt repo
+  become: yes
+  apt_repository:
+    repo: "ppa:fish-shell/release-3"
+  register: apt_repo
+
 - name: Install fish
   apt: name=fish state=present
   become_method: sudo
