@@ -1,0 +1,9 @@
+- name: Install system level packages
+  become: yes
+  loop:
+    - npm
+    - diff-so-fancy
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: present

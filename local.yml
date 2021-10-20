@@ -7,6 +7,7 @@
     - { role: gnome, tags: ["gnome"] }
     - { role: regolith, tags: ["regolith"] }
     - { role: git, tags: ["git"] }
+    - { role: node, tags: ["node"] }
     - { role: vim, tags: ["vim"] }
     - { role: sublime, tags: ["sublime"] }
     - { role: google-chrome, tags: ["google-chrome"] }
