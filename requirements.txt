@@ -1,3 +1,3 @@
 ansible==4.7.0
 psutil==5.8.0
-ansible-lint==5.2.1
+ansible-lint[core]==5.2.1
