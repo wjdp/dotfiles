@@ -1,3 +1,11 @@
+- name: Install packages
+  become: yes
+  apt:
+    pkg:
+      - i3lock
+      - dunst
+    state: present
+
 - name: Ensure directories exist
   file:
     path: "{{ item }}"

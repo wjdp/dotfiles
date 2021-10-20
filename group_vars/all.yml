@@ -10,36 +10,52 @@ apt_packages:
   - audacity
   - baobab
   - build-essential
+  - chromium-browser
   - curl
   - dconf-editor
+  - default-jre
   - feh
   - flameshot
   - fonts-noto
   - gimp
+  - gnupg2
   - gpick
   - htop
   - httpie
   - imagemagick
+  - inkscape
+  - iperf
   - libjpeg-dev
   - libpq-dev
   - libxslt1-dev
+  - lsd
   - lxappearance
   - meld
   - mpv
   - ncdu
   - nemo
+  - p7zip-full
   - pass
   - pasystray
   - pavucontrol
   - powertop
   - ruby
   - ruby-dev
+  - screen
+  - screenruler
   - software-properties-common
+  - sshfs
   - sudo
+  - tmux
+  - units
+  - unrar
   - vim
   - vlc
   - wget
+  - whois
+  - wine
   - xautomation
   - xdotool
+  - zbar-tools
 
 has_wireless: no

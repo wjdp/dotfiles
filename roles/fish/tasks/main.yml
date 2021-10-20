@@ -5,7 +5,13 @@
   register: apt_repo
 
 - name: Install fish
+  become: yes
   apt: name=fish state=present
+  become_method: sudo
+
+- name: Install fonts-powerline
+  become: yes
+  apt: name=fonts-powerline state=present
   become_method: sudo
 
 - name: Get shell executable location
