@@ -8,6 +8,7 @@ git_signing_key: null
 apt_packages:
   - arandr
   - audacity
+  - awk
   - baobab
   - build-essential
   - chromium-browser
