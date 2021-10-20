@@ -12,4 +12,5 @@
     - { role: vim, tags: ["vim"] }
     - { role: sublime, tags: ["sublime"] }
     - { role: google-chrome, tags: ["google-chrome"] }
+    - { role: jetbrains, tags: ["jetbrains"] }
     - { role: zsa, tags: ["zsa"] }
