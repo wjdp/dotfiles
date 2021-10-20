@@ -31,17 +31,23 @@
     clone: yes
     update: yes
     recursive: no
+    version: "{{ item.version }}"
   loop:
     - name: vim-airline
       url: https://github.com/vim-airline/vim-airline
+      version: v0.11
     - name: nerdtree
       url: https://github.com/preservim/nerdtree
+      version: 6.10.16
     - name: fzf-vim
       url: https://github.com/junegunn/fzf.vim
+      version: master
     - name: vim-gitgutter
       url: https://github.com/airblade/vim-gitgutter
+      version: master
     - name: vim-fugitive
       url: https://github.com/tpope/vim-fugitive
+      version: v3.4
 
 - name: Link vimrc
   file:

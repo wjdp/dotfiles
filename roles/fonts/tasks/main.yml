@@ -2,6 +2,9 @@
   copy:
     src: fonts/
     dest: ~/.fonts
+    user: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0644
   register: fonts_copy
 
 - name: Update fonts cache

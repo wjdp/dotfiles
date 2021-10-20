@@ -1,5 +1,9 @@
 - name: Ensure directories exist
-  file: "path={{ item }} state=directory"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0775
+
   loop:
     - "{{ dotfiles_user_home }}/.config/regolith/i3"
     - "{{ dotfiles_user_home }}/.config/regolith/compton"

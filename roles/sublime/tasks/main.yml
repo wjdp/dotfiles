@@ -29,7 +29,10 @@
     state: present
 
 - name: Ensure config directories exist
-  file: "path={{ item }} state=directory"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
   loop:
     - "{{ sublime_text_config_dir }}/Packages"
     - "{{ sublime_merge_config_dir }}/Packages"

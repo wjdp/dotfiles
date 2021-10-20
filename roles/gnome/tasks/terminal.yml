@@ -1,9 +1,9 @@
 - name: Create terminal profile
   loop:
-    - key: "{{terminal_dconf_path}}/profiles:/default"
-      value: "'{{terminal_profile}}'"
-    - key: "{{terminal_dconf_path}}/profiles:/list"
-      value: "['{{terminal_profile}}']"
+    - key: "{{ terminal_dconf_path }}/profiles:/default"
+      value: "'{{ terminal_profile }}'"
+    - key: "{{ terminal_dconf_path }}/profiles:/list"
+      value: "['{{ terminal_profile }}']"
   dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
@@ -41,5 +41,5 @@
     - key: scrollbar-policy
       value: "'never'"
   dconf:
-    key: "{{terminal_dconf_path}}/profiles:/:{{terminal_profile}}/{{ item.key }}"
+    key: "{{ terminal_dconf_path }}/profiles:/:{{ terminal_profile }}/{{ item.key }}"
     value: "{{ item.value }}"
