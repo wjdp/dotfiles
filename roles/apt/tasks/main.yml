@@ -1,3 +1,10 @@
+- name: Install custom apt repos
+  loop: "{{ apt_repos }}"
+  include_tasks: repo.yml
+
+- name: Run apt update before trying to install packages
+  meta: flush_handlers
+
 - name: Install apt packages
   become: yes
   apt: name={{ apt_packages }} state=present
