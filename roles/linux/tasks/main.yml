@@ -5,3 +5,9 @@
       vars:
         inotify_max_user_watches: 100000
   become: yes
+
+- name: Set default editor to vim
+  become: yes
+  alternatives:
+    name: editor
+    path: /usr/bin/vim

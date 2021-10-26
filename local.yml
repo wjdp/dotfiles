@@ -1,8 +1,8 @@
 - name: Set up local machine
   hosts: "{{ host }}"
   roles:
-    - { role: linux, tags: ["linux"] }
     - { role: apt, tags: ["apt"] }
+    - { role: linux, tags: ["linux"] }
     - { role: dotfiles, tags: ["dotfiles"] }
     - { role: fish, tags: ["fish"] }
     - { role: fonts, tags: ["fonts"] }
