@@ -6,6 +6,14 @@
       - dunst
     state: present
 
+- name: Remove regolith-rofication
+  become: yes
+  apt:
+    pkg:
+      - regolith-rofication
+    state: absent
+    purge: yes
+
 - name: Ensure directories exist
   file:
     path: "{{ item }}"
