@@ -2,15 +2,20 @@
   command: dpkg-query -l "{{ item.pkg }}"
   register: package_check
   failed_when: package_check.rc > 1
-  changed_when: package_check.rc == 1
+  changed_when: false
+
+- name: Get installed version
+  set_fact:
+    package_version: "{{ ansible_facts.packages[item.pkg][0].version }}"
+  when: package_check.rc == 0
 
 - name: "Download {{ item.pkg }} deb file"
-  when: package_check.rc == 1
+  when: package_check.rc == 1 or package_version != item.version
   get_url:
     url: "{{ item.url }}"
     dest: "/tmp/{{ item.pkg }}.deb"
 
 - name: "Install {{ item.pkg }}"
-  when: package_check.rc == 1
+  when: package_check.rc == 1 or package_version != item.version
   become: yes
   command: dpkg -i "/tmp/{{ item.pkg }}.deb"

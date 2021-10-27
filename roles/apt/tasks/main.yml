@@ -9,6 +9,10 @@
   become: yes
   apt: name={{ apt_packages }} state=present
 
+- name: Gather package facts
+  package_facts:
+    manager: apt
+
 - name: Install debs
   loop: "{{ deb_packages }}"
   include_tasks: deb.yml

@@ -73,10 +73,16 @@ apt_packages:
 deb_packages:
   - pkg: bat
     url: https://github.com/sharkdp/bat/releases/download/v0.18.3/bat_0.18.3_amd64.deb
+    version: "0.18.3"
   - pkg: dive
     url: https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb
+    version: "0.10.0"
   - pkg: obsidian
     url: https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/obsidian_0.12.15_amd64.deb
+    version: "0.12.15"
+  - pkg: lsd
+    url: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
+    version: "0.20.1"
 
 fish_paths:
   - "~/bin"
