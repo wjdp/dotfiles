@@ -159,3 +159,12 @@ nodejs_version: "14.x"
 nodejs_system_packages:
   - npm
   - diff-so-fancy
+
+pip_user_packages:
+  - aws-shell
+  - awscli
+  - homeassistant-cli
+  - icdiff
+  - pre-commit
+  - spotdl
+  - youtube-dl
