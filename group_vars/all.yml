@@ -152,3 +152,8 @@ fish_variables:
 
 omf_plugins:
   - node-binpath
+
+nodejs_version: "14.x"
+nodejs_system_packages:
+  - npm
+  - diff-so-fancy
