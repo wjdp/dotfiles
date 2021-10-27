@@ -45,9 +45,11 @@ apt_packages:
   - nemo
   - p7zip-full
   - pass
+  - pass-extension-otp
   - pasystray
   - pavucontrol
   - powertop
+  - pwgen
   - ruby
   - ruby-dev
   - screen
