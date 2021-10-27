@@ -9,11 +9,13 @@
   register: udev_copy
 
 - name: Add group "plugdev"
-  ansible.builtin.group:
+  become: yes
+  group:
     name: plugdev
     state: present
 
 - name: Add user "{{ user }}" to group plugdev
+  become: yes
   user:
     name: "{{ user }}"
     groups: plugdev

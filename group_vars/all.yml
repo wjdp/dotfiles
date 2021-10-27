@@ -183,3 +183,5 @@ pip_user_packages:
   - pre-commit
   - spotdl
   - youtube-dl
+
+docker_compose_version: "1.29.2"

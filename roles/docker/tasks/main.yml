@@ -1,0 +1,61 @@
+- name: Install dependencies
+  become: yes
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - gnupg
+    state: present
+
+- name: Add an apt signing key for docker
+  become: yes
+  apt_key:
+    url: "{{ docker_apt_key }}"
+    state: present
+
+- name: Add docker repo
+  become: yes
+  apt_repository:
+    repo: "{{ docker_apt_repo }}"
+    state: present
+    filename: docker
+
+- name: Install docker
+  become: yes
+  apt:
+    name: docker-ce
+    state: present
+    update_cache: yes
+
+- name: Add user "{{ user }}" to group docker
+  become: yes
+  user:
+    name: "{{ user }}"
+    groups: docker
+    append: yes
+
+- name: Check current docker-compose version
+  command: "{{ docker_compose_path }} --version"
+  register: docker_compose_current_version
+  check_mode: no
+  changed_when: false
+  failed_when: false
+
+- name: Delete existing docker-compose version if it's different
+  become: yes
+  file:
+    path: "{{ docker_compose_path }}"
+    state: absent
+  when: >
+    docker_compose_current_version.stdout is defined
+    and docker_compose_version not in docker_compose_current_version.stdout
+
+- name: Install Docker Compose
+  become: yes
+  get_url:
+    url: "{{ docker_compose_url }}"
+    dest: "{{ docker_compose_path }}"
+    mode: 0755
+  when: >
+    docker_compose_current_version.stdout is not defined
+    or docker_compose_version not in docker_compose_current_version.stdout

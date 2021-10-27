@@ -16,3 +16,4 @@
     - { role: google-chrome, tags: ["google-chrome"] }
     - { role: jetbrains, tags: ["jetbrains"] }
     - { role: zsa, tags: ["zsa"] }
+    - { role: docker, tags: ["docker"] }
