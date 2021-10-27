@@ -10,3 +10,8 @@
   alternatives:
     name: editor
     path: /usr/bin/vim
+
+- name: Ensure en_GB exists
+  locale_gen:
+    name: en_GB.UTF-8
+    state: present
