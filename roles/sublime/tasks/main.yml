@@ -1,24 +1,15 @@
-- name: Add Sublime apt key
+- name: Add sublime apt key
   become: yes
   apt_key:
     url: "{{ sublime_key_url }}"
     state: present
 
-- name: Add Sublime repo
+- name: Add sublime apt repo
   become: yes
-  copy:
-    content: "{{ sublime_repo }}"
-    dest: "{{ apt_file }}"
-    owner: root
-    group: root
-    mode: 0644
-  register: sublime_repo_file
-
-- name: apt update
-  when: sublime_repo_file.changed
-  become: yes
-  apt:
-    update_cache: yes
+  apt_repository:
+    repo: "{{ sublime_repo }}"
+    state: present
+    filename: sublime
 
 - name: Install sublime-text and sublime-merge
   become: yes
