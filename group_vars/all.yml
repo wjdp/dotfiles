@@ -75,3 +75,6 @@ deb_packages:
     url: https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb
   - pkg: obsidian
     url: https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/obsidian_0.12.15_amd64.deb
+
+omf_plugins:
+  - node-binpath

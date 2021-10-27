@@ -154,3 +154,7 @@
 - name: Install oh-my-fish
   when: not omf.stat.exists
   command: /tmp/omf/bin/install -y --offline --noninteractive
+
+- name: Install omf plugins
+  loop: "{{ omf_plugins }}"
+  include_tasks: omf-plugin.yml
