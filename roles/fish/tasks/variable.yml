@@ -1,0 +1,14 @@
+- name: Check if variable {{ item.name }} is set
+  shell: "set -o pipefail && echo echo \\${{ item.name }} | fish"
+  args:
+    executable: /usr/bin/bash
+  register: fish_get
+  changed_when: fish_get.stdout != item.value
+
+- name: Set fish variable {{ item.name }}
+  shell: "set -o pipefail && echo set -U {{ item.name }} '{{ item.value }}' | fish"
+  args:
+    executable: /usr/bin/bash
+  register: fish_set
+  when: fish_get.stdout != item.value
+  changed_when: fish_set.rc == 1
