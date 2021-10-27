@@ -6,7 +6,7 @@
     executable: /usr/bin/bash
   register: plugin_install_check
   failed_when: plugin_install_check.rc > 1
-  changed_when: plugin_install_check.rc == 1
+  changed_when: false
 
 - name: Install omf plugin {{ item }}
   args:

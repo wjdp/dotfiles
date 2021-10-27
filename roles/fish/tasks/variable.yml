@@ -3,7 +3,7 @@
   args:
     executable: /usr/bin/bash
   register: fish_get
-  changed_when: fish_get.stdout != item.value
+  changed_when: false
 
 - name: Set fish variable {{ item.name }}
   shell: "set -o pipefail && echo set -U {{ item.name }} '{{ item.value }}' | fish"

@@ -82,6 +82,18 @@ fish_paths:
   - "~/.local/bin"
   - "node_modules/bin"
 
+fish_abbr:
+  - word: dc
+    expansion: docker-compose
+  - word: g
+    expansion: git
+  - word: gc
+    expansion: git commit
+  - word: p
+    expansion: gopass
+  - word: tf
+    expansion: terraform
+
 fish_variables:
   - name: fish_greeting
     value: ""

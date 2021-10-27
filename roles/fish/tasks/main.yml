@@ -52,24 +52,9 @@
   failed_when: fish_path.rc > 1
   changed_when: fish_path.rc == 0
 
-- name: Add fish abbreviations
-  loop:
-    - word: dc
-      expansion: docker-compose
-    - word: g
-      expansion: git
-    - word: gc
-      expansion: git commit
-    - word: p
-      expansion: gopass
-    - word: tf
-      expansion: terraform
-  args:
-    executable: /usr/bin/bash
-  shell: "set -o pipefail && echo abbr --add {{ item.word }} '{{ item.expansion }}' | fish"
-  register: fish_abbr
-  failed_when: fish_abbr.rc > 1
-  changed_when: fish_abbr.rc == 1
+- name: Set fish abbreviations
+  loop: "{{ fish_abbr }}"
+  include_tasks: abbr.yml
 
 - name: Set fish variables
   loop: "{{ fish_variables }}"

@@ -1,0 +1,20 @@
+- name: Check if abbr {{ item.word }} is set
+  shell: |
+    set -o pipefail && 
+    echo abbr -s | fish | 
+    grep -E "abbr -a -U -- {{ item.word }} '?{{ item.expansion }}"
+  args:
+    executable: /usr/bin/bash
+  register: fish_get
+  changed_when: false
+  failed_when: fish_get.rc > 1
+
+- name: Add abbr {{ item.word }}
+  args:
+    executable: /usr/bin/bash
+  shell: |
+    set -o pipefail && 
+    echo abbr --add {{ item.word }} '{{ item.expansion }}' | fish
+  register: fish_abbr
+  when: fish_get.rc != 0
+  failed_when: fish_abbr.rc > 1
