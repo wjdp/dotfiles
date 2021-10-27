@@ -54,6 +54,7 @@ apt_packages:
   - pass-extension-otp
   - pasystray
   - pavucontrol
+  - playerctl
   - powertop
   - pwgen
   - ruby
