@@ -37,7 +37,6 @@ apt_packages:
   - libjpeg-dev
   - libpq-dev
   - libxslt1-dev
-  - lsd
   - lxappearance
   - meld
   - mpv
@@ -83,6 +82,8 @@ deb_packages:
   - pkg: lsd
     url: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
     version: "0.20.1"
+  - pkg: steam-launcher
+    url: https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 
 fish_paths:
   - "~/bin"

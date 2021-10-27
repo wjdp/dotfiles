@@ -1,21 +1,33 @@
-- name: "Check if {{ item.pkg }} is installed"
-  command: dpkg-query -l "{{ item.pkg }}"
-  register: package_check
-  failed_when: package_check.rc > 1
-  changed_when: false
+- name: Check if {{ item.pkg }} is installed
+  set_fact:
+    package_installed: "{{ item.pkg in ansible_facts.packages }}"
 
-- name: Get installed version
+- name: Get installed {{ item.pkg }} version
   set_fact:
     package_version: "{{ ansible_facts.packages[item.pkg][0].version }}"
-  when: package_check.rc == 0
+  when: package_installed and item.version is defined
+
+- name: Decide if we should install {{ item.pkg }}
+  set_fact:
+    should_install: >-
+      {{ 
+        ( not package_installed ) 
+        or 
+        (
+          package_installed and
+          package_version is defined 
+          and item.version is defined 
+          and package_version|default('undefined') != item.version
+        ) 
+      }}
 
 - name: "Download {{ item.pkg }} deb file"
-  when: package_check.rc == 1 or package_version != item.version
+  when: should_install
   get_url:
     url: "{{ item.url }}"
     dest: "/tmp/{{ item.pkg }}.deb"
 
 - name: "Install {{ item.pkg }}"
-  when: package_check.rc == 1 or package_version != item.version
+  when: should_install
   become: yes
   command: dpkg -i "/tmp/{{ item.pkg }}.deb"
