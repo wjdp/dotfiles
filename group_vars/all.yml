@@ -16,6 +16,9 @@ apt_repos:
   - name: spotify
     repo: deb http://repository.spotify.com stable non-free
     key: https://download.spotify.com/debian/pubkey_0D811D58.gpg
+  - name: vscode
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    key: https://packages.microsoft.com/keys/microsoft.asc
 
 apt_packages:
   - arandr
@@ -23,6 +26,7 @@ apt_packages:
   - baobab
   - build-essential
   - chromium-browser
+  - code
   - curl
   - dconf-editor
   - default-jre
