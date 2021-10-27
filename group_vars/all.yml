@@ -80,7 +80,7 @@ fish_paths:
   - "~/bin"
   - "~/dotfiles/bin"
   - "~/.local/bin"
-  - "node_modules/bin"
+  - "~/.poetry/bin"
 
 fish_abbr:
   - word: dc
