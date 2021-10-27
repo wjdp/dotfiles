@@ -44,11 +44,7 @@
     force: yes
 
 - name: Add fish paths
-  loop:
-    - "~/bin"
-    - "~/dotfiles/bin"
-    - "~/.local/bin"
-    - "node_modules/bin"
+  loop: "{{ fish_paths }}"
   args:
     executable: /usr/bin/bash
   shell: "set -o pipefail && echo fish_add_path {{ item }} | fish"

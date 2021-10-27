@@ -76,6 +76,12 @@ deb_packages:
   - pkg: obsidian
     url: https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/obsidian_0.12.15_amd64.deb
 
+fish_paths:
+  - "~/bin"
+  - "~/dotfiles/bin"
+  - "~/.local/bin"
+  - "node_modules/bin"
+
 fish_variables:
   - name: fish_greeting
     value: ""
