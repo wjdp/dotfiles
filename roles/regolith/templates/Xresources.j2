@@ -25,4 +25,4 @@ i3-wm.program.lock: i3lock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firew
 
 wjdp.screen_left: {{ screen_left }}
 wjdp.screen_right: {{ screen_right }}
-wjdp.screen_internal: eDP
+wjdp.screen_internal: {{ screen_internal|default('eDP') }}
