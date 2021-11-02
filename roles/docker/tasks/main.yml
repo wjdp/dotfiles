@@ -25,7 +25,6 @@
   apt:
     name: docker-ce
     state: present
-    update_cache: yes
 
 - name: Add user "{{ user }}" to group docker
   become: yes
