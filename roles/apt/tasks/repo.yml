@@ -8,7 +8,7 @@
 - name: Add apt repo for {{ item.name }}
   become: yes
   apt_repository:
-    repo: deb http://archive.canonical.com/ubuntu hardy partner
+    repo: "{{ item.repo }}"
     state: present
     update_cache: no
     filename: "{{ item.name }}"
