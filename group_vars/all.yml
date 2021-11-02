@@ -19,6 +19,8 @@ apt_repos:
   - name: vscode
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
     key: https://packages.microsoft.com/keys/microsoft.asc
+  - name: deadsnakes
+    repo: ppa:deadsnakes/ppa
 
 apt_packages:
   - arandr

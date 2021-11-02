@@ -1,22 +1,15 @@
-- name: Check if {{ item.name }} repo is installed
-  stat:
-    path: "/etc/apt/sources.list.d/{{ item.name }}.list"
-  register: list_file
-
 - name: Add an apt signing key for {{ item.name }}
-  when: not list_file.stat.exists
+  when: item.key is defined
   become: yes
   apt_key:
     url: "{{ item.key }}"
     state: present
 
-- name: Create sources file for {{ item.name }}
-  when: not list_file.stat.exists
+- name: Add apt repo for {{ item.name }}
   become: yes
-  copy:
-    content: "{{ item.repo }}"
-    dest: "/etc/apt/sources.list.d/{{ item.name }}.list"
-    owner: root
-    group: root
-    mode: 0644
+  apt_repository:
+    repo: deb http://archive.canonical.com/ubuntu hardy partner
+    state: present
+    update_cache: no
+    filename: "{{ item.name }}"
   notify: Update apt packages
