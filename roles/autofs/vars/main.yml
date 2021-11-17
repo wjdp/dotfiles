@@ -1,0 +1,13 @@
+mounts:
+  - name: tank
+    host: will@mars.wjdp.uk
+    path: /vol/tank
+  - name: zeta
+    host: will@mars.wjdp.uk
+    path: /vol/zeta
+  - name: mars-home
+    host: will@mars.wjdp.uk
+    path: ""
+  - name: mars-srv
+    host: will@mars.wjdp.uk
+    path: /srv/mars

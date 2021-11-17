@@ -1,0 +1,5 @@
+- name: Reload autofs
+  become: yes
+  systemd:
+    name: autofs
+    state: reloaded

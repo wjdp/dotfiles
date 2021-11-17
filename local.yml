@@ -4,6 +4,7 @@
     - { role: apt, tags: ["apt"] }
     - { role: linux, tags: ["linux"] }
     - { role: dotfiles, tags: ["dotfiles"] }
+    - { role: autofs, tags: ["autofs"] }
     - { role: fish, tags: ["fish"] }
     - { role: fonts, tags: ["fonts"] }
     - { role: gnome, tags: ["gnome"] }

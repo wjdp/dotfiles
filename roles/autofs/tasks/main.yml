@@ -1,0 +1,69 @@
+- name: Install dependencies
+  become: yes
+  apt:
+    name:
+      - autofs
+      - sshfs
+    state: present
+
+- name: Ensure mount directory exists
+  become: yes
+  file:
+    path: "/net"
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: Ensure root .ssh directory exists
+  become: yes
+  file:
+    path: /root/.ssh/
+    state: directory
+    owner: root
+    group: root
+    mode: "0700"
+
+- name: Copy known_hosts to root
+  become: yes
+  copy:
+    src: known_hosts
+    dest: /root/.ssh/known_hosts
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Generate a keypair for root
+  become: yes
+  community.crypto.openssh_keypair:
+    path: /root/.ssh/id_ed25519
+    type: ed25519
+
+# Then need to copy this to mars `ssh-copy-id -f -i id_ed25519.pub will@mars.wjdp.uk`
+
+- name: Copy sshfs.autofs
+  become: yes
+  copy:
+    src: sshfs.autofs
+    dest: /etc/auto.master.d/sshfs.autofs
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Reload autofs
+
+- name: Copy auto.sshfs
+  become: yes
+  template:
+    src: auto.sshfs.j2
+    dest: /etc/auto.sshfs
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Reload autofs
+
+- name: Create symbolic links
+  loop: "{{ mounts }}"
+  file:
+    src: "/net/{{ item.name }}"
+    dest: "~/{{ item.name }}"
+    state: link

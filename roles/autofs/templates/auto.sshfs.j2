@@ -1,0 +1,3 @@
+{% for mount in mounts %}
+{{mount.name}} -fstype=fuse,rw,uid=1000,gid=1000,nodev,nonempty,noatime,allow_other :sshfs\#{{mount.host}}\:{{mount.path}}
+{% endfor %}
