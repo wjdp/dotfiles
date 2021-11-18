@@ -1,0 +1,3 @@
+- name: Install bins
+  loop: "{{ bins }}"
+  include_tasks: bin.yml

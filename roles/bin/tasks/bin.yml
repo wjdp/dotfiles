@@ -1,0 +1,31 @@
+- name: Set version path
+  set_fact:
+    version_file_path: ~/bin/.{{ item.name }}.url
+
+- name: Check if {{ item.name }} is installed
+  stat:
+    path: "{{ version_file_path }}"
+  register: version_file_result
+
+- name: Install new
+  when: not version_file_result.stat.exists
+  set_fact:
+    to_install: yes
+
+- name: Check current version
+  when: version_file_result.stat.exists
+  set_fact:
+    to_install: "{{ lookup('file', version_file_path) != item.url }}"
+
+- name: Download {{ item.name }}
+  when: to_install
+  get_url:
+    url: "{{ item.url }}"
+    dest: ~/bin/{{ item.name }}
+    mode: "0755"
+
+- name: Write installed version (url) to file
+  when: to_install
+  copy:
+    content: "{{ item.url }}"
+    dest: "~/bin/.{{ item.name }}.url"
