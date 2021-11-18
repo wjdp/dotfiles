@@ -1,7 +1,7 @@
 git_email: will@wegift.io
 git_signing_key: 1B48523D91781A7F5CEC929B7CA9BF9F444BF7C8
 
-wallpaper: $HOME/dotfiles/wallpapers/dennis-schweizer-18nR85wWyLY-unsplash
+wallpaper: ~/dotfiles/wallpapers/1440p/dennis-schweizer-18nR85wWyLY-unsplash.jpg
 
 screen_left: DisplayPort-1
 screen_right: HDMI-A-0
