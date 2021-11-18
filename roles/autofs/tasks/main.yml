@@ -61,6 +61,14 @@
     mode: "0644"
   notify: Reload autofs
 
+- meta: flush_handlers
+
+- name: Ensure autofs has started
+  become: yes
+  systemd:
+    name: autofs
+    state: started
+
 - name: Create symbolic links
   loop: "{{ mounts }}"
   file:
