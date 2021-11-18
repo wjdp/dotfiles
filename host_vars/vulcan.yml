@@ -5,5 +5,6 @@ wallpaper: ~/dotfiles/wallpapers/1440p/dennis-schweizer-18nR85wWyLY-unsplash.jpg
 
 screen_left: DisplayPort-1
 screen_right: HDMI-A-0
+screen_internal: eDP
 
 has_wireless: yes
