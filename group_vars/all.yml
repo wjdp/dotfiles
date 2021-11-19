@@ -185,6 +185,7 @@ nodejs_system_packages:
 pip_user_packages:
   - aws-shell
   - awscli
+  - aws-sam-cli
   - homeassistant-cli
   - icdiff
   - pre-commit
