@@ -173,6 +173,8 @@ fish_variables:
     value: normal
   - name: fish_color_search_match
     value: --background=b89442
+  - name: DOCKER_BUILDKIT
+    value: 1
 
 omf_plugins:
   - node-binpath
