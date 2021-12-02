@@ -121,60 +121,91 @@ fish_abbr:
 fish_variables:
   - name: fish_greeting
     value: ""
-  - name: EDITOR
-    value: vim
+    mode: U
   - name: fish_color_normal
     value: normal
+    mode: U
   - name: fish_color_command
     value: ffd75f
+    mode: U
   - name: fish_color_quote
     value: cccc0c
+    mode: U
   - name: fish_color_redirection
     value: 00afff
+    mode: U
   - name: fish_color_end
     value: 00ff00
+    mode: U
   - name: fish_color_error
     value: ff0000
+    mode: U
   - name: fish_color_param
     value: 00ffc8
+    mode: U
   - name: fish_color_comment
     value: a8a8a8
+    mode: U
   - name: fish_color_match
     value: normal
+    mode: U
   - name: fish_color_selection
     value: c0c0c0
+    mode: U
   - name: fish_pager_color_progress
     value: brwhite --background=cyan
+    mode: U
   - name: fish_pager_color_prefix
     value: normal --bold --underline
+    mode: U
   - name: fish_pager_color_description
     value: B3A06D yellow
+    mode: U
   - name: fish_pager_color_completion
     value: normal
+    mode: U
   - name: fish_color_cancel
     value: normal
+    mode: U
   - name: fish_color_host
     value: normal
+    mode: U
   - name: fish_color_user
     value: 00ff00
+    mode: U
   - name: fish_color_autosuggestion
     value: "555"
+    mode: U
   - name: fish_color_valid_path
     value: normal
+    mode: U
   - name: fish_color_cwd_root
     value: "800000"
+    mode: U
   - name: fish_color_cwd
     value: ad73d9
+    mode: U
   - name: fish_color_escape
     value: 00a6b2
+    mode: U
   - name: fish_color_operator
     value: 00a6b2
+    mode: U
   - name: fish_color_history_current
     value: normal
+    mode: U
   - name: fish_color_search_match
     value: --background=b89442
+    mode: U
+  - name: EDITOR
+    value: vim
+    mode: Ux
+  - name: VISUAL
+    value: vim
+    mode: Ux
   - name: DOCKER_BUILDKIT
     value: 1
+    mode: Ux
 
 omf_plugins:
   - node-binpath

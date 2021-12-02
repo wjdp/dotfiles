@@ -6,7 +6,7 @@
   changed_when: false
 
 - name: Set fish variable {{ item.name }}
-  shell: "set -o pipefail && echo set -U {{ item.name }} '{{ item.value }}' | fish"
+  shell: "set -o pipefail && echo set -{{ item.mode }} {{ item.name }} '{{ item.value }}' | fish"
   args:
     executable: /usr/bin/bash
   register: fish_set
