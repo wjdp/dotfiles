@@ -21,6 +21,9 @@ apt_repos:
     key: https://packages.microsoft.com/keys/microsoft.asc
   - name: deadsnakes
     repo: ppa:deadsnakes/ppa
+  - name: syncthing
+    repo: deb https://apt.syncthing.net/ syncthing stable
+    key: https://syncthing.net/release-key.gpg
 
 apt_packages:
   - arandr
@@ -67,6 +70,7 @@ apt_packages:
   - spotify-client
   - sshfs
   - sudo
+  - syncthing
   - tailscale
   - tmux
   - units
