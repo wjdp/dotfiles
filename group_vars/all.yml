@@ -112,7 +112,7 @@ fish_paths:
 
 fish_abbr:
   - word: dc
-    expansion: docker-compose
+    expansion: docker compose
   - word: g
     expansion: git
   - word: gc
