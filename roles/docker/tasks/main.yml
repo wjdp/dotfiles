@@ -33,6 +33,12 @@
     groups: docker
     append: yes
 
+- name: Ensure plugin directory exists
+  file:
+    path: "{{ docker_cli_plugin_path }}"
+    state: directory
+    mode: 0775
+
 - name: Check current docker-compose version
   command: "{{ docker_compose_path }} --version"
   register: docker_compose_current_version
@@ -41,7 +47,6 @@
   failed_when: false
 
 - name: Delete existing docker-compose version if it's different
-  become: yes
   file:
     path: "{{ docker_compose_path }}"
     state: absent
@@ -50,7 +55,6 @@
     and docker_compose_version not in docker_compose_current_version.stdout
 
 - name: Install Docker Compose
-  become: yes
   get_url:
     url: "{{ docker_compose_url }}"
     dest: "{{ docker_compose_path }}"
