@@ -121,6 +121,10 @@ fish_abbr:
     expansion: gopass
   - word: tf
     expansion: terraform
+  - word: avx
+    expansion: aws-vault exec
+  - word: avl
+    expansion: aws-vault login
 
 fish_variables:
   - name: fish_greeting
