@@ -231,5 +231,6 @@ pip_user_packages:
   - pre-commit
   - spotdl
   - youtube-dl
+  - rofimoji
 
 docker_compose_version: "v2.2.3"

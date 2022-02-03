@@ -45,6 +45,14 @@
     dest: "{{ dotfiles_user_home }}/.config/dunst/dunstrc"
     state: link
     force: yes
+
+- name: Link rofimoji config
+  file:
+    src: "{{ dotfiles_home }}/roles/regolith/files/rofimoji.rc"
+    dest: "{{ dotfiles_user_home }}/.config/rofimoji.rc"
+    state: link
+    force: yes
+
 - name: Update Xresources
   template:
     src: "Xresources.j2"
