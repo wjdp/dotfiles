@@ -232,5 +232,6 @@ pip_user_packages:
   - spotdl
   - youtube-dl
   - rofimoji
+  - awslogs
 
 docker_compose_version: "v2.2.3"
