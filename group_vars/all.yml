@@ -24,6 +24,8 @@ apt_repos:
   - name: syncthing
     repo: deb https://apt.syncthing.net/ syncthing stable
     key: https://syncthing.net/release-key.gpg
+  - name: libreoffice
+    repo: ppa:libreoffice/ppa
 
 apt_packages:
   - arandr
@@ -48,6 +50,7 @@ apt_packages:
   - iperf
   - libjpeg-dev
   - libpq-dev
+  - libreoffice
   - libxslt1-dev
   - lxappearance
   - meld
