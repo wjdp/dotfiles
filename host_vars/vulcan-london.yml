@@ -1,0 +1,10 @@
+git_email: will@wegift.io
+git_signing_key: 1B48523D91781A7F5CEC929B7CA9BF9F444BF7C8
+
+wallpaper: $HOME/dotfiles/wallpapers/dennis-schweizer-18nR85wWyLY-unsplash
+
+screen_left: HDMI-A-0
+screen_right: eDP
+screen_internal: eDP
+
+has_wireless: yes

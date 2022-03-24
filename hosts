@@ -1,5 +1,6 @@
 dux
 vulcan
+vulcan-london
 
 [all:vars]
 ansible_connection=local
