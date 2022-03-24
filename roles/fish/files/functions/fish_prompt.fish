@@ -49,15 +49,27 @@ end
 
 function right_prompt
   set -l py_version (python -c 'import sys; print(".".join(map(str, sys.version_info[:3])))')
+  set -l node_version (nvm current)
+
+  set -l python_colour (set_color -b 0070B1 white)
+  set -l node_colour (set_color -b 4d7c31 white)
+
   if set -q AWS_VAULT
     echo -n -s (set_color -b yellow black) "  " (basename "$AWS_VAULT") " " (set_color normal) " "
   end
+
   if set -q VIRTUAL_ENV
-    echo -n -s (set_color -b blue white) "  " (basename "$VIRTUAL_ENV")@$py_version" " (set_color normal) " "
+    echo -n -s $python_colour "  " (basename "$VIRTUAL_ENV")@$py_version" " (set_color normal) " "
   end
+
+  if test $node_version != system
+    echo -n -s $node_colour "  " $node_version" " (set_color normal) " "
+  end
+
   if test $last_command_status != 0
     echo -n -s (set_color -b red white) " $last_command_status " (set_color normal) " "
   end
+
   set_color 474747
   date "+%H:%M:%S"
   set_color normal
