@@ -19,3 +19,8 @@
     - { role: jetbrains, tags: ["jetbrains"] }
     - { role: zsa, tags: ["zsa"] }
     - { role: docker, tags: ["docker"] }
+    - role: fubarhouse.golang
+      tags: ["go"]
+      go_version: 1.17.8
+      GOPATH: /home/will/go
+      become: yes

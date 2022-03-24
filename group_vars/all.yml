@@ -112,6 +112,8 @@ fish_paths:
   - "~/dotfiles/bin"
   - "~/.local/bin"
   - "~/.poetry/bin"
+  - "/usr/local/go/bin"
+  - "~/go/bin"
 
 fish_abbr:
   - word: dc
