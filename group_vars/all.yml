@@ -223,9 +223,6 @@ fish_variables:
     value: 1
     mode: Ux
 
-omf_plugins:
-  - node-binpath
-
 nodejs_version: "16.x"
 nodejs_system_packages:
   - npm

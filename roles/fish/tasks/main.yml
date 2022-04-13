@@ -59,24 +59,3 @@
 - name: Set fish variables
   loop: "{{ fish_variables }}"
   include_tasks: variable.yml
-
-- name: Check if omf is installed
-  stat:
-    path: "{{ omf_dir }}"
-  register: omf
-
-- name: Clone oh-my-fish repo
-  when: not omf.stat.exists
-  git:
-    repo: "https://github.com/oh-my-fish/oh-my-fish"
-    version: v7
-    dest: "/tmp/omf"
-    clone: yes
-
-- name: Install oh-my-fish
-  when: not omf.stat.exists
-  command: /tmp/omf/bin/install -y --offline --noninteractive
-
-- name: Install omf plugins
-  loop: "{{ omf_plugins }}"
-  include_tasks: omf-plugin.yml
