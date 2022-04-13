@@ -95,11 +95,7 @@
   # List my aliases
   alias = "!git config -l | grep alias | cut -c 7-"
 [diff]
-  tool = icdiff
-[difftool]
-  prompt = false
-[difftool "icdiff"]
-  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+  external = difft
 [gpg]
 	program = gpg
 [merge]
