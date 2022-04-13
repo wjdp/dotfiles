@@ -102,6 +102,9 @@ deb_packages:
     version: "0.20.1"
   - pkg: steam-launcher
     url: https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+  - pkg: dug
+    url: https://github.com/unfrl/dug/releases/download/0.0.85/dug.0.0.85.linux-x64.deb
+    version: "0.0.85"
 
 bins:
   - name: aws-vault
