@@ -1,0 +1,54 @@
+- name: Install packages
+  become: yes
+  apt:
+    pkg:
+      - i3lock
+      - dunst
+    state: present
+
+- name: Remove regolith-rofication
+  become: yes
+  apt:
+    pkg:
+      - regolith-rofication
+    state: absent
+    purge: yes
+
+- name: Ensure directories exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0775
+
+  loop:
+    - "{{ dotfiles_user_home }}/.config/regolith/i3"
+    - "{{ dotfiles_user_home }}/.config/regolith/compton"
+    - "{{ dotfiles_user_home }}/.config/i3status"
+
+- name: Link i3 config
+  file:
+    src: "{{ dotfiles_home }}/roles/regolith/files/i3.config"
+    dest: "{{ dotfiles_user_home }}/.config/regolith/i3/config"
+    state: link
+    force: yes
+
+- name: Link compton config
+  file:
+    src: "{{ dotfiles_home }}/roles/regolith/files/compton.config"
+    dest: "{{ dotfiles_user_home }}/.config/regolith/compton/config"
+    state: link
+    force: yes
+
+- name: Link dunst config
+  file:
+    src: "{{ dotfiles_home }}/roles/regolith/files/dunstrc"
+    dest: "{{ dotfiles_user_home }}/.config/dunst/dunstrc"
+    state: link
+    force: yes
+
+- name: Link rofimoji config
+  file:
+    src: "{{ dotfiles_home }}/roles/regolith/files/rofimoji.rc"
+    dest: "{{ dotfiles_user_home }}/.config/rofimoji.rc"
+    state: link
+    force: yes

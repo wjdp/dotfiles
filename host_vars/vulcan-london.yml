@@ -8,3 +8,5 @@ screen_right: eDP
 screen_internal: eDP
 
 has_wireless: yes
+
+password_manager_launcher: 1password --quick-access

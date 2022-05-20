@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+
+ansible-playbook -i ~/dotfiles/hosts -e host=vulcan-london ~/dotfiles/local.yml --skip-tags "bootstrap" --tags wm
