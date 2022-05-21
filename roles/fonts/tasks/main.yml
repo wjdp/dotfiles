@@ -2,7 +2,7 @@
   copy:
     src: fonts/
     dest: ~/.fonts
-    user: "{{ user }}"
+    owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0644
   register: fonts_copy
