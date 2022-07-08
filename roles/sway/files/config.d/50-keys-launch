@@ -1,0 +1,32 @@
+# Launcher
+bindsym $mod+d exec $launcher
+bindsym $mod+Space exec $launcher
+bindsym $mod+Shift+d exec $menu
+
+# Terminal
+bindsym $mod+Return exec $term
+
+## Launch // Web Browser // <◇> c ##
+bindsym $mod+c exec gtk-launch $(xdg-settings get default-web-browser)
+bindsym $mod+Shift+c exec firefox --private-window
+
+## Launch // File Browser // <◇> n ##
+bindsym $mod+n exec $program.files
+
+## Lock Screen
+bindsym $mod+l exec $program.lock
+
+## Session Management
+set $mode_system SYS
+mode "$mode_system" {
+    bindsym l exec $program.lock, mode "default"
+    bindsym Control+l exec $program.logout logout, mode "default"
+    bindsym s exec $program.sleep, mode "default"
+    bindsym Control+r exec $program.reboot, mode "default"
+    bindsym Control+s exec $program.shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Escape mode "$mode_system"

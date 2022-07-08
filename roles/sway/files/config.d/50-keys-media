@@ -1,0 +1,7 @@
+# Media controls
+## Launch // Play / Pause // <◇> p ##
+bindsym $mod+p exec playerctl play-pause
+## Launch // Prev Track // <◇> [ ##
+bindsym $mod+bracketleft exec playerctl previous
+## Launch // Next Track // <◇> ] ##
+bindsym $mod+bracketright exec playerctl next

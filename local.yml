@@ -2,16 +2,17 @@
   hosts: "{{ host }}"
   roles:
     - { role: apt, tags: ["apt"] }
-    - { role: bin, tags: ["bin"] }
+    # - { role: bin, tags: ["bin"] }
     - { role: linux, tags: ["linux"] }
-    - { role: dotfiles, tags: ["dotfiles"] }
+    - { role: python, tags: ["python"] }
+    # - { role: dotfiles, tags: ["dotfiles"] }
     - { role: autofs, tags: ["autofs"] }
     - { role: fish, tags: ["fish"] }
     - { role: fonts, tags: ["fonts"] }
     - { role: gnome, tags: ["gnome"] }
-    - { role: regolith }
+    # - { role: regolith }
+    - { role: sway, tags: ["sway"] }
     - { role: git, tags: ["git"] }
-    - { role: python, tags: ["python"] }
     - { role: node, tags: ["node"] }
     - { role: vim, tags: ["vim"] }
     - { role: sublime, tags: ["sublime"] }

@@ -1,0 +1,5 @@
+output * bg $wallpaper fill
+
+hide_edge_borders smart
+
+default_border normal 2

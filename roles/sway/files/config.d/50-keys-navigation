@@ -1,0 +1,116 @@
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+## Modify // Window Position // <◇><Shift> ↑ ↓ ← → ##
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Modify // Containing Workspace // <◇><Ctrl> ↑ ↓ ← → ##
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Down move workspace to output down
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Right move workspace to output right
+
+## Modify // Split Direction // <◇> h / v ##
+bindsym $mod+h splith
+bindsym $mod+v splitv
+
+## Modify // Toggle Tabbed // <◇> w ##
+## Modify // Toggle Split // <◇> e ##
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle splith splitv
+
+## Modify // Sticky Toggle // <◇> k ##
+bindsym $mod+k sticky toggle
+
+## Modify // Window Fullscreen Toggle // <◇> f ##
+bindsym $mod+f fullscreen
+
+## Modify // Float Toggle // <◇><Shift> f ##
+bindsym $mod+Shift+f floating toggle
+
+## Navigate // Next Workspace // <◇> Tab ##
+bindsym $mod+Tab workspace next_on_output
+
+## Navigate // Previous Workspace // <◇><Shift> Tab ##
+bindsym $mod+Shift+Tab workspace prev_on_output
+
+## Navigate // Focus Parent // <◇> a ##
+bindsym $mod+a focus parent
+
+## Navigate // Focus Child // <◇> s ##
+bindsym $mod+s focus child
+
+## Navigate // Switch to Urgent // <◇> x ##
+bindsym $mod+x [urgent=latest] focus
+
+## Navigate // Back and Forth // <◇> z ##
+bindsym $mod+z workspace back_and_forth
+
+## Navigate // Workspaces 1-10 // <◇> 0..9 ##
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+## Navigate // Workspace 11 - 19 // <◇><Ctrl> 0..9 ##
+bindsym $mod+Ctrl+1 workspace number 11
+bindsym $mod+Ctrl+2 workspace number 12
+bindsym $mod+Ctrl+3 workspace number 13
+bindsym $mod+Ctrl+4 workspace number 14
+bindsym $mod+Ctrl+5 workspace number 15
+bindsym $mod+Ctrl+6 workspace number 16
+bindsym $mod+Ctrl+7 workspace number 17
+bindsym $mod+Ctrl+8 workspace number 18
+## Navigate // Workspace A-D // <◇><Ctrl><Alt> J,K,L,P ##
+bindsym $mod+$alt+Ctrl+j workspace A
+bindsym $mod+$alt+Ctrl+k workspace B
+bindsym $mod+$alt+Ctrl+l workspace C
+bindsym $mod+$alt+Ctrl+p workspace D
+
+## Modify // Move Window to Workspace 1 - 10 // <◇><Shift> 0..9 ##
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+
+## Modify // Move Window to Workspace 11 - 19// <◇><Ctrl><Shift> 0..9 ##
+bindsym $mod+Shift+Ctrl+1 move container to workspace number 11
+bindsym $mod+Shift+Ctrl+2 move container to workspace number 12
+bindsym $mod+Shift+Ctrl+3 move container to workspace number 13
+bindsym $mod+Shift+Ctrl+4 move container to workspace number 14
+bindsym $mod+Shift+Ctrl+5 move container to workspace number 15
+bindsym $mod+Shift+Ctrl+6 move container to workspace number 16
+bindsym $mod+Shift+Ctrl+7 move container to workspace number 17
+bindsym $mod+Shift+Ctrl+8 move container to workspace number 18
+
+# move focused container to workspace, move to workspace
+## Modify // Carry Window to Workspace 1 - 10// <◇><Alt> 0..9 ##
+bindsym $mod+$alt+1 move container to workspace number 1; workspace number 1
+bindsym $mod+$alt+2 move container to workspace number 2; workspace number 2
+bindsym $mod+$alt+3 move container to workspace number 3; workspace number 3
+bindsym $mod+$alt+4 move container to workspace number 4; workspace number 4
+bindsym $mod+$alt+5 move container to workspace number 5; workspace number 5
+bindsym $mod+$alt+6 move container to workspace number 6; workspace number 6
+bindsym $mod+$alt+7 move container to workspace number 7; workspace number 7
+bindsym $mod+$alt+8 move container to workspace number 8; workspace number 8
+## Modify // Carry Window to Workspace 11 - 19 // <◇><Alt><Ctrl> 0..9 ##
+bindsym $mod+$alt+Ctrl+1 move container to workspace number 11; workspace number 11
+bindsym $mod+$alt+Ctrl+2 move container to workspace number 12; workspace number 12
+bindsym $mod+$alt+Ctrl+3 move container to workspace number 13; workspace number 13
+bindsym $mod+$alt+Ctrl+4 move container to workspace number 14; workspace number 14
+bindsym $mod+$alt+Ctrl+5 move container to workspace number 15; workspace number 15
+bindsym $mod+$alt+Ctrl+6 move container to workspace number 16; workspace number 16
+bindsym $mod+$alt+Ctrl+7 move container to workspace number 17; workspace number 17
+bindsym $mod+$alt+Ctrl+8 move container to workspace number 18; workspace number 18

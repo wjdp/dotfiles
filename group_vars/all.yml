@@ -28,20 +28,20 @@ apt_repos:
     repo: ppa:libreoffice/ppa
 
 apt_packages:
-  - arandr
+  # - arandr
   - audacity
   - baobab
   - build-essential
-  - chromium-browser
+  # - chromium-browser
   - code
   - curl
   - dconf-editor
-  - default-jre
-  - feh
+  # - default-jre
+  # - feh
   - flameshot
   - fonts-noto
   - gimp
-  - gnupg2
+  # - gnupg2
   - gpick
   - htop
   - httpie
@@ -50,9 +50,9 @@ apt_packages:
   - iperf
   - libjpeg-dev
   - libpq-dev
-  - libreoffice
+  # - libreoffice
   - libxslt1-dev
-  - lxappearance
+  # - lxappearance
   - meld
   - mpv
   - ncdu
@@ -65,26 +65,26 @@ apt_packages:
   - playerctl
   - powertop
   - pwgen
-  - ruby
-  - ruby-dev
+  # - ruby
+  # - ruby-dev
   - screen
   - screenruler
-  - software-properties-common
+  # - software-properties-common
   - spotify-client
   - sshfs
   - sudo
   - syncthing
   - tailscale
   - tmux
-  - units
+  # - units
   - unrar
   - vim
   - vlc
   - wget
   - whois
   - wine
-  - xautomation
-  - xdotool
+  # - xautomation
+  # - xdotool
   - zbar-tools
 
 deb_packages:
@@ -102,9 +102,9 @@ deb_packages:
     version: "0.20.1"
   - pkg: steam-launcher
     url: https://steamcdn-a.akamaihd.net/client/installer/steam.deb
-  - pkg: dug
-    url: https://github.com/unfrl/dug/releases/download/0.0.85/dug.0.0.85.linux-x64.deb
-    version: "0.0.85"
+  # - pkg: dug
+  #   url: https://github.com/unfrl/dug/releases/download/0.0.85/dug.0.0.85.linux-x64.deb
+  #   version: "0.0.85"
 
 bins:
   - name: aws-vault

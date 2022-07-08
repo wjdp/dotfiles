@@ -1,0 +1,27 @@
+### Variables
+
+set $wallpaper ~/dotfiles/wallpapers/1080p/ltmWANZ.png
+
+# WM key. Use Mod1 for Alt.
+set $mod Mod4
+set $alt Mod1
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Apps
+set $term gnome-terminal
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $launcher-daemon /usr/bin/python3 /usr/bin/ulauncher --hide-window 1 > /tmp/ulauncher.log 2>&1
+set $launcher ulauncher-toggle
+set $program.files /usr/bin/nemo
+
+# Session management
+set $program.lock swaylock -c 172032 -ef -i $HOME/dotfiles/wallpapers/dual/firewatch-hike.png && playerctl -a pause
+set $program.logout /usr/bin/gnome-session-quit --logout --no-prompt
+set $program.reboot reboot
+set $program.shutdown poweroff
+set $program.sleep systemctl suspend
