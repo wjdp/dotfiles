@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+buckets=$(aws s3 ls | awk '{print $3}')
+
+for bucket in $buckets
+do
+  echo $bucket
+  aws s3 ls --summarize --recursive --human-readable s3://$bucket | tail -1
+done

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -euo pipefail
+
+read -p "Delete $1? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    aws s3 rm s3://$1 --recursive
+    aws s3 rb s3://$1
+fi
+
