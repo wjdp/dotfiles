@@ -1,6 +1,6 @@
 {
   "bootstrapped": true,
-  "in_process_packages": [],
+  "in_process_packages": ["TypeScript", "TypeScript Syntax"],
   "installed_packages": [
     "A File Icon",
     "Anaconda",
