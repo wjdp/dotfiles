@@ -7,7 +7,8 @@
   "trim_trailing_white_space_on_save": true,
   "hide_menu": true,
   "gtk_client_side_window_decorations": false,
-  "added_words": ["idempotency", "middleware", "customers"],
+  "added_words": ["idempotency", "middleware", "customers", "docstring"],
   "diff_style": "auto",
-  "remember_workspace": false
+  "remember_workspace": false,
+  "side_bar_layout": "commit_graph_as_column"
 }
