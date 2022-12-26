@@ -3,5 +3,5 @@ git_signing_key: 4DC1AA6287F8CC4A
 
 wallpaper: ~/dotfiles/wallpapers/1440p/dennis-schweizer-18nR85wWyLY-unsplash.jpg
 
-screen_left: DP-2.8
-screen_right: DP-5
+screen_left: DisplayPort-3
+screen_right: DisplayPort-2
