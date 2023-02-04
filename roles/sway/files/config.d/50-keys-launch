@@ -7,7 +7,7 @@ bindsym $mod+Shift+d exec $menu
 bindsym $mod+Return exec $term
 
 ## Launch // Web Browser // <◇> c ##
-bindsym $mod+c exec gtk-launch $(xdg-settings get default-web-browser)
+bindsym $mod+c exec firefox
 bindsym $mod+Shift+c exec firefox --private-window
 
 ## Launch // File Browser // <◇> n ##
