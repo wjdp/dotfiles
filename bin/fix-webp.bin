@@ -1,0 +1,7 @@
+#!/bin/bash
+for f in "*.webp"; do
+    echo "$f" "${f%.*}.jpg"
+    convert "$f" "${f%.*}.jpg"
+    rm "$f"
+done
+
