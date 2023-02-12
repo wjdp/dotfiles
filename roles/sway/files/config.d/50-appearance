@@ -1,5 +1,14 @@
 output * bg $wallpaper fill
 
-hide_edge_borders smart
+hide_edge_borders --i3 smart
+smart_borders on
 
-default_border normal 2
+default_border normal 3
+
+font pango:Roboto Medium 8
+
+# client.<class>        <border <backg> <text> <indicator> [<child_border>]
+client.focused          #48647a #48647a #ffffff #2e9ef4 #48647a
+client.focused_inactive #5f676a #5f676a #cccccc #484e50 #5f676a
+client.unfocused        #222222 #222222 #888888 #292d2e #222222
+client.urgent           #900000 #900000 #ffffff #900000 #900000

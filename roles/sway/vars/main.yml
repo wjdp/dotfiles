@@ -1,5 +1,6 @@
 sway_apt_repos:
   - ppa:agornostal/ulauncher
+  - ppa:nschloe/waybar
 
 sway_apt_packages:
   - sway
@@ -9,3 +10,5 @@ sway_apt_packages:
   - fd-find
   - wl-clipboard
   - suckless-tools
+  - waybar
+  - fonts-font-awesome

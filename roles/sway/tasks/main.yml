@@ -46,3 +46,10 @@
     dest: "{{ dotfiles_user_home }}/.config/workstyle/config.toml"
     state: link
     force: yes
+
+- name: Link waybar config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/waybar"
+    dest: "{{ dotfiles_user_home }}/.config/waybar"
+    state: link
+    force: yes

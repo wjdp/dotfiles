@@ -6,3 +6,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 
 ## Modify // Toggle Bar // <◇> i ##
 bindsym $mod+i bar mode toggle
+
+## Toggle border styles
+bindsym $mod+b border toggle

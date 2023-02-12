@@ -20,7 +20,7 @@ bindsym $mod+l exec $program.lock
 set $mode_system SYS
 mode "$mode_system" {
     bindsym l exec $program.lock, mode "default"
-    bindsym Control+l exec $program.logout logout, mode "default"
+    bindsym Control+l exit, mode "default"
     bindsym s exec $program.sleep, mode "default"
     bindsym Control+r exec $program.reboot, mode "default"
     bindsym Control+s exec $program.shutdown, mode "default"
