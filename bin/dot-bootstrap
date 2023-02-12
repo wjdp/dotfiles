@@ -2,4 +2,4 @@
 set -e
 
 echo "Setting up local environment..."
-ansible-playbook -i ~/dotfiles/hosts -e host=$(hostname) ~/dotfiles/local.yml --ask-become-pass
+~/.local/bin/ansible-playbook -i ~/dotfiles/hosts -e host=$(hostname) ~/dotfiles/local.yml --ask-become-pass
