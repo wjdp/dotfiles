@@ -86,6 +86,7 @@ apt_packages:
   # - xautomation
   # - xdotool
   - zbar-tools
+  - libfuse2 # Needed for AppImages
 
 deb_packages:
   - pkg: bat

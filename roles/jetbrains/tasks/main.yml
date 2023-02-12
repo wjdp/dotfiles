@@ -1,3 +1,11 @@
+- name: "Ensure {{ toolbox_install_dir }} exists"
+  file:
+    path: "{{ toolbox_install_dir }}"
+    state: "directory"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0755"
+
 - name: "Check if {{ application_name }} is installed"
   find:
     name: "{{ toolbox_install_dir }}"
