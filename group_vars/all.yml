@@ -19,8 +19,6 @@ apt_repos:
   - name: vscode
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
     key: https://packages.microsoft.com/keys/microsoft.asc
-  - name: deadsnakes
-    repo: ppa:deadsnakes/ppa
   - name: syncthing
     repo: deb https://apt.syncthing.net/ syncthing stable
     key: https://syncthing.net/release-key.gpg
@@ -60,6 +58,7 @@ apt_packages:
   - p7zip-full
   - pass
   - pass-extension-otp
+  - webext-browserpass
   - pasystray
   - pavucontrol
   - playerctl
@@ -86,6 +85,7 @@ apt_packages:
   # - xautomation
   # - xdotool
   - zbar-tools
+  - speedcrunch
   - libfuse2 # Needed for AppImages
 
 deb_packages:
