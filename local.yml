@@ -4,7 +4,7 @@
     - { role: apt, tags: ["apt"] }
     # - { role: bin, tags: ["bin"] }
     - { role: linux, tags: ["linux"] }
-    - { role: python, tags: ["python"] }
+    # - { role: python, tags: ["python"] }
     # - { role: dotfiles, tags: ["dotfiles"] }
     - { role: autofs, tags: ["autofs"] }
     - { role: fish, tags: ["fish"] }
