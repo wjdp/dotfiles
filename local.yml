@@ -10,7 +10,6 @@
     - { role: fish, tags: ["fish"] }
     - { role: fonts, tags: ["fonts"] }
     - { role: gnome, tags: ["gnome"] }
-    # - { role: regolith }
     - { role: sway, tags: ["sway"] }
     - { role: git, tags: ["git"] }
     - { role: node, tags: ["node"] }

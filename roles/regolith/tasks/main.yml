@@ -1,6 +1,0 @@
-- name: Window manager setup
-  import_tasks: roles/regolith/tasks/setup.yml
-  tags: ["regolith"]
-- name: Window manager config
-  import_tasks: roles/regolith/tasks/config.yml
-  tags: ["regolith", "wm"]
