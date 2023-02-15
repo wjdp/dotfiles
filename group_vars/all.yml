@@ -120,22 +120,6 @@ fish_paths:
   - "/usr/local/go/bin"
   - "~/go/bin"
 
-fish_abbr:
-  - word: dc
-    expansion: docker compose
-  - word: g
-    expansion: git
-  - word: gc
-    expansion: git commit
-  - word: p
-    expansion: gopass
-  - word: tf
-    expansion: terraform
-  - word: avx
-    expansion: aws-vault exec
-  - word: avl
-    expansion: aws-vault login
-
 fish_variables:
   - name: fish_greeting
     value: ""
