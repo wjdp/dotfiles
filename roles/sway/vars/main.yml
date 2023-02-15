@@ -13,3 +13,6 @@ sway_apt_packages:
   - waybar
   - fonts-font-awesome
   - xdg-desktop-portal-wlr
+  - wf-recorder
+  - grim
+  - slurp
