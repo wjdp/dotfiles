@@ -87,6 +87,7 @@ apt_packages:
   - zbar-tools
   - speedcrunch
   - libfuse2 # Needed for AppImages
+  - wdisplays
 
 deb_packages:
   - pkg: bat

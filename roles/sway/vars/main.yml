@@ -1,6 +1,6 @@
 sway_apt_repos:
   - ppa:agornostal/ulauncher
-  - ppa:nschloe/waybar
+#  - ppa:nschloe/waybar
 
 sway_apt_packages:
   - sway
@@ -12,3 +12,4 @@ sway_apt_packages:
   - suckless-tools
   - waybar
   - fonts-font-awesome
+  - xdg-desktop-portal-wlr

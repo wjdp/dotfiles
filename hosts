@@ -2,6 +2,7 @@ dux
 vulcan
 vulcan-london
 victor
+wgt152
 
 [all:vars]
 ansible_connection=local

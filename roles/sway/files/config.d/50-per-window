@@ -1,3 +1,5 @@
+# swaymsg -t get_tree | bat -l json
+
 for_window [app_id="gnome-control-center"] floating enable
 for_window [app_id="ulauncher"] border none
 for_window [app_id="gnome-terminal-server"] opacity 0.95
@@ -18,3 +20,5 @@ for_window [class="jetbrains-pycharm" title="win0"] floating enable
 for_window [title="Welcome to PyCharm"] floating enable
 for_window [class="MPlayer"] floating enable
 for_window [app_id="firefox"] border pixel
+for_window [class="Slack"] border pixel
+for_window [title="Firefox — Sharing Indicator"] floating enable
