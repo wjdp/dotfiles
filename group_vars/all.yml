@@ -110,7 +110,7 @@ deb_packages:
 
 bins:
   - name: aws-vault
-    url: https://github.com/99designs/aws-vault/releases/download/v6.3.1/aws-vault-linux-amd64
+    url: https://github.com/99designs/aws-vault/releases/download/v6.6.2/aws-vault-linux-amd64
 
 fish_paths:
   - "~/bin"

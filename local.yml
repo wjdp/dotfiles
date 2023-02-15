@@ -2,7 +2,7 @@
   hosts: "{{ host }}"
   roles:
     - { role: apt, tags: ["apt"] }
-    # - { role: bin, tags: ["bin"] }
+    - { role: bin, tags: ["bin"] }
     - { role: linux, tags: ["linux"] }
     - { role: python, tags: ["python"] }
     # - { role: dotfiles, tags: ["dotfiles"] }
