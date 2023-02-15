@@ -53,3 +53,9 @@
     dest: "{{ dotfiles_user_home }}/.config/waybar"
     state: link
     force: yes
+
+- name: Update output config
+  template:
+    src: "outputs.j2"
+    dest: "{{ dotfiles_user_home }}/.config/sway/config.d/05-outputs"
+    mode: 0664
