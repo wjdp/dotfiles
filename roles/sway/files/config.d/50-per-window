@@ -22,3 +22,4 @@ for_window [class="MPlayer"] floating enable
 for_window [app_id="firefox"] border pixel
 for_window [class="Slack"] border pixel
 for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [title="Picture-in-Picture"] floating enable
