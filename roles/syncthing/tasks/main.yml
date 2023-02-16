@@ -1,0 +1,42 @@
+- name: Ensure syncthing repo will have priority over system packages
+  become: yes
+  copy:
+    content: "Package: *\nPin: origin apt.syncthing.net\nPin-Priority: 990\n"
+    dest: /etc/apt/preferences.d/syncthing
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Add synthing apt key
+  become: yes
+  apt_key:
+    url: https://syncthing.net/release-key.gpg
+    state: present
+
+- name: Add synthing apt repo
+  become: yes
+  apt_repository:
+    repo: deb https://apt.syncthing.net/ syncthing stable
+    state: present
+
+- name: Install syncthing
+  become: yes
+  apt:
+    name: syncthing
+    state: present
+
+- name: Fetch syncthing systemd unit file
+  become: yes
+  get_url:
+    url: https://raw.githubusercontent.com/syncthing/syncthing/main/etc/linux-systemd/system/syncthing%40.service
+    dest: /etc/systemd/system/syncthing@.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Enable syncthing service running as {{ user }}
+  become: yes
+  systemd:
+    name: syncthing@{{ user }}.service
+    enabled: true
+    state: started

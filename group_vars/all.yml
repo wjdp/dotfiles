@@ -19,9 +19,6 @@ apt_repos:
   - name: vscode
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
     key: https://packages.microsoft.com/keys/microsoft.asc
-  - name: syncthing
-    repo: deb https://apt.syncthing.net/ syncthing stable
-    key: https://syncthing.net/release-key.gpg
   - name: libreoffice
     repo: ppa:libreoffice/ppa
 
