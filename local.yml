@@ -24,3 +24,4 @@
       go_version: 1.17.8
       GOPATH: /home/will/go
       become: yes
+    - { role: blackd, tags: ["blackd"] }

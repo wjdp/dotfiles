@@ -1,0 +1,10 @@
+[Unit]
+Description=Black Formatter
+
+[Service]
+ExecStart=/home/will/.local/bin/blackd --bind-host=127.0.0.1
+Restart=on-failure
+SyslogIdentifier=blackd
+
+[Install]
+WantedBy=default.target

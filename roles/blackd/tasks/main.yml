@@ -1,0 +1,17 @@
+- name: Install blackd as user python package
+  pip:
+    name: black[d]
+    state: present
+
+- name: Link blackd service file
+  file:
+    src: "{{ dotfiles_home }}/roles/blackd/files/blackd.service"
+    dest: "{{ dotfiles_user_home }}/.config/systemd/user/blackd.service"
+    state: link
+
+- name: Enable blackd user service
+  systemd:
+    name: blackd
+    scope: user
+    enabled: true
+    state: started
