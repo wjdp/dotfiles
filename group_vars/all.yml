@@ -107,6 +107,7 @@ fish_paths:
   - "~/.poetry/bin"
   - "/usr/local/go/bin"
   - "~/go/bin"
+  - "~/.local/share/JetBrains/Toolbox/scripts"
 
 fish_variables:
   - name: fish_greeting
