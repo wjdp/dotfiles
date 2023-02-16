@@ -1,3 +1,4 @@
+# To reload config use `makoctl reload`
 anchor=top-right
 font=Roboto
 background-color=#475159
@@ -8,7 +9,7 @@ padding=5,5,10,5
 border-size=1
 border-color=#475159dd
 
-default-timeout=10000
+default-timeout=15000
 
 [urgency=high]
 background-color=#cc0000
