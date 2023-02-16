@@ -24,6 +24,14 @@
     dest: ~/bin/{{ item.name }}
     mode: "0755"
 
+- name: If {{ item.name }} is an archive, extract it
+  when: to_install and item.archive
+  unarchive:
+    src: ~/bin/{{ item.name }}
+    dest: ~/bin
+    remote_src: yes
+    mode: "0755"
+
 - name: Write installed version (url) to file
   when: to_install
   copy:
