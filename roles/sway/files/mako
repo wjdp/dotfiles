@@ -1,3 +1,6 @@
+# There's a bug in distro package, if mako fails to load do `sudo aa-disable /etc/apparmor.d/fr.emersion.Mako`
+# See https://github.com/emersion/mako/issues/257
+
 # To reload config use `makoctl reload`
 anchor=top-right
 font=Roboto
