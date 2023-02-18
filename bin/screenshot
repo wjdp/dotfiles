@@ -6,7 +6,7 @@ if test ! -e "$DIR"
 end
 set file $DIR/$(date +%F_%H-%M-%S).jpg
 
-grim -g "$(slurp)" $file
+grim -g "$(slurp)" "$file"
 
 # Copy file to clipboard
-wl-copy < $file
+wl-copy < "$file"
