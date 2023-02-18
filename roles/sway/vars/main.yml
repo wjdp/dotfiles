@@ -16,3 +16,4 @@ sway_apt_packages:
   - wf-recorder
   - grim
   - slurp
+  - mako-notifier

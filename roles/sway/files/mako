@@ -1,0 +1,19 @@
+# To reload config use `makoctl reload`
+anchor=top-right
+font=Roboto
+background-color=#475159
+background-color=#475159
+margin=0
+padding=5,5,10,5
+
+border-size=1
+border-color=#475159dd
+
+default-timeout=15000
+
+[urgency=high]
+background-color=#cc0000
+
+# slack is purple
+[app-name=Slack]
+background-color=#4a154b

@@ -17,6 +17,23 @@
     state: link
     force: yes
 
+- name: Copy backlight udev rules
+  become: yes
+  copy:
+    src: "{{ dotfiles_home }}/roles/sway/files/udev/90-backlight.rules"
+    dest: "/etc/udev/rules.d/90-backlight.rules"
+    mode: 0664
+    owner: root
+    group: root
+  notify: Reload udev
+
+- name: Add {{ user }} to video group
+  become: yes
+  user:
+    name: "{{ user }}"
+    groups: video
+    append: yes
+
 - name: Ensure directories exist
   file:
     path: "{{ item }}"
@@ -51,6 +68,19 @@
   file:
     src: "{{ dotfiles_home }}/roles/sway/files/waybar"
     dest: "{{ dotfiles_user_home }}/.config/waybar"
+    state: link
+    force: yes
+
+- name: Ensure mako config directory exists
+  file:
+    path: "{{ dotfiles_user_home }}/.config/mako"
+    state: directory
+    mode: 0775
+
+- name: Link mako config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/mako"
+    dest: "{{ dotfiles_user_home }}/.config/mako/config"
     state: link
     force: yes
 

@@ -95,6 +95,7 @@ deb_packages:
 bins:
   - name: aws-vault
     url: https://github.com/99designs/aws-vault/releases/download/v6.6.2/aws-vault-linux-amd64
+    archive: false
   - name: difft
     url: https://github.com/Wilfred/difftastic/releases/download/0.43.1/difft-x86_64-unknown-linux-gnu.tar.gz
     archive: true
@@ -106,6 +107,7 @@ fish_paths:
   - "~/.poetry/bin"
   - "/usr/local/go/bin"
   - "~/go/bin"
+  - "~/.local/share/JetBrains/Toolbox/scripts"
 
 fish_variables:
   - name: fish_greeting
