@@ -1,6 +1,7 @@
 - name: Set up local machine
   hosts: "{{ host }}"
   roles:
+    - { role: snap, tags: ["snap"] }
     - { role: apt, tags: ["apt"] }
     - { role: bin, tags: ["bin"] }
     - { role: linux, tags: ["linux"] }
