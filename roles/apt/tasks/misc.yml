@@ -1,0 +1,15 @@
+- name: Prioritise fish PPA takes over Ubuntu's
+  become: yes
+  copy:
+    content: |
+      Package: fish
+      Pin: release o=LP-PPA-fish-shell
+      Pin-Priority: 990
+
+      Package: fish
+      Pin: release o=Ubuntu
+      Pin-Priority: -1
+    dest: /etc/apt/preferences.d/fish
+    owner: root
+    group: root
+    mode: 0644

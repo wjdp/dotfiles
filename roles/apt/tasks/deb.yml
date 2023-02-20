@@ -1,3 +1,6 @@
+- name: Run misc tasks
+  include_tasks: misc.yml
+
 - name: Check if {{ item.pkg }} is installed
   set_fact:
     package_installed: "{{ item.pkg in ansible_facts.packages }}"
