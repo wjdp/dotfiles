@@ -1,3 +1,4 @@
+{% if screen_left is defined and screen_right is defined %}
 output {{ screen_left }} pos 0 0 res {{ screen_left_w }}x{{ screen_left_h }}
 output {{ screen_right }} pos {{ screen_left_w }} 0 res {{ screen_right_w }}x{{ screen_right_h }}
 
@@ -18,3 +19,4 @@ workspace 15 output {{ screen_right }}
 workspace 16 output {{ screen_right }}
 workspace 17 output {{ screen_right }}
 workspace 18 output {{ screen_right }}
+{% endif %}
