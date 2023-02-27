@@ -22,7 +22,7 @@
         // "backlight", 
         // "keyboard-state", 
     //    // "sway/language", 
-    //     "battery", 
+        "battery",
     //     "battery#bat2", 
         "clock"
         // end
