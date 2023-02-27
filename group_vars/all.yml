@@ -75,6 +75,7 @@ apt_packages:
   - speedcrunch
   - libfuse2 # Needed for AppImages
   - wdisplays # arandr but for wayland
+  - pandoc # Needed for Obsidian pandoc export
 
 deb_packages:
   - pkg: bat
