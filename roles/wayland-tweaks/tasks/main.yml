@@ -1,5 +1,11 @@
+- name: Tweak Electron apps
+  include_tasks: electron.yml
+
 - name: Tweak Obsidian
   include_tasks: obsidian.yml
 
 - name: Tweak Slack
   include_tasks: slack.yml
+
+- name: Tweak VS Code
+  include_tasks: vscode.yml
