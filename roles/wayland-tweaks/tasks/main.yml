@@ -1,8 +1,5 @@
-- name: Modify Obsidian .desktop file to launch in Wayland mode
-  lineinfile:
-    path: /usr/share/applications/obsidian.desktop
-    regexp: '^Exec='
-    line: 'Exec=env OBSIDIAN_USE_WAYLAND=1 obsidian %U'
-    state: present
-    backup: yes
-  become: yes
+- name: Tweak Obsidian
+  include_tasks: obsidian.yml
+
+- name: Tweak Slack
+  include_tasks: slack.yml
