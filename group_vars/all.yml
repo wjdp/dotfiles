@@ -76,6 +76,7 @@ apt_packages:
   - libfuse2 # Needed for AppImages
   - wdisplays # arandr but for wayland
   - pandoc # Needed for Obsidian pandoc export
+  - qtwayland5 # Makes nomacs work in wayland
 
 deb_packages:
   - pkg: bat
