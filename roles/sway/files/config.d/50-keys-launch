@@ -14,7 +14,7 @@ bindsym $mod+Shift+c exec firefox --private-window
 bindsym $mod+n exec $program.files
 
 ## Lock Screen
-bindsym $mod+l exec $program.lock
+bindsym $mod+l exec killall -USR1 swayidle
 
 ## Session Management
 set $mode_system SYS
