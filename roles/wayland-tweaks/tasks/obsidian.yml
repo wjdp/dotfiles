@@ -2,7 +2,7 @@
   lineinfile:
     path: /usr/share/applications/obsidian.desktop
     regexp: '^Exec='
-    line: 'Exec=env OBSIDIAN_USE_WAYLAND=1 obsidian %U'
+    line: 'Exec=env OBSIDIAN_USE_WAYLAND=1 obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland %U'
     state: present
     backup: yes
   become: yes
