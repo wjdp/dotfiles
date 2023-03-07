@@ -29,3 +29,4 @@
     - { role: blackd, tags: ["blackd"] }
     - { role: syncthing, tags: ["syncthing"] }
     - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
+    - { role: plex-mpv, tags: ["plex-mpv"] }
