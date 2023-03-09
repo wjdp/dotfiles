@@ -215,5 +215,6 @@ pip_user_packages:
   - youtube-dl
   - rofimoji
   - awslogs
+  - virtualfish
 
 docker_compose_version: "v2.2.3"
