@@ -1,0 +1,7 @@
+- name: Link fdfind to fd
+  become: yes
+  file:
+    src: "/usr/bin/fdfind"
+    dest: "/usr/bin/fd"
+    state: link
+    force: yes

@@ -1,0 +1,12 @@
+- name: Ensure mako config directory exists
+  file:
+    path: "{{ dotfiles_user_home }}/.config/mako"
+    state: directory
+    mode: 0775
+
+- name: Link mako config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/mako"
+    dest: "{{ dotfiles_user_home }}/.config/mako/config"
+    state: link
+    force: yes

@@ -1,0 +1,19 @@
+- name: Link waybar config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/waybar"
+    dest: "{{ dotfiles_user_home }}/.config/waybar"
+    state: link
+    force: yes
+
+- name: Ensure workstyle config directory exists
+  file:
+    path: "{{ dotfiles_user_home }}/.config/workstyle"
+    state: directory
+    mode: 0775
+
+- name: Link workstyle config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/workstyle.toml"
+    dest: "{{ dotfiles_user_home }}/.config/workstyle/config.toml"
+    state: link
+    force: yes

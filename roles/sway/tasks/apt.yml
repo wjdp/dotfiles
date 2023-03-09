@@ -1,0 +1,10 @@
+- name: Add repos
+  loop: "{{ sway_apt_repos }}"
+  become: yes
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+
+- name: Install apt packages
+  become: yes
+  apt: name={{ sway_apt_packages }} state=present

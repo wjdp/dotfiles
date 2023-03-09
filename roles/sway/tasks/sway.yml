@@ -1,0 +1,25 @@
+- name: Ensure sway config directory exists
+  file:
+    path: "{{ dotfiles_user_home }}/.config/sway"
+    state: directory
+    mode: 0775
+
+- name: Link sway config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/config"
+    dest: "{{ dotfiles_user_home }}/.config/sway/config"
+    state: link
+    force: yes
+
+- name: Link sway config.d
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/config.d"
+    dest: "{{ dotfiles_user_home }}/.config/sway/config.d"
+    state: link
+    force: yes
+
+- name: Update output config
+  template:
+    src: "outputs.j2"
+    dest: "{{ dotfiles_user_home }}/.config/sway/config.d/05-outputs"
+    mode: 0664
