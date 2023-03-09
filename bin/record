@@ -1,0 +1,6 @@
+#!/bin/fish
+set file ~/Videos/recording_$(date +%F_%H-%M-%S).mp4
+# when user presses ctrl+c copy the file path to clipboard
+trap 'echo -n $file | wl-copy' INT
+
+wf-recorder -g "$(slurp)" -f $file $argv

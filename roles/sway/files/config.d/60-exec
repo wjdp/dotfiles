@@ -1,0 +1,4 @@
+exec $launcher-daemon
+exec_always --no-startup-id ~/.cargo/bin/workstyle &> /tmp/workstyle.log
+exec wmname LG3D # for java apps like pycharm
+exec_always --no-startup-id mako

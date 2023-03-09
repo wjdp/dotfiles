@@ -1,0 +1,19 @@
+sway_apt_repos:
+  - ppa:agornostal/ulauncher
+#  - ppa:nschloe/waybar
+
+sway_apt_packages:
+  - sway
+  - swaylock
+  - swayidle
+  - ulauncher
+  - fd-find
+  - wl-clipboard
+  - suckless-tools
+  - waybar
+  - fonts-font-awesome
+  - xdg-desktop-portal-wlr
+  - wf-recorder
+  - grim
+  - slurp
+  - mako-notifier

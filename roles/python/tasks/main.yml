@@ -1,3 +1,9 @@
+- name: Install deadsnakes repo
+  become: yes
+  apt_repository:
+    repo: "ppa:deadsnakes/ppa"
+  register: apt_repo
+
 - name: Install python
   become: yes
   apt:
@@ -5,9 +11,23 @@
       - python3
       - python3-pip
       - python3-dev
+      - python3.8
+      - python3.8-dev
+      - python3.8-distutils
       - python3.9
       - python3.9-dev
+      - python3.9-distutils
+      - python3.10
+      - python3.10-dev
+      - python3.10-distutils
+      - python-is-python3
     state: present
+
+- name: Ensure user pip is up to date
+  pip:
+    name: pip
+    state: latest
+    extra_args: --user
 
 - name: Check if poetry is installed
   stat:
@@ -21,7 +41,7 @@
     executable: /usr/bin/bash
   shell: |
     set -o pipefail &&
-    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+    curl -sSL https://install.python-poetry.org | python -
 
 - name: Install user python packages
   pip:

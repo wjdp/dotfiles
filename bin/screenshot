@@ -1,0 +1,12 @@
+#!/bin/fish
+set DIR ~/Pictures/Screenshots
+
+if test ! -e "$DIR"
+  mkdir -p "$DIR"
+end
+set file $DIR/$(date +%F_%H-%M-%S).png
+
+grim -g "$(slurp)" "$file"
+
+# Copy file to clipboard
+wl-copy < "$file"

@@ -1,0 +1,30 @@
+# swaymsg -t get_tree | bat -l json
+
+# Highlight xwayland windows
+for_window [shell="xwayland"] title_format "%title [XWayland]"
+
+for_window [app_id="gnome-control-center"] floating enable
+for_window [app_id="ulauncher"] border none
+for_window [app_id="gnome-terminal-server"] opacity 0.95
+
+# from i3
+for_window [class="jetbrains-pycharm" title="win0"] floating enable
+for_window [class="plexamp"] floating enable
+for_window [class="java-lang-Thread"] floating enable
+for_window [class="Workrave"] border none
+for_window [class="Workrave"] floating enable
+for_window [class="jetbrains-toolbox"] floating enable
+for_window [class="1Password"] floating enable
+for_window [class="1password"] floating enable
+for_window [class="plexamp"] floating enable
+for_window [class="Plexamp"] floating enable
+for_window [title="About Mozilla Firefox"] floating enable
+for_window [class="jetbrains-pycharm" title="win0"] floating enable
+for_window [title="Welcome to PyCharm"] floating enable
+for_window [class="MPlayer"] floating enable
+for_window [app_id="firefox"] border pixel
+for_window [class="Slack"] border pixel
+for_window [app_id="Slack"] border pixel
+for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [title="Picture-in-Picture"] floating enable
+for_window [app_id="ulauncher"] floating enable

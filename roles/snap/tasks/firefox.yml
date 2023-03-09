@@ -1,0 +1,21 @@
+- name: Add mozillateam PPAs
+  become: yes
+  apt_repository:
+    repo: "ppa:mozillateam/ppa"
+    state: present
+
+- name: Prioritise mozillateam ppa over system packages
+  become: yes
+  copy:
+    content: |
+      Package: firefox*
+      Pin: release o=LP-PPA-mozillateam
+      Pin-Priority: 990
+
+      Package: firefox*
+      Pin: release o=Ubuntu
+      Pin-Priority: -1
+    dest: /etc/apt/preferences.d/mozillateam
+    owner: root
+    group: root
+    mode: 0644

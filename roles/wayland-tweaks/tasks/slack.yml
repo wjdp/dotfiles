@@ -1,0 +1,14 @@
+- name: Check if slack.desktop file exists
+  stat:
+    path: /usr/share/applications/slack.desktop
+  register: slack_desktop_file
+
+- name: Force slack to use wayland
+  when: slack_desktop_file.stat.exists
+  become: yes
+  lineinfile:
+    path: /usr/share/applications/slack.desktop
+    regexp: '^Exec='
+    line: 'Exec=env GDK_BACKEND=wayland /usr/bin/slack %U --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer %U'
+    state: present
+    backup: yes

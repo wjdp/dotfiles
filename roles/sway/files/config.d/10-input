@@ -1,0 +1,5 @@
+input type:keyboard {
+    xkb_layout gb
+}
+
+seat seat0 hide_cursor 2000

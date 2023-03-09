@@ -1,0 +1,91 @@
+- name: Add repos
+  loop: "{{ sway_apt_repos }}"
+  become: yes
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+
+- name: Install apt packages
+  become: yes
+  apt: name={{ sway_apt_packages }} state=present
+
+- name: Link fdfind to fd
+  become: yes
+  file:
+    src: "/usr/bin/fdfind"
+    dest: "/usr/bin/fd"
+    state: link
+    force: yes
+
+- name: Copy backlight udev rules
+  become: yes
+  copy:
+    src: "{{ dotfiles_home }}/roles/sway/files/udev/90-backlight.rules"
+    dest: "/etc/udev/rules.d/90-backlight.rules"
+    mode: 0664
+    owner: root
+    group: root
+  notify: Reload udev
+
+- name: Add {{ user }} to video group
+  become: yes
+  user:
+    name: "{{ user }}"
+    groups: video
+    append: yes
+
+- name: Ensure directories exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0775
+  loop:
+    - "{{ dotfiles_user_home }}/.config/sway"
+    - "{{ dotfiles_user_home }}/.config/workstyle"
+
+- name: Link sway config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/config"
+    dest: "{{ dotfiles_user_home }}/.config/sway/config"
+    state: link
+    force: yes
+
+- name: Link sway config.d
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/config.d"
+    dest: "{{ dotfiles_user_home }}/.config/sway/config.d"
+    state: link
+    force: yes
+
+- name: Link workstyle config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/workstyle.toml"
+    dest: "{{ dotfiles_user_home }}/.config/workstyle/config.toml"
+    state: link
+    force: yes
+
+- name: Link waybar config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/waybar"
+    dest: "{{ dotfiles_user_home }}/.config/waybar"
+    state: link
+    force: yes
+
+- name: Ensure mako config directory exists
+  file:
+    path: "{{ dotfiles_user_home }}/.config/mako"
+    state: directory
+    mode: 0775
+
+- name: Link mako config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/mako"
+    dest: "{{ dotfiles_user_home }}/.config/mako/config"
+    state: link
+    force: yes
+
+- name: Update output config
+  template:
+    src: "outputs.j2"
+    dest: "{{ dotfiles_user_home }}/.config/sway/config.d/05-outputs"
+    mode: 0664

@@ -1,0 +1,8 @@
+# write to ~/.config/electron-flags.conf
+- name: Create electron profile to attempt to force apps to run in wayland
+  copy:
+    content: |
+      --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WaylandWindowDecorations
+      --ozone-platform-hint=auto
+    dest: ~/.config/electron-flags.conf
+    mode: 0644

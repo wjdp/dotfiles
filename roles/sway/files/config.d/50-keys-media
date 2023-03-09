@@ -1,0 +1,12 @@
+# Media controls
+## Launch // Play / Pause // <◇> p ##
+bindsym $mod+p exec playerctl play-pause
+## Launch // Prev Track // <◇> [ ##
+bindsym $mod+bracketleft exec playerctl previous
+## Launch // Next Track // <◇> ] ##
+bindsym $mod+bracketright exec playerctl next
+
+# Volume contol
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle

@@ -2,12 +2,6 @@
   loop:
     - src: alacritty.yml
       dest: .alacritty.yml
-    - src: screenrc
-      dest: .screenrc
-    - src: tmux.conf
-      dest: .tmux.conf
-    - src: xsession
-      dest: .xsession
   file:
     src: "{{ dotfiles_home }}/roles/dotfiles/files/{{ item.src }}"
     dest: "{{ dotfiles_user_home }}/{{ item.dest }}"

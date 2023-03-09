@@ -1,5 +1,5 @@
 dotfiles_user_home: "{{ '~' | expanduser }}"
-dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
+dotfiles_home: "{{ dotfiles_user_home }}/dotfiles"
 
 user: will
 full_name: Will Pimblett
@@ -15,20 +15,14 @@ apt_repos:
     key: https://pkgs.tailscale.com/stable/ubuntu/focal.gpg
   - name: spotify
     repo: deb http://repository.spotify.com stable non-free
-    key: https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg
+    key: https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg
   - name: vscode
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
     key: https://packages.microsoft.com/keys/microsoft.asc
-  - name: deadsnakes
-    repo: ppa:deadsnakes/ppa
-  - name: syncthing
-    repo: deb https://apt.syncthing.net/ syncthing stable
-    key: https://syncthing.net/release-key.gpg
   - name: libreoffice
     repo: ppa:libreoffice/ppa
 
 apt_packages:
-  - arandr
   - audacity
   - baobab
   - build-essential
@@ -36,12 +30,9 @@ apt_packages:
   - code
   - curl
   - dconf-editor
-  - default-jre
-  - feh
   - flameshot
   - fonts-noto
   - gimp
-  - gnupg2
   - gpick
   - htop
   - httpie
@@ -52,7 +43,6 @@ apt_packages:
   - libpq-dev
   - libreoffice
   - libxslt1-dev
-  - lxappearance
   - meld
   - mpv
   - ncdu
@@ -60,15 +50,13 @@ apt_packages:
   - p7zip-full
   - pass
   - pass-extension-otp
+  - webext-browserpass
   - pasystray
   - pavucontrol
   - playerctl
   - powertop
   - pwgen
-  - ruby
-  - ruby-dev
   - screen
-  - screenruler
   - software-properties-common
   - spotify-client
   - sshfs
@@ -83,32 +71,36 @@ apt_packages:
   - wget
   - whois
   - wine
-  - xautomation
-  - xdotool
   - zbar-tools
+  - speedcrunch
+  - libfuse2 # Needed for AppImages
+  - wdisplays # arandr but for wayland
+  - pandoc # Needed for Obsidian pandoc export
+  - qtwayland5 # Makes nomacs work in wayland
 
 deb_packages:
   - pkg: bat
-    url: https://github.com/sharkdp/bat/releases/download/v0.18.3/bat_0.18.3_amd64.deb
-    version: "0.18.3"
+    url: https://github.com/sharkdp/bat/releases/download/v0.22.1/bat_0.22.1_amd64.deb
+    version: "0.22.1"
   - pkg: dive
     url: https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb
     version: "0.10.0"
   - pkg: obsidian
-    url: https://github.com/obsidianmd/obsidian-releases/releases/download/v0.15.9/obsidian_0.15.9_amd64.deb
-    version: "0.15.9"
+    url: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.15/obsidian_1.1.15_amd64.deb
+    version: "1.1.15"
   - pkg: lsd
-    url: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
-    version: "0.20.1"
+    url: https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
+    version: "0.23.1"
   - pkg: steam-launcher
     url: https://steamcdn-a.akamaihd.net/client/installer/steam.deb
-  - pkg: dug
-    url: https://github.com/unfrl/dug/releases/download/0.0.85/dug.0.0.85.linux-x64.deb
-    version: "0.0.85"
 
 bins:
   - name: aws-vault
-    url: https://github.com/99designs/aws-vault/releases/download/v6.3.1/aws-vault-linux-amd64
+    url: https://github.com/99designs/aws-vault/releases/download/v6.6.2/aws-vault-linux-amd64
+    archive: false
+  - name: difft
+    url: https://github.com/Wilfred/difftastic/releases/download/0.43.1/difft-x86_64-unknown-linux-gnu.tar.gz
+    archive: true
 
 fish_paths:
   - "~/bin"
@@ -117,22 +109,7 @@ fish_paths:
   - "~/.poetry/bin"
   - "/usr/local/go/bin"
   - "~/go/bin"
-
-fish_abbr:
-  - word: dc
-    expansion: docker compose
-  - word: g
-    expansion: git
-  - word: gc
-    expansion: git commit
-  - word: p
-    expansion: gopass
-  - word: tf
-    expansion: terraform
-  - word: avx
-    expansion: aws-vault exec
-  - word: avl
-    expansion: aws-vault login
+  - "~/.local/share/JetBrains/Toolbox/scripts"
 
 fish_variables:
   - name: fish_greeting
@@ -238,5 +215,6 @@ pip_user_packages:
   - youtube-dl
   - rofimoji
   - awslogs
+  - virtualfish
 
 docker_compose_version: "v2.2.3"

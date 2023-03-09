@@ -1,0 +1,2 @@
+# Mod+PrintScn to take a screenshot
+bindsym Print exec /home/will/dotfiles/bin/screenshot &> /tmp/screenshot.log

@@ -1,8 +1,0 @@
-startup_message off
-
-term screen-256color
-
-backtick 1 60 60 ~/bin/screen_gcal
-
-hardstatus alwayslastline
-hardstatus string '[ $1` ] %{= kG}[ %{G}%H %{g}][%= %{= kw} %?%-w%?%{r}(%{W}%n %t%?(%u)%?%{r})%{w}%?%+w%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'

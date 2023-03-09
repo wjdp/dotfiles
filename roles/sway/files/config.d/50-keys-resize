@@ -1,0 +1,42 @@
+set $resize_md 4
+set $resize_lg 16
+
+## Resize // Enter Resize Mode // <◇> r ##
+mode "RESIZE" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        ## Resize // Resize Window // ↑ ↓ ← → ##
+        bindsym Left resize shrink width $resize_md px or $resize_md ppt
+        bindsym Down resize grow height $resize_md px or $resize_md ppt
+        bindsym Up resize shrink height $resize_md px or $resize_md ppt
+        bindsym Right resize grow width $resize_md px or $resize_md ppt
+
+        bindsym Shift+Left resize shrink width $resize_lg px or $resize_lg ppt
+        bindsym Shift+Down resize grow height $resize_lg px or $resize_lg ppt
+        bindsym Shift+Up resize shrink height $resize_lg px or $resize_lg ppt
+        bindsym Shift+Right resize grow width $resize_lg px or $resize_lg ppt
+
+        ## Resize // Window Gaps // + - ##
+        bindsym minus gaps inner current minus 6
+        bindsym plus gaps inner current plus 6
+        bindsym Shift+minus gaps inner current minus 12
+        bindsym Shift+plus gaps inner current plus 12
+
+        ## Resize // Exit Resize Mode // Escape or Enter ##
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "RESIZE"
+
+# resize window by holding mod and scrolling
+bindsym --whole-window --release $mod+button4 resize grow width 5 px or 5 ppt
+bindsym --whole-window --release $mod+button5 resize shrink width 5 px or 5 ppt
+
+# with shift for height
+bindsym --whole-window --release $mod+Shift+button4 resize grow height 5 px or 5 ppt
+bindsym --whole-window --release $mod+Shift+button5 resize shrink height 5 px or 5 ppt
+
+# with alt for both but maintain 16:9 aspect ratio, useful for videos
+bindsym --whole-window --release $mod+Alt+button4 resize grow width 16 px or 16 ppt; resize grow height 9 px or 9 ppt
+bindsym --whole-window --release $mod+Alt+button5 resize shrink width 16 px or 16 ppt; resize shrink height 9 px or 9 ppt

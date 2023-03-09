@@ -1,10 +1,10 @@
 - name: Install git
   apt: name=git state=present
-  become_method: sudo
+  become: yes
 
 - name: Install git-lfs
   apt: name=git-lfs state=present
-  become_method: sudo
+  become: yes
 
 - name: Link global gitignore file
   file:
