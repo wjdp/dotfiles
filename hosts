@@ -3,6 +3,7 @@ vulcan
 vulcan-london
 victor
 wgt152
+odyssey
 
 [all:vars]
 ansible_connection=local
