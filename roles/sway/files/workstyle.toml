@@ -60,6 +60,8 @@
 "steam"=""
 "slack"=""
 "subsurface"="󰷄"
+"meld"="󰽜"
+"seahorse"="󱕴"
 
 [other]
 fallback_icon = "🤨"
