@@ -30,18 +30,7 @@
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": false,
-        "all-outputs": false,
-        // "format": "{name}: {icon}",
-        // "format-icons": {
-        //     "1": "",
-        //     "2": "",
-        //     "3": "",
-        //     "4": "",
-        //     "5": "",
-        //     "urgent": "",
-        //     "focused": "",
-        //     "default": ""
-        // }
+        "all-outputs": false
     },
     "keyboard-state": {
         "numlock": true,

@@ -5,6 +5,10 @@
     state: link
     force: yes
 
+- name: Pull and build workstyle from cargo
+  community.general.cargo:
+    name: workstyle
+
 - name: Ensure workstyle config directory exists
   file:
     path: "{{ dotfiles_user_home }}/.config/workstyle"

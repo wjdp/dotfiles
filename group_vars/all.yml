@@ -77,6 +77,7 @@ apt_packages:
   - wdisplays # arandr but for wayland
   - pandoc # Needed for Obsidian pandoc export
   - qtwayland5 # Makes nomacs work in wayland
+  - cargo # to compile rust things
 
 deb_packages:
   - pkg: bat
@@ -110,6 +111,7 @@ fish_paths:
   - "/usr/local/go/bin"
   - "~/go/bin"
   - "~/.local/share/JetBrains/Toolbox/scripts"
+  - "~/.cargo/bin"
 
 fish_variables:
   - name: fish_greeting
