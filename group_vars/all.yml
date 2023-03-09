@@ -21,6 +21,8 @@ apt_repos:
     key: https://packages.microsoft.com/keys/microsoft.asc
   - name: libreoffice
     repo: ppa:libreoffice/ppa
+  - name: subsurface
+    repo: ppa:subsurface/subsurface
 
 apt_packages:
   - audacity
@@ -78,6 +80,7 @@ apt_packages:
   - pandoc # Needed for Obsidian pandoc export
   - qtwayland5 # Makes nomacs work in wayland
   - cargo # to compile rust things
+  - subsurface
 
 deb_packages:
   - pkg: bat
