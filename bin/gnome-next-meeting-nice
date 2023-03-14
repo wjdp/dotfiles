@@ -13,6 +13,11 @@ minutes_pattern = re.compile(r"(\d+) minute(s)?")
 STATE_FUTURE = "future"
 STATE_NOW = "now"
 
+def check_if_running() -> bool:
+    # check if process gnome-next-meeting-applet is running
+    return subprocess.run(
+        ["pgrep", "gnome-next-meeting-applet"], stdout=subprocess.PIPE
+    ).returncode == 0
 
 def match_hours(s: str) -> timedelta | None:
     matches = hours_pattern.match(s)
@@ -97,6 +102,9 @@ def get_icon(state: str, delta: timedelta) -> str:
 
 
 def main():
+    if not check_if_running():
+        return json.dumps({})
+
     result = subprocess.run(
         ["gnome-next-meeting-applet", "dbus", "get_event"], stdout=subprocess.PIPE
     )
