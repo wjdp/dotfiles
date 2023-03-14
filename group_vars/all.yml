@@ -101,6 +101,7 @@ deb_packages:
     version: "0.23.1"
   - pkg: steam-launcher
     url: https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+    version: "latest"
 
 bins:
   - name: aws-vault
