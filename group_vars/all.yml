@@ -23,6 +23,8 @@ apt_repos:
     repo: ppa:libreoffice/ppa
   - name: subsurface
     repo: ppa:subsurface/subsurface
+  - name: gnome-next-meeting-applet
+    repo: ppa:chmouel/gnome-next-meeting-applet
 
 apt_packages:
   - audacity
@@ -82,6 +84,7 @@ apt_packages:
   - cargo # to compile rust things
   - subsurface # for dive log
   - ddcutil # for controlling monitors
+  - gnome-next-meeting-applet
 
 deb_packages:
   - pkg: bat
