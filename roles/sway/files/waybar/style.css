@@ -130,6 +130,11 @@ window#waybar.solo {
 #battery {
 }
 
+#battery.discharging {
+  box-shadow: inset 0 -3px #fff;
+  color: white;
+}
+
 #battery.charging {
   box-shadow: inset 0 -3px #ff9915;
   color: #ffffff;

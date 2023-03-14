@@ -120,15 +120,16 @@
             "warning": 9,
             "critical": 20
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 󰂄",
+        "format": "{capacity}% {power:.3}W {time} {icon}",
+        "format-charging": "{capacity}% {power:.2}W {time} 󰂄",
         "format-plugged": "{capacity}% ",
         "format-full": "{capacity}% 󰂂",
         "format-alt": "{time} {icon}",
+        "format-time": "{H}h{M}m",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂"],
-        "interval": 2
+        "interval": 3
     },
     "bluetooth": {
         // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
