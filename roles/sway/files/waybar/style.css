@@ -284,3 +284,20 @@ label:focus {
   animation: blinking-urgent 400ms infinite alternate;
   box-shadow: inset 0 -3px #ff0000;
 }
+
+#mpris {
+  color: rgba(255,255,255,0.4);
+}
+
+#mpris.playing {
+  color: #ccc;
+  box-shadow: inset 0 -3px rgba(255,255,255,0.6);
+}
+
+#mpris.firefox {
+  box-shadow: inset 0 -3px rgba(255, 153, 21,0.4);
+}
+
+#mpris.firefox.playing {
+  box-shadow: inset 0 -3px rgba(255, 153, 21,0.8);;
+}

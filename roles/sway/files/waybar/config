@@ -10,6 +10,7 @@
     "modules-right": [
         // "mpd",
         "custom/gnma",
+        "mpris",
         "tray",
         "idle_inhibitor", 
         // "custom/media",
@@ -195,6 +196,19 @@
         "max-length": 50,
         "min-length": 1,
         "on-click": "gnome-next-meeting-applet dbus open_event_url",
+    },
+    "mpris": {
+        "format": "{player_icon} {title}: {artist}",
+        "format-paused": "{status_icon} <i>{title}: {artist}</i>",
+        "player-icons": {
+            "default": "󰐊",
+            "mpv": "🎵",
+            "spotify": "",
+            "firefox": "󰈹"
+        },
+        "status-icons": {
+            "paused": "󰏤"
+        },
     }
 }
 
