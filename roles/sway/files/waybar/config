@@ -140,7 +140,7 @@
     },
     "bluetooth": {
         // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-        "format": " 0",
+        "format": "",
         "format-disabled": " OFF", // an empty format will hide the module
         "format-connected": " {num_connections}"
         // "tooltip-format": "{controller_alias}\t{controller_address}",
@@ -149,20 +149,20 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} {signalStrength}% ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
-        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-wifi": "{signalStrength}% ",
+        "format-ethernet": "󰈀",
+        "tooltip-format": "{ifname} via {gwaddr} on {essid}",
         "format-linked": "{ifname} (No IP) 󰈀",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr} 󰩠"
+        "format-disconnected": "NET",
+        "format-alt": "{ifname}: {ipaddr}/{cidr} {essid} 󰩠",
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "󰝟  {icon} {format_source}",
-        "format-muted": "󰝟  {format_source}",
-        "format-source": "{volume}% ",
+        "format-muted": "0% 󰝟 {format_source}",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
