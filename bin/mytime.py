@@ -27,11 +27,11 @@ def calc_time(wakeup_hour):
     sleep_delta = sleep_dt - now
     sleep_delta_hours = float(sleep_delta.seconds) / 3600
     
-    print "Woke up at: {}".format(wakeup_dt)
-    print "Been awake for {:.2f}/{} hours".format(awake_hours, AWAKE_HOURS)
-    print "Should be {:.2f}% of the day".format( (awake_hours/AWAKE_HOURS) *100)
-    print "It's {:.2f} for you".format(NORMAL_WAKE + awake_hours)
-    print "You sleep at {}, {:.2f} hours away".format(sleep_dt, sleep_delta_hours)
+    print("Woke up at: {}".format(wakeup_dt))
+    print("Been awake for {:.2f}/{} hours".format(awake_hours, AWAKE_HOURS))
+    print("Should be {:.2f}% of the day".format( (awake_hours/AWAKE_HOURS) *100))
+    print("It's {:.2f} for you".format(NORMAL_WAKE + awake_hours))
+    print("You sleep at {}, {:.2f} hours away".format(sleep_dt, sleep_delta_hours))
 
 if __name__ == "__main__":
     calc_time(int(sys.argv[1]))
