@@ -8,7 +8,7 @@
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "sway/window"],
     "modules-center": [],
     "modules-right": [
-    //    // "mpd",
+        // "mpd",
         "custom/gnma",
         "tray",
         "idle_inhibitor", 
@@ -22,9 +22,8 @@
         "temperature", 
         // "backlight", 
         // "keyboard-state", 
-    //    // "sway/language", 
+        // "sway/language", 
         "battery",
-    //     "battery#bat2", 
         "clock"
         // end
     ],
@@ -118,20 +117,18 @@
     "battery": {
         "states": {
             // "good": 95,
-            "warning": 30,
-            "critical": 15
+            "warning": 9,
+            "critical": 20
         },
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
+        "format-full": "{capacity}% 󰂂",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂"],
         "interval": 2
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
     },
     "bluetooth": {
         // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system

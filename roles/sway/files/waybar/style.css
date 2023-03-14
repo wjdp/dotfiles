@@ -60,6 +60,26 @@ window#waybar.solo {
   font-weight: 900;
 }
 
+@keyframes blinking-urgent {
+  0% {
+    background-color: #000;
+  }
+  100% {
+    background-color: #ef0a1a;
+  }
+}
+
+@keyframes blinking-critical {
+  from {
+    background-color: #f53c3c;
+    color: white;
+  }
+  to {
+    background-color: #ffe1e1;
+    color: #000000;
+  }
+}
+
 #clock,
 #battery,
 #cpu,
@@ -108,39 +128,33 @@ window#waybar.solo {
 }
 
 #battery {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 0 6px;
 }
 
 #battery.charging {
-  padding: 0 6px;
-  background-color: #cf8e39;
   box-shadow: inset 0 -3px #ff9915;
   color: #ffffff;
 }
 
-#battery.plugged {
-  padding: 0 8px 0 6px;
-  color: #3ce970;
+#battery.plugged,
+#battery.full {
+  color: #ccc;
   background: none;
+  box-shadow: inset 0 -3px #64727d;
 }
 
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: #000000;
-  }
+#battery.warning:not(.charging) {
+  padding: 0 6px;
+  color: #000;
+  background-color: #ffae44;
+  box-shadow: inset 0 -3px #ff9100;
 }
 
 #battery.critical:not(.charging) {
+  padding: 0 6px;
   background-color: #f53c3c;
   color: #ffffff;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: blinking-critical 400ms infinite alternate linear;
+  box-shadow: inset 0 -3px #ff0000;
 }
 
 label:focus {
@@ -148,15 +162,11 @@ label:focus {
 }
 
 #cpu {
-  min-width: 3.5em;
-}
-
-#cpu.critical {
-  background-color: #eb4d4b;
+  min-width: 3.5em; /* to avoid reflow when the value changes */
 }
 
 #memory {
-  min-width: 3.5em;
+  min-width: 3.5em; /* to avoid reflow when the value changes */
 }
 
 #disk {
@@ -170,6 +180,7 @@ label:focus {
 
 #network.disconnected {
   background-color: #f53c3c;
+  box-shadow: inset 0 -3px #ff0000;
 }
 
 #pulseaudio {
@@ -184,7 +195,8 @@ label:focus {
 }
 
 #temperature.critical {
-  background-color: #eb4d4b;
+  color: white;
+  box-shadow: inset 0 -3px #ff0000;
 }
 
 #tray {
@@ -232,7 +244,6 @@ label:focus {
 }
 
 #custom-gnma {
-  padding: 0 2px 0 5px;
 }
 
 #custom-gnma.now {
@@ -249,16 +260,8 @@ label:focus {
   box-shadow: inset 0 -3px white;
 }
 
-@keyframes blinking-urgent {
-  0% {
-    background-color: #000;
-  }
-  100% {
-    background-color: #ef0a1a;
-  }
-}
-
 #custom-gnma.very-soon {
+  padding: 0 2px 0 5px;
   padding: 0 6px;
   color: white;
   background-color: #cf8e39;
@@ -266,6 +269,7 @@ label:focus {
 }
 
 #custom-gnma.imminent {
+  padding: 0 2px 0 5px;
   padding: 0 6px;
   color: white;
   animation: blinking-urgent 400ms infinite alternate;
