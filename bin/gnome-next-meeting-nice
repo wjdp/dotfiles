@@ -101,6 +101,12 @@ def main():
         ["gnome-next-meeting-applet", "dbus", "get_event"], stdout=subprocess.PIPE
     )
     output = result.stdout.decode("utf-8")
+    if not output.strip():
+        return json.dumps({
+            "text": "󰃭  Nothing",
+            "class": "normal",
+            "minutes": None,
+        })
     delta = text_to_timedelta(output)
     state = get_state(output)
     return json.dumps(
