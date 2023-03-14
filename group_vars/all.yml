@@ -80,7 +80,8 @@ apt_packages:
   - pandoc # Needed for Obsidian pandoc export
   - qtwayland5 # Makes nomacs work in wayland
   - cargo # to compile rust things
-  - subsurface
+  - subsurface # for dive log
+  - ddcutil # for controlling monitors
 
 deb_packages:
   - pkg: bat
