@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+
+import re
+from datetime import timedelta
+import subprocess
+import json
+
+# pattern for `1 hour and 10 minutes` or `1 hour` or `10 minutes`
+hours_pattern = re.compile(r"(\d+) hour(s)?")
+hours_minutes_pattern = re.compile(r"(\d+) hour(s)? (?:and )?(\d+) minute(s)?")
+minutes_pattern = re.compile(r"(\d+) minute(s)?")
+
+STATE_FUTURE = "future"
+STATE_NOW = "now"
+
+
+def match_hours(s: str) -> timedelta | None:
+    matches = hours_pattern.match(s)
+    if matches:
+        hours = int(matches.group(1))
+        return timedelta(hours=hours)
+    else:
+        return None
+
+
+def match_hours_minutes(s: str) -> timedelta | None:
+    matches = hours_minutes_pattern.match(s)
+    if matches:
+        hours = int(matches.group(1))
+        minutes = int(matches.group(3))
+        return timedelta(hours=hours, minutes=minutes)
+    else:
+        return None
+
+
+def match_minutes(s: str) -> timedelta | None:
+    matches = minutes_pattern.match(s)
+    if matches:
+        minutes = int(matches.group(1))
+        return timedelta(minutes=minutes)
+    else:
+        return None
+
+
+def text_to_timedelta(s: str) -> timedelta:
+    """Convert text to timedelta"""
+    deltas = [
+        match_hours_minutes(s),
+        match_hours(s),
+        match_minutes(s),
+    ]
+    # return first non-None
+    for delta in deltas:
+        if delta:
+            return delta
+    raise ValueError(f"Could not parse {s}")
+
+
+def format_delta(delta: timedelta) -> str:
+    """format to 1h10m"""
+    hours = delta.seconds // 3600
+    minutes = (delta.seconds // 60) % 60
+    return f"{hours}h{minutes}m"
+
+
+def get_state(s: str) -> str:
+    first_part = s.split("-", 1)[0].strip()
+    if first_part.endswith(" left"):
+        return STATE_NOW
+    else:
+        return STATE_FUTURE
+
+
+def get_event_name(s: str) -> str:
+    """Get all text after first `-`"""
+    return s.split("-", 1)[1].strip()
+
+
+def get_class(state: str, delta: timedelta) -> str:
+    if state == STATE_NOW:
+        return "now"
+    if delta <= timedelta(minutes=1):
+        return "imminent"
+    if delta < timedelta(minutes=5):
+        return "very-soon"
+    elif delta < timedelta(minutes=30):
+        return "soon"
+    else:
+        return "normal"
+
+
+def get_icon(state: str, delta: timedelta) -> str:
+    if state == STATE_NOW:
+        return "󱎫"
+    else:
+        return "󰃭"
+
+
+def main():
+    result = subprocess.run(
+        ["gnome-next-meeting-applet", "dbus", "get_event"], stdout=subprocess.PIPE
+    )
+    output = result.stdout.decode("utf-8")
+    delta = text_to_timedelta(output)
+    state = get_state(output)
+    return json.dumps(
+        {
+            "text": f"{get_icon(state, delta)}  {format_delta(delta)} : {get_event_name(output)}",
+            "class": get_class(state, delta),
+            "minutes": delta.seconds // 60,
+        }
+    )
+
+
+if __name__ == "__main__":
+    print(main())

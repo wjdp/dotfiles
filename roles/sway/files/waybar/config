@@ -5,10 +5,11 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "sway/window"],
+    "modules-center": [],
     "modules-right": [
     //    // "mpd",
+        "custom/gnma",
         "tray",
         "idle_inhibitor", 
         // "custom/media",
@@ -106,7 +107,7 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""],
+        "format-icons": ["󰸃", "󰔏"],
         "interval": 2
     },
     "backlight": {
@@ -121,12 +122,13 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "interval": 2
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -153,8 +155,8 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-bluetooth-muted": "󰝟  {icon} {format_source}",
+        "format-muted": "󰝟  {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -179,6 +181,16 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/gnma": {
+        "format": "{}",
+        "interval": 2,
+        "return-type": "json",
+        "exec": "gnome-next-meeting-nice",
+        "exec-if": "pgrep -f gnome-next-meeting-applet",
+        "max-length": 50,
+        "min-length": 1,
+        "on-click": "gnome-next-meeting-applet dbus open_event_url",
     }
 }
 
