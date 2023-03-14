@@ -54,12 +54,6 @@ window#waybar.solo {
   background-color: #eb4d4b;
 }
 
-#mode {
-  background-color: #c00;
-  border-bottom: 3px solid #f55;
-  font-weight: 900;
-}
-
 @keyframes blinking-urgent {
   0% {
     background-color: #000;
@@ -97,6 +91,16 @@ window#waybar.solo {
 #bluetooth {
   padding: 0 3px;
   color: #ccc;
+}
+
+#mode {
+  padding: 0 8px;
+  margin-left: 3px;
+  margin-right: 5px;
+  color: white;
+  background-color: #c00;
+  border-bottom: 3px solid #f55;
+  font-weight: 900;
 }
 
 #clock {
