@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+sudo echo "Got sudo"
+
 if [[ $# -eq 0 ]]; then
     # Run all roles except for the ones tagged with 'bootstrap'
     echo "Updating up local environment..."
