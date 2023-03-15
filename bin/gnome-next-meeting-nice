@@ -103,7 +103,7 @@ def get_icon(state: str, delta: timedelta) -> str:
 
 def main():
     if not check_if_running():
-        return json.dumps({})
+        return json.dumps({"text": "GNMA Not Running"})
 
     result = subprocess.run(
         ["gnome-next-meeting-applet", "dbus", "get_event"], stdout=subprocess.PIPE
