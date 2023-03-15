@@ -191,7 +191,7 @@
         "format": "{}",
         "interval": 2,
         "return-type": "json",
-        "exec": "gnome-next-meeting-nice",
+        "exec": "/home/will/dotfiles/bin/gnome-next-meeting-nice",
         "exec-if": "pgrep -f gnome-next-meeting-applet",
         "max-length": 50,
         "min-length": 1,

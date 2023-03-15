@@ -16,7 +16,7 @@ STATE_NOW = "now"
 def check_if_running() -> bool:
     # check if process gnome-next-meeting-applet is running
     return subprocess.run(
-        ["pgrep", "gnome-next-meeting-applet"], stdout=subprocess.PIPE
+        ["pgrep", "-f", "gnome-next-meeting-applet"], stdout=subprocess.PIPE
     ).returncode == 0
 
 def match_hours(s: str) -> timedelta | None:
