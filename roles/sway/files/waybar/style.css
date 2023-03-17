@@ -88,7 +88,9 @@ window#waybar.solo {
 #mode,
 #idle_inhibitor,
 #mpd,
-#bluetooth {
+#bluetooth,
+#custom-gnma,
+#mpris {
   padding: 0 3px;
   color: #ccc;
 }
