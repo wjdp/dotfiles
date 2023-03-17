@@ -227,4 +227,7 @@ pip_user_packages:
   - awslogs
   - virtualfish
 
+cargo_user_packages:
+  - just
+
 docker_compose_version: "v2.2.3"

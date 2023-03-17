@@ -30,3 +30,4 @@
     - { role: syncthing, tags: ["syncthing"] }
     - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
     - { role: plex-mpv, tags: ["plex-mpv"] }
+    - { role: rust, tags: ["rust"] }

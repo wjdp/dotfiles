@@ -1,0 +1,5 @@
+- name: Install all cargo_user_packages
+  community.general.cargo:
+    name: "{{ item }}"
+  loop: "{{ cargo_user_packages }}"
+  when: cargo_user_packages is defined
