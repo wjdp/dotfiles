@@ -10,7 +10,7 @@
     "modules-right": [
         // "mpd",
         "custom/gnma",
-        "mpris",
+        // "mpris",
         "tray",
         "idle_inhibitor", 
         // "custom/media",
