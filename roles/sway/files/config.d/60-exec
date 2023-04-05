@@ -3,3 +3,4 @@ exec_always --no-startup-id ~/.cargo/bin/workstyle &> /tmp/workstyle.log
 exec wmname LG3D # for java apps like pycharm
 exec_always --no-startup-id mako
 exec --no-startup-id gnome-next-meeting-applet -v &> /tmp/gnome-next-meeting-applet.log
+exec_always --no-startup-id /usr/libexec/goa-daemon --replace # to sync google calendar
