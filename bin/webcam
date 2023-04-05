@@ -2,3 +2,4 @@
 mplayer -noborder \
         -geometry 320x240+1600+840 \
         -tv driver=v4l2:width=320:height=240:device=/dev/video4 tv://
+
