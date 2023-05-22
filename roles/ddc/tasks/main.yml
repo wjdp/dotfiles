@@ -1,0 +1,16 @@
+- name: Add user to i2c group
+  become: true
+  user:
+    name: "{{ user }}"
+    groups: i2c
+    append: true
+
+- name: Copy ddcutil udev rules
+  become: true
+  copy:
+    src: /usr/share/ddcutil/data/45-ddcutil-i2c.rules
+    dest: /etc/udev/rules.d/45-ddcutil-i2c.rules
+    owner: root
+    group: root
+    mode: 0644
+  notify: Reload udev rules
