@@ -2,4 +2,9 @@ input type:keyboard {
     xkb_layout gb
 }
 
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+    accel_profile adaptive
+    pointer_accel 0.4
+}
+
 seat seat0 hide_cursor 2000
