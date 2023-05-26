@@ -13,6 +13,9 @@ bindsym $mod+Shift+c exec firefox --private-window
 ## Launch // File Browser // <◇> n ##
 bindsym $mod+n exec $program.files
 
+## Launch // Obsidian // <◇> o ##
+bindsym $mod+o exec pgrep obsidian && swaymsg '[app_id="obsidian"] focus' || OBSIDIAN_USE_WAYLAND=1 obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland
+
 ## Lock Screen
 bindsym $mod+l exec killall -USR1 swayidle
 
