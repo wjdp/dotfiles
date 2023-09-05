@@ -75,6 +75,8 @@
 "qemu"="󱄄"
 "csv"=""
 "1password"="󰢁"
+"blueman-manager"="󰂯"
+"jetbrains-toolbox"="󰆦"
 
 [other]
 fallback_icon = "🤨"
