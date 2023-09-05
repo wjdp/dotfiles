@@ -86,6 +86,7 @@ apt_packages:
   - ddcutil # for controlling monitors
   - gnome-next-meeting-applet
   - progress # for checking progress for cp, mv, dd (https://github.com/Xfennec/progress)
+  - route # view routing table
 
 deb_packages:
   - pkg: bat
