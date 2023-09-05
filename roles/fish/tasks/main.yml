@@ -36,7 +36,6 @@
     - functions
     - completions
     - conf.d
-    - config.fish
   file:
     src: "{{ dotfiles_home }}/roles/fish/files/{{ item }}"
     dest: "{{ fish_dir }}/{{ item }}"
