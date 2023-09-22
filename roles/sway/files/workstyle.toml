@@ -77,6 +77,7 @@
 "1password"="󰢁"
 "blueman-manager"="󰂯"
 "jetbrains-toolbox"="󰆦"
+"aws vpn client"="󰖂"
 
 [other]
 fallback_icon = "🤨"
