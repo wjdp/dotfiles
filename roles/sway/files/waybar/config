@@ -9,7 +9,7 @@
     "modules-center": [],
     "modules-right": [
         // "mpd",
-        "custom/gnma",
+        // "custom/gnma",
         // "mpris",
         "tray",
         "idle_inhibitor", 
