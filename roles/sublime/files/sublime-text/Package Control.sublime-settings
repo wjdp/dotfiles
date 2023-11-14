@@ -4,7 +4,6 @@
   "installed_packages": [
     "A File Icon",
     "Anaconda",
-    "BeautifyRuby",
     "ColorHelper",
     "Emoji",
     "Git",
@@ -12,6 +11,8 @@
     "INI",
     "Jinja2",
     "Liquid",
+    "LSP",
+    "LSP-pyright",
     "Markdown Extended",
     "Package Control",
     "Pretty JSON",
