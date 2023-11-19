@@ -9,6 +9,7 @@ for_window [app_id="gnome-terminal-server"] opacity 0.95
 
 # from i3
 for_window [class="jetbrains-pycharm" title="win0"] floating enable
+for_window [app_id="Plexamp"] floating enable
 for_window [class="plexamp"] floating enable
 for_window [class="java-lang-Thread"] floating enable
 for_window [class="Workrave"] border none
