@@ -1,3 +1,5 @@
+set NVM_DEFAULT (nvm current)
+
 function left_prompt
   set -l cwd
 
@@ -62,7 +64,7 @@ function right_prompt
     echo -n -s $python_colour "  " (basename "$VIRTUAL_ENV")@$py_version" " (set_color normal) " "
   end
 
-  if test $node_version != system
+  if test $node_version != $NVM_DEFAULT
     echo -n -s $node_colour "  " $node_version" " (set_color normal) " "
   end
 
