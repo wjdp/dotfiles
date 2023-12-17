@@ -80,6 +80,7 @@
 "aws vpn client"="󰖂"
 "heroic"="󱢾"
 "disks"="󰋊"
+"godot"=""
 
 [other]
 fallback_icon = "🤨"
