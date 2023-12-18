@@ -88,6 +88,7 @@ apt_packages:
   - progress # for checking progress for cp, mv, dd (https://github.com/Xfennec/progress)
   - net-tools # view routing table
   - v4l-utils # video4linux utils
+  - libwireplumber-0.4-0 # for waybar
 
 deb_packages:
   - pkg: bat
