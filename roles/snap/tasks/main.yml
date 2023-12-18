@@ -1,2 +1,12 @@
 - name: Run firefox tasks
   include_tasks: firefox.yml
+
+- name: Install snaps
+  become: yes
+  community.general.snap:
+    name: "{{ snaps }}"
+
+- name: Install classic snaps
+  become: yes
+  community.general.snap:
+    name: "{{ snaps_classic }}"

@@ -112,6 +112,13 @@ bins:
     url: https://github.com/Wilfred/difftastic/releases/download/0.43.1/difft-x86_64-unknown-linux-gnu.tar.gz
     archive: true
 
+snaps:
+  - httpie
+  - glab
+
+snaps_classic:
+  - obsidian
+
 fish_paths:
   - "~/bin"
   - "~/dotfiles/bin"
