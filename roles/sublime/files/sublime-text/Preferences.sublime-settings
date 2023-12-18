@@ -74,5 +74,6 @@
   "trim_trailing_white_space_on_save": true,
   "word_wrap": "auto",
   "gtk_client_side_window_decorations": false,
-  "remember_workspace": false
+  "remember_workspace": false,
+  "index_files": true
 }
