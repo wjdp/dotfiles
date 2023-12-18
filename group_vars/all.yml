@@ -97,9 +97,6 @@ deb_packages:
   - pkg: dive
     url: https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb
     version: "0.10.0"
-  - pkg: obsidian
-    url: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.15/obsidian_1.1.15_amd64.deb
-    version: "1.1.15"
   - pkg: lsd
     url: https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
     version: "0.23.1"
