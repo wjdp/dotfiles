@@ -1,16 +1,19 @@
+# set playerctl common args
+set $playerctl playerctl -i firefox
+
 # Media controls
 ## Launch // Play / Pause // <◇> p ##
-bindsym $mod+p exec playerctl play-pause
+bindsym $mod+p exec $playerctl play-pause
 ## Launch // Prev Track // <◇> [ ##
-bindsym $mod+bracketleft exec playerctl previous
+bindsym $mod+bracketleft exec $playerctl previous
 ## Launch // Next Track // <◇> ] ##
-bindsym $mod+bracketright exec playerctl next
+bindsym $mod+bracketright exec $playerctl next
 
 # Media keys
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec $playerctl play-pause
+bindsym XF86AudioPause exec $playerctl play-pause
+bindsym XF86AudioNext exec $playerctl next
+bindsym XF86AudioPrev exec $playerctl previous
 
 # Volume contol
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
