@@ -224,15 +224,8 @@ nodejs_system_packages:
   - diff-so-fancy
 
 pip_user_packages:
-  - aws-shell
-  - awscli
-  - aws-sam-cli
   - icdiff
   - pre-commit
-  - spotdl
-  - youtube-dl
-  - rofimoji
-  - awslogs
   - virtualfish
 
 cargo_user_packages:
