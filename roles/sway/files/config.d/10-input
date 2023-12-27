@@ -1,5 +1,6 @@
 input type:keyboard {
     xkb_layout gb
+    xkb_options compose:ralt
 }
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
