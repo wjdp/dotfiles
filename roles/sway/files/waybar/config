@@ -92,8 +92,8 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% 󰻠",
-        "format-alt": "{usage}% {avg_frequency}GHz 󰻠",
+        "format": "{usage}% 󰬸",
+        "format-alt": "{usage}% {avg_frequency}GHz ",
         "tooltip": false,
         "interval": 2
     },
