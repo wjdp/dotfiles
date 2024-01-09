@@ -89,6 +89,7 @@ apt_packages:
   - net-tools # view routing table
   - v4l-utils # video4linux utils
   - libwireplumber-0.4-0 # for waybar
+  - lxpolkit # PolicyKit authentication agent for GUI applications
 
 deb_packages:
   - pkg: bat
