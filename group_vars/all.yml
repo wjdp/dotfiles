@@ -25,6 +25,9 @@ apt_repos:
     repo: ppa:subsurface/subsurface
   - name: gnome-next-meeting-applet
     repo: ppa:chmouel/gnome-next-meeting-applet
+  - name: githubcli
+    repo: deb [arch=amd64] https://cli.github.com/packages stable main
+    key: https://cli.github.com/packages/githubcli-archive-keyring.gpg
 
 apt_packages:
   - audacity
@@ -90,6 +93,7 @@ apt_packages:
   - v4l-utils # video4linux utils
   - libwireplumber-0.4-0 # for waybar
   - lxpolkit # PolicyKit authentication agent for GUI applications
+  - gh # github cli
 
 deb_packages:
   - pkg: bat
