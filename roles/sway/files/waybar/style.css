@@ -89,7 +89,6 @@ window#waybar.solo {
 #idle_inhibitor,
 #mpd,
 #bluetooth,
-#custom-gnma,
 #mpris {
   padding: 0 3px;
   color: #ccc;
@@ -252,39 +251,6 @@ label:focus {
 
 #keyboard-state > label.locked {
   background: rgba(0, 0, 0, 0.2);
-}
-
-#custom-gnma {
-}
-
-#custom-gnma.now {
-  color: #3ce970;
-  box-shadow: inset 0 -3px #3ce970;
-}
-
-#custom-gnma.normal {
-  color: #a8a8a8;
-}
-
-#custom-gnma.soon {
-  color: white;
-  box-shadow: inset 0 -3px white;
-}
-
-#custom-gnma.very-soon {
-  padding: 0 2px 0 5px;
-  padding: 0 6px;
-  color: white;
-  background-color: #cf8e39;
-  box-shadow: inset 0 -3px #ff9915;
-}
-
-#custom-gnma.imminent {
-  padding: 0 2px 0 5px;
-  padding: 0 6px;
-  color: white;
-  animation: blinking-urgent 400ms infinite alternate;
-  box-shadow: inset 0 -3px #ff0000;
 }
 
 #mpris {

@@ -9,7 +9,6 @@
     "modules-center": [],
     "modules-right": [
         // "mpd",
-        // "custom/gnma",
         // "mpris",
         "tray",
         "idle_inhibitor", 
@@ -186,16 +185,6 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "custom/gnma": {
-        "format": "{}",
-        "interval": 2,
-        "return-type": "json",
-        "exec": "/home/will/dotfiles/bin/gnome-next-meeting-nice",
-        "exec-if": "pgrep -f gnome-next-meeting-applet",
-        "max-length": 50,
-        "min-length": 1,
-        "on-click": "gnome-next-meeting-applet dbus open_event_url",
     },
     "mpris": {
         "format": "{player_icon} {title}: {artist}",

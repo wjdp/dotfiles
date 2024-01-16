@@ -23,8 +23,6 @@ apt_repos:
     repo: ppa:libreoffice/ppa
   - name: subsurface
     repo: ppa:subsurface/subsurface
-  - name: gnome-next-meeting-applet
-    repo: ppa:chmouel/gnome-next-meeting-applet
   - name: githubcli
     repo: deb [arch=amd64] https://cli.github.com/packages stable main
     key: https://cli.github.com/packages/githubcli-archive-keyring.gpg
@@ -87,7 +85,6 @@ apt_packages:
   - cargo # to compile rust things
   - subsurface # for dive log
   - ddcutil # for controlling monitors
-  - gnome-next-meeting-applet
   - progress # for checking progress for cp, mv, dd (https://github.com/Xfennec/progress)
   - net-tools # view routing table
   - v4l-utils # video4linux utils
