@@ -3,12 +3,11 @@
     path: /usr/share/applications/code.desktop
   register: vscode_desktop_file
 
-
 - name: Modify vscode .desktop file to launch in Wayland mode
   lineinfile:
     path: /usr/share/applications/code.desktop
-    regexp: '^Exec=/usr/share/code/code --unity-launch'
-    line: 'Exec=env GDK_BACKEND=wayland /usr/share/code/code --unity-launch %F --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer %U'
+    regexp: "^Exec=/usr/share/code/code --unity-launch"
+    line: "Exec=env GDK_BACKEND=wayland /usr/share/code/code --unity-launch %F --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer %U"
     state: present
     backup: yes
   become: yes
@@ -17,8 +16,8 @@
 - name: Modify vscode .desktop file for new window to launch in Wayland mode
   lineinfile:
     path: /usr/share/applications/code.desktop
-    regexp: '^Exec=/usr/share/code/code --new-window'
-    line: 'Exec=env GDK_BACKEND=wayland /usr/share/code/code --new-window %F --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer %U'
+    regexp: "^Exec=/usr/share/code/code --new-window"
+    line: "Exec=env GDK_BACKEND=wayland /usr/share/code/code --new-window %F --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer %U"
     state: present
     backup: yes
   become: yes

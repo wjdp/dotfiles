@@ -2,8 +2,8 @@
   become: yes
   lineinfile:
     dest: /etc/default/grub
-    regexp: '^GRUB_TIMEOUT='
-    line: 'GRUB_TIMEOUT=5'
+    regexp: "^GRUB_TIMEOUT="
+    line: "GRUB_TIMEOUT=5"
     state: present
   notify: Update GRUB
 
@@ -11,7 +11,7 @@
   become: yes
   lineinfile:
     dest: /etc/default/grub
-    regexp: '^GRUB_TIMEOUT_STYLE='
-    line: 'GRUB_TIMEOUT_STYLE=menu'
+    regexp: "^GRUB_TIMEOUT_STYLE="
+    line: "GRUB_TIMEOUT_STYLE=menu"
     state: present
   notify: Update GRUB
