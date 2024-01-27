@@ -94,17 +94,29 @@
         "format": "{usage}% 󰬸",
         "format-alt": "{usage}% {avg_frequency}GHz ",
         "tooltip": false,
-        "interval": 2
+        "interval": 2,
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
     },
     "memory": {
         "format": "{}% ",
         "format-alt": "{used}/{swapUsed}/{total}GB ",
-        "interval": 2
+        "interval": 2,
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
     },
     "disk": {
         "format": "{percentage_free}% ",
         "format-alt": "{used} of {total} ",
-        "path": "/"
+        "path": "/",
+        "states": {
+            "warning": 88,
+            "critical": 92
+        }
     },
     "temperature": {
         // "thermal-zone": 2,

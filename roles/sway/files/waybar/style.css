@@ -91,6 +91,7 @@ window#waybar.solo {
 #bluetooth,
 #mpris {
   padding: 0 3px;
+  margin-right: 2px;
   color: #ccc;
 }
 
@@ -102,6 +103,16 @@ window#waybar.solo {
   background-color: #c00;
   border-bottom: 3px solid #f55;
   font-weight: 900;
+}
+
+.critical {
+  color: white;
+  box-shadow: inset 0 -3px #ff0000;
+}
+
+.warning {
+  color: white;
+  box-shadow: inset 0 -3px #ff9915
 }
 
 #clock {
@@ -210,6 +221,7 @@ label:focus {
 }
 
 #tray {
+  margin-right: 4px;
 }
 
 #tray > .passive {
@@ -222,6 +234,7 @@ label:focus {
 }
 
 #idle_inhibitor {
+  margin-right: 4px;
 }
 
 #idle_inhibitor.activated {
