@@ -31,7 +31,7 @@
 
 - name: Check if poetry is installed
   stat:
-    path: "{{ dotfiles_user_home }}/.poetry/bin/poetry"
+    path: "{{ dotfiles_user_home }}/.local/bin/poetry"
   register: poetry_bin
   changed_when: false
 
