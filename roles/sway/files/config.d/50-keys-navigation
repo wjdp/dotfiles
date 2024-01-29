@@ -70,10 +70,10 @@ bindsym $mod+Ctrl+6 workspace number 16
 bindsym $mod+Ctrl+7 workspace number 17
 bindsym $mod+Ctrl+8 workspace number 18
 ## Navigate // Workspace A-D // <◇><Ctrl><Alt> J,K,L,P ##
-bindsym $mod+$alt+Ctrl+j workspace A
-bindsym $mod+$alt+Ctrl+k workspace B
-bindsym $mod+$alt+Ctrl+l workspace C
-bindsym $mod+$alt+Ctrl+p workspace D
+bindsym $mod+$alt+Ctrl+j workspace number 21
+bindsym $mod+$alt+Ctrl+k workspace number 22
+bindsym $mod+$alt+Ctrl+l workspace number 23
+bindsym $mod+$alt+Ctrl+p workspace number 24
 
 ## Modify // Move Window to Workspace 1 - 10 // <◇><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number 1
