@@ -5,7 +5,7 @@ smart_borders on
 
 default_border normal 3
 
-font pango:Roboto Medium 8
+font pango:Noto Sans Medium 10
 
 # client.<class>        <border <backg> <text> <indicator> [<child_border>]
 client.focused          #1c84d4 #08538c #ffffff #992afa #1c84d4
