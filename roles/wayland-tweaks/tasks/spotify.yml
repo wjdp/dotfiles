@@ -1,0 +1,8 @@
+- name: Modify Spotify .desktop file to launch in Wayland mode
+  lineinfile:
+    path: /usr/share/applications/spotify.desktop
+    regexp: "^Exec="
+    line: "Exec=spotify --enable-features=UseOzonePlatform --ozone-platform=wayland %U"
+    state: present
+    backup: yes
+  become: yes
