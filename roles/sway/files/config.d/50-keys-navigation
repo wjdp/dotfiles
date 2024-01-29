@@ -114,3 +114,7 @@ bindsym $mod+$alt+Ctrl+5 move container to workspace number 15; workspace number
 bindsym $mod+$alt+Ctrl+6 move container to workspace number 16; workspace number 16
 bindsym $mod+$alt+Ctrl+7 move container to workspace number 17; workspace number 17
 bindsym $mod+$alt+Ctrl+8 move container to workspace number 18; workspace number 18
+
+# scratchpad
+bindsym $mod+Shift+j move scratchpad
+bindsym $mod+j scratchpad show
