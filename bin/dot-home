@@ -3,4 +3,4 @@ set -e
 
 sudo echo "Got sudo"
 
-ansible-playbook -i ~/dotfiles/hosts -e host=vulcan ~/dotfiles/local.yml --skip-tags "bootstrap" --tags sway
+ansible-playbook -i ~/dotfiles/hosts -e host=odyssey ~/dotfiles/local.yml --skip-tags "bootstrap" --tags sway

@@ -1,9 +1,8 @@
 dux
-vulcan
-vulcan-london
 victor
 wgt152
 odyssey
+odyssey-london
 
 [all:vars]
 ansible_connection=local
