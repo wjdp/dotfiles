@@ -4,3 +4,4 @@ exec wmname LG3D # for java apps like pycharm
 exec_always --no-startup-id mako
 exec_always --no-startup-id /usr/libexec/goa-daemon --replace # to sync google calendar
 exec_always --no-startup-id lxpolkit # Policy agent
+exec_always killall kanshi; /home/will/dotfiles/bin/kanshi 2> /tmp/kanshi.log

@@ -1,0 +1,6 @@
+- name: Link kanshi config directory
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/kanshi"
+    dest: "{{ dotfiles_user_home }}/.config/kanshi"
+    state: link
+    force: yes
