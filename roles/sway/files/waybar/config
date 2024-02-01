@@ -15,12 +15,12 @@
         // "custom/media",
         "pulseaudio",
         "bluetooth",
+        "backlight", 
         "network",
         "disk",
         "memory", 
         "cpu",
         "temperature", 
-        // "backlight", 
         // "keyboard-state", // module keyboard-state: Unknown module: keyboard-state
         // "sway/language", 
         "battery",
@@ -130,7 +130,10 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
+        "format-icons": ["", "󰃠"],
+        "on-click": "light -S 100",
+        "on-click-middle": "light -S 50",
+        "on-click-right": "light -S 1"
     },
     "battery": {
         "states": {
