@@ -1,24 +1,29 @@
-profile home {
+profile odyssey-home {
     output "Lenovo Group Limited P24q-10 U4P00001" enable mode 2560x1440 position 0,0
     output "Lenovo Group Limited P24q-10 0x00000101" enable mode 2560x1440 position 2560,0
     output eDP-1 enable mode 2880x1800 position 5120,411 scale 1.75
 }
 
-profile single-head-DP-1 {
+profile odyssey-single-head-DP-1 {
     output DP-1 enable mode 2560x1440 position 0,0
     output eDP-1 enable mode 2880x1800 position 2560,240 scale 1.5
 }
 
-profile single-head-DP-2 {
+profile odyssey-single-head-DP-2 {
     output DP-2 enable mode 2560x1440 position 0,0
     output eDP-1 enable mode 2880x1800 position 2560,240 scale 1.5
 }
 
-profile single-head-DP-3 {
+profile odyssey-single-head-DP-3 {
     output DP-3 enable mode 2560x1440 position 0,0
     output eDP-1 enable mode 2880x1800 position 2560,240 scale 1.5
 }
 
-profile mobile {
+profile odyssey-mobile {
     output eDP-1 enable mode 2880x1800 scale 1.5
+}
+
+profile dux-desktop {
+    output "Dell Inc. DELL U2715H GH85D88E03MS" enable mode 2560x1440 position 0,0
+    output "Lenovo Group Limited P24q-10 U4P00001" enable mode 2560x1440 position 2560,0
 }
