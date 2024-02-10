@@ -1,7 +1,8 @@
 git_email: will@wegift.io
 git_signing_key: 1B48523D91781A7F5CEC929B7CA9BF9F444BF7C8
 
-wallpaper: ~/dotfiles/wallpapers/1440p/dennis-schweizer-18nR85wWyLY-unsplash.jpg
+wallpaper: $HOME/dotfiles/wallpapers/1080p/ltmWANZ.jpg
+lockpaper: $HOME/dotfiles/wallpapers/dual/firewatch-hike.jpg
 
 screen_left: DP-1
 screen_left_scale: 1
