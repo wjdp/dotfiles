@@ -2,6 +2,7 @@ git_email: will@wjdp.uk
 git_signing_key: 4DC1AA6287F8CC4A
 
 wallpaper: ~/dotfiles/wallpapers/1440p/dennis-schweizer-18nR85wWyLY-unsplash.jpg
+lockpaper: $HOME/dotfiles/wallpapers/dual/firewatch-hike.png
 
 screen_left: DP-4
 screen_left_scale: 1

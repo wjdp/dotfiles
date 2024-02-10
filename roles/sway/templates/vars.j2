@@ -1,6 +1,6 @@
 ### Variables
 
-set $wallpaper ~/dotfiles/wallpapers/1080p/ltmWANZ.png
+set $wallpaper {{ wallpaper }}
 
 # WM key. Use Mod1 for Alt.
 set $mod Mod4
@@ -20,7 +20,7 @@ set $launcher ulauncher-toggle
 set $program.files /usr/bin/nemo
 
 # Session management
-set $program.lock swaylock -c 172032 -Ff -i $HOME/dotfiles/wallpapers/dual/firewatch-hike.png && playerctl -a pause
+set $program.lock swaylock -c 172032 -Ff -i {{ lockpaper }} && playerctl -a pause
 set $program.logout swaymsg exit
 set $program.reboot reboot
 set $program.shutdown poweroff
