@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-sudo echo "Got sudo"
-
-ansible-playbook -i ~/dotfiles/hosts -e host=odyssey-london ~/dotfiles/local.yml --skip-tags "bootstrap" --tags sway

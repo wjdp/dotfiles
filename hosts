@@ -1,7 +1,6 @@
 dux
 victor
 odyssey
-odyssey-london
 
 [all:vars]
 ansible_connection=local
