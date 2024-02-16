@@ -91,7 +91,6 @@ apt_packages:
   - libwireplumber-0.4-0 # for waybar
   - lxpolkit # PolicyKit authentication agent for GUI applications
   - gh # github cli
-  - zoxide # a better cd, https://github.com/ajeetdsouza/zoxide
 
 deb_packages:
   - pkg: bat
@@ -106,6 +105,9 @@ deb_packages:
   - pkg: steam-launcher
     url: https://steamcdn-a.akamaihd.net/client/installer/steam.deb
     version: "latest"
+  - pkg: zoxide
+    url: https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.3/zoxide_0.9.3-1_amd64.deb
+    version: "0.9.3"
 
 bins:
   - name: aws-vault
