@@ -5,8 +5,8 @@
 }
 
 window#waybar {
-  background-color: rgba(43, 48, 59, 0.4);
-  border-bottom: 3px solid #475159;
+  background-color: rgba(22, 36, 66, 0.7);
+  border-bottom: 3px solid rgba(71, 81, 89, 0.5);
   color: #ffffff;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -17,11 +17,11 @@ window#waybar.hidden {
 }
 
 window#waybar.empty {
-  background-color: transparent;
+  background-color: rgba(22, 36, 66, 0.3);
 }
 
 window#waybar.solo {
-  background-color: transparent;
+  background-color: rgba(22, 36, 66, 0.5);
 }
 
 #workspaces button {
@@ -112,7 +112,7 @@ window#waybar.solo {
 
 .warning {
   color: white;
-  box-shadow: inset 0 -3px #ff9915
+  box-shadow: inset 0 -3px #ff9915;
 }
 
 #clock {
