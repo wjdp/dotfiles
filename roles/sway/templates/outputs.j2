@@ -52,3 +52,14 @@ workspace 22 output {{ screen_right }} {{ screen_left }}
 workspace 23 output {{ screen_right }} {{ screen_left }}
 workspace 24 output {{ screen_right }} {{ screen_left }}
 {% endif %}
+
+{% if screen_left_extra is defined %}
+workspace 1 output {{ screen_left_extra }}
+workspace 2 output {{ screen_left_extra }}
+workspace 3 output {{ screen_left_extra }}
+workspace 4 output {{ screen_left_extra }}
+workspace 5 output {{ screen_left_extra }}
+workspace 6 output {{ screen_left_extra }}
+workspace 7 output {{ screen_left_extra }}
+workspace 8 output {{ screen_left_extra }}
+{% endif %}
