@@ -108,6 +108,9 @@ deb_packages:
   - pkg: zoxide
     url: https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.3/zoxide_0.9.3-1_amd64.deb
     version: "0.9.3"
+  - pkg: ripgrep
+    url: https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb
+    version: "14.1.0"
 
 bins:
   - name: aws-vault
