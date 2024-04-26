@@ -238,5 +238,3 @@ pip_user_packages:
 
 cargo_user_packages:
   - just
-
-docker_compose_version: "v2.2.3"
