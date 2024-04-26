@@ -6,7 +6,7 @@ sway_apt_packages:
   - sway
   - swaylock
   - swayidle
-  - ulauncher
+  # - ulauncher
   - fd-find
   - wl-clipboard
   - suckless-tools
