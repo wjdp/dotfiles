@@ -1,0 +1,1 @@
+exec_always --no-startup-id [ -z "$(pgrep "plex-mpv-shim")" ] && /home/will/.local/bin/plex-mpv-shim
