@@ -6,8 +6,8 @@ sudo echo "Got sudo"
 if [[ $# -eq 0 ]]; then
     # Run all roles except for the ones tagged with 'bootstrap'
     echo "Updating up local environment..."
-    ~/.local/bin/ansible-playbook -i ~/dotfiles/hosts -e host=$(hostname) ~/dotfiles/local.yml --skip-tags "bootstrap"
+    ansible-playbook -i ~/dotfiles/hosts -e host=$(hostname) ~/dotfiles/local.yml --skip-tags "bootstrap"
 else
     echo "Updating local environment... (--tags $@)"
-    ~/.local/bin/ansible-playbook -i ~/dotfiles/hosts -e host=$(hostname) ~/dotfiles/local.yml --skip-tags "bootstrap" --tags $@
+    ansible-playbook -i ~/dotfiles/hosts -e host=$(hostname) ~/dotfiles/local.yml --skip-tags "bootstrap" --tags $@
 fi

@@ -44,7 +44,7 @@
       version: master
     - name: vim-gitgutter
       url: https://github.com/airblade/vim-gitgutter
-      version: master
+      version: main
     - name: vim-fugitive
       url: https://github.com/tpope/vim-fugitive
       version: v3.4

@@ -21,8 +21,6 @@ apt_repos:
     key: https://packages.microsoft.com/keys/microsoft.asc
   - name: libreoffice
     repo: ppa:libreoffice/ppa
-  - name: subsurface
-    repo: ppa:subsurface/subsurface
   - name: githubcli
     repo: deb [arch=amd64] https://cli.github.com/packages stable main
     key: https://cli.github.com/packages/githubcli-archive-keyring.gpg
@@ -83,7 +81,6 @@ apt_packages:
   - pandoc # Needed for Obsidian pandoc export
   - qtwayland5 # Makes nomacs work in wayland
   - cargo # to compile rust things
-  - subsurface # for dive log
   - ddcutil # for controlling monitors
   - progress # for checking progress for cp, mv, dd (https://github.com/Xfennec/progress)
   - net-tools # view routing table
@@ -92,6 +89,7 @@ apt_packages:
   - lxpolkit # PolicyKit authentication agent for GUI applications
   - gh # github cli
   - iotop
+  - python-is-python3
 
 deb_packages:
   - pkg: bat
@@ -124,6 +122,7 @@ bins:
 snaps:
   - httpie
   - glab
+  - subsurface
 
 snaps_classic:
   - obsidian

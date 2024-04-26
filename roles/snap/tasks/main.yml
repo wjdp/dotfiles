@@ -10,3 +10,4 @@
   become: yes
   community.general.snap:
     name: "{{ snaps_classic }}"
+    classic: true

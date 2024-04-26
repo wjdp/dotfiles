@@ -14,9 +14,9 @@
     - { role: gnome, tags: ["gnome"] }
     - { role: sway, tags: ["sway"] }
     - { role: git, tags: ["git"] }
-    - { role: node, tags: ["node"] }
+    # - { role: node, tags: ["node"] }
     - { role: vim, tags: ["vim"] }
-    - { role: sublime, tags: ["sublime"] }
+    # - { role: sublime, tags: ["sublime"] }
     - { role: google-chrome, tags: ["google-chrome"] }
     - { role: jetbrains, tags: ["jetbrains"] }
     - { role: zsa, tags: ["zsa"] }
@@ -26,8 +26,8 @@
       go_version: 1.22.1
       GOPATH: /home/will/go
       become: yes
-    - { role: blackd, tags: ["blackd"] }
+    # - { role: blackd, tags: ["blackd"] }
     - { role: syncthing, tags: ["syncthing"] }
     - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
-    - { role: plex-mpv, tags: ["plex-mpv"] }
+    # - { role: plex-mpv, tags: ["plex-mpv"] }
     # - { role: rust, tags: ["rust"] }
