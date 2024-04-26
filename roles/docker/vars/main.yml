@@ -1,5 +1,2 @@
 docker_apt_key: https://download.docker.com/linux/ubuntu/gpg
-docker_apt_repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
-docker_compose_url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
-docker_cli_plugin_path: ~/.docker/cli-plugins
-docker_compose_path: "{{ docker_cli_plugin_path }}/docker-compose"
+docker_apt_repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu noble stable
