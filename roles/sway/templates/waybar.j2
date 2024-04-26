@@ -120,7 +120,10 @@
     },
     "temperature": {
         // "thermal-zone": 2,
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        {% if temp_hwmon_path is defined and temp_hwmon_file is defined %}
+            "hwmon-path-abs": "{{ temp_hwmon_path }}",
+            "input-filename": "{{ temp_hwmon_file }}",
+        {% endif %}
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",

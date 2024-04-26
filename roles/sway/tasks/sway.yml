@@ -24,7 +24,6 @@
     dest: "{{ dotfiles_user_home }}/.config/sway/config.d/01-vars"
     mode: 0664
 
-
 - name: Update output config
   template:
     src: "outputs.j2"

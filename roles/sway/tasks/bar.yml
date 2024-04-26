@@ -5,6 +5,12 @@
     state: link
     force: yes
 
+- name: Update waybar config file from template
+  template:
+    src: "waybar.j2"
+    dest: "{{ dotfiles_user_home }}/.config/waybar/config"
+    mode: 0664
+
 - name: Pull and build workstyle from cargo
   community.general.cargo:
     name: workstyle

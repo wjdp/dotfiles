@@ -13,3 +13,6 @@ screen_right: DP-2
 screen_right_scale: 1
 screen_right_w: 2560
 screen_right_h: 1440
+
+temp_hwmon_path: /sys/devices/platform/asus-ec-sensors/hwmon/
+temp_hwmon_file: temp1_input
