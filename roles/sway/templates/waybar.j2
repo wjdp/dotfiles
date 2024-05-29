@@ -20,6 +20,7 @@
         "disk",
         "memory", 
         "cpu",
+        "custom/governor",
         "temperature", 
         // "keyboard-state", // module keyboard-state: Unknown module: keyboard-state
         // "sway/language", 
@@ -99,6 +100,10 @@
             "warning": 70,
             "critical": 90
         }
+    },
+    "custom/governor": {
+        "exec": "~/dotfiles/bin/governor-icon",
+        "interval": 2
     },
     "memory": {
         "format": "{}% ",

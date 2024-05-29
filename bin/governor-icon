@@ -1,0 +1,18 @@
+#!/bin/bash
+
+GOV=$(cat /sys/devices/system/cpu/cpufreq/policy0/scaling_governor)
+
+# return an icon based on the governor
+if [ "$GOV" == "ondemand" ]; then
+    echo ""
+elif [ "$GOV" == "powersave" ]; then
+    echo "󰴻"
+elif [ "$GOV" == "performance" ]; then
+    echo "󰤇"
+elif [ "$GOV" == "schedutil" ]; then
+    echo ""
+elif [ "$GOV" == "conservative" ]; then
+    echo ""
+else
+    echo $GOV
+fi
