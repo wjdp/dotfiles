@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Prefix all files in current dir with string arg
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <prefix>"
+    exit 1
+fi
+
+prefix=$1
+
+for file in *; do
+    mv $file $prefix$file
+done
