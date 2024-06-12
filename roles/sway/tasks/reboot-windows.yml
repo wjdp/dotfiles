@@ -1,0 +1,17 @@
+- name: Copy reboot-windows.sh script to /usr/local/bin
+  become: yes
+  copy:
+    src: "{{ dotfiles_home }}/roles/sway/files/bin/reboot-windows.sh"
+    dest: /usr/local/bin/reboot-windows.sh
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Allow user to sudo reboot-windows.sh
+  become: yes
+  community.general.sudoers:
+    name: reboot-windows
+    state: present
+    user: "{{ user }}"
+    commands: "/usr/local/bin/reboot-windows.sh"
+
