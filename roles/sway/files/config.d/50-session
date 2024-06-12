@@ -9,6 +9,7 @@ mode "$mode_system" {
     bindsym s exec $program.sleep, mode "default"
     bindsym Control+r exec $program.reboot, mode "default"
     bindsym Control+s exec $program.shutdown, mode "default"
+    bindsym Control+w exec $program.reboot_windows, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
