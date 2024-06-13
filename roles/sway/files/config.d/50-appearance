@@ -7,8 +7,25 @@ default_border normal 3
 
 font pango:Noto Sans Medium 10
 
-# client.<class>        <border <backg> <text> <indicator> [<child_border>]
+# client.<class>        <border> <backg> <text> <indicator> [<child_border>]
+# border: The border around the title bar.
+# backg: The background of the title bar.
+# text: The text color of the title bar.
+# indicator: The color used to indicate where a new view will open. In a tiled container, this would paint the right border of the current view if a new view would be opened to the right.
+# child_border: The border around the view itself.
+
+# The window that has focus.
 client.focused          #1c84d4 #08538c #ffffff #992afa #1c84d4
-client.focused_inactive #5f676a #5f676a #cccccc #484e50 #5f676a
+
+# The most recently focused view within a container which is not focused.
+# Also parent of tab group.
+client.focused_inactive #5f829c #5f829c #cccccc #484e50 #5f676a
+
+# A view that has focused descendant container. Tab or stack container title that is the parent of the focused container but is not directly focused. Defaults to focused_inactive if not specified and does not use the indicator and child_border colors.
+# client.focused_tab_title
+
+# A view that does not have focus.
 client.unfocused        #5f676a #222222 #cccccc #292d2e #222222
+
+# A view with an urgency hint. Note: Native Wayland windows do not support urgency. Urgency only works for Xwayland windows.
 client.urgent           #900000 #900000 #ffffff #900000 #900000
