@@ -55,6 +55,7 @@
   l = log --abbrev-commit
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   chlog ="!git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%cn]\" --decorate --no-merges $(git describe --abbrev=0 --tags)..HEAD"
+  cmlog ="!git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%cn]\" --decorate --merges $(git describe --abbrev=0 --tags)..HEAD"
   lss = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
