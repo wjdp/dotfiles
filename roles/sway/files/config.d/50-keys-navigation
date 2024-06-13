@@ -118,3 +118,10 @@ bindsym $mod+$alt+Ctrl+8 move container to workspace number 18; workspace number
 # scratchpad
 bindsym $mod+Shift+j move scratchpad
 bindsym $mod+j scratchpad show
+
+# marks
+bindsym $mod+m mark --toggle MARK
+bindsym $mod+comma [con_mark=MARK] focus
+
+# last Window
+bindsym $mod+apostrophe [con_mark=LAST] focus
