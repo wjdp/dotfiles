@@ -1,0 +1,5 @@
+# This option determines what to do when a client requests window activation. If set to urgent, the urgent state will be set for that window. If set to focus, the window will become focused. If set to smart, the window will become focused only if it is already visible, otherwise the urgent state will be set. Default is urgent.
+focus_on_window_activation urgent
+
+# If an application on another workspace sets an urgency hint, switching to this workspace may lead to immediate focus of the application, which also means the window decoration color would be immediately reset to client.focused. This may make it unnecessarily hard to tell which window originally raised the event. This option allows one to set a timeout in ms to delay the urgency hint reset.
+force_display_urgency_hint 2500 ms
