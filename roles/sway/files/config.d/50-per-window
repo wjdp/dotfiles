@@ -44,3 +44,10 @@ for_window [window_type="menu"] floating enable
 for_window [instance="Godot_Editor"] floating enable
 for_window [instance="Godot_Engine"] floating enable
 for_window [instance="Godot_ProjectList"] floating enable
+
+# Idle inhibit
+for_window [app_id="firefox"] inhibit_idle fullscreen
+
+# Attempt to inhibit idle for all fullscreen windows
+# https://old.reddit.com/r/swaywm/comments/conhod/inhibit_idle_while_a_fullscreen_app_is_running/ewl8i96/
+for_window [app_id="^.*"] inhibit_idle fullscreen
