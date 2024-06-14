@@ -91,6 +91,7 @@ apt_packages:
   - libwireplumber-0.4-0 # for waybar
   - lxpolkit # PolicyKit authentication agent for GUI applications
   - gh # github cli
+  - iotop
 
 deb_packages:
   - pkg: bat
