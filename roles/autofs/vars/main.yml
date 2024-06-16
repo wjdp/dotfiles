@@ -11,3 +11,9 @@ mounts:
   - name: mars-srv
     host: will@mars.wjdp.uk
     path: /srv/mars
+  - name: deimos-srv
+    host: will@deimos.wjdp.uk
+    path: /srv/mars
+  - name: deimos-root
+    host: will@deimos.wjdp.uk
+    path: /vol/root
