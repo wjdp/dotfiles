@@ -1,0 +1,7 @@
+#!/bin/sh
+
+pkg install -y \
+    fish git openssh termux-tools
+
+# Set fish as default shell
+chsh -s fish
