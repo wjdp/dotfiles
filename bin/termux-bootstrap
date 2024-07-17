@@ -1,7 +1,7 @@
 #!/bin/sh
 
 pkg install -y \
-    fish git openssh termux-tools
+    fish git openssh termux-tools python-pip
 
 # Set fish as default shell
 chsh -s fish
