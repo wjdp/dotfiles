@@ -15,6 +15,13 @@ bindsym $mod+Ctrl+Down move workspace to output down
 bindsym $mod+Ctrl+Up move workspace to output up
 bindsym $mod+Ctrl+Right move workspace to output right
 
+## Navigate outputs
+bindsym $mod+Alt+Left focus output left
+bindsym $mod+Alt+Down focus output down
+bindsym $mod+Alt+Up focus output up
+bindsym $mod+Alt+Right focus output right
+
+
 ## Modify // Split Direction // <◇> h / v ##
 bindsym $mod+h splith
 bindsym $mod+v splitv
