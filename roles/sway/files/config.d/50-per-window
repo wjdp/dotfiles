@@ -15,8 +15,6 @@ for_window [class="java-lang-Thread"] floating enable
 for_window [class="Workrave"] border none
 for_window [class="Workrave"] floating enable
 for_window [class="jetbrains-toolbox"] floating enable
-for_window [class="1Password"] floating enable
-for_window [class="1password"] floating enable
 for_window [class="plexamp"] floating enable
 for_window [class="Plexamp"] floating enable
 for_window [title="About Mozilla Firefox"] floating enable
@@ -29,6 +27,10 @@ for_window [app_id="Slack"] border pixel
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [title="Picture-in-Picture"] floating enable
 for_window [app_id="ulauncher"] floating enable
+
+# 1password
+for_window [class="1Password"] floating enable
+for_window [class="1Password"] border pixel
 
 # Jetbrains floating window fix
 for_window [window_role="About"] floating enable
