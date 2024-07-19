@@ -53,7 +53,8 @@
   "font_size": 17,
   "highlight_line": true,
   "highlight_modified_tabs": true,
-  "ignored_packages": ["Rust", "Vintage"],
+  "ignored_packages": ["Rust", "Vintage",
+  ],
   "rulers": [120],
   "save_on_focus_lost": true,
   "show_encoding": true,
@@ -69,5 +70,5 @@
   "word_wrap": "auto",
   "gtk_client_side_window_decorations": false,
   "remember_workspace": false,
-  "index_files": true
+  "index_files": true,
 }

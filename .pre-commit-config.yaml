@@ -3,3 +3,4 @@ repos:
     rev: "v2.3.2" # Use the sha or tag you want to point at
     hooks:
       - id: prettier
+        exclude: roles/sublime/files/
