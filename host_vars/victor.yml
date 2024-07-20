@@ -8,3 +8,5 @@ screen_left: eDP-1
 screen_left_scale: 1
 screen_left_w: 1920
 screen_left_h: 1080
+
+temp_hwmon_path: /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input
