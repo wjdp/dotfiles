@@ -128,6 +128,8 @@
         {% if temp_hwmon_path is defined and temp_hwmon_file is defined %}
             "hwmon-path-abs": "{{ temp_hwmon_path }}",
             "input-filename": "{{ temp_hwmon_file }}",
+        {% elif temp_hwmon_path is defined %}
+            "hwmon-path": "{{ temp_hwmon_path }}",
         {% endif %}
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
