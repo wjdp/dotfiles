@@ -21,4 +21,6 @@
 - Then use `/sys/class/hwmon/hwmon*/temp1_input` for the temperature
 
 Though there is a chance of the path changing on reboot, doesn't seem to be a solution for now.
-See https://github.com/Alexays/Waybar/issues/1943
+
+- See https://github.com/Alexays/Waybar/issues/1943
+- See https://github.com/Alexays/Waybar/issues/1700
