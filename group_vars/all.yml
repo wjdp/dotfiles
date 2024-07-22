@@ -238,6 +238,7 @@ pipx_packages:
   - name: icdiff
   - name: awscli
   - name: qmk
+  - name: shell-gpt
 
 cargo_user_packages:
   - just
