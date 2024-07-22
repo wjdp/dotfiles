@@ -232,10 +232,17 @@ nodejs_system_packages:
   - npm
   - diff-so-fancy
 
-pip_user_packages:
-  - icdiff
-  - pre-commit
-  - virtualfish
+pipx_packages:
+  - name: pre-commit
+    state: latest
+  - name: virtualfish
+    state: latest
+  - name: icdiff
+    state: latest
+  - name: awscli
+    state: latest
+  - name: qmk
+    state: latest
 
 cargo_user_packages:
   - just
