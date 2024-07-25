@@ -27,6 +27,8 @@ for_window [app_id="Slack"] border pixel
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [title="Picture-in-Picture"] floating enable
 for_window [app_id="ulauncher"] floating enable
+for_window [app_id="copyq"] floating enable, sticky enable, border pixel
+for_window [app_id="pavucontrol"] floating enable, sticky enable, resize set width 1300 px height 800px, move position cursor, move down 30
 
 # 1password
 for_window [class="1Password"] floating enable
@@ -46,10 +48,6 @@ for_window [window_type="menu"] floating enable
 for_window [instance="Godot_Editor"] floating enable
 for_window [instance="Godot_Engine"] floating enable
 for_window [instance="Godot_ProjectList"] floating enable
-
-# Copyq
-for_window [app_id="copyq"] floating enable
-for_window [app_id="copyq"] border pixel
 
 # Idle inhibit
 for_window [app_id="firefox"] inhibit_idle fullscreen
