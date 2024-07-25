@@ -92,6 +92,7 @@ apt_packages:
   - lxpolkit # PolicyKit authentication agent for GUI applications
   - gh # github cli
   - iotop
+  - copyq # clipboard manager
 
 deb_packages:
   - pkg: bat

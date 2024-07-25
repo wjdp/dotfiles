@@ -5,3 +5,4 @@ exec_always --no-startup-id mako
 exec_always --no-startup-id /usr/libexec/goa-daemon --replace # to sync google calendar
 exec_always --no-startup-id lxpolkit # Policy agent
 exec_always killall kanshi; sleep 1 && /home/will/dotfiles/bin/kanshi 2> /tmp/kanshi.log
+exec_always sleep 3 && copyq
