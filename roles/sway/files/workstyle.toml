@@ -84,6 +84,7 @@
 "zoom"="󰻒"
 "factorio"="󰈏"
 "openttd"=""
+"copyq"=""
 
 [other]
 fallback_icon = "🤨"
