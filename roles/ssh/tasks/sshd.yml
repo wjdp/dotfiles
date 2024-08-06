@@ -1,0 +1,27 @@
+- name: Install ssh server
+  become: yes
+  apt:
+    name: openssh-server
+    state: present
+
+- name: Disallow ssh password authentication
+  become: yes
+  notify: Reload sshd
+  copy:
+    content: |
+      PasswordAuthentication no
+    dest: /etc/ssh/sshd_config.d/50-password-authentication.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Disallow ssh root login
+  become: yes
+  notify: Reload sshd
+  copy:
+    content: |
+      PermitRootLogin no
+    dest: /etc/ssh/sshd_config.d/50-permit-root-login.conf
+    owner: root
+    group: root
+    mode: 0644

@@ -90,6 +90,7 @@ apt_packages:
   - gh # github cli
   - iotop
   - python-is-python3
+  - copyq # clipboard manager
 
 deb_packages:
   - pkg: bat
@@ -231,10 +232,13 @@ nodejs_system_packages:
   - npm
   - diff-so-fancy
 
-pip_user_packages:
-  - icdiff
-  - pre-commit
-  - virtualfish
+pipx_packages:
+  - name: pre-commit
+  - name: virtualfish
+  - name: icdiff
+  - name: awscli
+  - name: qmk
+  - name: shell-gpt
 
 cargo_user_packages:
   - just
