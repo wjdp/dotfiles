@@ -11,7 +11,6 @@
 
 "alacritty" = ""
 "home assistant"="󰟐"
-"chrome" = ""
 "github" = ""
 "gitlab" = ""
 "google meet"="󰻒"
@@ -29,7 +28,7 @@
 "calendar"="󰃭"
 "hacker news"=""
 "private browsing" = "󰗹"
-"firefox" = "󰈹"
+"firefox" = ""
 "libreoffice calc" = ""
 "libreoffice writer" = ""
 "libreoffice" = ""
@@ -86,6 +85,10 @@
 "openttd"=""
 "copyq"=""
 "kdenlive"=""
+"discord"=""
+"chrome"=""
+"chromium"=""
+"balena-etcher"=""
 
 [other]
 fallback_icon = "🤨"
