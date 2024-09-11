@@ -228,11 +228,6 @@ fish_variables:
     value: 1
     mode: Ux
 
-nodejs_version: "16.x"
-nodejs_system_packages:
-  - npm
-  - diff-so-fancy
-
 pipx_packages:
   - name: pre-commit
   - name: virtualfish
