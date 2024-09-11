@@ -91,6 +91,7 @@ apt_packages:
   - iotop
   - python-is-python3
   - copyq # clipboard manager
+  - silversearcher-ag
 
 deb_packages:
   - pkg: bat
