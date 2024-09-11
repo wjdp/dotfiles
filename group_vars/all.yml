@@ -4,6 +4,7 @@ dotfiles_home: "{{ dotfiles_user_home }}/dotfiles"
 user: will
 full_name: Will Pimblett
 git_signing_key: null
+locale: en_GB.UTF-8
 
 # Defaults
 has_wireless: no

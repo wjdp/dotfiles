@@ -1,6 +1,6 @@
 - name: Ensure a locale exists
   community.general.locale_gen:
-    name: en_GB.UTF-8
+    name: "{{ locale }}"
     state: present
 
 - name: Get current locale and language configuration
@@ -9,6 +9,6 @@
   changed_when: false
 
 - name: Set locale if not already set
-  command: localectl set-locale LANG=en_GB.UTF-8
-  when: locale_status.stdout.find('LANG=en_GB.UTF-8') == -1
+  command: "localectl set-locale LANG={{ locale }}"
+  when: "locale_status.stdout.find(locale) == -1"
   changed_when: true
