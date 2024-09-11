@@ -10,7 +10,6 @@
     - { role: python, tags: ["python"], hosts: ['abc'] }
     - { role: pipx, tags: ["pipx"] }
     - { role: dotfiles, tags: ["dotfiles"] }
-    - { role: autofs, tags: ["autofs"] }
     - { role: fish, tags: ["fish"] }
     - { role: fonts, tags: ["fonts"] }
     - { role: gnome, tags: ["gnome"] }
@@ -33,3 +32,8 @@
     - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
     # - { role: plex-mpv, tags: ["plex-mpv"] }
     # - { role: rust, tags: ["rust"] }
+
+- name: Set up autofs on some machines
+  hosts: ["dux", "victor"]
+  roles:
+    - { role: autofs, tags: ["autofs"] }
