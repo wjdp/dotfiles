@@ -129,7 +129,7 @@ snaps:
 snaps_classic:
   - obsidian
 
-fish_paths:
+path:
   - "~/bin"
   - "~/dotfiles/bin"
   - "~/.local/bin"

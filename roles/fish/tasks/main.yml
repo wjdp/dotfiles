@@ -43,7 +43,7 @@
     force: yes
 
 - name: Add fish paths
-  loop: "{{ fish_paths }}"
+  loop: "{{ path }}"
   args:
     executable: /usr/bin/bash
   shell: "set -o pipefail && echo fish_add_path {{ item }} | fish"
