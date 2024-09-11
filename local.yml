@@ -7,7 +7,7 @@
     - { role: bin, tags: ["bin"] }
     - { role: linux, tags: ["linux"] }
     - { role: ssh, tags: ["ssh"] }
-    - { role: python, tags: ["python"] }
+    - { role: python, tags: ["python"], hosts: ['abc'] }
     - { role: pipx, tags: ["pipx"] }
     - { role: dotfiles, tags: ["dotfiles"] }
     - { role: autofs, tags: ["autofs"] }
@@ -18,7 +18,7 @@
     - { role: git, tags: ["git"] }
     # - { role: node, tags: ["node"] }
     - { role: vim, tags: ["vim"] }
-    # - { role: sublime, tags: ["sublime"] }
+    - { role: sublime, tags: ["sublime"] }
     - { role: google-chrome, tags: ["google-chrome"] }
     - { role: jetbrains, tags: ["jetbrains"] }
     - { role: zsa, tags: ["zsa"] }
