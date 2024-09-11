@@ -71,4 +71,5 @@
   "gtk_client_side_window_decorations": false,
   "remember_workspace": false,
   "index_files": true,
+  "update_check": false,
 }

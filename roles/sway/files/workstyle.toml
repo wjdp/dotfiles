@@ -11,7 +11,6 @@
 
 "alacritty" = ""
 "home assistant"="󰟐"
-"chrome" = ""
 "github" = ""
 "gitlab" = ""
 "google meet"="󰻒"
@@ -29,7 +28,7 @@
 "calendar"="󰃭"
 "hacker news"=""
 "private browsing" = "󰗹"
-"firefox" = "󰈹"
+"firefox" = ""
 "libreoffice calc" = ""
 "libreoffice writer" = ""
 "libreoffice" = ""
@@ -55,6 +54,7 @@
 "sublime_merge" = ""
 "jetbrains-pycharm" = "󰌠"
 "jetbrains-goland" = ""
+"jetbrains-webstorm" = ""
 "eog" = "󰋩"
 "nomacs" = "󰋩"
 "software" = ""
@@ -86,6 +86,11 @@
 "openttd"=""
 "copyq"=""
 "kdenlive"=""
+"discord"=""
+"chrome"=""
+"chromium"=""
+"balena-etcher"=""
+"loomish"="󰨜"
 
 [other]
 fallback_icon = "🤨"
