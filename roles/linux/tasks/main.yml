@@ -24,3 +24,6 @@
     line: "HandlePowerKey=ignore" # The line to add or modify
     state: present # Ensure the line exists in the file
   # We don't restart the service as it'd kill the login session
+
+- name: Setup locale
+  include_tasks: locale.yml

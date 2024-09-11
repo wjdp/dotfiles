@@ -1,0 +1,14 @@
+- name: Ensure a locale exists
+  community.general.locale_gen:
+    name: en_GB.UTF-8
+    state: present
+
+- name: Get current locale and language configuration
+  command: localectl status
+  register: locale_status
+  changed_when: false
+
+- name: Set locale if not already set
+  command: localectl set-locale LANG=en_GB.UTF-8
+  when: locale_status.stdout.find('LANG=en_GB.UTF-8') == -1
+  changed_when: true
