@@ -92,6 +92,7 @@ apt_packages:
   - python-is-python3
   - copyq # clipboard manager
   - silversearcher-ag
+  - wev
 
 deb_packages:
   - pkg: bat
