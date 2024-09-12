@@ -30,7 +30,10 @@ fi
 export BROWSER=/usr/bin/firefox
 
 # Keyring
-export $(gnome-keyring-daemon -s)
+if [ -n "$DESKTOP_SESSION" ]; then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
 # Set path same as fish
 export PATH="$PATH{% for path in path %}:{{path}}{% endfor %}"

@@ -1,0 +1,6 @@
+- name: Enable gnome-keyring.portal for sway
+  become: yes
+  lineinfile:
+    path: /usr/share/xdg-desktop-portal/portals/gnome-keyring.portal
+    regexp: "^UseIn="
+    line: "UseIn=gnome;sway"
