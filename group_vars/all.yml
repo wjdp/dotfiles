@@ -94,6 +94,7 @@ apt_packages:
   - copyq # clipboard manager
   - silversearcher-ag
   - wev
+  - pkgconf
 
 deb_packages:
   - pkg: bat
