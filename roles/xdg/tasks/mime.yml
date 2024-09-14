@@ -1,0 +1,9 @@
+- name: Debug item
+  debug:
+    var: item
+
+- name: Set mime default for type
+  shell: xdg-mime default {{ item.handler }} {{ type }}
+  loop: "{{ item.types }}"
+  loop_control:
+    loop_var: type

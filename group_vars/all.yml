@@ -95,6 +95,7 @@ apt_packages:
   - silversearcher-ag
   - wev
   - pkgconf
+  - nomacs # image viewer
 
 deb_packages:
   - pkg: bat
@@ -245,3 +246,12 @@ cargo_user_packages:
 xdg_settings:
   - name: default-web-browser
     value: firefox_firefox.desktop
+
+xdg_mime:
+  - types:
+      - image/png
+      - image/jpeg
+      - image/gif
+      - image/bmp
+      - image/webp
+    handler: org.nomacs.ImageLounge.desktop
