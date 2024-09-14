@@ -91,6 +91,7 @@
 "chromium"=""
 "balena-etcher"=""
 "loomish"="󰨜"
+"balena-etcher"="󱊞"
 
 [other]
 fallback_icon = "🤨"
