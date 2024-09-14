@@ -1,0 +1,3 @@
+- name: Set xdg settings
+  loop: "{{ xdg_settings }}"
+  include_tasks: setting.yml

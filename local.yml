@@ -15,6 +15,7 @@
     - { role: fonts, tags: ["fonts"] }
     - { role: gnome, tags: ["gnome"] }
     - { role: sway, tags: ["sway"] }
+    - { role: xdg, tags: ["xdg"] }
     - { role: git, tags: ["git"] }
     - { role: vim, tags: ["vim"] }
     - { role: sublime, tags: ["sublime"] }

@@ -241,3 +241,7 @@ pipx_packages:
 
 cargo_user_packages:
   - just
+
+xdg_settings:
+  - name: default-web-browser
+    value: firefox_firefox.desktop
