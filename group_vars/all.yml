@@ -127,7 +127,6 @@ bins:
 
 snaps:
   - httpie
-  - glab
   - subsurface
 
 snaps_classic:
