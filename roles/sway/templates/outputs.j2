@@ -1,3 +1,5 @@
+# This file is generated
+
 output {{ screen_left }} res {{ screen_left_w }}x{{ screen_left_h }}
 output {{ screen_left }} pos 0 0
 output {{ screen_left }} scale {{ screen_left_scale }}
@@ -63,3 +65,6 @@ workspace 6 output {{ screen_left_extra }}
 workspace 7 output {{ screen_left_extra }}
 workspace 8 output {{ screen_left_extra }}
 {% endif %}
+
+# https://old.reddit.com/r/swaywm/comments/sqo9s7/is_there_a_way_to_make_one_of_my_monitors_primary/
+exec xrandr --output {{ screen_left }} --primary
