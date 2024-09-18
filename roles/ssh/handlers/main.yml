@@ -1,5 +1,5 @@
 - name: Reload sshd
   become: yes
   systemd:
-    name: sshd
+    name: ssh
     state: reloaded

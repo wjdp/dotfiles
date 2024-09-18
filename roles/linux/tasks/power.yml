@@ -1,0 +1,8 @@
+- name: Add HandlePowerKey=ignore to logind.conf
+  become: yes
+  lineinfile:
+    path: /etc/systemd/logind.conf
+    regexp: "^#?HandlePowerKey=" # This searches for an existing line starting with 'HandlePowerKey=' or '#HandlePowerKey='
+    line: "HandlePowerKey=ignore" # The line to add or modify
+    state: present # Ensure the line exists in the file
+  # We don't restart the service as it'd kill the login session

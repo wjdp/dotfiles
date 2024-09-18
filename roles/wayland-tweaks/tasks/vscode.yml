@@ -6,7 +6,7 @@
 - name: Modify vscode .desktop file to launch in Wayland mode
   lineinfile:
     path: /usr/share/applications/code.desktop
-    regexp: "^Exec=/usr/share/code/code %F"
+    regexp: "^Exec=/usr/share/code/code"
     line: "Exec=env GDK_BACKEND=wayland /usr/share/code/code --unity-launch %F --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer %U"
     state: present
     backup: yes

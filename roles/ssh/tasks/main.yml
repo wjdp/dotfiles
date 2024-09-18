@@ -1,6 +1,6 @@
 - name: Install authorized_keys file
-  include: authorized_keys.yml
+  include_tasks: authorized_keys.yml
 
 - name: Install ssh server if desired for this host
   when: sshd is defined and sshd
-  include: sshd.yml
+  include_tasks: sshd.yml

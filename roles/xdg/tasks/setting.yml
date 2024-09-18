@@ -1,0 +1,12 @@
+- name: Get xdg settings
+  command: "xdg-settings get {{ item.name }}"
+  register: current_value
+  changed_when: false
+  failed_when: false
+  ignore_errors: true
+
+- name: Set xdg settings
+  command: "xdg-settings set {{ item.name }} {{ item.value }}"
+  when: current_value.stdout != item.value
+  changed_when: true
+  failed_when: false

@@ -1,0 +1,14 @@
+- name: Ensure a locale exists
+  community.general.locale_gen:
+    name: "{{ locale }}"
+    state: present
+
+- name: Get current locale and language configuration
+  command: localectl status
+  register: locale_status
+  changed_when: false
+
+- name: Set locale if not already set
+  command: "localectl set-locale LANG={{ locale }}"
+  when: "locale_status.stdout.find(locale) == -1"
+  changed_when: true

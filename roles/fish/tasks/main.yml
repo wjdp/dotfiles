@@ -1,8 +1,8 @@
-- name: Add fish apt repo
-  become: yes
-  apt_repository:
-    repo: "ppa:fish-shell/release-3"
-  register: apt_repo
+# - name: Add fish apt repo
+#   become: yes
+#   apt_repository:
+#     repo: "ppa:fish-shell/release-3"
+#   register: apt_repo
 
 - name: Install fish
   become: yes
@@ -43,7 +43,7 @@
     force: yes
 
 - name: Add fish paths
-  loop: "{{ fish_paths }}"
+  loop: "{{ path }}"
   args:
     executable: /usr/bin/bash
   shell: "set -o pipefail && echo fish_add_path {{ item }} | fish"

@@ -1,0 +1,7 @@
+- name: Set xdg settings
+  loop: "{{ xdg_settings }}"
+  include_tasks: setting.yml
+
+- name: Set xdg mime type defaults
+  loop: "{{ xdg_mime }}"
+  include_tasks: mime.yml

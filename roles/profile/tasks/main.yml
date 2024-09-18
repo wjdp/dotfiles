@@ -1,0 +1,5 @@
+- name: Write .profile
+  template:
+    src: profile.j2
+    dest: ~/.profile
+    mode: "0664"

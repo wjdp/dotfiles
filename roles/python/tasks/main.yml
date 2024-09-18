@@ -20,14 +20,14 @@
       - python3.10
       - python3.10-dev
       - python3.10-distutils
+      - python3.11
+      - python3.11-dev
+      - python3.11-distutils
+      - python3.12
+      - python3.12-dev
+      # - python3.12-distutils # Does not exist
       - python-is-python3
     state: present
-
-- name: Ensure user pip is up to date
-  pip:
-    name: pip
-    state: latest
-    extra_args: --user
 
 - name: Check if poetry is installed
   stat:

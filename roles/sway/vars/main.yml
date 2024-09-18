@@ -1,6 +1,5 @@
 sway_apt_repos:
   - ppa:agornostal/ulauncher
-#  - ppa:nschloe/waybar
 
 sway_apt_packages:
   - sway

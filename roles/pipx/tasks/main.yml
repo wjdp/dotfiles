@@ -1,4 +1,5 @@
 - name: Install pipx
+  become: yes
   apt:
     name: pipx
     state: present

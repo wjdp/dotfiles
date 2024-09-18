@@ -4,6 +4,7 @@ dotfiles_home: "{{ dotfiles_user_home }}/dotfiles"
 user: will
 full_name: Will Pimblett
 git_signing_key: null
+locale: en_GB.UTF-8
 
 # Defaults
 has_wireless: no
@@ -21,8 +22,6 @@ apt_repos:
     key: https://packages.microsoft.com/keys/microsoft.asc
   - name: libreoffice
     repo: ppa:libreoffice/ppa
-  - name: subsurface
-    repo: ppa:subsurface/subsurface
   - name: githubcli
     repo: deb [arch=amd64] https://cli.github.com/packages stable main
     key: https://cli.github.com/packages/githubcli-archive-keyring.gpg
@@ -83,7 +82,6 @@ apt_packages:
   - pandoc # Needed for Obsidian pandoc export
   - qtwayland5 # Makes nomacs work in wayland
   - cargo # to compile rust things
-  - subsurface # for dive log
   - ddcutil # for controlling monitors
   - progress # for checking progress for cp, mv, dd (https://github.com/Xfennec/progress)
   - net-tools # view routing table
@@ -92,7 +90,12 @@ apt_packages:
   - lxpolkit # PolicyKit authentication agent for GUI applications
   - gh # github cli
   - iotop
+  - python-is-python3
   - copyq # clipboard manager
+  - silversearcher-ag
+  - wev
+  - pkgconf
+  - nomacs # image viewer
 
 deb_packages:
   - pkg: bat
@@ -124,12 +127,12 @@ bins:
 
 snaps:
   - httpie
-  - glab
+  - subsurface
 
 snaps_classic:
   - obsidian
 
-fish_paths:
+path:
   - "~/bin"
   - "~/dotfiles/bin"
   - "~/.local/bin"
@@ -228,11 +231,6 @@ fish_variables:
     value: 1
     mode: Ux
 
-nodejs_version: "16.x"
-nodejs_system_packages:
-  - npm
-  - diff-so-fancy
-
 pipx_packages:
   - name: pre-commit
   - name: virtualfish
@@ -244,4 +242,15 @@ pipx_packages:
 cargo_user_packages:
   - just
 
-docker_compose_version: "v2.2.3"
+xdg_settings:
+  - name: default-web-browser
+    value: firefox_firefox.desktop
+
+xdg_mime:
+  - types:
+      - image/png
+      - image/jpeg
+      - image/gif
+      - image/bmp
+      - image/webp
+    handler: org.nomacs.ImageLounge.desktop

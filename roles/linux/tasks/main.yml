@@ -1,26 +1,4 @@
-- name: Set inotify limit
-  become: yes
-  sysctl:
-    name: fs.inotify.max_user_watches
-    value: 524288
-    state: present
-
-- name: Set default editor to vim
-  become: yes
-  alternatives:
-    name: editor
-    path: /usr/bin/vim
-
-- name: Ensure en_GB exists
-  locale_gen:
-    name: en_GB.UTF-8
-    state: present
-
-- name: Add HandlePowerKey=ignore to logind.conf
-  become: yes
-  lineinfile:
-    path: /etc/systemd/logind.conf
-    regexp: "^#?HandlePowerKey=" # This searches for an existing line starting with 'HandlePowerKey=' or '#HandlePowerKey='
-    line: "HandlePowerKey=ignore" # The line to add or modify
-    state: present # Ensure the line exists in the file
-  # We don't restart the service as it'd kill the login session
+- import_tasks: defaults.yml
+- import_tasks: fs.yml
+- import_tasks: locale.yml
+- import_tasks: power.yml
