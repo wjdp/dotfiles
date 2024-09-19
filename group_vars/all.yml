@@ -34,7 +34,6 @@ apt_packages:
   - code
   - curl
   - dconf-editor
-  - flameshot
   - fonts-noto
   - gimp
   - gpick
