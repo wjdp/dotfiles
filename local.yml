@@ -33,6 +33,7 @@
     - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
     # - { role: plex-mpv, tags: ["plex-mpv"] }
     # - { role: rust, tags: ["rust"] }
+    - { role: subsurface, tags: ["subsurface"] }
 
 - name: Set up autofs on some machines
   hosts: ["dux", "victor"]

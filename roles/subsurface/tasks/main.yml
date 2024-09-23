@@ -1,0 +1,33 @@
+- name: Add subsurface PPA
+  become: yes
+  apt_repository:
+    repo: "ppa:subsurface/subsurface"
+    state: present
+
+- name: Install subsurface
+  become: yes
+  apt:
+    name: subsurface
+    state: present
+
+- name: Get credentials for subsurface
+  shell: pass subsurface
+  register: subsurface_creds
+  changed_when: False
+
+- name: Split credentials into variables
+  set_fact:
+    subsurface_email: "{{ subsurface_creds.stdout_lines[1].split(': ')[1] }}"
+    subsurface_password: "{{ subsurface_creds.stdout_lines[0] }}"
+
+# ~/.config/Subsurface/Subsurface.conf
+- name: Check if subsurface is already configured
+  stat:
+    path: "~/.config/Subsurface/Subsurface.conf"
+  register: subsurface_config
+
+- name: Create subsurface config if it doesn't exist
+  template:
+    src: "Subsurface.conf.j2"
+    dest: "~/.config/Subsurface/Subsurface.conf"
+  when: subsurface_config.stat.exists == False
