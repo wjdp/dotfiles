@@ -126,7 +126,6 @@ bins:
 
 snaps:
   - httpie
-  - subsurface
 
 snaps_classic:
   - obsidian
