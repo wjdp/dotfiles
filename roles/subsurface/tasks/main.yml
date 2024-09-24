@@ -15,6 +15,11 @@
     subsurface_email: "{{ lookup('community.general.passwordstore', 'subsurface', subkey='login') }}"
     subsurface_password: "{{ lookup('community.general.passwordstore', 'subsurface') }}"
 
+- name: Ensure subsurface config directory exists
+  file:
+    path: "~/.config/Subsurface"
+    state: directory
+
 - name: Check if subsurface is already configured
   stat:
     path: "~/.config/Subsurface/Subsurface.conf"
