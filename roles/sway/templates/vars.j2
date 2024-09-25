@@ -20,7 +20,7 @@ set $launcher ulauncher-toggle
 set $program.files /usr/bin/nemo
 
 # Session management
-set $program.lock swaylock -c 172032 -Ff -i {{ lockpaper }} && playerctl -a pause
+set $program.lock swaylock -c 172032 -Ff -i {{ lockpaper_path }} -s {{ lockpaper_scaling if lockpaper_scaling is defined else 'fill' }} && playerctl -a pause
 set $program.logout swaymsg exit
 set $program.reboot reboot
 set $program.reboot_windows /usr/local/bin/reboot-windows.sh
