@@ -14,6 +14,7 @@ input "1739:52839:SYNA8018:00_06CB:CE67_Touchpad" {
     accel_profile adaptive
     pointer_accel 0.2
     scroll_method two_finger
+    scroll_factor 0.6
 }
 
 seat seat0 hide_cursor 2000
