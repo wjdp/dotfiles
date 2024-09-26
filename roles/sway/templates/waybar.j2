@@ -13,9 +13,8 @@
         "tray",
         "idle_inhibitor", 
         // "custom/media",
-        "pulseaudio",
-        "bluetooth",
         "backlight", 
+        "bluetooth",
         "network",
         "disk",
         "memory", 
@@ -24,6 +23,7 @@
         "temperature", 
         // "keyboard-state", // module keyboard-state: Unknown module: keyboard-state
         // "sway/language", 
+        "pulseaudio",
         "battery",
         "clock"
         // end
@@ -197,7 +197,9 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pgrep pavucontrol && pkill pavucontrol || pavucontrol &"
+        "on-click": "pgrep pavucontrol && pkill pavucontrol || pavucontrol &",
+        "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "custom/media": {
         "format": "{icon} {}",

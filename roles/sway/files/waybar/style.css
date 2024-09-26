@@ -160,7 +160,7 @@ window#waybar.solo {
 #battery.full {
   color: #ccc;
   background: none;
-  box-shadow: inset 0 -3px #64727d;
+  box-shadow: none;
 }
 
 #battery.warning:not(.charging) {
@@ -206,6 +206,7 @@ label:focus {
 }
 
 #pulseaudio {
+  box-shadow: inset 0 -3px rgba(255, 255, 255, 0.35);
 }
 
 #pulseaudio.muted {
