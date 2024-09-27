@@ -4,6 +4,12 @@ profile odyssey-home {
     output eDP-1 enable mode 2880x1800 position 5120,411 scale 1.75
 }
 
+profile odyssey-home-2 {
+    output "Lenovo Group Limited P24q-10 U4P00001" enable mode 2560x1440 position 0,0
+    output "Lenovo Group Limited P24q-10 0x01010101" enable mode 2560x1440 position 2560,0
+    output eDP-1 enable mode 2880x1800 position 5120,411 scale 1.75
+}
+
 profile odyssey-sofia {
     output "Philips Consumer Electronics Company PHL27E1N5300 UK02335032672" enable mode 1920x1080 position 0,0
     output eDP-1 enable mode 2880x1800 position 1920,51 scale 1.75
