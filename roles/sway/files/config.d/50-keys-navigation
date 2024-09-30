@@ -42,10 +42,12 @@ bindsym $mod+Shift+f floating toggle
 
 ## Navigate // Next Workspace // <◇> Tab ##
 bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Next workspace next_on_output
 bindsym --whole-window $mod+button8 workspace next_on_output
 
 ## Navigate // Previous Workspace // <◇><Shift> Tab ##
 bindsym $mod+Shift+Tab workspace prev_on_output
+bindsym $mod+Prior workspace prev_on_output
 bindsym --whole-window $mod+button9 workspace prev_on_output
 
 ## Navigate // Focus Parent // <◇> a ##
