@@ -1,29 +1,36 @@
 # This file is generated
+# See roles/sway/templates/output.j2
+{% set screen_left_extra = screen_left_extra if screen_left_extra is defined else '' %}
 
+{% if screen_internal is defined %}
+# Internal display
+output {{ screen_internal }} res {{ screen_internal_w }}x{{ screen_internal_h }}
+output {{ screen_internal }} pos {{ (screen_left_w/screen_left_scale + screen_right_w/screen_right_scale) | int }} {{ (screen_right_h/screen_right_scale - screen_internal_h/screen_internal_scale) | int }}
+output {{ screen_internal }} scale {{ screen_internal_scale }}
+{% endif %}
+
+# Leftmost display
 output {{ screen_left }} res {{ screen_left_w }}x{{ screen_left_h }}
 output {{ screen_left }} pos 0 0
 output {{ screen_left }} scale {{ screen_left_scale }}
 
-workspace 1 output {{ screen_left }}
-workspace 2 output {{ screen_left }}
-workspace 3 output {{ screen_left }}
-workspace 4 output {{ screen_left }}
-workspace 5 output {{ screen_left }}
-workspace 6 output {{ screen_left }}
-workspace 7 output {{ screen_left }}
-workspace 8 output {{ screen_left }}
+workspace 1 output {{ screen_left }} {{ screen_left_extra }} {{ screen_internal if screen_internal is defined else '' }}
+workspace 2 output {{ screen_left }} {{ screen_left_extra }} {{ screen_internal if screen_internal is defined else '' }}
+workspace 3 output {{ screen_left }} {{ screen_left_extra }} {{ screen_internal if screen_internal is defined else '' }}
+workspace 4 output {{ screen_left }} {{ screen_left_extra }} {{ screen_internal if screen_internal is defined else '' }}
+workspace 5 output {{ screen_left }} {{ screen_left_extra }} {{ screen_internal if screen_internal is defined else '' }}
+workspace 6 output {{ screen_left }} {{ screen_left_extra }} {{ screen_internal if screen_internal is defined else '' }}
+workspace 7 output {{ screen_left }} {{ screen_left_extra }} {{ screen_internal if screen_internal is defined else '' }}
+workspace 8 output {{ screen_left }} {{ screen_left_extra }} {{ screen_internal if screen_internal is defined else '' }}
 
 {% if screen_right is defined %}
+# Rightmost display
 output {{ screen_right }} res {{ screen_right_w }}x{{ screen_right_h }}
 output {{ screen_right }} pos {{ (screen_left_w/screen_left_scale) | int }} {{ (screen_left_h/screen_left_scale - screen_right_h/screen_right_scale) | int }}
 output {{ screen_right }} scale {{ screen_right_scale }}
 {% endif %}
 
 {% if screen_internal is defined %}
-output {{ screen_internal }} res {{ screen_internal_w }}x{{ screen_internal_h }}
-output {{ screen_internal }} pos {{ (screen_left_w/screen_left_scale + screen_right_w/screen_right_scale) | int }} {{ (screen_right_h/screen_right_scale - screen_internal_h/screen_internal_scale) | int }}
-output {{ screen_internal }} scale {{ screen_internal_scale }}
-
 workspace 11 output {{ screen_right }} {{ screen_internal }}
 workspace 12 output {{ screen_right }} {{ screen_internal }}
 workspace 13 output {{ screen_right }} {{ screen_internal }}
@@ -44,6 +51,7 @@ workspace 18 output {{ screen_right }}
 {% endif %}
 
 {% if screen_internal is defined %}
+# Extra workspaces for internal display when externals are present
 workspace 21 output {{ screen_internal }} {{ screen_right }} {{ screen_left }}
 workspace 22 output {{ screen_internal }} {{ screen_right }} {{ screen_left }}
 workspace 23 output {{ screen_internal }} {{ screen_right }} {{ screen_left }}
@@ -53,17 +61,6 @@ workspace 21 output {{ screen_right }} {{ screen_left }}
 workspace 22 output {{ screen_right }} {{ screen_left }}
 workspace 23 output {{ screen_right }} {{ screen_left }}
 workspace 24 output {{ screen_right }} {{ screen_left }}
-{% endif %}
-
-{% if screen_left_extra is defined %}
-workspace 1 output {{ screen_left_extra }}
-workspace 2 output {{ screen_left_extra }}
-workspace 3 output {{ screen_left_extra }}
-workspace 4 output {{ screen_left_extra }}
-workspace 5 output {{ screen_left_extra }}
-workspace 6 output {{ screen_left_extra }}
-workspace 7 output {{ screen_left_extra }}
-workspace 8 output {{ screen_left_extra }}
 {% endif %}
 
 # https://old.reddit.com/r/swaywm/comments/sqo9s7/is_there_a_way_to_make_one_of_my_monitors_primary/
