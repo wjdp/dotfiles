@@ -19,19 +19,19 @@ output {{ screen_right }} pos {{ (screen_left_w/screen_left_scale) | int }} {{ (
 output {{ screen_right }} scale {{ screen_right_scale }}
 {% endif %}
 
-{% if screen_extra is defined %}
-output {{ screen_extra }} res {{ screen_extra_w }}x{{ screen_extra_h }}
-output {{ screen_extra }} pos {{ (screen_left_w/screen_left_scale + screen_right_w/screen_right_scale) | int }} {{ (screen_right_h/screen_right_scale - screen_extra_h/screen_extra_scale) | int }}
-output {{ screen_extra }} scale {{ screen_extra_scale }}
+{% if screen_internal is defined %}
+output {{ screen_internal }} res {{ screen_internal_w }}x{{ screen_internal_h }}
+output {{ screen_internal }} pos {{ (screen_left_w/screen_left_scale + screen_right_w/screen_right_scale) | int }} {{ (screen_right_h/screen_right_scale - screen_internal_h/screen_internal_scale) | int }}
+output {{ screen_internal }} scale {{ screen_internal_scale }}
 
-workspace 11 output {{ screen_right }} {{ screen_extra }}
-workspace 12 output {{ screen_right }} {{ screen_extra }}
-workspace 13 output {{ screen_right }} {{ screen_extra }}
-workspace 14 output {{ screen_right }} {{ screen_extra }}
-workspace 15 output {{ screen_right }} {{ screen_extra }}
-workspace 16 output {{ screen_right }} {{ screen_extra }}
-workspace 17 output {{ screen_right }} {{ screen_extra }}
-workspace 18 output {{ screen_right }} {{ screen_extra }}
+workspace 11 output {{ screen_right }} {{ screen_internal }}
+workspace 12 output {{ screen_right }} {{ screen_internal }}
+workspace 13 output {{ screen_right }} {{ screen_internal }}
+workspace 14 output {{ screen_right }} {{ screen_internal }}
+workspace 15 output {{ screen_right }} {{ screen_internal }}
+workspace 16 output {{ screen_right }} {{ screen_internal }}
+workspace 17 output {{ screen_right }} {{ screen_internal }}
+workspace 18 output {{ screen_right }} {{ screen_internal }}
 {% elif screen_right is defined %}
 workspace 11 output {{ screen_right }}
 workspace 12 output {{ screen_right }}
@@ -43,11 +43,11 @@ workspace 17 output {{ screen_right }}
 workspace 18 output {{ screen_right }}
 {% endif %}
 
-{% if screen_extra is defined %}
-workspace 21 output {{ screen_extra }} {{ screen_right }} {{ screen_left }}
-workspace 22 output {{ screen_extra }} {{ screen_right }} {{ screen_left }}
-workspace 23 output {{ screen_extra }} {{ screen_right }} {{ screen_left }}
-workspace 24 output {{ screen_extra }} {{ screen_right }} {{ screen_left }}
+{% if screen_internal is defined %}
+workspace 21 output {{ screen_internal }} {{ screen_right }} {{ screen_left }}
+workspace 22 output {{ screen_internal }} {{ screen_right }} {{ screen_left }}
+workspace 23 output {{ screen_internal }} {{ screen_right }} {{ screen_left }}
+workspace 24 output {{ screen_internal }} {{ screen_right }} {{ screen_left }}
 {% elif screen_right is defined %}
 workspace 21 output {{ screen_right }} {{ screen_left }}
 workspace 22 output {{ screen_right }} {{ screen_left }}

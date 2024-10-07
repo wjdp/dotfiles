@@ -15,9 +15,9 @@ screen_right_scale: 1
 screen_right_w: 2560
 screen_right_h: 1440
 
-screen_extra: eDP-1
-screen_extra_w: 2880
-screen_extra_h: 1800
-screen_extra_scale: 1.5
+screen_internal: eDP-1
+screen_internal_w: 2880
+screen_internal_h: 1800
+screen_internal_scale: 1.5
 
 screen_left_extra: DP-3
