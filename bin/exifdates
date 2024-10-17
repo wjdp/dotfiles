@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Check if exiftool is installed
+if ! command -v exiftool &> /dev/null
+then
+    echo "exiftool could not be found, please install it first."
+    exit
+fi
+
+# Directory containing the JPEG files
+DIR=$1
+
+# Check if directory is provided and exists
+if [ -z "$DIR" ]; then
+    echo "Usage: $0 <directory>"
+    exit 1
+fi
+
+if [ ! -d "$DIR" ]; then
+    echo "The directory $DIR does not exist."
+    exit 1
+fi
+
+# Process each JPEG file in the directory
+for FILE in "$DIR"/*.jpg "$DIR"/*.jpeg "$DIR"/*.JPG "$DIR"/*.JPEG; do
+    if [ -f "$FILE" ]; then
+        # Get the date the photo was taken
+        DATE_TAKEN=$(exiftool -d "%Y-%m-%d" -DateTimeOriginal -s3 "$FILE")
+
+        # Check if the date was retrieved successfully
+        if [ -n "$DATE_TAKEN" ]; then
+            # Get the file extension
+            EXT="${FILE##*.}"
+            # Get the filename without extension
+            BASENAME=$(basename "$FILE" ."$EXT")
+            # Form the new filename
+            NEW_FILENAME="$DIR/${BASENAME}.${DATE_TAKEN}.$EXT"
+            # Rename the file
+            mv "$FILE" "$NEW_FILENAME"
+            echo "Renamed '$FILE' to '$NEW_FILENAME'"
+        else
+            echo "Could not retrieve the date for '$FILE'"
+        fi
+    fi
+done
