@@ -1,5 +1,5 @@
 exec ~/dotfiles/bin/swayrd-wrapper
 
-bindsym $mod+Alt+Tab exec ~/.cargo/bin/swayr switch-to-urgent-or-lru-window
+bindsym $mod+x exec ~/.cargo/bin/swayr switch-to-urgent-or-lru-window
 bindsym $mod+Ctrl+d exec ~/.cargo/bin/swayr switch-window
 bindsym $mod+Alt+d exec ~/.cargo/bin/swayr steal-window-or-container

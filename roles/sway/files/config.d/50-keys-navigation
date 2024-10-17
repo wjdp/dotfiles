@@ -57,7 +57,7 @@ bindsym $mod+a focus parent
 bindsym $mod+s focus child
 
 ## Navigate // Switch to Urgent // <◇> x ##
-bindsym $mod+x [urgent=latest] focus
+#bindsym $mod+x [urgent=latest] focus
 
 ## Navigate // Back and Forth // <◇> z ##
 bindsym $mod+z workspace back_and_forth
