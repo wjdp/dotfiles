@@ -31,11 +31,11 @@
     # - { role: blackd, tags: ["blackd"] }
     - { role: syncthing, tags: ["syncthing"] }
     - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
-    # - { role: plex-mpv, tags: ["plex-mpv"] }
     # - { role: rust, tags: ["rust"] }
     - { role: subsurface, tags: ["subsurface"] }
 
-- name: Set up autofs on some machines
+- name: Personal setup
   hosts: ["dux", "victor"]
   roles:
     - { role: autofs, tags: ["autofs"] }
+    - { role: plex-mpv, tags: ["plex-mpv"] }

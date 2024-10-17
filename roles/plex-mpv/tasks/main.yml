@@ -1,20 +1,7 @@
-- name: Install plex-mpv-shim from pip as user package
-  pip:
+- name: Install or upgrade pipx packages
+  community.general.pipx:
     name: plex-mpv-shim
     state: latest
-    extra_args: --user
-
-- name: Install pystray from pip as user package
-  pip:
-    name: pystray
-    state: latest
-    extra_args: --user
-
-- name: Install python3-tk
-  become: yes
-  apt:
-    name: python3-tk
-    state: present
 
 - name: Install libmpv1
   become: yes
