@@ -239,6 +239,7 @@ pipx_packages:
 
 cargo_user_packages:
   - just
+  - swayr
 
 xdg_settings:
   - name: default-web-browser
