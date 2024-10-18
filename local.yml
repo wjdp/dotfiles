@@ -31,7 +31,7 @@
     # - { role: blackd, tags: ["blackd"] }
     - { role: syncthing, tags: ["syncthing"] }
     - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
-    # - { role: rust, tags: ["rust"] }
+    - { role: rust, tags: ["rust"] }
     - { role: subsurface, tags: ["subsurface"] }
 
 - name: Personal setup
