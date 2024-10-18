@@ -1,0 +1,1 @@
+cat .config/wofi/symbols.txt | wofi --show dmenu --prompt Symbols | awk '{print $1}' | tr -d '\n' | wl-copy

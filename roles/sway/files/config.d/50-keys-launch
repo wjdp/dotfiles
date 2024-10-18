@@ -3,6 +3,9 @@ bindsym $mod+d exec $launcher
 bindsym $mod+Space exec $launcher
 bindsym $mod+Shift+d exec $menu
 
+# Emoji
+bindsym $mod+u exec ~/dotfiles/bin/wofi-emoji  > /tmp/wofi-emoji.log 2>&1
+
 # Terminal
 bindsym $mod+Return exec $term
 
