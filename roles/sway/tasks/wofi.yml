@@ -1,0 +1,6 @@
+- name: Link wofi config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/wofi"
+    dest: "{{ dotfiles_user_home }}/.config/wofi"
+    state: link
+    force: yes

@@ -9,5 +9,6 @@
     - backlight.yml
     - mako.yml
     - launcher.yml
+    - wofi.yml
     - kanshi.yml
     - reboot-windows.yml
