@@ -1,0 +1,4 @@
+bindsym $mod+slash exec makoctl dismiss
+bindsym $mod+Ctrl+slash exec makoctl restore
+bindsym $mod+Alt+slash exec ~/dotfiles/bin/wofi-notifications.py show
+bindsym $mod+Shift+slash exec makoctl invoke
