@@ -16,3 +16,4 @@ sway_apt_packages:
   - grim
   - slurp
   - mako-notifier
+  - wofi
