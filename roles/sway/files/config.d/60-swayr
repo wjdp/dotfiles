@@ -1,4 +1,4 @@
-exec ~/dotfiles/bin/swayrd-wrapper
+exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug /home/will/.cargo/bin/swayrd > /tmp/swayrd.log 2>&1
 
 bindsym $mod+x exec ~/.cargo/bin/swayr switch-to-urgent-or-lru-window
 bindsym $mod+Ctrl+d exec ~/.cargo/bin/swayr switch-window
