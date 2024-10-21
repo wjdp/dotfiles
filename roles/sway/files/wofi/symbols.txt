@@ -37,16 +37,13 @@
 ∫ integral
 ∬ double integral
 ∭ triple integral
-∮ contour integral
-∯ surface integral
-∰ volume integral
-∱ clockwise integral
-∲ clockwise contour integral
-∳ anticlockwise contour integral
+∑ summation
 ∴ therefore
 ∵ because
 ∶ ratio
 ∷ proportion
+⋅ dot
+∸ dot plus
 ∸ dot minus
 ∼ tilde operator
 ∽ reversed tilde
@@ -68,6 +65,55 @@
 › single right angle quote
 « double left angle quote
 » double right angle quote
+¶ pilcrow paragraph
+⁂ asterism
+θ theta
+μ mu
+π pi
+ψ psi
+Ω omega ohm
+α alpha
+β beta
+γ gamma
+δ delta
+ε epsilon
+ζ zeta
+η eta
+ι iota
+κ kappa
+ν nu
+ξ xi
+ο omicron
+ρ rho
+σ sigma
+τ tau
+υ upsilon
+φ phi
+χ chi
+Δ big delta
+Θ big theta
+Λ big lambda
+Π big pi
+Σ big sigma
+Φ big phi
+Ψ big psi
+𝑐 algebraic letter c
+𝑑 algebraic letter d
+𝑒 algebraic letter e
+𝑓 algebraic letter f
+𝑔 algebraic letter g
+𝑘 algebraic letter k
+𝑙 algebraic letter l
+𝑠 algebraic letter s
+𝑡 algebraic letter t
+𝑢 algebraic letter u
+𝑣 algebraic letter v
+𝑤 algebraic letter w
+𝑥 algebraic letter x
+𝑦 algebraic letter y
+𝑧 algebraic letter z
+‰ per mille
+‱ per ten thousand
 😀 grinning face
 😃 grinning face with big eyes
 😄 grinning face with smiling eyes
