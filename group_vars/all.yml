@@ -254,3 +254,7 @@ xdg_mime:
       - image/bmp
       - image/webp
     handler: org.nomacs.ImageLounge.desktop
+  - types:
+      - x-scheme-handler/http
+      - x-scheme-handler/https
+    handler: firefox_firefox.desktop
