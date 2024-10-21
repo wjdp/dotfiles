@@ -2,6 +2,72 @@
 € euro
 ₿ bitcoin
 ≈ approx
+æ ae
+œ oe
+ß ss
+ð eth
+þ thorn
+÷ divide
+× multiply
+± plus minus
+∞ infinity
+≠ not equal
+≈ almost equal
+≡ identical
+≤ less than or equal
+≥ greater than or equal
+≮ not less than
+≯ not greater than
+√ square root
+∛ cube root
+∜ fourth root
+∝ proportional to
+∟ right angle
+∠ angle
+∡ measured angle
+∢ spherical angle
+∣ divides
+∤ does not divide
+∥ parallel to
+∦ not parallel to
+∧ logical and
+∨ logical or
+∩ intersection
+∪ union
+∫ integral
+∬ double integral
+∭ triple integral
+∮ contour integral
+∯ surface integral
+∰ volume integral
+∱ clockwise integral
+∲ clockwise contour integral
+∳ anticlockwise contour integral
+∴ therefore
+∵ because
+∶ ratio
+∷ proportion
+∸ dot minus
+∼ tilde operator
+∽ reversed tilde
+∾ inverted lazy s
+∿ sine wave
+– en dash
+— em dash
+― horizontal bar
+‖ parallel
+‘ left single quote
+’ right single quote
+‚ single low quote
+‛ single high reversed quote
+“ left double quote
+” right double quote
+„ double low quote
+‟ double high reversed quote
+‹ single left angle quote
+› single right angle quote
+« double left angle quote
+» double right angle quote
 😀 grinning face
 😃 grinning face with big eyes
 😄 grinning face with smiling eyes
