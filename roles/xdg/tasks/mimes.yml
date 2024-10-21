@@ -1,0 +1,5 @@
+- name: "Set mime default for {{type}}"
+  loop: "{{ item.types }}"
+  include_tasks: mime.yml
+  loop_control:
+    loop_var: type

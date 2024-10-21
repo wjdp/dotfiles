@@ -1,5 +1,8 @@
-- name: Set mime default for type
-  shell: xdg-mime default {{ item.handler }} {{ type }}
-  loop: "{{ item.types }}"
-  loop_control:
-    loop_var: type
+- name: "Get current mime type for {{ type }}"
+  shell: "xdg-mime query default {{ type }}"
+  register: current
+  changed_when: false
+
+- name: Set mime default for type if not already set
+  shell: "xdg-mime default {{ item.handler }} {{ type }}"
+  when: current.stdout != item.handler

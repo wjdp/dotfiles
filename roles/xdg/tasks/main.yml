@@ -4,4 +4,4 @@
 
 - name: Set xdg mime type defaults
   loop: "{{ xdg_mime }}"
-  include_tasks: mime.yml
+  include_tasks: mimes.yml
