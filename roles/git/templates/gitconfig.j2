@@ -8,7 +8,12 @@
   excludesfile = ~/.gitignore_global
   attributesfile = ~/.gitattributes_global
   editor = vim
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  dark = true
 [push]
   default = upstream
 {% if git_signing_key %}
@@ -100,10 +105,11 @@
 [diff]
   external = difft
 [gpg]
-	program = gpg
+  program = gpg
 [merge]
-	tool = meld
-	ff = false
+  tool = meld
+  ff = false
+  conflictstyle = zdiff3
 [mergetool "meld"]
     # Choose one of these 2 lines (not both!) explained below.
     # cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
@@ -112,35 +118,35 @@
     cmd = /home/will/bin/p4v-2019.2.1904275/bin/p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
     trustExitCode = true
 [mergetool]
-	keepBackup = false
+  keepBackup = false
     keepTemporaries = false
 [pull]
-	rebase = true
+  rebase = true
 [tag]
-	forceSignAnnotated = true
-	gpgSign = true
+  forceSignAnnotated = true
+  gpgSign = true
 [rerere]
-	enabled = true
+  enabled = true
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 [color]
-	ui = true
+  ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 [color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 [absorb]
     maxStack = 50
 [init]
-	defaultBranch = master
+  defaultBranch = master

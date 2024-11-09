@@ -241,6 +241,8 @@ cargo_user_packages:
   - cargo-update # run cargo-install-update install-update -a to update all installed packages
   - just
   - swayr
+  - git-delta
+  - bat
 
 xdg_settings:
   - name: default-web-browser
