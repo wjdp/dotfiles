@@ -81,6 +81,7 @@ apt_packages:
   - pandoc # Needed for Obsidian pandoc export
   - qtwayland5 # Makes nomacs work in wayland
   - cargo # to compile rust things
+  - rustup # to upgrade the rust toolchain
   - ddcutil # for controlling monitors
   - progress # for checking progress for cp, mv, dd (https://github.com/Xfennec/progress)
   - net-tools # view routing table
