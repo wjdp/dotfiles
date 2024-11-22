@@ -33,6 +33,7 @@
     - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
     - { role: rust, tags: ["rust"] }
     - { role: subsurface, tags: ["subsurface"] }
+    - { role: flatpak, tags: ["flatpak"] }
 
 - name: Personal setup
   hosts: ["dux", "victor"]

@@ -261,3 +261,8 @@ xdg_mime:
       - x-scheme-handler/http
       - x-scheme-handler/https
     handler: firefox_firefox.desktop
+
+flatpaks:
+  - io.missioncenter.MissionCenter
+  - com.plexamp.Plexamp
+  - io.github.mrvladus.List
