@@ -1047,7 +1047,8 @@
 🚥 horizontal traffic light
 🚦 vertical traffic light
 🛑 stop sign
-🚧 construction
+🚧 under construction
+🚧 barrier
 ⚓ anchor
 🛟 ring buoy
 ⛵ sailboat
@@ -1658,6 +1659,7 @@
 🆒 cool button
 🆓 free button
 ℹ information
+ℹ️ info
 🆔 id button
 Ⓜ circled m
 🆕 new button
