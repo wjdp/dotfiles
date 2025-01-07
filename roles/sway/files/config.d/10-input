@@ -1,3 +1,6 @@
+# Use `swaymsg -t get_inputs` to get the input device names
+# https://man.archlinux.org/man/sway-input.5
+
 input type:keyboard {
     xkb_layout gb
     xkb_options compose:ralt
@@ -23,6 +26,12 @@ input "1390:284:Getech_HUGE_TrackBall" {
     scroll_method on_button_down
     scroll_button BTN_TASK
     scroll_button_lock disabled
+}
+
+input "1133:4136:Logitech_M570" {
+    accel_profile adaptive
+    pointer_accel 0.2
+    scroll_factor 1.5
 }
 
 seat seat0 hide_cursor 2000
