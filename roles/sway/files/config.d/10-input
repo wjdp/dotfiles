@@ -17,4 +17,12 @@ input "1739:52839:SYNA8018:00_06CB:CE67_Touchpad" {
     scroll_factor 0.6
 }
 
+input "1390:284:Getech_HUGE_TrackBall" {
+    accel_profile adaptive
+    pointer_accel 0
+    scroll_method on_button_down
+    scroll_button BTN_TASK
+    scroll_button_lock disabled
+}
+
 seat seat0 hide_cursor 2000
