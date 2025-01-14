@@ -94,6 +94,7 @@
 "loomish"="󰨜"
 "balena-etcher"="󱊞"
 "text editor"="󱩼"
+"firmware-updater"=""
 
 [other]
 fallback_icon = "🤨"
