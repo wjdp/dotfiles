@@ -31,7 +31,10 @@ input "1390:284:Getech_HUGE_TrackBall" {
 input "1133:4136:Logitech_M570" {
     accel_profile adaptive
     pointer_accel 0.2
-    scroll_factor 1.5
+    scroll_factor 1
+    scroll_method on_button_down
+    scroll_button BTN_MIDDLE
+    scroll_button_lock disabled
 }
 
 seat seat0 hide_cursor 2000
