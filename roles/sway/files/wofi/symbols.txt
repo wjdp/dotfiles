@@ -114,6 +114,7 @@
 𝑧 algebraic letter z
 ‰ per mille
 ‱ per ten thousand
+ç C-cedilla
 😀 grinning face
 😃 grinning face with big eyes
 😄 grinning face with smiling eyes
