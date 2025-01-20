@@ -34,6 +34,14 @@
     - { role: rust, tags: ["rust"] }
     - { role: subsurface, tags: ["subsurface"] }
     - { role: flatpak, tags: ["flatpak"] }
+    - role: systemd-timer
+      tags: ["systemd-timer-test"]
+      unit_name: "ttest"
+      service_description: "I'm a test"
+      service_exec_start: "echo 'Test'"
+      # every minute
+      timer_on_calendar: "*:0/1"
+      scope: "user"
 
 - name: Personal setup
   hosts: ["dux", "victor"]

@@ -1,0 +1,51 @@
+- name: Determine service name & timer name
+  set_fact:
+    service_filename: "{{ unit_name + '.service' }}"
+    timer_filename: "{{ unit_name + '.timer' }}"
+
+- name: "Create {{ service_filename }}"
+  become: yes
+  template:
+    src: service.j2
+    dest: "/etc/systemd/{{ scope }}/{{ service_filename }}"
+    mode: 0644
+    owner: root
+    group: root
+  vars:
+    service_description: "{{ service_description }}"
+    service_exec_start: "{{ service_exec_start }}"
+
+- name: "Create {{ timer_filename }}"
+  become: yes
+  template:
+    src: timer.j2
+    dest: "/etc/systemd/{{ scope }}/{{ timer_filename }}"
+    mode: 0644
+    owner: root
+    group: root
+  vars:
+    timer_description: "{{ service_description }} on a schedule"
+    timer_unit: "{{ service_filename }}"
+    timer_on_calendar: "{{ timer_on_calendar }}"
+
+# set fact
+- name: Should become
+  set_fact:
+    become: "{{ True if scope == 'system' else False }}"
+
+- name: "Enable {{ service_filename }} and {{ timer_filename }}"
+  loop: "{{ [ service_filename, timer_filename ] }}"
+  become: "{{ become }}"
+  systemd:
+    name: "{{ item }}"
+    enabled: yes
+    daemon_reload: true
+    scope: "{{ scope }}"
+
+- name: "Start {{ timer_filename }}"
+  become: "{{ become }}"
+  systemd:
+    name: "{{ timer_filename }}"
+    state: started
+    daemon_reload: true
+    scope: "{{ scope }}"

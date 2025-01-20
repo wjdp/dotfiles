@@ -1,0 +1,9 @@
+[Unit]
+Description={{ service_description }}
+
+[Service]
+Type=oneshot
+ExecStart={{ service_exec_start }}
+
+[Install]
+WantedBy=multi-user.target
