@@ -266,3 +266,4 @@ flatpaks:
   - io.missioncenter.MissionCenter
   - com.plexamp.Plexamp
   - io.github.mrvladus.List
+  - app.zen_browser.zen
