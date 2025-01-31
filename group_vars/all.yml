@@ -247,7 +247,7 @@ cargo_user_packages:
 
 xdg_settings:
   - name: default-web-browser
-    value: firefox_firefox.desktop
+    value: app.zen_browser.zen.desktop
 
 xdg_mime:
   - types:
@@ -260,7 +260,7 @@ xdg_mime:
   - types:
       - x-scheme-handler/http
       - x-scheme-handler/https
-    handler: firefox_firefox.desktop
+    handler: app.zen_browser.zen.desktop
 
 flatpaks:
   - io.missioncenter.MissionCenter

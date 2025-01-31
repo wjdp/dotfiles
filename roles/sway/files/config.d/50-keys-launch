@@ -14,8 +14,8 @@ bindsym $mod+Ctrl+y exec ~/dotfiles/bin/wofi-pass.py otp
 bindsym $mod+Return exec $term
 
 ## Launch // Web Browser // <◇> c ##
-bindsym $mod+c exec firefox
-bindsym $mod+Shift+c exec firefox --private-window
+bindsym $mod+c exec $program.browser
+bindsym $mod+Shift+c exec $program.browser --private-window
 
 ## Launch // File Browser // <◇> n ##
 bindsym $mod+n exec $program.files
