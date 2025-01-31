@@ -95,6 +95,7 @@
 "balena-etcher"="󱊞"
 "text editor"="󱩼"
 "firmware-updater"=""
+"logseq"="󰉺"
 
 [other]
 fallback_icon = "🤨"

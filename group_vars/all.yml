@@ -267,3 +267,4 @@ flatpaks:
   - com.plexamp.Plexamp
   - io.github.mrvladus.List
   - app.zen_browser.zen
+  - com.logseq.Logseq
