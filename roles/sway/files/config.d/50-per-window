@@ -59,3 +59,6 @@ for_window [app_id="^.*"] inhibit_idle fullscreen
 
 # Bluetooth manager floats
 for_window [app_id="blueman-manager"] floating enable
+
+# Bitwarden popup
+for_window [title="Extension: (Bitwarden Password Manager)"] floating enable
