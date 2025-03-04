@@ -96,6 +96,7 @@
 "text editor"="󱩼"
 "firmware-updater"=""
 "logseq"="󰉺"
+"bitwarden"=""
 
 [other]
 fallback_icon = "🤨"
