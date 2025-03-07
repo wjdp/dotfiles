@@ -13,13 +13,16 @@
     "Jinja2",
     "Liquid",
     "LSP",
+    "LSP-copilot",
     "LSP-pyright",
+    "LSP-vue",
     "Markdown Extended",
     "Package Control",
     "Pretty JSON",
     "Sass",
     "TypeScript",
     "TypeScript Syntax",
-    "WordingStatus"
+    "Vue",
+    "WordingStatus",
   ],
 }

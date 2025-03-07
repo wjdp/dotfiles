@@ -50,7 +50,7 @@
   "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "__pycache__"],
   "font_face": "Inconsolata",
   "font_options": ["subpixel_antialias"],
-  "font_size": 17,
+  "font_size": 15,
   "highlight_line": true,
   "highlight_modified_tabs": true,
   "ignored_packages": ["Rust", "Vintage",
