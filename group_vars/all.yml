@@ -35,7 +35,6 @@ apt_packages:
   - curl
   - dconf-editor
   - fonts-noto
-  - gimp
   - gpick
   - htop
   - httpie
@@ -127,6 +126,7 @@ bins:
 
 snaps:
   - httpie
+  - gimp
 
 snaps_classic:
   - obsidian
