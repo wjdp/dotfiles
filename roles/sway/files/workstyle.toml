@@ -97,6 +97,7 @@
 "firmware-updater"=""
 "logseq"="󰉺"
 "bitwarden"=""
+"bruno"="󰩃"
 
 [other]
 fallback_icon = "🤨"
