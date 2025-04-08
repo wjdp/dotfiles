@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Check for xdg-desktop-portal-wlr in PipeWire nodes
+if pw-cli ls Node | grep -q 'node.name = "xdg-desktop-portal-wlr"'; then
+    echo "󰄙"  # xdg-desktop-portal-wlr node found
+else
+    echo ""  # xdg-desktop-portal-wlr node not found
+fi

@@ -23,6 +23,7 @@
         "temperature", 
         // "keyboard-state", // module keyboard-state: Unknown module: keyboard-state
         // "sway/language", 
+        "custom/screenshare",
         "pulseaudio",
         "battery",
         "clock"
@@ -226,6 +227,11 @@
         "status-icons": {
             "paused": "󰏤"
         },
+    },
+    "custom/screenshare": {
+        "exec": "/home/will/dotfiles/bin/is-screenshare",
+        "return-type": "string",
+        "interval": 2,
     }
 }
 
