@@ -53,6 +53,10 @@ for_window [instance="Godot_Editor"] floating enable
 for_window [instance="Godot_Engine"] floating enable
 for_window [instance="Godot_ProjectList"] floating enable
 
+# Steam
+for_window [class="steam"] border pixel
+for_window [title="Steam Settings"] floating enable
+
 # Idle inhibit
 for_window [app_id="firefox"] inhibit_idle fullscreen
 
