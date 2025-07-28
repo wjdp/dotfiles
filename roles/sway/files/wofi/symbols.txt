@@ -1,4 +1,5 @@
 λ lambda
+№ numero
 € euro
 ₿ bitcoin
 ≈ approx
