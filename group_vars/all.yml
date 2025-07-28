@@ -15,7 +15,7 @@ apt_repos:
     repo: deb https://pkgs.tailscale.com/stable/ubuntu focal main
     key: https://pkgs.tailscale.com/stable/ubuntu/focal.gpg
   - name: spotify
-    repo: deb http://repository.spotify.com stable non-free
+    repo: deb https://repository.spotify.com stable non-free
     key: https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg
   - name: vscode
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
