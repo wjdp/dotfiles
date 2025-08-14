@@ -1,7 +1,11 @@
 #!/bin/sh
 
 pkg install -y \
-    fish git openssh termux-tools python-pip
+    fish git openssh termux-tools python-pip dnsutils
 
 # Set fish as default shell
 chsh -s fish
+
+# Create a ssh config file
+mkdir -p ~/.ssh
+echo "User will" > ~/.ssh/config
