@@ -1,0 +1,6 @@
+# run terminal with custom app_id, smaller font, and lighter opacity
+exec kitty --class=popup-term
+# resize/move it to the top ~20% of the screen and put it on scratchpad
+for_window [app_id="popup-term"] floating enable, border pixel, resize set 2000 150, move absolute position 300 32, mark popup_term, move scratchpad, sticky enable
+# bring it up with $mod+v
+bindsym $mod+space [app_id="popup-term"] scratchpad show

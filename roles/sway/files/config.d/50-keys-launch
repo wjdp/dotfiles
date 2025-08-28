@@ -1,6 +1,5 @@
 # Launcher
 bindsym $mod+d exec $launcher
-bindsym $mod+Space exec $launcher
 bindsym $mod+Shift+d exec $menu
 
 # Emoji
