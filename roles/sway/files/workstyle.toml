@@ -105,6 +105,7 @@
 "wayland output mirror"=""
 "qgis"=""
 "bottles"="󰡔"
+"popup-term"="󰄛"
 
 [other]
 fallback_icon = "🤨"
