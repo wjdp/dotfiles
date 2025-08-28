@@ -37,4 +37,5 @@ input "1133:4136:Logitech_M570" {
     scroll_button_lock disabled
 }
 
-seat seat0 hide_cursor 2000
+seat * hide_cursor 8000
+seat * hide_cursor when-typing enable
