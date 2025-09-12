@@ -1,12 +1,43 @@
-- name: Copy user fonts
-  copy:
-    src: fonts/
-    dest: ~/.fonts
+- name: Create hard links for user fonts
+  find:
+    paths: "{{ role_path }}/files/fonts"
+    patterns:
+      - "*.ttf"
+      - "*.otf"
+    recurse: yes
+  register: user_font_files
+
+- name: Create hard links for individual user font files
+  file:
+    src: "{{ item.path }}"
+    dest: "~/.fonts/{{ item.path | basename }}"
+    state: hard
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0644
+  loop: "{{ user_font_files.files }}"
   register: fonts_copy
+
+- name: Copy Nerd Font files
+  find:
+    paths: "{{ role_path }}/files/nerd"
+    patterns:
+      - "*.ttf"
+      - "*.otf"
+    recurse: yes
+  register: nerd_font_files
+
+- name: Create hard links for individual Nerd Font files
+  file:
+    src: "{{ item.path }}"
+    dest: "~/.fonts/{{ item.path | basename }}"
+    state: hard
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0644
+  loop: "{{ nerd_font_files.files }}"
+  register: nerd_fonts_copy
 
 - name: Update fonts cache
   command: fc-cache -f -v
-  when: fonts_copy.changed
+  when: fonts_copy.changed or nerd_fonts_copy.changed
