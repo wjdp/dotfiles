@@ -107,6 +107,7 @@
 "qgis"=""
 "bottles"="󰡔"
 "popup-term"="󰄛"
+"characters"="󱁯"
 [other]
 fallback_icon = "🤨"
 deduplicate_icons = false
