@@ -38,4 +38,3 @@ input "1133:4136:Logitech_M570" {
 }
 
 seat * hide_cursor 8000
-seat * hide_cursor when-typing enable
