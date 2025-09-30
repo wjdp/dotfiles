@@ -150,7 +150,7 @@
 🤭 face with hand over mouth
 🫢 face with open eyes and hand over mouth
 🫣 face with peeking eye
-🤫 shushing face
+🤫 shushing face, ssh
 🤔 thinking face
 🫡 saluting face
 🤐 zipper mouth face
@@ -1993,4 +1993,3 @@
 🏴󠁧󠁢󠁥󠁮󠁧󠁿 flag england
 🏴󠁧󠁢󠁳󠁣󠁴󠁿 flag scotland
 🏴󠁧󠁢󠁷󠁬󠁳󠁿 flag wales
-🤫 ssh
