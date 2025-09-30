@@ -1,3 +1,4 @@
+  nbsp, non-breaking space
 λ lambda
 № numero
 € euro
