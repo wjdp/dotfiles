@@ -110,6 +110,7 @@
 "limo"="L"
 "characters"="󱁯"
 "kerbal space program"=""
+"todoist"=""
 [other]
 fallback_icon = "🤨"
 deduplicate_icons = false
