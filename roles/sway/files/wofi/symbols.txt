@@ -1,4 +1,5 @@
   nbsp, non-breaking space
+° degree
 λ lambda
 № numero
 € euro
