@@ -265,6 +265,5 @@ xdg_mime:
 flatpaks:
   - io.missioncenter.MissionCenter
   - com.plexamp.Plexamp
-  - io.github.mrvladus.List
-  - app.zen_browser.zen
-  - com.logseq.Logseq
+  - io.github.mrvladus.List # Errands
+  - com.fastmail.Fastmail
