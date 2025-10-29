@@ -1,0 +1,20 @@
+- name: Ensure .claude directory exists
+  file:
+    path: "{{ claude_config_dir }}"
+    state: directory
+    mode: 0755
+
+- name: Link settings.json
+  file:
+    src: "{{ dotfiles_home }}/roles/claude/files/settings.json"
+    dest: "{{ claude_config_dir }}/settings.json"
+    state: link
+    force: yes
+
+- name: Link statusline-command.sh
+  file:
+    src: "{{ dotfiles_home }}/roles/claude/files/statusline-command.sh"
+    dest: "{{ claude_config_dir }}/statusline-command.sh"
+    state: link
+    force: yes
+    mode: 0755

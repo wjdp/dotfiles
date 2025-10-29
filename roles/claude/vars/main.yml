@@ -1,0 +1,1 @@
+claude_config_dir: "{{ dotfiles_user_home }}/.claude"

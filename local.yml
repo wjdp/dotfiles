@@ -34,6 +34,7 @@
     - { role: rust, tags: ["rust"] }
     - { role: subsurface, tags: ["subsurface"] }
     - { role: flatpak, tags: ["flatpak"] }
+    - { role: claude, tags: ["claude"] }
 
 - name: Personal setup
   hosts: ["dux", "victor"]
