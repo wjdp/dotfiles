@@ -4,6 +4,12 @@
     state: directory
     mode: 0755
 
+- name: Ensure .claude/plugins directory exists
+  file:
+    path: "{{ claude_config_dir }}/plugins"
+    state: directory
+    mode: 0755
+
 - name: Link settings.json
   file:
     src: "{{ dotfiles_home }}/roles/claude/files/settings.json"
@@ -18,3 +24,10 @@
     state: link
     force: yes
     mode: 0755
+
+- name: Link plugins config.json
+  file:
+    src: "{{ dotfiles_home }}/roles/claude/files/plugins-config.json"
+    dest: "{{ claude_config_dir }}/plugins/config.json"
+    state: link
+    force: yes
