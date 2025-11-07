@@ -1,3 +1,15 @@
-- **Language:** British English - all code, comments, docs, examples, commits, configs, errors, tests
-- **Tools**: Use rg not grep, fd not find, tree is installed
-- **Style**: Prefer self-documenting code over comments
+- **General**:
+  - Tell me if there is a better approach than the one I am taking.
+  - Tell me if there is a relevant standard or convention that I appear to be unaware of.
+- **Language:**
+  - British English
+- **Tools**
+  - Use rg not grep
+  - Use fd not find
+  - tree is installed, it can list files and directories
+- **Style**:
+  - Prefer self-documenting code over comments
+- **Be concise and to the point**
+  - Short summaries are OK, but don't give an extended breakdown unless we are working through the details of a plan.
+  - Do not flatter, and do not give compliments unless I am specifically asking for your judgement.
+- Feel free to ask questions. If in doubt of my intent, don't guess. Ask.
