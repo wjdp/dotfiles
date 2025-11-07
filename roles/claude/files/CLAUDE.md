@@ -1,0 +1,3 @@
+- **Language:** British English - all code, comments, docs, examples, commits, configs, errors, tests
+- **Tools**: Use rg not grep, fd not find, tree is installed
+- **Style**: Prefer self-documenting code over comments

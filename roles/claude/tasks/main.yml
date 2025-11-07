@@ -10,24 +10,15 @@
     state: directory
     mode: 0755
 
-- name: Link settings.json
+- name: Link Claude configuration files
   file:
-    src: "{{ dotfiles_home }}/roles/claude/files/settings.json"
-    dest: "{{ claude_config_dir }}/settings.json"
+    src: "{{ dotfiles_home }}/roles/claude/files/{{ item.src }}"
+    dest: "{{ claude_config_dir }}/{{ item.dest }}"
     state: link
     force: yes
-
-- name: Link statusline-command.sh
-  file:
-    src: "{{ dotfiles_home }}/roles/claude/files/statusline-command.sh"
-    dest: "{{ claude_config_dir }}/statusline-command.sh"
-    state: link
-    force: yes
-    mode: 0755
-
-- name: Link plugins config.json
-  file:
-    src: "{{ dotfiles_home }}/roles/claude/files/plugins-config.json"
-    dest: "{{ claude_config_dir }}/plugins/config.json"
-    state: link
-    force: yes
+    mode: "{{ item.mode | default(omit) }}"
+  loop:
+    - { src: "settings.json", dest: "settings.json" }
+    - { src: "statusline-command.sh", dest: "statusline-command.sh", mode: "0755" }
+    - { src: "plugins-config.json", dest: "plugins/config.json" }
+    - { src: "CLAUDE.md", dest: "CLAUDE.md" }
