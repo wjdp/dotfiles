@@ -15,8 +15,7 @@ set $right l
 # Apps
 set $term gnome-terminal
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $launcher-daemon /usr/bin/python3 /usr/bin/ulauncher --hide-window 1 > /tmp/ulauncher.log 2>&1
-set $launcher ulauncher-toggle
+set $launcher pidof wofi || wofi --show drun -Ii
 set $program.files /usr/bin/nemo
 
 # Session management

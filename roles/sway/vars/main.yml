@@ -1,11 +1,7 @@
-sway_apt_repos:
-  - ppa:agornostal/ulauncher
-
 sway_apt_packages:
   - sway
   - swaylock
   - swayidle
-  - ulauncher
   - fd-find
   - wl-clipboard
   - suckless-tools
