@@ -106,3 +106,4 @@ mynotes.md
 .claude/*.local.*
 */.claude/*.local.*
 NOTES.md
+NOTES/*
