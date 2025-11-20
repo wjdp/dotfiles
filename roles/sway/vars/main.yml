@@ -1,3 +1,5 @@
+sway_apt_repos: []
+
 sway_apt_packages:
   - sway
   - swaylock
