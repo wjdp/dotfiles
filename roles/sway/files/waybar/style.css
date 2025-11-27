@@ -90,9 +90,10 @@ window#waybar.solo {
 #mpd,
 #bluetooth,
 #mpris {
-  padding: 0 3px;
+  padding: 0 6px;
   margin-right: 2px;
   color: #ccc;
+  /* background-color: red */
 }
 
 #mode {
@@ -191,9 +192,13 @@ label:focus {
 }
 
 #disk {
+  /* hack for icon width */
+  padding-right: 8px;
 }
 
 #backlight {
+  /* hack for icon width */
+  padding-right: 10px;
 }
 
 #network {
@@ -203,6 +208,10 @@ label:focus {
   background-color: #f53c3c;
   box-shadow: inset 0 -3px #ff0000;
   color: white;
+}
+
+#bluetooth.disabled {
+  box-shadow: inset 0 -3px #ff9915;
 }
 
 #pulseaudio {
