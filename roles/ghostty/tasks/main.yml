@@ -1,0 +1,12 @@
+- name: Ensure ghostty config directory exists
+  file:
+    path: "{{ dotfiles_user_home }}/.config/ghostty"
+    state: directory
+    mode: 0775
+
+- name: Link ghostty config
+  file:
+    src: "{{ dotfiles_home }}/roles/ghostty/files/config"
+    dest: "{{ dotfiles_user_home }}/.config/ghostty/config"
+    state: link
+    force: yes
