@@ -115,6 +115,9 @@ deb_packages:
   - pkg: ripgrep
     url: https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb
     version: "14.1.0"
+  - pkg: ghostty
+    url: https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.2.3-0-ppa1/ghostty_1.2.3-0.ppa1_amd64_24.04.deb
+    version: "1.2.3-0.ppa1"
 
 bins:
   - name: aws-vault
