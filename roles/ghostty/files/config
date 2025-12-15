@@ -50,3 +50,4 @@
 
 background = #000000
 background-opacity = 0.88
+shell-integration-features = ssh-terminfo,ssh-env
