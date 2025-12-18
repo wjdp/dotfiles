@@ -23,6 +23,7 @@ for_window [title="Welcome to PyCharm"] floating enable
 for_window [class="MPlayer"] floating enable
 for_window [app_id="firefox"] border pixel
 for_window [app_id="zen"] border pixel
+for_window [app_id="helium"] border pixel
 for_window [class="Slack"] border pixel
 for_window [app_id="Slack"] border pixel
 for_window [title="Firefox — Sharing Indicator"] floating enable
