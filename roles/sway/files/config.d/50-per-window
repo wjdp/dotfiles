@@ -70,3 +70,6 @@ for_window [app_id="blueman-manager"] floating enable
 
 # Bitwarden popup
 for_window [title="Extension: (Bitwarden Password Manager)"] floating enable
+
+# Helium Picture-in-Picture
+for_window [title="Picture-in-picture"] floating enable
