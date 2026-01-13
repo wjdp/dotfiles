@@ -278,4 +278,6 @@ paru_packages:
   - nemo
   - htop
   - mpv
+  - uv
+  - partitionmanager
   #- nomacs-git # AUR
