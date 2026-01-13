@@ -12,8 +12,15 @@
     mode: 0664
 
 - name: Pull and build workstyle from cargo
+  when: distro == "ubuntu"
   community.general.cargo:
     name: workstyle
+
+# Is AUR, needs to be done manually
+# - name: Install workstyle from AUR
+#   when: distro == "cachyos"
+#   become: yes
+#   package: name=workstyle-git state=present
 
 - name: Ensure workstyle config directory exists
   file:

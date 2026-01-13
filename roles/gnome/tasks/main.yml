@@ -1,4 +1,5 @@
 - name: Configure gnome-terminal
+  when: distro == "ubuntu"
   include_tasks: terminal.yml
 - name: Configure nemo
   include_tasks: nemo.yml

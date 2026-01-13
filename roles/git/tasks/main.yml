@@ -1,9 +1,9 @@
 - name: Install git
-  apt: name=git state=present
+  package: name=git state=present
   become: yes
 
 - name: Install git-lfs
-  apt: name=git-lfs state=present
+  package: name=git-lfs state=present
   become: yes
 
 - name: Link global gitignore file

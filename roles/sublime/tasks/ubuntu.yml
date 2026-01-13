@@ -1,0 +1,20 @@
+- name: Add sublime apt key
+  become: yes
+  apt_key:
+    url: "{{ sublime_key_url }}"
+    state: present
+
+- name: Add sublime apt repo
+  become: yes
+  apt_repository:
+    repo: "{{ sublime_repo }}"
+    state: present
+    filename: sublime
+
+- name: Install sublime-text and sublime-merge
+  become: yes
+  apt:
+    name:
+      - sublime-text
+      - sublime-merge
+    state: present

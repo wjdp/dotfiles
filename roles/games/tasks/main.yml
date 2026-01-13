@@ -1,0 +1,8 @@
+- name: Install cachyos-gaming-meta
+  when: distro == "cachyos"
+  become: yes
+  package:
+    name:
+      - cachyos-gaming-meta
+      - steam
+      - heroic-games-launcher-bin

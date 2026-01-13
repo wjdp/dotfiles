@@ -1,0 +1,6 @@
+- name: Enable and start ssh-agent service for user
+  systemd:
+    name: ssh-agent.service
+    scope: user
+    enabled: true
+    state: started

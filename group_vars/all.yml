@@ -270,3 +270,12 @@ flatpaks:
   - com.plexamp.Plexamp
   - io.github.mrvladus.List # Errands
   - com.fastmail.Fastmail
+
+paru_packages:
+  - cursor-bin
+  - spotify-launcher
+  - ghostty
+  - nemo
+  - htop
+  - mpv
+  #- nomacs-git # AUR

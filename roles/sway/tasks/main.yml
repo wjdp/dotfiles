@@ -6,9 +6,9 @@
     - apt.yml
     - sway.yml
     - bar.yml
-    - backlight.yml
-    - mako.yml
-    - launcher.yml
-    - wofi.yml
-    - kanshi.yml
-    - reboot-windows.yml
+    # - backlight.yml
+    # - mako.yml
+    # - launcher.yml
+    # - wofi.yml
+    # - kanshi.yml
+    # - reboot-windows.yml

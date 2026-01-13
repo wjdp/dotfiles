@@ -1,23 +1,10 @@
-- name: Add sublime apt key
-  become: yes
-  apt_key:
-    url: "{{ sublime_key_url }}"
-    state: present
+- name: Run ubuntu install
+  when: distro == "ubuntu"
+  include_tasks: ubuntu.yml
 
-- name: Add sublime apt repo
-  become: yes
-  apt_repository:
-    repo: "{{ sublime_repo }}"
-    state: present
-    filename: sublime
-
-- name: Install sublime-text and sublime-merge
-  become: yes
-  apt:
-    name:
-      - sublime-text
-      - sublime-merge
-    state: present
+- name: Run cachyos install
+  when: distro == "cachyos"
+  include_tasks: cachyos.yml
 
 - name: Ensure config directories exist
   file:

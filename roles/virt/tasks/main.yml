@@ -1,0 +1,34 @@
+- name: Install packages
+  when: distro == "cachyos"
+  become: yes
+  package:
+    name:
+      - virt-manager
+      - virt-viewer
+      - dnsmasq # lightweight DNS forwarder and DHCP server
+      - bridge-utils # provides the brctl command for managing bridges
+      - libvirt # an open-source API, daemon, and tool for managing platform virtualization
+      - qemu-full # user-space KVM emulator, manages communication between hosts and VMs
+      - qemu-img # provides create, convert, modify, and snapshot, offline disk images
+      - edk2-ovmf # enables UEFI support for VMs
+      - openbsd-netcat # provides the nc command for managing networks
+
+- name: Enable libvirt service
+  when: distro == "cachyos"
+  become: yes
+  systemd:
+    name: libvirtd
+    enabled: yes
+    state: started
+
+- name: Add user to libvirt group
+  become: yes
+  user:
+    name: "{{ user }}"
+    groups: libvirt
+    append: yes
+
+# /etc/libvirt/network.conf
+# firewall_backend = "iptables"
+
+# Guide https://forum.manjaro.org/t/virt-manager-virtual-machines-wont-get-ip-address/182643/15

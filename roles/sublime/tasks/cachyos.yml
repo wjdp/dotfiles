@@ -1,0 +1,54 @@
+- name: Check if sublime GPG key is already present
+  become: yes
+  command: pacman-key --list-keys 8A8F901A
+  register: sublime_key_check
+  changed_when: false
+  failed_when: false
+
+- name: Download sublime GPG key
+  become: yes
+  get_url:
+    url: "{{ sublime_key_url }}"
+    dest: /tmp/sublimehq-pub.gpg
+    mode: '0644'
+  when: sublime_key_check.rc != 0
+
+- name: Add sublime GPG key to pacman-key
+  become: yes
+  command: pacman-key --add /tmp/sublimehq-pub.gpg
+  when: sublime_key_check.rc != 0
+  register: sublime_key_add
+  changed_when: sublime_key_add.rc == 0
+
+- name: Sign sublime GPG key
+  become: yes
+  command: pacman-key --lsign-key 8A8F901A
+  when: sublime_key_check.rc != 0
+  register: sublime_key_sign
+  changed_when: sublime_key_sign.rc == 0
+
+- name: Remove temporary GPG key file
+  become: yes
+  file:
+    path: /tmp/sublimehq-pub.gpg
+    state: absent
+  when: sublime_key_check.rc != 0
+
+- name: Add sublime repository to pacman.conf
+  become: yes
+  blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      [sublime-text]
+      Server = https://download.sublimetext.com/arch/stable/x86_64
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - sublime-text"
+    create: yes
+
+- name: Install sublime-text and sublime-merge
+  become: yes
+  pacman:
+    name:
+      - sublime-text
+      - sublime-merge
+    state: present
+    update_cache: yes

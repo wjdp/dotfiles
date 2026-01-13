@@ -6,12 +6,24 @@
 
 - name: Install fish
   become: yes
-  apt: name=fish state=present
+  package: name=fish state=present
   become_method: sudo
 
 - name: Install fonts-powerline
+  when: distro == "ubuntu"
   become: yes
-  apt: name=fonts-powerline state=present
+  package: name=fonts-powerline state=present
+  become_method: sudo
+
+- name: Install powerline-fonts
+  when: distro == "cachyos"
+  become: yes
+  package: name=powerline-fonts state=present
+  become_method: sudo
+
+- name: Install zoxide
+  become: yes
+  package: name=zoxide state=present
   become_method: sudo
 
 - name: Get shell executable location

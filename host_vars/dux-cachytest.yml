@@ -1,9 +1,9 @@
-distro: ubuntu
+distro: cachyos
 
 git_email: will@wjdp.uk
 git_signing_key: 4DC1AA6287F8CC4A
 
-wallpaper: $HOME/dotfiles/wallpapers/1440p/dennis-schweizer-18nR85wWyLY-unsplash.jpg
+wallpaper: $HOME/dotfiles/wallpapers/1440p/abstract-dark-shapes-light-4k-kc-2560x1440.jpg
 lockpaper_path: $HOME/dotfiles/wallpapers/2160p/firewatch-no-watch.jpg
 
 screen_left: DP-4

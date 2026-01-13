@@ -1,44 +1,54 @@
+- name: CachyOS specific setup
+  hosts: ["dux-cachytest"]
+  roles:
+    - { role: ssh-agent, tags: ["ssh-agent"] }
+    - { role: paru, tags: ["paru"] }
+
 - name: Set up local machine
   hosts: "{{ host }}"
   roles:
-    - { role: grub, tags: ["grub"] }
-    - { role: snap, tags: ["snap"] }
-    - { role: apt, tags: ["apt"] }
-    - { role: bin, tags: ["bin"] }
-    - { role: linux, tags: ["linux"] }
-    - { role: profile, tags: ["profile"] }
-    - { role: ssh, tags: ["ssh"] }
-    - { role: python, tags: ["python"] }
-    - { role: pipx, tags: ["pipx"] }
-    - { role: dotfiles, tags: ["dotfiles"] }
+    # - { role: grub, tags: ["grub"] }
+    # - { role: snap, tags: ["snap"] }
+    # - { role: apt, tags: ["apt"] }
+    # - { role: bin, tags: ["bin"] }
+    # - { role: linux, tags: ["linux"] }
+    # - { role: profile, tags: ["profile"] }
+    # - { role: ssh, tags: ["ssh"] }
+    # - { role: python, tags: ["python"] }
+    # - { role: pipx, tags: ["pipx"] }
+    # - { role: dotfiles, tags: ["dotfiles"] }
     - { role: fish, tags: ["fish"] }
     - { role: fonts, tags: ["fonts"] }
     - { role: gnome, tags: ["gnome"] }
     - { role: sway, tags: ["sway"] }
-    - { role: xdg, tags: ["xdg"] }
+    # - { role: xdg, tags: ["xdg"] }
     - { role: git, tags: ["git"] }
-    - { role: vim, tags: ["vim"] }
+    # - { role: vim, tags: ["vim"] }
     - { role: sublime, tags: ["sublime"] }
-    - { role: google-chrome, tags: ["google-chrome"] }
-    - { role: jetbrains, tags: ["jetbrains"] }
-    - { role: zsa, tags: ["zsa"] }
-    - { role: docker, tags: ["docker"] }
-    - role: fubarhouse.golang
-      tags: ["go"]
-      go_version: 1.22.1
-      GOPATH: /home/will/go
-      become: yes
+    # - { role: google-chrome, tags: ["google-chrome"] }
+    # - { role: jetbrains, tags: ["jetbrains"] }
+    # - { role: zsa, tags: ["zsa"] }
+    # - { role: docker, tags: ["docker"] }
+    # - role: fubarhouse.golang
+    #   tags: ["go"]
+    #   go_version: 1.22.1
+    #   GOPATH: /home/will/go
+    #   become: yes
     # - { role: blackd, tags: ["blackd"] }
-    - { role: syncthing, tags: ["syncthing"] }
-    - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
-    - { role: rust, tags: ["rust"] }
-    - { role: subsurface, tags: ["subsurface"] }
-    - { role: flatpak, tags: ["flatpak"] }
-    - { role: claude, tags: ["claude"] }
+    # - { role: syncthing, tags: ["syncthing"] }
+    # - { role: wayland-tweaks, tags: ["wayland-tweaks"] }
+    # - { role: rust, tags: ["rust"] }
+    # - { role: subsurface, tags: ["subsurface"] }
+    # - { role: flatpak, tags: ["flatpak"] }
+    # - { role: claude, tags: ["claude"] }
     - { role: ghostty, tags: ["ghostty"] }
+    - { role: games, tags: ["games"] }
+    - { role: virt, tags: ["virt"] }
 
-- name: Personal setup
-  hosts: ["dux", "victor"]
-  roles:
-    - { role: autofs, tags: ["autofs"] }
-    - { role: plex-mpv, tags: ["plex-mpv"] }
+
+
+# - name: Personal setup
+#   hosts: ["dux", "victor"]
+#   roles:
+#     - { role: autofs, tags: ["autofs"] }
+#     - { role: plex-mpv, tags: ["plex-mpv"] }

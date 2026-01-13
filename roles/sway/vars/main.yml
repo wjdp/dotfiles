@@ -15,3 +15,16 @@ sway_apt_packages:
   - slurp
   - mako-notifier
   - wofi
+
+sway_cachyos_packages:
+  - sway
+  - swaylock
+  - swayidle
+  - swaybg
+  - wl-clipboard
+  - waybar
+  - wf-recorder
+  - grim
+  - slurp
+  - mako
+  - wofi

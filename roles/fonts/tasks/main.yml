@@ -7,10 +7,18 @@
     recurse: yes
   register: user_font_files
 
+- name: Ensure ~/.local/share/fonts directory exists
+  file:
+    path: "~/.local/share/fonts"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0755
+
 - name: Create hard links for individual user font files
   file:
     src: "{{ item.path }}"
-    dest: "~/.fonts/{{ item.path | basename }}"
+    dest: "~/.local/share/fonts/{{ item.path | basename }}"
     state: hard
     owner: "{{ user }}"
     group: "{{ user }}"
@@ -30,7 +38,7 @@
 - name: Create hard links for individual Nerd Font files
   file:
     src: "{{ item.path }}"
-    dest: "~/.fonts/{{ item.path | basename }}"
+    dest: "~/.local/share/fonts/{{ item.path | basename }}"
     state: hard
     owner: "{{ user }}"
     group: "{{ user }}"
