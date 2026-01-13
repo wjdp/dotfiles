@@ -35,10 +35,10 @@ set $resize_mouse 12
 bindsym --whole-window --release $mod+button4 gaps inner current minus $resize_mouse
 bindsym --whole-window --release $mod+button5 gaps inner current plus $resize_mouse
 
-# with shift for only horizontal gaps
-bindsym --whole-window --release $mod+Shift+button4 gaps horizontal current minus $resize_mouse
-bindsym --whole-window --release $mod+Shift+button5 gaps horizontal current plus $resize_mouse
+# with alt for only horizontal gaps
+bindsym --whole-window --release $mod+Alt+button4 gaps horizontal current minus $resize_mouse
+bindsym --whole-window --release $mod+Alt+button5 gaps horizontal current plus $resize_mouse
 
-# with alt for both but maintain 16:9 aspect ratio, useful for videos
-bindsym --whole-window --release $mod+Alt+button4 resize grow width 16 px or 16 ppt; resize grow height 9 px or 9 ppt
-bindsym --whole-window --release $mod+Alt+button5 resize shrink width 16 px or 16 ppt; resize shrink height 9 px or 9 ppt
+# with shift for both but maintain 16:9 aspect ratio, useful for videos
+bindsym --whole-window --release $mod+Shift+button4 resize grow width 16 px or 16 ppt; resize grow height 9 px or 9 ppt
+bindsym --whole-window --release $mod+Shift+button5 resize shrink width 16 px or 16 ppt; resize shrink height 9 px or 9 ppt
