@@ -28,3 +28,4 @@ sway_cachyos_packages:
   - slurp
   - mako
   - wofi
+  - lxqt-policykit

@@ -25,3 +25,8 @@
     src: "gitconfig.j2"
     dest: "{{ dotfiles_user_home }}/.gitconfig"
     mode: 0664
+
+- name: Install delta
+  when: distro == "cachyos"
+  package: name=git-delta state=present
+  become: yes
