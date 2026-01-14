@@ -76,3 +76,6 @@ for_window [title="Picture-in-picture"] floating enable
 
 # PolicyKit authentication agent
 for_window [app_id="lxqt-policykit-agent"] floating enable
+
+# GPG password
+for_window [title=".*4DC1AA6287F8CC4A.*"] floating enable
