@@ -23,3 +23,14 @@
   dconf:
     key: "{{ nemo_dconf_path }}/{{ item.key }}"
     value: "{{ item.value }}"
+
+- name: Get terminal for nemo
+  shell: |
+    gsettings get org.cinnamon.desktop.default-applications.terminal exec
+  register: terminal
+  changed_when: false
+
+- name: Set terminal for nemo
+  when: (terminal.stdout | trim) != "'ghostty'"
+  shell: |
+    gsettings set org.cinnamon.desktop.default-applications.terminal exec ghostty
