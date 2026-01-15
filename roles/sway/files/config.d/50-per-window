@@ -73,3 +73,6 @@ for_window [title="Extension: (Bitwarden Password Manager)"] floating enable
 
 # Helium Picture-in-Picture
 for_window [title="Picture-in-picture"] floating enable
+
+# satty, screenshot annotation
+for_window [app_id="satty"] border pixel

@@ -6,7 +6,13 @@ if test ! -e "$DIR"
 end
 set file $DIR/$(date +%F_%H-%M-%S).png
 
-grim -g "$(slurp)" "$file"
+set SLURP slurp -b 1B1F28CC -c E06B74ff -s C778DD0D -w 2
+
+if contains -- -a $argv
+  grim -g "$($SLURP)" - | satty --filename - --output-filename "$file" --init-tool brush --copy-command wl-copy
+else
+  grim -g "$($SLURP)" "$file"
+end
 
 # Copy file to clipboard
 wl-copy < "$file"
