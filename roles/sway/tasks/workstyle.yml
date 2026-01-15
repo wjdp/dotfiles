@@ -8,6 +8,12 @@
     path: "{{ dotfiles_user_home }}/.config/systemd/user"
     state: directory
 
+- name: Link sway-session.target
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/systemd/sway-session.target"
+    dest: "{{ dotfiles_user_home }}/.config/systemd/user/sway-session.target"
+    state: link
+
 - name: Link workstyle service file
   file:
     src: "{{ dotfiles_home }}/roles/sway/files/systemd/workstyle.service"

@@ -1,7 +1,6 @@
 [Unit]
 Description=Workstyle - workspace icon manager
-PartOf=graphical-session.target
-After=graphical-session.target
+BindsTo=sway-session.target
 
 [Service]
 ExecStart=workstyle
@@ -10,4 +9,4 @@ StandardOutput=file:%h/.local/state/workstyle.log
 StandardError=file:%h/.local/state/workstyle.log
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=sway-session.target

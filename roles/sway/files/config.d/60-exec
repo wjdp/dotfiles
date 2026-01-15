@@ -1,3 +1,4 @@
+exec systemctl --user start sway-session.target
 exec wmname LG3D # for java apps like pycharm
 exec_always --no-startup-id mako
 exec_always --no-startup-id /usr/libexec/goa-daemon --replace # to sync google calendar
