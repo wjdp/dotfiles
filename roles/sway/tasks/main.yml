@@ -6,6 +6,7 @@
     - apt.yml
     - sway.yml
     - bar.yml
+    - workstyle.yml
     # - backlight.yml
     # - mako.yml
     # - launcher.yml

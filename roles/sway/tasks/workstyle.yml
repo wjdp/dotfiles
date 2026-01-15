@@ -1,0 +1,22 @@
+- name: Ensure ~/.local/state/ exists
+  file:
+    path: "{{ dotfiles_user_home }}/.local/state"
+    state: directory
+
+- name: Ensure ~/.config/systemd/user/ exists
+  file:
+    path: "{{ dotfiles_user_home }}/.config/systemd/user"
+    state: directory
+
+- name: Link workstyle service file
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/systemd/workstyle.service"
+    dest: "{{ dotfiles_user_home }}/.config/systemd/user/workstyle.service"
+    state: link
+
+- name: Enable workstyle user service
+  systemd:
+    name: workstyle
+    scope: user
+    enabled: true
+    daemon_reload: true
