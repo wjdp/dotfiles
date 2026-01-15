@@ -1,2 +1,3 @@
 # Mod+PrintScn to take a screenshot
 bindsym Print exec /home/will/dotfiles/bin/screenshot &> /tmp/screenshot.log
+bindsym Shift+Print exec /home/will/dotfiles/bin/screenshot -a &> /tmp/screenshot-a.log

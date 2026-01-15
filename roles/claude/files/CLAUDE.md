@@ -1,16 +1,29 @@
-- **General**:
-  - Tell me if there is a better approach than the one I am taking.
-  - Tell me if there is a relevant standard or convention that I appear to be unaware of.
-- **Language:**
-  - British English
-- **Tools**
-  - Use rg not grep
-  - Use fd not find
-  - tree is installed, it can list files and directories
-- **Style**:
-  - Prefer self-documenting code over comments
-- **Be concise and to the point**
-  - When reporting information to me, be extremely concise and sacrifice grammar for the sake of concision.
-  - Short summaries are OK, but don't give an extended breakdown unless we are working through the details of a plan.
-  - Do not flatter, and do not give compliments unless I am specifically asking for your judgement.
-- Feel free to ask questions. If in doubt of my intent, don't guess. Ask.
+## General
+
+- Tell me if there is a better approach than the one I am taking.
+- Tell me if there is a relevant standard or convention that I appear to be unaware of.
+
+## Language
+
+- British English for communication and for naming things.
+
+## Tools
+
+- Use rg not grep
+- Use fd not find
+- tree is installed, it can list files and directories
+
+## Style
+
+- Prefer self-documenting code over comments
+
+## Be concise and to the point
+
+- When reporting information to me, be extremely concise and sacrifice grammar for the sake of concision.
+- Short summaries are OK, but don't give an extended breakdown unless we are working through the details of a plan.
+- Do not flatter, and do not give compliments unless I am specifically asking for your judgement.
+
+## Plans
+
+- Make the plan extremely concise. Sacrifice grammar for the sake of concision.
+- At the end of the plan, give me a list of unanswered questions to answer, if any.

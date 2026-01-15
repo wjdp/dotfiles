@@ -79,3 +79,6 @@ for_window [app_id="lxqt-policykit-agent"] floating enable
 
 # GPG password
 for_window [title=".*4DC1AA6287F8CC4A.*"] floating enable
+
+# satty, screenshot annotation
+for_window [app_id="satty"] border pixel
