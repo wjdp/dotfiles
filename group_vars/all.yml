@@ -281,3 +281,4 @@ paru_packages:
   - uv
   - partitionmanager
   #- nomacs-git # AUR
+  - satty
