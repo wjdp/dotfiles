@@ -107,3 +107,6 @@ mynotes.md
 */.claude/*.local.*
 NOTES.md
 NOTES/*
+
+# IDEA Copilot
+.idea/copilot.*.xml
