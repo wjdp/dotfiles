@@ -33,8 +33,8 @@ set $resize_mouse_small 6
 set $resize_mouse_large 12
 
 # adjust horizontal gaps with scroll wheel
-bindsym --whole-window --release $mod+Ctrl+button4 gaps horizontal current minus $resize_mouse_large
-bindsym --whole-window --release $mod+Ctrl+button5 gaps horizontal current plus $resize_mouse_large
+bindsym --whole-window --release $mod+button4 gaps horizontal current minus $resize_mouse_large
+bindsym --whole-window --release $mod+button5 gaps horizontal current plus $resize_mouse_large
 
 # with alt for inner gaps
 bindsym --whole-window --release $mod+Alt+button4 gaps inner current minus $resize_mouse_small
