@@ -13,7 +13,7 @@ set $up k
 set $right l
 
 # Apps
-set $term ghostty
+set $term ghostty +new-window --working-directory=~
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $launcher pidof wofi || wofi --show drun -Ii
 set $program.files /usr/bin/nemo

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+working_directory=$PWD
+ghostty --working-directory="$working_directory"

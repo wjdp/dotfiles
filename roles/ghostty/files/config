@@ -51,3 +51,5 @@
 background = #000000
 background-opacity = 0.88
 shell-integration-features = ssh-env
+working-directory = inherit
+window-inherit-working-directory = false

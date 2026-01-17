@@ -7,7 +7,7 @@
     - key: "show-full-path-titles"
       value: "false"
     - key: "show-hidden-files"
-      value: "true"
+      value: "false"
     - key: "show-home-icon-toolbar"
       value: "true"
     - key: "show-location-entry"
@@ -31,6 +31,6 @@
   changed_when: false
 
 - name: Set terminal for nemo
-  when: (terminal.stdout | trim) != "'ghostty'"
+  when: (terminal.stdout | trim) != "'/home/will/dotfiles/bin/terminal'"
   shell: |
-    gsettings set org.cinnamon.desktop.default-applications.terminal exec ghostty
+    gsettings set org.cinnamon.desktop.default-applications.terminal exec /home/will/dotfiles/bin/terminal
