@@ -282,3 +282,5 @@ paru_packages:
   - partitionmanager
   #- nomacs-git # AUR
   - satty
+  - obsidian
+  - wev
