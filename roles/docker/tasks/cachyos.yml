@@ -1,0 +1,17 @@
+- name: Install Docker
+  become: yes
+  package: name=docker state=present
+
+- name: Add user to docker group
+  become: yes
+  user:
+    name: "{{ user }}"
+    groups: docker
+    append: yes
+
+- name: Enable Docker service
+  become: yes
+  systemd:
+    name: docker
+    enabled: yes
+    state: started

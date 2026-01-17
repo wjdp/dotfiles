@@ -28,7 +28,7 @@
     # - { role: google-chrome, tags: ["google-chrome"] }
     # - { role: jetbrains, tags: ["jetbrains"] }
     # - { role: zsa, tags: ["zsa"] }
-    # - { role: docker, tags: ["docker"] }
+    - { role: docker, tags: ["docker"] }
     # - role: fubarhouse.golang
     #   tags: ["go"]
     #   go_version: 1.22.1

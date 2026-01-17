@@ -1,0 +1,41 @@
+- name: Install dependencies
+  become: yes
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - gnupg
+    state: present
+
+- name: Add an apt signing key for docker
+  become: yes
+  apt_key:
+    url: "{{ docker_apt_key }}"
+    state: present
+
+- name: Add docker repo
+  become: yes
+  apt_repository:
+    repo: "{{ docker_apt_repo }}"
+    state: present
+    filename: docker
+
+- name: Install docker & docker-compose
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - docker-ce
+      - docker-ce-cli
+      - docker-buildx-plugin
+      - docker-compose-plugin
+
+- name: Add user "{{ user }}" to group docker
+  become: yes
+  user:
+    name: "{{ user }}"
+    groups: docker
+    append: yes
