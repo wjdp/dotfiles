@@ -29,15 +29,19 @@ mode "RESIZE" {
 }
 bindsym $mod+r mode "RESIZE"
 
-set $resize_mouse 12
+set $resize_mouse_small 6
+set $resize_mouse_large 12
 
-# adjust gaps with scroll wheel
-bindsym --whole-window --release $mod+button4 gaps inner current minus $resize_mouse
-bindsym --whole-window --release $mod+button5 gaps inner current plus $resize_mouse
+# adjust horizontal gaps with scroll wheel
+bindsym --whole-window --release $mod+Ctrl+button4 gaps horizontal current minus $resize_mouse_large
+bindsym --whole-window --release $mod+Ctrl+button5 gaps horizontal current plus $resize_mouse_large
 
-# with alt for only horizontal gaps
-bindsym --whole-window --release $mod+Alt+button4 gaps horizontal current minus $resize_mouse
-bindsym --whole-window --release $mod+Alt+button5 gaps horizontal current plus $resize_mouse
+# with alt for inner gaps
+bindsym --whole-window --release $mod+Alt+button4 gaps inner current minus $resize_mouse_small
+bindsym --whole-window --release $mod+Alt+button5 gaps inner current plus $resize_mouse_small
+
+# reset all gaps to 0
+bindsym $mod+0 exec "swaymsg gaps outer current set 0 && swaymsg gaps inner current set 0"
 
 # with shift for both but maintain 16:9 aspect ratio, useful for videos
 bindsym --whole-window --release $mod+Shift+button4 resize grow width 16 px or 16 ppt; resize grow height 9 px or 9 ppt
