@@ -33,6 +33,8 @@ for_window [app_id="copyq"] floating enable, sticky enable, border pixel
 for_window [app_id="pavucontrol"] floating enable, sticky enable, resize set width 1300 px height 800px, move position cursor, move down 30
 for_window [title="Google Meet"] border none
 for_window [title="Logseq"] border pixel
+for_window [app_id="obsidian"] border pixel
+for_window [title="Extension: \(Bitwarden Password Manager\).*"] floating enable
 
 
 # 1password
