@@ -1,3 +1,6 @@
+- name: Configure SSH client
+  include_tasks: config.yml
+
 - name: Install authorized_keys file
   include_tasks: authorized_keys.yml
 

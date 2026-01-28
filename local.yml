@@ -13,7 +13,7 @@
     # - { role: bin, tags: ["bin"] }
     # - { role: linux, tags: ["linux"] }
     # - { role: profile, tags: ["profile"] }
-    # - { role: ssh, tags: ["ssh"] }
+    - { role: ssh, tags: ["ssh"] }
     # - { role: python, tags: ["python"] }
     # - { role: pipx, tags: ["pipx"] }
     # - { role: dotfiles, tags: ["dotfiles"] }

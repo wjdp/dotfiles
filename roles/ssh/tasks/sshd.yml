@@ -1,4 +1,5 @@
 - name: Install ssh server
+  when: distro == "ubuntu"
   become: yes
   apt:
     name: openssh-server
@@ -25,3 +26,19 @@
     owner: root
     group: root
     mode: 0644
+
+- name: Enable ssh server (Ubuntu)
+  when: distro == "ubuntu"
+  become: yes
+  systemd:
+    name: ssh
+    state: started
+    enabled: yes
+
+- name: Enable ssh server (CachyOS)
+  when: distro == "cachyos"
+  become: yes
+  systemd:
+    name: sshd
+    state: started
+    enabled: yes

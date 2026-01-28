@@ -1,5 +1,13 @@
-- name: Reload sshd
+- name: Reload sshd (Ubuntu)
   become: yes
+  when: distro == "ubuntu"
   systemd:
     name: ssh
+    state: reloaded
+
+- name: Reload sshd (CachyOS)
+  become: yes
+  when: distro == "cachyos"
+  systemd:
+    name: sshd
     state: reloaded

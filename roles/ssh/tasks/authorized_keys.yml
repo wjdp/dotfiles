@@ -1,9 +1,7 @@
 - name: Build an authorized_keys file from files in the keys directory
-  shell: cat keys/* > /home/{{ user }}/.ssh/authorized_keys
-
-- name: Ensure permissions are correct on the authorized_keys file
-  file:
-    path: /home/{{ user }}/.ssh/authorized_keys
+  assemble:
+    src: keys
+    dest: /home/{{ user }}/.ssh/authorized_keys
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0600
