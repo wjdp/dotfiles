@@ -38,3 +38,9 @@ profile dux-desktop {
     output "Dell Inc. DELL U2715H GH85D88E03MS" enable mode 2560x1440 position 0,0
     output "Lenovo Group Limited P24q-10 U4P00001" enable mode 2560x1440 position 2560,0
 }
+
+profile dux-desktop-headless {
+    output "Dell Inc. DELL U2715H GH85D88E03MS" enable mode 2560x1440 position 0,0
+    output "Lenovo Group Limited P24q-10 U4P00001" enable mode 2560x1440 position 2560,0
+    output "HEADLESS-1" enable mode 2560x1440 position 1912,1440 scale 2
+}
