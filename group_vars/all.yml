@@ -286,3 +286,6 @@ paru_packages:
   - obsidian
   - wev
   - 7zip
+  - pwgen
+  - aws-cli-v2
+  - wdisplays
