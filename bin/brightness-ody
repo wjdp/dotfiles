@@ -1,0 +1,5 @@
+#!/bin/bash
+# Usage: ddc-setbrightness 50
+ddcutil --bus=12 setvcp 10 "$1" &
+ddcutil --bus=3 setvcp 10 "$1" &
+wait

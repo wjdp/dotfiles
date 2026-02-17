@@ -1,0 +1,2 @@
+#!/bin/bash
+ddcutil -b 10 getvcp 10 -t | awk '{print $4}'
