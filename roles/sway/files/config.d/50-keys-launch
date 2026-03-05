@@ -14,7 +14,7 @@ bindsym $mod+Return exec $term
 
 ## Launch // Web Browser // <◇> c ##
 bindsym $mod+c exec $program.browser
-bindsym $mod+Shift+c exec $program.browser --private-window
+bindsym $mod+Shift+c exec $program.browser_private
 
 ## Launch // File Browser // <◇> n ##
 bindsym $mod+n exec $program.files
