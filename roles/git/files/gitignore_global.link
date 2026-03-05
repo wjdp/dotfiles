@@ -105,6 +105,7 @@ mynotes.md
 # Claude code
 .claude/*.local.*
 */.claude/*.local.*
+.claude/worktrees
 NOTES.md
 NOTES/*
 

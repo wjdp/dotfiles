@@ -1,7 +1,19 @@
 #!/bin/sh
 
 git fetch -p
-git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d
+
+git branch --merged | grep -E "^\+" | grep -E -v "(master|develop)" | sed 's/^+ *//' | while read -r branch; do
+    worktree_path=$(git worktree list --porcelain | awk -v b="refs/heads/$branch" '
+        /^worktree / { path = $2 }
+        $0 == "branch " b { print path }
+    ')
+    if [ -n "$worktree_path" ]; then
+        git worktree remove "$worktree_path"
+        git branch -d "$branch"
+    fi
+done
+
+git branch --merged | grep -E -v "(^\*|^\+|master|develop)" | xargs --no-run-if-empty git branch -d
 git remote prune origin
 git gc
 
