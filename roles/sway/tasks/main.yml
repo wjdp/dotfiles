@@ -8,7 +8,7 @@
     - bar.yml
     - workstyle.yml
     # - backlight.yml
-    # - mako.yml
+    - mako.yml
     # - launcher.yml
     # - wofi.yml
     # - kanshi.yml
