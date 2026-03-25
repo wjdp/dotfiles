@@ -22,3 +22,4 @@
     - { src: "statusline-command.sh", dest: "statusline-command.sh", mode: "0755" }
     - { src: "plugins-config.json", dest: "plugins/config.json" }
     - { src: "CLAUDE.md", dest: "CLAUDE.md" }
+    - { src: "keybindings.json", dest: "keybindings.json" }

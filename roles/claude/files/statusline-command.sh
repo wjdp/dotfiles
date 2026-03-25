@@ -85,9 +85,25 @@ if [ -n "$VIRTUAL_ENV" ]; then
     fi
 fi
 
+# Model
+model=$(echo "$input" | jq -r '.model.display_name // empty')
+if [ -n "$model" ]; then
+    right_prompt="${right_prompt}${cyan}${model}${normal} "
+fi
+
 # Time
 time_str=$(date "+%H:%M:%S")
 right_prompt="${right_prompt}${gray}${time_str}${normal}"
 
-# Combine left and right prompts
-echo "${left_prompt} ${right_prompt}"
+# Right-align right_prompt
+term_width=$(echo "$input" | jq -r '.terminal_width // empty')
+[ -z "$term_width" ] && term_width=$(tput cols 2>/dev/null || echo "80")
+
+strip_ansi() { printf '%s' "$1" | perl -pe 's/\e\[[0-9;]*m//g' | wc -m; }
+left_visible=$(strip_ansi "$left_prompt")
+right_visible=$(strip_ansi "$right_prompt")
+
+padding=$((term_width - left_visible - right_visible - 1))
+[ "$padding" -lt 1 ] && padding=1
+
+printf "%s%${padding}s%s\n" "$left_prompt" "" "$right_prompt"
