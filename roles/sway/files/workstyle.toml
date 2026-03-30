@@ -115,6 +115,8 @@
 "fastmail"="󰇮"
 "helium"=""
 "zed"="󰬡"
+"grayjay"="󱗆"
+"picture-in-picture"="󰹗"
 [other]
 fallback_icon = "🤨"
 deduplicate_icons = false
