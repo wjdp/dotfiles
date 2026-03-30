@@ -13,7 +13,7 @@ set $up k
 set $right l
 
 # Apps
-set $term ghostty +new-window --working-directory=~
+set $term ghostty +new-window
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $launcher pidof wofi || wofi --show drun -Ii
 set $program.files /usr/bin/nemo
@@ -25,5 +25,5 @@ set $program.reboot reboot
 set $program.reboot_windows /usr/local/bin/reboot-windows.sh
 set $program.shutdown poweroff
 set $program.sleep systemctl suspend
-set $program.browser helium-browser --new-window
+set $program.browser helium-browser --new-window --profile-directory=Default
 set $program.browser_private helium-browser --incognito --new-window
