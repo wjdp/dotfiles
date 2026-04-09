@@ -15,6 +15,11 @@ profile odyssey-sofia {
     output eDP-1 enable mode 2880x1800 position 1920,51 scale 1.75
 }
 
+profile odyssey-sf {
+    output "Dell Inc. DELL U2722DE 4ZVS5P3" enable position 0,0
+    output eDP-1 enable position 0,1440
+}
+
 profile odyssey-single-head-DP-1 {
     output DP-1 enable mode 2560x1440 position 0,0
     output eDP-1 enable mode 2880x1800 position 2560,240 scale 1.75
