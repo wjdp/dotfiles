@@ -8,3 +8,5 @@ alias psync='pass git pull && pass git push'
 function prj
   cd ~/local/$argv
 end
+
+alias cc='claude'
