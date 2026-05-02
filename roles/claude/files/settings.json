@@ -21,6 +21,7 @@
       "Bash(printf:*)"
     ]
   },
+  "model": "opusplan",
   "statusLine": {
     "type": "command",
     "command": "bash /home/will/.claude/statusline-command.sh"
@@ -30,5 +31,6 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "voiceEnabled": true,
-  "model": "opusplan"
+  "skipDangerousModePermissionPrompt": true,
+  "sandbox": { "enabled": true }
 }
