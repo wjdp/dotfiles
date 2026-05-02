@@ -9,3 +9,5 @@
 bindsym --whole-window BTN_TASK seat seat0 cursor press BTN_MIDDLE; seat seat0 cursor release BTN_MIDDLE
 bindsym --whole-window BTN_FORWARD workspace next_on_output
 bindsym --whole-window BTN_BACK workspace prev_on_output
+
+primary_selection enabled
