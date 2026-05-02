@@ -116,6 +116,7 @@
 "helium"=""
 "grayjay"="󱗆"
 "picture-in-picture"="󰹗"
+"zed"="󰬡"
 [other]
 fallback_icon = "🤨"
 deduplicate_icons = false
