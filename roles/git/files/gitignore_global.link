@@ -99,7 +99,6 @@ fabric.properties
 
 .venv
 *.code-workspace
-.vscode
 mynotes.md
 
 # Claude code
