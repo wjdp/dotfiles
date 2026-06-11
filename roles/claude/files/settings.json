@@ -1,5 +1,9 @@
 {
   "includeCoAuthoredBy": false,
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "opusplan",
   "statusLine": {
     "type": "command",
     "command": "bash /home/will/.claude/statusline-command.sh"
@@ -9,6 +13,7 @@
     "typescript-lsp@claude-plugins-official": true,
     "notion@claude-plugins-official": true
   },
-  "voiceEnabled": true,
-  "model": "opusplan"
+  "theme": "dark",
+  "agentPushNotifEnabled": true,
+  "voiceEnabled": true
 }

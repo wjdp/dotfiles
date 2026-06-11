@@ -19,6 +19,11 @@
     mode: "{{ item.mode | default(omit) }}"
   loop:
     - { src: "settings.json", dest: "settings.json" }
-    - { src: "statusline-command.sh", dest: "statusline-command.sh", mode: "0755" }
+    - {
+        src: "statusline-command.sh",
+        dest: "statusline-command.sh",
+        mode: "0755",
+      }
     - { src: "plugins-config.json", dest: "plugins/config.json" }
     - { src: "CLAUDE.md", dest: "CLAUDE.md" }
+    - { src: "skills", dest: "skills" }

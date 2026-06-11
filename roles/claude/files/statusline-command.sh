@@ -6,6 +6,10 @@ input=$(cat)
 # Extract current directory from JSON input
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')
 
+# Extract model name and transcript path
+model_name=$(echo "$input" | jq -r '.model.display_name // .model.id // "?"')
+transcript=$(echo "$input" | jq -r '.transcript_path // empty')
+
 # Change to the working directory
 cd "$cwd" 2>/dev/null || cd ~
 
@@ -85,9 +89,21 @@ if [ -n "$VIRTUAL_ENV" ]; then
     fi
 fi
 
-# Time
-time_str=$(date "+%H:%M:%S")
-right_prompt="${right_prompt}${gray}${time_str}${normal}"
+# Model in use
+right_prompt="${right_prompt}${cyan}${model_name}${normal} "
+
+# Context used (from latest main-thread usage in transcript)
+if [ -n "$transcript" ] && [ -f "$transcript" ]; then
+    used=$(tail -n 400 "$transcript" | jq -rc 'select(.isSidechain != true) | select(.message.usage) | .message.usage | (.input_tokens + (.cache_creation_input_tokens // 0) + (.cache_read_input_tokens // 0))' 2>/dev/null | tail -n1)
+    if [ -n "$used" ] && [ "$used" -gt 0 ] 2>/dev/null; then
+        if [ "$used" -gt 200000 ]; then window=1000000; else window=200000; fi
+        pct=$(( used * 100 / window ))
+        used_k=$(( used / 1000 ))
+        window_k=$(( window / 1000 ))
+        if [ "$pct" -ge 80 ]; then ctx_color="$red"; elif [ "$pct" -ge 50 ]; then ctx_color="$yellow"; else ctx_color="$green"; fi
+        right_prompt="${right_prompt}${ctx_color}${used_k}k/${window_k}k ${pct}%${normal} "
+    fi
+fi
 
 # Combine left and right prompts
 echo "${left_prompt} ${right_prompt}"
