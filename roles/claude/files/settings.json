@@ -3,7 +3,6 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "opusplan",
   "statusLine": {
     "type": "command",
     "command": "bash /home/will/.claude/statusline-command.sh"
