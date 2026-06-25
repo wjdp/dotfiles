@@ -20,6 +20,11 @@ profile odyssey-sf {
     output eDP-1 enable position 0,1440
 }
 
+profile odyssey-lg {
+    output "LG Electronics LG Ultra HD 0x00070073" enable mode 3840x2160 position 0,0 scale 1.45
+    output eDP-1 enable position 2650,462 scale 1.75
+}
+
 profile odyssey-single-head-DP-1 {
     output DP-1 enable mode 2560x1440 position 0,0
     output eDP-1 enable mode 2880x1800 position 2560,240 scale 1.75
