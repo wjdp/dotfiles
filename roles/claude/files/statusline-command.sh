@@ -91,6 +91,20 @@ if [ -n "$model" ]; then
     right_prompt="${right_prompt}${cyan}${model}${normal} "
 fi
 
+# Context usage
+used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+if [ -n "$used_pct" ]; then
+    used_pct_round=$(printf '%.0f' "$used_pct")
+    if [ "$used_pct_round" -ge 90 ]; then
+        ctx_color="$red"
+    elif [ "$used_pct_round" -ge 70 ]; then
+        ctx_color="$yellow"
+    else
+        ctx_color="$gray"
+    fi
+    right_prompt="${right_prompt}${ctx_color}ctx ${used_pct_round}%${normal} "
+fi
+
 # Time
 time_str=$(date "+%H:%M:%S")
 right_prompt="${right_prompt}${gray}${time_str}${normal}"
