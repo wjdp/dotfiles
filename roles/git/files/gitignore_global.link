@@ -110,3 +110,6 @@ NOTES/*
 
 # IDEA Copilot
 .idea/copilot.*.xml
+
+# Oh My Pi
+.omp
