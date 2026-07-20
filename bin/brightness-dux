@@ -2,15 +2,37 @@
 # Usage: brightness-dux 50
 # Sets brightness (VCP feature 10) on all detected DDC displays.
 #
-# ddcutil detect takes ~500ms, so the I2C bus numbers are cached. Bus numbers
+# Per-display offsets are applied by monitor model (see offsets below); the
+# resulting value is clamped to 0-100.
+#
+# ddcutil detect takes ~500ms, so the bus/monitor pairs are cached. Bus numbers
 # occasionally change; on any setvcp failure the cache is rebuilt and retried.
 set -u
 
 cache_file="${XDG_CACHE_HOME:-$HOME/.cache}/brightness-dux/buses"
 
-detect_buses() {
-	ddcutil detect --terse 2>/dev/null |
-		grep -oP '/dev/i2c-\K[0-9]+'
+# Brightness offset (percentage points) keyed by a substring of the monitor id
+# reported by `ddcutil detect` (mfg:model:serial). First match wins.
+declare -A offsets=(
+	[LEN:P24q-10]=10
+)
+
+offset_for() {
+	local monitor=$1 key
+	for key in "${!offsets[@]}"; do
+		if [[ $monitor == *"$key"* ]]; then
+			echo "${offsets[$key]}"
+			return
+		fi
+	done
+	echo 0
+}
+
+detect_displays() {
+	ddcutil detect --terse 2>/dev/null | awk '
+		/I2C bus:/ { bus = $NF; sub(/.*i2c-/, "", bus) }
+		/Monitor:/ { monitor = $0; sub(/^[[:space:]]*Monitor:[[:space:]]*/, "", monitor); print bus "\t" monitor }
+	'
 }
 
 write_cache() {
@@ -19,11 +41,16 @@ write_cache() {
 }
 
 set_brightness() {
-	local value=$1 pid rc=0
+	local value=$1 pid rc=0 bus monitor offset adjusted
 	shift
 	local pids=()
-	for bus in "$@"; do
-		ddcutil --bus="$bus" setvcp 10 "$value" &
+	for entry in "$@"; do
+		IFS=$'\t' read -r bus monitor <<<"$entry"
+		offset=$(offset_for "$monitor")
+		adjusted=$((value + offset))
+		((adjusted > 100)) && adjusted=100
+		((adjusted < 0)) && adjusted=0
+		ddcutil --bus="$bus" setvcp 10 "$adjusted" &
 		pids+=($!)
 	done
 	for pid in "${pids[@]}"; do
@@ -34,15 +61,15 @@ set_brightness() {
 
 value=${1:?Usage: brightness-dux <0-100>}
 
-buses=()
-[ -f "$cache_file" ] && mapfile -t buses <"$cache_file"
+displays=()
+[ -f "$cache_file" ] && mapfile -t displays <"$cache_file"
 
-if [ ${#buses[@]} -eq 0 ] || ! set_brightness "$value" "${buses[@]}"; then
-	mapfile -t buses < <(detect_buses)
-	[ ${#buses[@]} -eq 0 ] && {
+if [ ${#displays[@]} -eq 0 ] || ! set_brightness "$value" "${displays[@]}"; then
+	mapfile -t displays < <(detect_displays)
+	[ ${#displays[@]} -eq 0 ] && {
 		echo "brightness-dux: no DDC displays detected" >&2
 		exit 1
 	}
-	write_cache "${buses[@]}"
-	set_brightness "$value" "${buses[@]}"
+	write_cache "${displays[@]}"
+	set_brightness "$value" "${displays[@]}"
 fi
