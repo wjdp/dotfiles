@@ -1,0 +1,2 @@
+- name: Reload gpg-agent
+  command: gpgconf --reload gpg-agent

@@ -1,0 +1,4 @@
+# Seconds before a cached passphrase expires through inactivity
+gpg_default_cache_ttl: 28800 # 8 hours
+# Hard ceiling on a cached passphrase, regardless of activity
+gpg_max_cache_ttl: 86400 # 24 hours

@@ -1,0 +1,21 @@
+- name: Install gnupg
+  package: name=gnupg state=present
+  become: yes
+
+- name: Install pinentry
+  when: distro == "cachyos"
+  package: name=pinentry state=present
+  become: yes
+
+- name: Create gnupg home
+  file:
+    path: "{{ dotfiles_user_home }}/.gnupg"
+    state: directory
+    mode: 0700
+
+- name: Update gpg-agent config
+  template:
+    src: "gpg-agent.conf.j2"
+    dest: "{{ dotfiles_user_home }}/.gnupg/gpg-agent.conf"
+    mode: 0600
+  notify: Reload gpg-agent
