@@ -117,6 +117,7 @@
 "zed"="󰬡"
 "grayjay"="󱗆"
 "picture-in-picture"="󰹗"
+"com.rtosta.zapzap"="󰖣"
 [other]
 fallback_icon = "🤨"
 deduplicate_icons = false
