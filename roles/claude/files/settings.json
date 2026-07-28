@@ -10,8 +10,10 @@
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "notion@claude-plugins-official": true
+    "notion@claude-plugins-official": true,
+    "slack@claude-plugins-official": true
   },
+  "tui": "default",
   "theme": "dark",
   "agentPushNotifEnabled": true,
   "voiceEnabled": true
