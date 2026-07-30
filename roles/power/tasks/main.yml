@@ -1,0 +1,16 @@
+- name: Ensure logind config drop-in dir exists
+  become: yes
+  file:
+    path: /etc/systemd/logind.conf.d
+    state: directory
+    mode: 0755
+
+- name: Ignore power key press
+  become: yes
+  copy:
+    dest: /etc/systemd/logind.conf.d/60-power-key.conf
+    content: |
+      [Login]
+      HandlePowerKey=ignore
+    mode: 0644
+  # systemd-logind has no ExecReload, so this applies on next boot

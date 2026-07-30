@@ -11,7 +11,7 @@
     # - { role: snap, tags: ["snap"] }
     # - { role: apt, tags: ["apt"] }
     # - { role: bin, tags: ["bin"] }
-    # - { role: linux, tags: ["linux"] }
+    - { role: power, tags: ["power"] }
     # - { role: profile, tags: ["profile"] }
     - { role: ssh, tags: ["ssh"] }
     # - { role: python, tags: ["python"] }

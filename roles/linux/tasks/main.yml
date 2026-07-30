@@ -1,4 +1,0 @@
-- import_tasks: defaults.yml
-- import_tasks: fs.yml
-- import_tasks: locale.yml
-- import_tasks: power.yml

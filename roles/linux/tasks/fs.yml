@@ -1,6 +1,0 @@
-- name: Set inotify limit
-  become: yes
-  sysctl:
-    name: fs.inotify.max_user_watches
-    value: 524288
-    state: present
