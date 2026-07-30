@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+# Ansible only reads ansible.cfg from the cwd, and it carries the sudo-rs
+# become plugin config; without it become tasks hang at the password prompt
+export ANSIBLE_CONFIG="$HOME/dotfiles/ansible.cfg"
+
 if [[ $# -eq 0 ]]; then
     # Run all roles except for the ones tagged with 'bootstrap'
     echo "Updating up local environment..."
