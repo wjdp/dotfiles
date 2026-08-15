@@ -1,0 +1,158 @@
+#!/usr/bin/env -S uv run --script --quiet
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["rich"]
+# ///
+"""Pretty USB topology diagram: lsusb -t merged with device names from lsusb."""
+
+import re
+import subprocess
+import sys
+from dataclasses import dataclass, field
+
+from rich.console import Console
+from rich.text import Text
+from rich.tree import Tree
+
+ROOT_RE = re.compile(
+    r"/:\s+Bus (\d+)\.Port (\d+): Dev (\d+), Class=([^,]+), Driver=([^,]+), (\S+)"
+)
+CHILD_RE = re.compile(
+    r"^( *)\|__ Port (\d+): Dev (\d+), If (\d+), Class=([^,]+), Driver=([^,]+), (\S+)"
+)
+NAME_RE = re.compile(r"Bus (\d+) Device (\d+): ID ([0-9a-f]{4}:[0-9a-f]{4})\s*(.*)")
+
+CLASS_ICONS = {
+    "root_hub": "🖥️ ",
+    "Hub": "🔌",
+    "Human Interface Device": "⌨️ ",
+    "Audio": "🔊",
+    "Video": "📷",
+    "Wireless": "📡",
+    "Communications": "🔗",
+    "CDC Data": "🔗",
+    "Mass Storage": "💾",
+    "Printer": "🖨️ ",
+    "Vendor Specific Class": "⚙️ ",
+}
+
+SPEED_STYLES = {
+    "1.5M": ("1.5M", "dim"),
+    "12M": ("12M", "yellow"),
+    "480M": ("480M", "green"),
+    "5000M": ("5G", "bold cyan"),
+    "10000M": ("10G", "bold magenta"),
+    "20000M": ("20G", "bold magenta"),
+}
+
+
+@dataclass
+class Device:
+    bus: int
+    port: int
+    dev: int
+    speed: str
+    interfaces: list[tuple[str, str]] = field(default_factory=list)  # (class, driver)
+    children: list["Device"] = field(default_factory=list)
+
+
+def run(cmd: list[str]) -> str:
+    try:
+        return subprocess.run(cmd, capture_output=True, text=True, check=True).stdout
+    except (OSError, subprocess.CalledProcessError) as e:
+        sys.exit(f"failed to run {' '.join(cmd)}: {e}")
+
+
+def device_names() -> dict[tuple[int, int], tuple[str, str]]:
+    names = {}
+    for line in run(["lsusb"]).splitlines():
+        if m := NAME_RE.match(line):
+            bus, dev, usb_id, name = m.groups()
+            names[(int(bus), int(dev))] = (usb_id, name.strip())
+    return names
+
+
+def parse_topology() -> list[Device]:
+    roots: list[Device] = []
+    stack: list[tuple[int, Device]] = []  # (depth, device)
+    for line in run(["lsusb", "-t"]).splitlines():
+        if m := ROOT_RE.search(line):
+            bus, port, dev, cls, driver, speed = m.groups()
+            node = Device(int(bus), int(port), int(dev), speed, [(cls, driver)])
+            roots.append(node)
+            stack = [(0, node)]
+        elif m := CHILD_RE.match(line):
+            indent, port, dev, _iface, cls, driver, speed = m.groups()
+            depth = len(indent) // 4 + 1
+            while stack and stack[-1][0] >= depth:
+                stack.pop()
+            parent = stack[-1][1]
+            bus = parent.bus
+            sibling = next(
+                (c for c in parent.children if c.dev == int(dev) and c.port == int(port)),
+                None,
+            )
+            if sibling:
+                sibling.interfaces.append((cls, driver))
+            else:
+                node = Device(bus, int(port), int(dev), speed, [(cls, driver)])
+                parent.children.append(node)
+                stack.append((depth, node))
+    return roots
+
+
+def icon_for(dev: Device) -> str:
+    for cls, _ in dev.interfaces:
+        if cls in CLASS_ICONS:
+            return CLASS_ICONS[cls]
+    return "🔹"
+
+
+def speed_text(speed: str) -> Text:
+    label, style = SPEED_STYLES.get(speed, (speed, "white"))
+    return Text(f" {label}", style=style)
+
+
+def label_for(dev: Device, names: dict[tuple[int, int], tuple[str, str]]) -> Text:
+    usb_id, name = names.get((dev.bus, dev.dev), ("?", "unknown device"))
+    is_root = dev.interfaces[0][0] == "root_hub"
+
+    label = Text()
+    label.append(icon_for(dev) + " ")
+    if is_root:
+        label.append(f"Bus {dev.bus:02d}", style="bold white")
+        label.append(f"  {dev.interfaces[0][1]}", style="dim")
+    else:
+        label.append(name or usb_id, style="bold white")
+        label.append(f"  {usb_id}", style="dim")
+        label.append(f"  port {dev.port}", style="blue")
+    label.append(speed_text(dev.speed))
+
+    drivers = sorted({drv for _, drv in dev.interfaces if drv not in ("[none]", "hub")})
+    classes = sorted({cls for cls, _ in dev.interfaces if cls not in ("root_hub", "Hub")})
+    if classes:
+        label.append(f"\n{', '.join(classes)}", style="italic dim")
+        if drivers:
+            label.append(f" via {', '.join(drivers)}", style="dim")
+    if any(drv == "[none]" for _, drv in dev.interfaces):
+        label.append("  ⚠ no driver", style="bold red")
+    return label
+
+
+def main() -> None:
+    names = device_names()
+    console = Console()
+    tree = Tree(Text("USB topology", style="bold underline"), guide_style="dim")
+
+    def add(branch: Tree, dev: Device) -> None:
+        node = branch.add(label_for(dev, names))
+        for child in sorted(dev.children, key=lambda c: c.port):
+            add(node, child)
+
+    for root in parse_topology():
+        add(tree, root)
+    console.print(tree)
+
+
+if __name__ == "__main__":
+    main()
