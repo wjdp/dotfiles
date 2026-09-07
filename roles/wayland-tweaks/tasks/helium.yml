@@ -1,0 +1,18 @@
+- name: Check if helium.desktop file exists
+  stat:
+    path: /usr/share/applications/helium.desktop
+  register: helium_desktop_file
+
+- name: Copy helium desktop file to user applications directory
+  when: helium_desktop_file.stat.exists
+  copy:
+    src: /usr/share/applications/helium.desktop
+    dest: "{{ dotfiles_user_home }}/.local/share/applications/helium.desktop"
+    mode: 0644
+
+- name: Add hardware video decode flags to every helium Exec line
+  when: helium_desktop_file.stat.exists
+  replace:
+    path: "{{ dotfiles_user_home }}/.local/share/applications/helium.desktop"
+    regexp: "^Exec=helium(?! {{ browser_gpu_flags | regex_escape }})"
+    replace: "Exec=helium {{ browser_gpu_flags }}"

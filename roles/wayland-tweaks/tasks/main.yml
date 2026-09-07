@@ -2,6 +2,7 @@
   include_tasks: "{{ item }}"
   loop:
     - electron.yml
+    - helium.yml
     - obsidian.yml
     - slack.yml
     - vscode.yml
