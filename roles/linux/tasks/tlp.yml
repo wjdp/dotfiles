@@ -1,0 +1,15 @@
+- name: Install TLP
+  become: yes
+  apt:
+    name: tlp
+    state: present
+
+- name: Copy TLP CPU config
+  become: yes
+  copy:
+    src: 10-cpu.conf
+    dest: /etc/tlp.d/10-cpu.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart TLP
