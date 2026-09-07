@@ -26,5 +26,5 @@ set $program.reboot_windows /usr/local/bin/reboot-windows.sh
 set $program.shutdown poweroff
 set $program.sleep systemctl suspend
 set $browser_flags {{ browser_gpu_flags }}
-set $program.browser helium $browser_flags --new-window --profile-directory=Default
-set $program.browser_private helium $browser_flags --new-window --incognito --profile-directory=Default
+set $program.browser helium --new-window --profile-directory=Default $browser_flags
+set $program.browser_private helium --new-window --incognito --profile-directory=Default $browser_flags
