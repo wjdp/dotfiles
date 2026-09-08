@@ -3,3 +3,4 @@
 - import_tasks: locale.yml
 - import_tasks: power.yml
 - import_tasks: tlp.yml
+- import_tasks: zram.yml

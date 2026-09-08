@@ -1,0 +1,16 @@
+- name: Remove zram-tools
+  become: yes
+  apt:
+    name: zram-tools
+    state: absent
+    purge: yes
+
+- name: Copy zram sysctl config
+  become: yes
+  copy:
+    src: 99-zram.conf
+    dest: /etc/sysctl.d/99-zram.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Reload sysctl

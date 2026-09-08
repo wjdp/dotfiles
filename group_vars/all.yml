@@ -9,8 +9,8 @@ locale: en_GB.UTF-8
 # Defaults
 has_wireless: no
 
-# Hardware video decode for Chromium-based browsers (Intel VA-API / iHD)
-browser_gpu_flags: "--enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,VaapiIgnoreDriverChecks"
+# Hardware video decode and encode for Chromium-based browsers (Intel VA-API / iHD)
+browser_gpu_flags: "--enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,VaapiIgnoreDriverChecks,AcceleratedVideoEncoder"
 
 # Packages
 apt_repos:

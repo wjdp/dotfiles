@@ -1,3 +1,7 @@
 - name: Restart TLP
   become: yes
   command: tlp start
+
+- name: Reload sysctl
+  become: yes
+  command: sysctl --system
