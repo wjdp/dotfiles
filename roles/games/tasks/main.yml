@@ -6,3 +6,13 @@
       - cachyos-gaming-meta
       - steam
       - heroic-games-launcher-bin
+- name: Install extest (XTEST to uinput shim for Steam Input on Wayland)
+  when: distro == "cachyos"
+  become: yes
+  package:
+    name: libextest-git
+
+- name: Override steam.desktop to preload extest
+  copy:
+    dest: ~/.local/share/applications/steam.desktop
+    content: "{{ lookup('file', '/usr/share/applications/steam.desktop') | regex_replace('(?m)^Exec=/usr/bin/steam', 'Exec=env LD_PRELOAD=/usr/$LIB/libextest.so /usr/bin/steam') }}\n"
