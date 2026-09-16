@@ -1,0 +1,36 @@
+- name: Read installed Go version
+  command: "{{ go_root }}/bin/go version"
+  register: go_version_output
+  changed_when: false
+  failed_when: false
+
+- name: Define Go distribution
+  set_fact:
+    go_installed_version: "{{ go_version_output.stdout | default('') | regex_search('go[0-9.]+') | default('', true) | regex_replace('^go', '') }}"
+    go_tarball: "go{{ go_version }}.linux-{{ go_arch_map[ansible_architecture] }}.tar.gz"
+
+- name: Install Go {{ go_version }}
+  when: go_installed_version != go_version
+  block:
+    - name: Download Go tarball
+      get_url:
+        url: "{{ go_download_base_url }}/{{ go_tarball }}"
+        dest: "/tmp/{{ go_tarball }}"
+        checksum: "sha256:{{ go_download_base_url }}/{{ go_tarball }}.sha256"
+        mode: 0644
+
+    - name: Remove existing GOROOT
+      file:
+        path: "{{ go_root }}"
+        state: absent
+
+    - name: Extract Go tarball
+      unarchive:
+        src: "/tmp/{{ go_tarball }}"
+        dest: "{{ go_root | dirname }}"
+        remote_src: yes
+
+    - name: Remove Go tarball
+      file:
+        path: "/tmp/{{ go_tarball }}"
+        state: absent

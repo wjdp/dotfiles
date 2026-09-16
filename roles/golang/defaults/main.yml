@@ -1,0 +1,6 @@
+go_version: 1.27.1
+go_root: /usr/local/go
+go_download_base_url: https://dl.google.com/go
+go_arch_map:
+  x86_64: amd64
+  aarch64: arm64
