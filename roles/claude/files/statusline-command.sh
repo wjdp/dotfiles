@@ -8,6 +8,7 @@ cwd=$(echo "$input" | jq -r '.workspace.current_dir')
 
 # Extract model name and transcript path
 model_name=$(echo "$input" | jq -r '.model.display_name // .model.id // "?"')
+model_id=$(echo "$input" | jq -r '.model.id // empty')
 transcript=$(echo "$input" | jq -r '.transcript_path // empty')
 
 # Change to the working directory
@@ -96,12 +97,19 @@ right_prompt="${right_prompt}${cyan}${model_name}${normal} "
 if [ -n "$transcript" ] && [ -f "$transcript" ]; then
     used=$(tail -n 400 "$transcript" | jq -rc 'select(.isSidechain != true) | select(.message.usage) | .message.usage | (.input_tokens + (.cache_creation_input_tokens // 0) + (.cache_read_input_tokens // 0))' 2>/dev/null | tail -n1)
     if [ -n "$used" ] && [ "$used" -gt 0 ] 2>/dev/null; then
-        if [ "$used" -gt 200000 ]; then window=1000000; else window=200000; fi
+        case "$model_id" in
+            *'[1m]'*) window=1000000 ;;
+            *) window=200000 ;;
+        esac
         pct=$(( used * 100 / window ))
         used_k=$(( used / 1000 ))
-        window_k=$(( window / 1000 ))
+        if [ "$window" -ge 1000000 ]; then
+            window_label="$(( window / 1000000 ))m"
+        else
+            window_label="$(( window / 1000 ))k"
+        fi
         if [ "$pct" -ge 80 ]; then ctx_color="$red"; elif [ "$pct" -ge 50 ]; then ctx_color="$yellow"; else ctx_color="$green"; fi
-        right_prompt="${right_prompt}${ctx_color}${used_k}k/${window_k}k ${pct}%${normal} "
+        right_prompt="${right_prompt}${ctx_color}${used_k}k/${window_label} ${pct}%${normal} "
     fi
 fi
 

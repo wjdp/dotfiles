@@ -1,8 +1,12 @@
 {
+  "env": {
+    "CLAUDE_CODE_SCROLL_SPEED": "0.25"
+  },
   "includeCoAuthoredBy": false,
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash /home/will/.claude/statusline-command.sh"
@@ -13,7 +17,7 @@
     "notion@claude-plugins-official": true,
     "slack@claude-plugins-official": true
   },
-  "tui": "default",
+  "tui": "fullscreen",
   "theme": "dark",
   "agentPushNotifEnabled": true,
   "voiceEnabled": true
