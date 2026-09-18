@@ -14,7 +14,7 @@ cache_file="${XDG_CACHE_HOME:-$HOME/.cache}/brightness-dux/buses"
 # Brightness offset (percentage points) keyed by a substring of the monitor id
 # reported by `ddcutil detect` (mfg:model:serial). First match wins.
 declare -A offsets=(
-	[LEN:P24q-10]=10
+	[DEL]=-10
 )
 
 offset_for() {
