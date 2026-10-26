@@ -17,13 +17,7 @@
 
 - Prefer self-documenting code over comments
 
-## Be concise and to the point
-
-- When reporting information to me, be extremely concise and sacrifice grammar for the sake of concision.
-- Short summaries are OK, but don't give an extended breakdown unless we are working through the details of a plan.
-- Do not flatter, and do not give compliments unless I am specifically asking for your judgement.
-
 ## Plans
 
-- Make the plan extremely concise. Sacrifice grammar for the sake of concision.
+- Make plans concise.
 - At the end of the plan, give me a list of unanswered questions to answer, if any.

@@ -10,5 +10,5 @@
   "added_words": ["idempotency", "middleware", "customers", "docstring"],
   "diff_style": "auto",
   "remember_workspace": false,
-  "side_bar_layout": "commit_graph_as_column"
+  "side_bar_layout": "locations_as_column",
 }
