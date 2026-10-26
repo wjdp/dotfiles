@@ -29,4 +29,7 @@ sway_cachyos_packages:
   - mako
   - wofi
   - lxqt-policykit
+  - kwallet
+  - kwallet-pam
+  - kwalletmanager
   - gdu

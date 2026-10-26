@@ -3,6 +3,7 @@ exec wmname LG3D # for java apps like pycharm
 exec_always --no-startup-id mako
 exec_always --no-startup-id /usr/libexec/goa-daemon --replace # to sync google calendar
 exec_always --no-startup-id lxqt-policykit-agent # Policy agent
+exec /usr/lib/pam_kwallet_init # Hand login password to ksecretd so the wallet unlocks
 exec_always killall kanshi; sleep 1 && 
 exec_always {
   pkill kanshi

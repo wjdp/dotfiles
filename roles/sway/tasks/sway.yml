@@ -29,3 +29,16 @@
     src: "outputs.j2"
     dest: "{{ dotfiles_user_home }}/.config/sway/config.d/05-outputs"
     mode: 0664
+
+- name: Ensure xdg-desktop-portal config directory exists
+  file:
+    path: "{{ dotfiles_user_home }}/.config/xdg-desktop-portal"
+    state: directory
+    mode: 0775
+
+- name: Link xdg-desktop-portal sway config
+  file:
+    src: "{{ dotfiles_home }}/roles/sway/files/xdg-desktop-portal/sway-portals.conf"
+    dest: "{{ dotfiles_user_home }}/.config/xdg-desktop-portal/sway-portals.conf"
+    state: link
+    force: yes

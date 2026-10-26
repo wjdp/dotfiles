@@ -29,8 +29,5 @@ fi
 # Default browser
 export BROWSER=/usr/bin/firefox
 
-# Keyring
-export $(gnome-keyring-daemon -s)
-
 # Set path same as fish
 export PATH="$PATH{% for path in path %}:{{path}}{% endfor %}"
