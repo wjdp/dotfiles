@@ -1,0 +1,138 @@
+#!/usr/bin/env -S uv run --script --quiet
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["rich", "vdf"]
+# ///
+"""Find save game directories for installed Steam games (Proton prefixes and Steam Cloud)."""
+
+import subprocess
+import sys
+from dataclasses import dataclass
+from pathlib import Path
+
+import vdf
+from rich.console import Console
+from rich.table import Table
+
+STEAM_ROOT = Path.home() / ".local/share/Steam"
+
+PREFIX_SAVE_DIRS = [
+    "Documents",
+    "Documents/My Games",
+    "Saved Games",
+    "AppData/Roaming",
+    "AppData/Local",
+    "AppData/LocalLow",
+]
+
+PREFIX_DEFAULT_ENTRIES = {
+    "Documents/Downloads",
+    "Documents/Music",
+    "Documents/Pictures",
+    "Documents/Templates",
+    "Documents/Videos",
+    "Documents/My Games",
+    "AppData/Roaming/Microsoft",
+    "AppData/Roaming/wine_gecko",
+    "AppData/Local/cache",
+    "AppData/Local/CEF",
+    "AppData/Local/dxvk",
+    "AppData/Local/Microsoft",
+    "AppData/Local/NVIDIA Corporation",
+    "AppData/Local/openvr",
+    "AppData/Local/Temp",
+    "AppData/LocalLow/Unity",
+}
+
+NON_GAME_PREFIXES = ("Proton", "Steam Linux Runtime", "Steamworks Common", "SteamVR")
+
+
+@dataclass
+class Game:
+    app_id: str
+    name: str
+    library: Path
+
+
+def library_paths() -> list[Path]:
+    data = vdf.load(open(STEAM_ROOT / "steamapps/libraryfolders.vdf"))
+    return [Path(lib["path"]) for lib in data["libraryfolders"].values()]
+
+
+def installed_games(libraries: list[Path]) -> list[Game]:
+    games = []
+    for library in libraries:
+        for manifest in (library / "steamapps").glob("appmanifest_*.acf"):
+            state = vdf.load(open(manifest))["AppState"]
+            name = state["name"].strip()
+            if not name.startswith(NON_GAME_PREFIXES) and "Soundtrack" not in name:
+                games.append(Game(state["appid"], name, library))
+    return sorted(games, key=lambda g: g.name.casefold())
+
+
+def prefix_save_dirs(game: Game, libraries: list[Path]) -> list[Path]:
+    for library in [game.library, *libraries]:
+        user_dir = library / "steamapps/compatdata" / game.app_id / "pfx/drive_c/users/steamuser"
+        if user_dir.is_dir():
+            break
+    else:
+        return []
+    found = []
+    for save_dir in PREFIX_SAVE_DIRS:
+        for entry in sorted((user_dir / save_dir).glob("*")):
+            relative = entry.relative_to(user_dir).as_posix()
+            if entry.is_dir() and not entry.is_symlink() and relative not in PREFIX_DEFAULT_ENTRIES:
+                found.append(entry)
+    return found
+
+
+def cloud_save_dirs(game: Game) -> list[Path]:
+    return sorted(p for p in (STEAM_ROOT / "userdata").glob(f"*/{game.app_id}/remote") if p.is_dir())
+
+
+def pick_with_fzf(games: list[Game], query: str = "") -> list[Game]:
+    lines = "\n".join(f"{g.name}\t{g.app_id}" for g in games)
+    result = subprocess.run(
+        ["fzf", "--multi", "--delimiter=\t", "--with-nth=1", f"--query={query}", "--select-1", "--prompt=game> "],
+        input=lines,
+        stdout=subprocess.PIPE,
+        text=True,
+    )
+    chosen_ids = {line.split("\t")[1] for line in result.stdout.splitlines()}
+    return [g for g in games if g.app_id in chosen_ids]
+
+
+def show(game: Game, libraries: list[Path], console: Console, plain: bool) -> None:
+    prefix_dirs = prefix_save_dirs(game, libraries)
+    cloud_dirs = cloud_save_dirs(game)
+    if plain:
+        for path in [*prefix_dirs, *cloud_dirs]:
+            print(path)
+        return
+    table = Table(title=f"{game.name} [dim]({game.app_id})[/dim]", title_justify="left", show_header=False)
+    table.add_column("Source", style="cyan")
+    table.add_column("Path", overflow="fold")
+    for path in prefix_dirs:
+        table.add_row("Proton", f"[link=file://{path}]{path}[/link]")
+    for path in cloud_dirs:
+        table.add_row("Cloud", f"[link=file://{path}]{path}[/link]")
+    if not table.rows:
+        table.add_row("", "[yellow]No save directories found[/yellow]")
+    console.print(table)
+
+
+def main() -> None:
+    query = " ".join(sys.argv[1:])
+    libraries = library_paths()
+    games = installed_games(libraries)
+    matches = [g for g in games if query.casefold() in g.name.casefold()]
+    if len(matches) != 1:
+        matches = pick_with_fzf(games, query)
+    console = Console()
+    plain = not sys.stdout.isatty()
+    for game in matches:
+        show(game, libraries, console, plain)
+
+
+if __name__ == "__main__":
+    main()
