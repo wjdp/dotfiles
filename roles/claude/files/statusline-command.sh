@@ -6,11 +6,6 @@ input=$(cat)
 # Extract current directory from JSON input
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')
 
-# Extract model name and transcript path
-model_name=$(echo "$input" | jq -r '.model.display_name // .model.id // "?"')
-model_id=$(echo "$input" | jq -r '.model.id // empty')
-transcript=$(echo "$input" | jq -r '.transcript_path // empty')
-
 # Change to the working directory
 cd "$cwd" 2>/dev/null || cd ~
 
@@ -90,28 +85,39 @@ if [ -n "$VIRTUAL_ENV" ]; then
     fi
 fi
 
-# Model in use
-right_prompt="${right_prompt}${cyan}${model_name}${normal} "
-
-# Context used (from latest main-thread usage in transcript)
-if [ -n "$transcript" ] && [ -f "$transcript" ]; then
-    used=$(tail -n 400 "$transcript" | jq -rc 'select(.isSidechain != true) | select(.message.usage) | .message.usage | (.input_tokens + (.cache_creation_input_tokens // 0) + (.cache_read_input_tokens // 0))' 2>/dev/null | tail -n1)
-    if [ -n "$used" ] && [ "$used" -gt 0 ] 2>/dev/null; then
-        case "$model_id" in
-            *'[1m]'*) window=1000000 ;;
-            *) window=200000 ;;
-        esac
-        pct=$(( used * 100 / window ))
-        used_k=$(( used / 1000 ))
-        if [ "$window" -ge 1000000 ]; then
-            window_label="$(( window / 1000000 ))m"
-        else
-            window_label="$(( window / 1000 ))k"
-        fi
-        if [ "$pct" -ge 80 ]; then ctx_color="$red"; elif [ "$pct" -ge 50 ]; then ctx_color="$yellow"; else ctx_color="$green"; fi
-        right_prompt="${right_prompt}${ctx_color}${used_k}k/${window_label} ${pct}%${normal} "
-    fi
+# Model
+model=$(echo "$input" | jq -r '.model.display_name // empty')
+if [ -n "$model" ]; then
+    right_prompt="${right_prompt}${cyan}${model}${normal} "
 fi
 
-# Combine left and right prompts
-echo "${left_prompt} ${right_prompt}"
+# Context usage
+used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+if [ -n "$used_pct" ]; then
+    used_pct_round=$(printf '%.0f' "$used_pct")
+    if [ "$used_pct_round" -ge 90 ]; then
+        ctx_color="$red"
+    elif [ "$used_pct_round" -ge 70 ]; then
+        ctx_color="$yellow"
+    else
+        ctx_color="$gray"
+    fi
+    right_prompt="${right_prompt}${ctx_color}ctx ${used_pct_round}%${normal} "
+fi
+
+# Time
+time_str=$(date "+%H:%M:%S")
+right_prompt="${right_prompt}${gray}${time_str}${normal}"
+
+# Right-align right_prompt
+term_width=$(echo "$input" | jq -r '.terminal_width // empty')
+[ -z "$term_width" ] && term_width=$(tput cols 2>/dev/null || echo "80")
+
+strip_ansi() { printf '%s' "$1" | perl -pe 's/\e\[[0-9;]*m//g' | wc -m; }
+left_visible=$(strip_ansi "$left_prompt")
+right_visible=$(strip_ansi "$right_prompt")
+
+padding=$((term_width - left_visible - right_visible - 1))
+[ "$padding" -lt 1 ] && padding=1
+
+printf "%s%${padding}s%s\n" "$left_prompt" "" "$right_prompt"
