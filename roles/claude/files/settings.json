@@ -28,17 +28,63 @@
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "warp@claude-code-warp": true,
+    "gopls-lsp@claude-plugins-official": true
   },
-  "effortLevel": "low",
+  "extraKnownMarketplaces": {
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    }
+  },
+  "effortLevel": "medium",
   "tui": "fullscreen",
   "voice": {
-    "enabled": true,
-    "mode": "tap"
+    "enabled": true
   },
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
+  "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(uv:*) in /home/will/local/breda",
+      "Bash(fd:*) in /home/will/local/breda",
+      "Bash(ogrinfo:*) in /home/will/local/breda",
+      "Bash(gdalinfo:*) in /home/will/local/breda"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: Cloudflare (R2 storage, Workers — `mapbox-style-divemap.wjdp.workers.dev`, `master-divemap.wjdp.workers.dev`, CLOUDFLARE_ACCOUNT_ID/API_TOKEN in CI secrets); AWS S3 (`divemap-media.s3.eu-west-1.amazonaws.com`); CloudFerro S3 (`s3.waw3-1.cloudferro.com`, Copernicus marine data)",
+      "**Repository visibility**: private (wjdp/breda, confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: GitHub Actions secrets referenced in CI: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN, CONTAINER_RETENTION_PAT, GH_PAT, SENTRY_AUTH_TOKEN, SSH_PRIVATE_KEY_DEPLOY",
+      "**Default / protected branches**: Default branch `master`; no protected branches listed via gh, rulesets not queryable here — do not assume unprotected",
+      "**CI/CD deploy targets**: GitHub Actions workflows including `.github/workflows/container-retention.yml`; deploy touches Cloudflare (Workers) and a container registry (CONTAINER_RETENTION_PAT)",
+      "**Network posture**: None configured",
+      "**Source control**: wjdp/breda on github.com (origin) — the trusted repo and its remote only",
+      "**Trusted internal domains**: divemap.uk, mapbox-style-divemap.wjdp.workers.dev, master-divemap.wjdp.workers.dev (this project's own hosts)",
+      "**Trusted cloud buckets**: divemap-tiles (config-derived — not a confirmed upload destination; uploads of local data still require confirmation)",
+      "**Key internal services**: stac.marine.copernicus.eu, downloads.emodnet-bathymetry.eu, s3.waw3-1.cloudferro.com, emodnet.ec.europa.eu, timeseries.sepa.org.uk, overpass-api.de, overpass.kumi.systems, overpass.osm.ch, overpass.private.coffee, osmdata.openstreetmap.de, nominatim.openstreetmap.org (data-import sources contacted this project)",
+      "**Internal package registry**: npm.fontawesome.com",
+      "**Sensitive data locations & audiences**: `.env`, `http/.env`, `src/.env`, `src/.env.build`, `src/.env.example`, `src/.logfire/logfire_credentials.json`, `vue/.env.development.local`, `vue/.env.production`, `http-client.private.env.json`, `.beads-credential-key` — credentials/config, not for sharing outside this project",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (geospatial/diving data project — breda)",
+      "**Trusted repo**: /home/will/local/breda (wjdp/breda on github.com, private) and its origin remote — confidential material is fine here, but content ported from outside this session's repo is not this repo's own work",
+      "**Org-specific CLIs**: None configured",
+      "routine under /home/will/local/breda/ prefix: uv, fd, ogrinfo, prek, gdalinfo, gdal, tree (frequently used project tooling)"
+    ]
+  },
   "voiceEnabled": true,
-  "defaultMode": "auto"
+  "defaultMode": "auto",
+  "switchModelsOnFlag": false
 }
