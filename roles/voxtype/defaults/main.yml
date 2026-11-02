@@ -1,0 +1,51 @@
+voxtype_version: 1.1.1
+voxtype_release_url: "https://github.com/peteonrails/voxtype/releases/download/v{{ voxtype_version }}"
+voxtype_deb: "voxtype_{{ voxtype_version }}-1_amd64.deb"
+# gh api repos/peteonrails/voxtype/releases/tags/v<version> -q '.assets[] | select(.name|endswith(".deb")) | .digest'
+voxtype_deb_checksum: sha256:1d4767ca7bd7e4745b0a066febd7b4b81ba8af7546385c664ce2efb0fe57ed3c
+voxtype_models_dir: "{{ dotfiles_user_home }}/.local/share/voxtype/models"
+
+voxtype_models:
+  - name: ggml-small.en.bin
+    url: https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin
+    checksum: sha256:c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d
+  - name: ggml-silero-vad.bin
+    url: https://huggingface.co/ggml-org/whisper-vad/resolve/main/ggml-silero-v6.2.0.bin
+    checksum: sha256:2aa269b785eeb53a82983a20501ddf7c1d9c48e33ab63a41391ac6c9f7fb6987
+
+# Whisper initial_prompt vocabulary. This repo is mirrored publicly: keep names,
+# employers, vendors and internal service names in the private file instead.
+voxtype_public_words:
+  - Waybar
+  - voxtype
+  - sway
+  - Ansible
+  - dotfiles
+  - Claude
+  - Terraform
+  - EKS
+  - Karpenter
+  - Graviton
+  - SnapStart
+  - DynamoDB
+  - SQS
+  - EventBridge
+  - pnpm
+  - Poetry
+  - SQLAlchemy
+  - Playwright
+  - WeasyPrint
+  - Deno
+  - Devbox
+  - GitLab
+  - Datadog
+  - Sentry
+  - ISO 27001
+  - OWASP
+  - DAST
+  - SAST
+  - JWKS
+  - M2M
+
+# One term per line, '#' comments allowed. Local only, never committed.
+voxtype_private_words_file: "{{ dotfiles_user_home }}/.config/voxtype/private-words.txt"
