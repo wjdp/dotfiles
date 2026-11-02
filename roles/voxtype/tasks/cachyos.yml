@@ -1,0 +1,41 @@
+- name: Install voxtype runtime dependencies
+  become: yes
+  pacman:
+    name:
+      - wtype
+      - wl-clipboard
+      - vulkan-icd-loader
+      - pipewire-alsa
+      - libnotify
+    state: present
+
+- name: Check if voxtype is installed
+  command: pacman -Q voxtype-bin
+  register: voxtype_installed
+  changed_when: false
+  failed_when: false
+
+- name: Build and install voxtype from the AUR
+  when: voxtype_installed.rc != 0
+  block:
+    - name: Import voxtype release signing key
+      command: gpg --keyserver hkps://keys.openpgp.org --recv-keys {{ voxtype_signing_key }}
+
+    - name: Clone voxtype AUR package
+      git:
+        repo: "{{ voxtype_aur_repo }}"
+        dest: "{{ voxtype_aur_dir }}"
+        version: "{{ voxtype_aur_commit }}"
+
+    - name: Build voxtype package
+      command: makepkg --force --noconfirm
+      args:
+        chdir: "{{ voxtype_aur_dir }}"
+      environment:
+        PKGDEST: "{{ voxtype_aur_dir }}"
+
+    - name: Install voxtype package
+      become: yes
+      pacman:
+        name: "{{ voxtype_aur_dir }}/{{ voxtype_aur_package }}"
+        state: present

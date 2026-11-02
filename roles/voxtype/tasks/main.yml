@@ -1,24 +1,10 @@
-- name: Install voxtype runtime dependencies
-  become: yes
-  apt:
-    name:
-      - wtype
-      - wl-clipboard
-      - libvulkan1
-      - pipewire-alsa
-      - libnotify-bin
-    state: present
+- name: Run ubuntu install
+  when: distro == "ubuntu"
+  include_tasks: ubuntu.yml
 
-- name: Download voxtype {{ voxtype_version }} deb
-  get_url:
-    url: "{{ voxtype_release_url }}/{{ voxtype_deb }}"
-    dest: "/tmp/{{ voxtype_deb }}"
-    checksum: "{{ voxtype_deb_checksum }}"
-
-- name: Install voxtype {{ voxtype_version }}
-  become: yes
-  apt:
-    deb: "/tmp/{{ voxtype_deb }}"
+- name: Run cachyos install
+  when: distro == "cachyos"
+  include_tasks: cachyos.yml
 
 - name: Check voxtype GPU backend
   stat:

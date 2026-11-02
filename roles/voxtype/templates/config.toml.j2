@@ -15,7 +15,7 @@ state_file = "auto"
 # Key to hold for push-to-talk
 # Common choices: SCROLLLOCK, PAUSE, RIGHTALT, F13-F24
 # Use `evtest` to find key names for your keyboard
-key = "WEV_114"
+key = "{{ voxtype_hotkey }}"
 
 # Optional modifier keys that must also be held
 # Example: modifiers = ["LEFTCTRL", "LEFTALT"]
@@ -72,7 +72,7 @@ max_duration_secs = 60
 # .en models are English-only but faster and more accurate for English
 # large-v3-turbo is faster than large-v3 with minimal accuracy loss (recommended for GPU)
 # Or provide absolute path to a custom .bin model file
-model = "small.en"
+model = "{{ voxtype_model }}"
 
 # Language for transcription
 # Options:
