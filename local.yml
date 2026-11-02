@@ -23,6 +23,7 @@
     - { role: fonts, tags: ["fonts"] }
     - { role: gnome, tags: ["gnome"] }
     - { role: sway, tags: ["sway"] }
+    - { role: voxtype, tags: ["voxtype"] }
     # - { role: xdg, tags: ["xdg"] }
     # - { role: vim, tags: ["vim"] }
     - { role: sublime, tags: ["sublime"] }

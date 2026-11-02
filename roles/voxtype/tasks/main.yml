@@ -1,0 +1,86 @@
+- name: Install voxtype runtime dependencies
+  become: yes
+  apt:
+    name:
+      - wtype
+      - wl-clipboard
+      - libvulkan1
+      - pipewire-alsa
+      - libnotify-bin
+    state: present
+
+- name: Download voxtype {{ voxtype_version }} deb
+  get_url:
+    url: "{{ voxtype_release_url }}/{{ voxtype_deb }}"
+    dest: "/tmp/{{ voxtype_deb }}"
+    checksum: "{{ voxtype_deb_checksum }}"
+
+- name: Install voxtype {{ voxtype_version }}
+  become: yes
+  apt:
+    deb: "/tmp/{{ voxtype_deb }}"
+
+- name: Check voxtype GPU backend
+  stat:
+    path: /usr/bin/voxtype
+  register: voxtype_bin
+
+- name: Enable voxtype Vulkan backend
+  become: yes
+  command: voxtype setup gpu --enable
+  when: "'vulkan' not in (voxtype_bin.stat.lnk_target | default(''))"
+
+- name: Add user to input group for evdev hotkey
+  become: yes
+  user:
+    name: "{{ user }}"
+    groups: input
+    append: yes
+
+- name: Ensure voxtype config directory exists
+  file:
+    path: "{{ dotfiles_user_home }}/.config/voxtype"
+    state: directory
+    mode: 0775
+
+- name: Read private voxtype words
+  set_fact:
+    voxtype_private_words: >-
+      {{ (lookup('file', voxtype_private_words_file, errors='ignore') | default('', true)).splitlines()
+         | map('regex_replace', '#.*$', '') | map('trim') | select | list }}
+
+- name: Build voxtype initial prompt
+  set_fact:
+    voxtype_initial_prompt: "{{ (voxtype_public_words + voxtype_private_words) | unique | join(', ') }}."
+
+- name: Check for legacy voxtype config symlink
+  stat:
+    path: "{{ dotfiles_user_home }}/.config/voxtype/config.toml"
+  register: voxtype_config
+
+- name: Remove legacy voxtype config symlink
+  file:
+    path: "{{ dotfiles_user_home }}/.config/voxtype/config.toml"
+    state: absent
+  when: voxtype_config.stat.islnk | default(false)
+
+- name: Render voxtype config
+  template:
+    src: config.toml.j2
+    dest: "{{ dotfiles_user_home }}/.config/voxtype/config.toml"
+    mode: 0600
+
+- name: Ensure voxtype models directory exists
+  file:
+    path: "{{ voxtype_models_dir }}"
+    state: directory
+    mode: 0775
+
+- name: Download voxtype models
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ voxtype_models_dir }}/{{ item.name }}"
+    checksum: "{{ item.checksum }}"
+  loop: "{{ voxtype_models }}"
+  loop_control:
+    label: "{{ item.name }}"

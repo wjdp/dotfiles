@@ -24,6 +24,7 @@
         // "keyboard-state", // module keyboard-state: Unknown module: keyboard-state
         // "sway/language", 
         "custom/screenshare",
+        "custom/voxtype",
         "pulseaudio",
         "battery",
         "clock"
@@ -244,6 +245,19 @@
         "status-icons": {
             "paused": "󰏤"
         },
+    },
+    "custom/voxtype": {
+        "exec": "voxtype status --follow --format json",
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "idle": "󰍬",
+            "recording": "󰑊",
+            "transcribing": "󰔟",
+            "stopped": "󰍭"
+        },
+        "tooltip": true,
+        "on-click": "systemctl --user restart voxtype"
     },
     "custom/screenshare": {
         "exec": "/home/will/dotfiles/bin/is-screenshare",
