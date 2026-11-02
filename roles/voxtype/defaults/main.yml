@@ -16,6 +16,10 @@ voxtype_model: small.en
 voxtype_model_checksum: sha256:c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d
 voxtype_flash_attention: false
 voxtype_context_window_optimization: false
+voxtype_osd_enabled: false
+voxtype_pause_media: false
+voxtype_type_delay_ms: 2
+voxtype_smart_auto_submit: false
 
 voxtype_models:
   - name: "ggml-{{ voxtype_model }}.bin"

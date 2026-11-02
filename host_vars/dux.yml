@@ -26,3 +26,7 @@ voxtype_model: large-v3-turbo
 voxtype_model_checksum: sha256:1fc70f774d38eb169993ac391eea357ef47c88757ef72ee5943879b7e8e2bc69
 voxtype_flash_attention: true
 voxtype_context_window_optimization: false
+voxtype_osd_enabled: true
+voxtype_pause_media: true
+voxtype_type_delay_ms: 1
+voxtype_smart_auto_submit: true

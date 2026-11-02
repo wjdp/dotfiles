@@ -49,7 +49,7 @@ max_duration_secs = 60
 
 # Pause MPRIS media players (Spotify, Firefox, etc.) when recording starts,
 # resume them when recording stops. Requires playerctl.
-# pause_media = false
+pause_media = {{ voxtype_pause_media | to_json }}
 
 # [audio.feedback]
 # Enable audio feedback sounds (beeps when recording starts/stops)
@@ -176,7 +176,7 @@ fallback_to_clipboard = true
 
 # Delay between typed characters in milliseconds
 # 0 = fastest possible, increase if characters are dropped
-type_delay_ms = 2
+type_delay_ms = {{ voxtype_type_delay_ms }}
 
 # Automatically submit (send Enter key) after outputting transcribed text
 # Useful for chat applications, command lines, or forms where you want
@@ -235,7 +235,7 @@ on_transcription = false
 # Use "normal" (default) to ensure notifications appear as banners.
 # urgency = "normal"
 
-# [text]
+[text]
 # Text processing options (word replacements, spoken punctuation)
 #
 # Enable spoken punctuation conversion (e.g., say "period" to get ".")
@@ -246,7 +246,7 @@ on_transcription = false
 #
 # Smart auto-submit: say "submit" at the end of dictation to press Enter.
 # The word "submit" is stripped from the output text and Enter is pressed.
-# smart_auto_submit = false
+smart_auto_submit = {{ voxtype_smart_auto_submit | to_json }}
 #
 # Remove filler words like "uh" and "um" from transcribed text.
 # Enabled by default. Set filter_filler_words = false to disable, or override
@@ -300,4 +300,4 @@ backend = "whisper"
 # output_mode = "clipboard"
 
 [osd]
-enabled = false
+enabled = {{ voxtype_osd_enabled | to_json }}
