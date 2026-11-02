@@ -99,7 +99,11 @@ translate = false
 
 # Enable flash attention for GPU inference (default: false)
 # Reduces memory usage (~75%) and improves speed (~10%) on CUDA/Vulkan.
-flash_attention = false
+flash_attention = {{ voxtype_flash_attention | to_json }}
+
+# Speeds up clips under 22.5 seconds. Off by default upstream because
+# large-v3/turbo may fall into repetition loops.
+context_window_optimization = {{ voxtype_context_window_optimization | to_json }}
 
 # Initial prompt to provide context for transcription
 # Use this to hint at terminology, proper nouns, or formatting conventions.
