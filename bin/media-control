@@ -1,0 +1,40 @@
+#!/bin/sh
+# Usage: media-control toggle|next|previous
+#
+# Targets whichever players are actually playing, as plain playerctl picks the
+# alphabetically first player regardless of status. Paused players are
+# remembered so that the next toggle resumes the same ones.
+
+action=${1:?usage: media-control toggle|next|previous}
+last_paused_file="${XDG_RUNTIME_DIR:-/tmp}/media-control-last-paused"
+
+playing=$(
+    playerctl --all-players --format '{{status}} {{playerInstance}}' status 2>/dev/null |
+        awk '$1 == "Playing" { print $2 }' |
+        paste -sd,
+)
+last_paused=$(cat "$last_paused_file" 2>/dev/null)
+
+# playerctl treats an empty --player as "any player", so guard against it
+run_on_players() {
+    [ -n "$1" ] && playerctl --all-players --player "$1" "$2" 2>/dev/null
+}
+
+case "$action" in
+toggle)
+    if [ -n "$playing" ]; then
+        printf '%s\n' "$playing" >"$last_paused_file"
+        run_on_players "$playing" pause
+    else
+        run_on_players "$last_paused" play || playerctl play
+    fi
+    ;;
+next | previous)
+    current=${playing:-$last_paused}
+    run_on_players "${current%%,*}" "$action" || playerctl "$action"
+    ;;
+*)
+    echo "usage: media-control toggle|next|previous" >&2
+    exit 2
+    ;;
+esac
