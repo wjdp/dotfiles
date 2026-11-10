@@ -7,7 +7,7 @@ function aax-convert --description 'Decrypts Audible AAX file' --argument file
   if not test -e $argv
      echo $argv does not exist
   else
-    ffmpeg -activation_bytes b1e14c03 -i $argv -c copy $base.m4a
+    ffmpeg -activation_bytes b1e14c03 -i $argv -c copy $base.m4b
     echo "Wrote $base.m4a"
   end
 end
