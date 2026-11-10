@@ -9,6 +9,7 @@
     - workstyle.yml
     # - backlight.yml
     - mako.yml
+    - fuzzel.yml
     # - launcher.yml
     # - wofi.yml
     # - kanshi.yml
