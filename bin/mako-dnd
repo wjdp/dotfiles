@@ -1,0 +1,20 @@
+#!/bin/bash
+# Toggle or report mako's do-not-disturb mode for waybar (custom/dnd, signal 9)
+
+case "$1" in
+    toggle)
+        makoctl mode -t do-not-disturb >/dev/null
+        pkill -RTMIN+9 waybar
+        ;;
+    status)
+        if makoctl mode | grep -qx do-not-disturb; then
+            printf '{"text": "\U000f009b", "tooltip": "Do not disturb", "class": "on"}\n'
+        else
+            printf '{"text": ""}\n'
+        fi
+        ;;
+    *)
+        echo "usage: mako-dnd toggle|status" >&2
+        exit 1
+        ;;
+esac

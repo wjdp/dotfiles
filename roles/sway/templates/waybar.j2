@@ -4,26 +4,32 @@
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
+    "reload-style-on-change": true,
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": [],
     "modules-right": [
         // "mpd",
         // "mpris",
+        "sway/scratchpad",
         "tray",
         "idle_inhibitor", 
+        "custom/dnd",
         // "custom/media",
-        "backlight", 
+{% if laptop | default(false) %}
+        "backlight",
+{% endif %}
         "bluetooth",
         "network",
         "disk",
         "memory", 
         "cpu",
-        "custom/governor",
+        "power-profiles-daemon",
         "temperature", 
         // "keyboard-state", // module keyboard-state: Unknown module: keyboard-state
         // "sway/language", 
-        "custom/screenshare",
+        "systemd-failed-units",
+        "privacy",
         "custom/voxtype",
         "pulseaudio",
         "battery",
@@ -111,7 +117,9 @@
         }
     },
     "cpu": {
-        "format": "{usage}% 󰬸",
+        "format": "",
+        "format-warning": "{usage}% 󰬸",
+        "format-critical": "{usage}% 󰬸",
         "format-alt": "{usage}% {avg_frequency}GHz ",
         "tooltip": false,
         "interval": 2,
@@ -120,12 +128,20 @@
             "critical": 90
         }
     },
-    "custom/governor": {
-        "exec": "~/dotfiles/bin/governor-icon",
-        "interval": 2
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "format-icons": {
+            "default": "",
+            "performance": "󰤇",
+            "balanced": "",
+            "power-saver": "󰴻"
+        }
     },
     "memory": {
-        "format": "{}% ",
+        "format": "",
+        "format-warning": "{}% ",
+        "format-critical": "{}% ",
         "format-alt": "{used}/{swapUsed}/{total}GB ",
         "interval": 2,
         "states": {
@@ -134,9 +150,11 @@
         }
     },
     "disk": {
-        "format": "{percentage_free}% ",
+        "format": "",
+        "format-warning": "{percentage_free}% ",
+        "format-critical": "{percentage_free}% ",
+        "tooltip-format": "", // Non-empty tooltip stops the module hiding (waybar 0.16 bug)
         "format-alt": "{used} of {total} ",
-        "path": "/",
         "states": {
             "warning": 88,
             "critical": 92
@@ -150,9 +168,11 @@
         {% elif temp_hwmon_path is defined %}
             "hwmon-path": "{{ temp_hwmon_path }}",
         {% endif %}
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
+        "warning-threshold": 80,
+        "critical-threshold": 90,
+        "format": "",
+        "format-warning": "{temperatureC}°C {icon}",
+        "format-critical": "{temperatureC}°C {icon}",
         "format-icons": ["󰸃", "󰔏"],
         "interval": 2
     },
@@ -186,7 +206,7 @@
         "format": "",
         "format-disabled": " OFF", // an empty format will hide the module
         "format-connected": " {num_connections}",
-        "on-click": "blueman-manager"
+        "on-click": "pgrep bluetui && pkill bluetui || ghostty --class=floating.bluetui -e bluetui &"
         // "tooltip-format": "{controller_alias}\t{controller_address}",
         // "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         // "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
@@ -194,7 +214,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{signalStrength}% ",
-        "format-ethernet": "󰈀",
+        "format-ethernet": "",
         "tooltip-format": "{ifname} via {gwaddr} on {essid}",
         "format-linked": "{ifname} (No IP) 󰈀",
         "format-disconnected": "NET 󰈀 ",
@@ -259,10 +279,38 @@
         "tooltip": true,
         "on-click": "systemctl --user restart voxtype"
     },
-    "custom/screenshare": {
-        "exec": "/home/will/dotfiles/bin/is-screenshare",
-        "return-type": "string",
-        "interval": 2,
+    "privacy": {
+        "icon-size": 14,
+        "icon-spacing": 6,
+        "transition-duration": 0,
+        "modules": [
+            { "type": "screenshare" },
+            { "type": "audio-in" }
+        ],
+        "ignore-monitor": true,
+        "ignore": [
+            // voxtype has its own indicator
+            { "type": "audio-in", "name": "alsa_capture.voxtype" },
+            { "type": "audio-in", "name": "alsa_capture.voxtype-vulkan" }
+        ]
+    },
+    "systemd-failed-units": {
+        "format": "󰀦 {nr_failed}",
+        "system": true,
+        "user": true,
+        "on-click": "ghostty --class=floating.failed-units -e sh -c 'systemctl --failed; systemctl --user --failed; read -r _' &"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "format-icons": ["", "󰌨"],
+        "tooltip-format": "{app}: {title}"
+    },
+    "custom/dnd": {
+        "exec": "{{ dotfiles_home }}/bin/mako-dnd status",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 9, // Sent by mako-dnd toggle
+        "on-click": "{{ dotfiles_home }}/bin/mako-dnd toggle"
     }
 }
 

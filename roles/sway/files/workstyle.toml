@@ -117,6 +117,7 @@
 "grayjay"="󱗆"
 "picture-in-picture"="󰹗"
 "zed"="󰬡"
+"uk.wjdp.deco"="󰀲"
 [other]
 fallback_icon = "🤨"
 deduplicate_icons = false

@@ -33,3 +33,6 @@ sway_cachyos_packages:
   - kwallet-pam
   - kwalletmanager
   - gdu
+  - bluetui
+  - power-profiles-daemon
+  - xdg-desktop-portal-wlr

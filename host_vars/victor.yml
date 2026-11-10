@@ -1,4 +1,5 @@
 distro: ubuntu
+laptop: true
 
 git_email: will@wjdp.uk
 git_signing_key: 4DC1AA6287F8CC4A

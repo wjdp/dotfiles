@@ -20,3 +20,7 @@ background-color=#cc0000
 # slack is purple
 [app-name=Slack]
 background-color=#4a154b
+
+# Toggled by ~/dotfiles/bin/mako-dnd; keep last so it overrides app-specific sections
+[mode=do-not-disturb]
+invisible=1
