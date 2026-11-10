@@ -1,0 +1,7 @@
+#!/bin/bash
+# Pick a symbol from fuzzel/symbols.txt and copy it to the clipboard
+set -euo pipefail
+
+symbols="${XDG_CONFIG_HOME:-$HOME/.config}/fuzzel/symbols.txt"
+
+fuzzel --dmenu --prompt "Symbol ❯ " <"$symbols" | awk '{print $1}' | tr -d '\n' | wl-copy

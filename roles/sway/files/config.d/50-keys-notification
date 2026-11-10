@@ -1,5 +1,5 @@
 bindsym $mod+slash exec makoctl dismiss
 bindsym $mod+Ctrl+slash exec makoctl restore
-bindsym $mod+Alt+slash exec ~/dotfiles/bin/wofi-notifications.py show
+bindsym $mod+Alt+slash exec ~/dotfiles/bin/pick-notification
 bindsym $mod+Shift+slash exec makoctl invoke
 bindsym $mod+Ctrl+Shift+slash exec ~/dotfiles/bin/mako-dnd toggle

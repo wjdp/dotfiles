@@ -3,11 +3,11 @@ bindsym $mod+d exec $launcher
 bindsym $mod+Shift+d exec $menu
 
 # Emoji
-bindsym $mod+u exec ~/dotfiles/bin/wofi-emoji  > /tmp/wofi-emoji.log 2>&1
+bindsym $mod+u exec ~/dotfiles/bin/pick-symbol
 
 # pass
-bindsym $mod+y exec ~/dotfiles/bin/wofi-pass.py pass
-bindsym $mod+Ctrl+y exec ~/dotfiles/bin/wofi-pass.py otp
+bindsym $mod+y exec ~/dotfiles/bin/pick-password pass
+bindsym $mod+Ctrl+y exec ~/dotfiles/bin/pick-password otp
 
 # Terminal
 bindsym $mod+Return exec $term

@@ -11,6 +11,5 @@
     - mako.yml
     - fuzzel.yml
     # - launcher.yml
-    # - wofi.yml
     # - kanshi.yml
     # - reboot-windows.yml

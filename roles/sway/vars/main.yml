@@ -14,7 +14,6 @@ sway_apt_packages:
   - grim
   - slurp
   - mako-notifier
-  - wofi
   - fuzzel
 
 sway_cachyos_packages:
@@ -28,7 +27,6 @@ sway_cachyos_packages:
   - grim
   - slurp
   - mako
-  - wofi
   - fuzzel
   - lxqt-policykit
   - kwallet
