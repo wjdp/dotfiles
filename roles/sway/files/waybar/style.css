@@ -86,6 +86,7 @@ window#waybar.hidden {
 #disk,
 #temperature,
 #backlight,
+#custom-brightness,
 #network,
 #pulseaudio,
 #tray,

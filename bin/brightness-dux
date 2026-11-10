@@ -1,6 +1,11 @@
 #!/bin/bash
-# Usage: brightness-dux 50
+# Usage: brightness-dux <0-100> | up [step] | down [step] | status
 # Sets brightness (VCP feature 10) on all detected DDC displays.
+#
+# The requested value is stored as the target and waybar (custom/brightness,
+# signal 10) is notified immediately. Only one process talks DDC at a time and
+# it always applies the latest target, so rapid scrolling coalesces instead of
+# queueing slow ddcutil writes.
 #
 # Per-display offsets are applied by monitor model (see offsets below); the
 # resulting value is clamped to 0-100.
@@ -10,6 +15,12 @@
 set -u
 
 cache_file="${XDG_CACHE_HOME:-$HOME/.cache}/brightness-dux/buses"
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/brightness-dux"
+target_file="$state_dir/target"
+applied_file="$state_dir/applied"
+lock_file="${XDG_RUNTIME_DIR:-/tmp}/brightness-dux.lock"
+waybar_signal=10
+default_step=10
 
 # Brightness offset (percentage points) keyed by a substring of the monitor id
 # reported by `ddcutil detect` (mfg:model:serial). First match wins.
@@ -41,15 +52,13 @@ write_cache() {
 }
 
 set_brightness() {
-	local value=$1 pid rc=0 bus monitor offset adjusted
+	local value=$1 pid rc=0 bus monitor offset adjusted entry
 	shift
 	local pids=()
 	for entry in "$@"; do
 		IFS=$'\t' read -r bus monitor <<<"$entry"
 		offset=$(offset_for "$monitor")
-		adjusted=$((value + offset))
-		((adjusted > 100)) && adjusted=100
-		((adjusted < 0)) && adjusted=0
+		adjusted=$(clamp $((value + offset)))
 		ddcutil --bus="$bus" setvcp 10 "$adjusted" &
 		pids+=($!)
 	done
@@ -59,17 +68,113 @@ set_brightness() {
 	return $rc
 }
 
-value=${1:?Usage: brightness-dux <0-100>}
+load_displays() {
+	displays=()
+	[ -f "$cache_file" ] && mapfile -t displays <"$cache_file"
+	if [ ${#displays[@]} -eq 0 ]; then
+		refresh_displays || return 1
+	fi
+}
 
-displays=()
-[ -f "$cache_file" ] && mapfile -t displays <"$cache_file"
-
-if [ ${#displays[@]} -eq 0 ] || ! set_brightness "$value" "${displays[@]}"; then
+refresh_displays() {
 	mapfile -t displays < <(detect_displays)
-	[ ${#displays[@]} -eq 0 ] && {
+	if [ ${#displays[@]} -eq 0 ]; then
 		echo "brightness-dux: no DDC displays detected" >&2
-		exit 1
-	}
+		return 1
+	fi
 	write_cache "${displays[@]}"
+}
+
+apply_value() {
+	local value=$1
+	load_displays || return 1
+	set_brightness "$value" "${displays[@]}" && return 0
+	refresh_displays || return 1
 	set_brightness "$value" "${displays[@]}"
-fi
+}
+
+# Reads the first display and removes its offset to recover the base value
+read_current() {
+	local bus monitor offset current
+	load_displays || return 1
+	IFS=$'\t' read -r bus monitor <<<"${displays[0]}"
+	current=$(ddcutil --bus="$bus" getvcp 10 --terse 2>/dev/null | awk '{print $4}')
+	[ -n "$current" ] || return 1
+	offset=$(offset_for "$monitor")
+	clamp $((current - offset))
+}
+
+clamp() {
+	local value=$1
+	((value > 100)) && value=100
+	((value < 0)) && value=0
+	echo "$value"
+}
+
+current_target() {
+	if [ ! -f "$target_file" ]; then
+		local current
+		current=$(read_current) || current=50
+		mkdir -p "$state_dir"
+		echo "$current" >"$target_file"
+		echo "$current" >"$applied_file"
+	fi
+	cat "$target_file"
+}
+
+# Absolute requests always write, which also corrects a display that missed one
+request() {
+	mkdir -p "$state_dir"
+	clamp "$1" >"$target_file"
+	rm -f "$applied_file"
+	pkill -RTMIN+$waybar_signal waybar 2>/dev/null
+	apply_pending
+}
+
+# Read-modify-write of the target is serialised so simultaneous scroll events
+# each count
+request_relative() {
+	local delta=$1 target
+	mkdir -p "$state_dir"
+	{
+		flock 8
+		target=$(clamp $(($(current_target) + delta)))
+		echo "$target" >"$target_file"
+	} 8>"$state_dir/target.lock"
+	pkill -RTMIN+$waybar_signal waybar 2>/dev/null
+	apply_pending
+}
+
+# Applies the latest target. If another process holds the lock it will pick up
+# the new target, because the holder re-checks after releasing.
+apply_pending() {
+	local target applied
+	while true; do
+		exec 9>"$lock_file"
+		flock -n 9 || return 0
+		target=$(cat "$target_file")
+		applied=$(cat "$applied_file" 2>/dev/null)
+		if [ "$target" != "$applied" ]; then
+			apply_value "$target" && echo "$target" >"$applied_file"
+		fi
+		flock -u 9
+		[ "$(cat "$target_file")" = "$target" ] && return 0
+	done
+}
+
+status() {
+	local value
+	value=$(current_target)
+	printf '{"text": "%s", "percentage": %s, "tooltip": "Display brightness %s%%"}\n' "$value" "$value" "$value"
+}
+
+case "${1:-}" in
+	up) request_relative "${2:-$default_step}" ;;
+	down) request_relative "-${2:-$default_step}" ;;
+	status) status ;;
+	'' | *[!0-9]*)
+		echo "Usage: brightness-dux <0-100> | up [step] | down [step] | status" >&2
+		exit 1
+		;;
+	*) request "$1" ;;
+esac

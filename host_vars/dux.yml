@@ -19,6 +19,8 @@ screen_right_h: 1440
 temp_hwmon_path: /sys/devices/pci0000:00/0000:00:18.3/hwmon
 temp_hwmon_file: temp1_input
 
+ddc_brightness_command: brightness-dux
+
 sshd: true
 
 voxtype_hotkey: SCROLLLOCK

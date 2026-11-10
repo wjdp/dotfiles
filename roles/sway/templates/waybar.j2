@@ -19,6 +19,9 @@
 {% if laptop | default(false) %}
         "backlight",
 {% endif %}
+{% if ddc_brightness_command is defined %}
+        "custom/brightness",
+{% endif %}
         "bluetooth",
         "network",
         "disk",
@@ -304,6 +307,20 @@
         "format": "{icon} {count}",
         "format-icons": ["", "󰌨"],
         "tooltip-format": "{app}: {title}"
+    },
+    "custom/brightness": {
+        // External monitors over DDC; the script updates the bar via signal 10
+        "exec": "{{ dotfiles_home }}/bin/{{ ddc_brightness_command | default('') }} status",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 10,
+        "format": "{percentage}% {icon}",
+        "format-icons": ["", "󰃠"],
+        "on-scroll-up": "{{ dotfiles_home }}/bin/{{ ddc_brightness_command | default('') }} up 5",
+        "on-scroll-down": "{{ dotfiles_home }}/bin/{{ ddc_brightness_command | default('') }} down 5",
+        "on-click": "{{ dotfiles_home }}/bin/{{ ddc_brightness_command | default('') }} 80",
+        "on-click-middle": "{{ dotfiles_home }}/bin/{{ ddc_brightness_command | default('') }} 50",
+        "on-click-right": "{{ dotfiles_home }}/bin/{{ ddc_brightness_command | default('') }} 1"
     },
     "custom/dnd": {
         "exec": "{{ dotfiles_home }}/bin/mako-dnd status",
